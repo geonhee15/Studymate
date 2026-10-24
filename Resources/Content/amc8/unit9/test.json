@@ -1,0 +1,487 @@
+[
+  {
+    "id": "9-t-1",
+    "lesson": "9-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "logic"
+    ],
+    "question": "A number is multiplied by 4, then 10 is subtracted, and the result is divided by 3. The final result is 6. What was the number?",
+    "questionKo": "어떤 수에 4를 곱한 뒤 10을 빼고, 그 결과를 3으로 나누었더니 6이 되었다. 처음 수는?",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "11"
+    ],
+    "answer": "C",
+    "hints": [
+      "마지막 연산부터 반대로: 6 × 3 = 18.",
+      "18 + 10 = 28.",
+      "28 ÷ 4 = 7"
+    ],
+    "solution": "거꾸로: $6 \\times 3 = 18$, $18 + 10 = 28$, $28 \\div 4 = 7$. 확인: $(7 \\times 4 - 10) \\div 3 = 18 \\div 3 = 6$. 답 **7**.\n\n**오답 짚기**: 11은 $(6 \\times 4 + 10) \\div 3$처럼 연산을 거꾸로 뒤집지 않은 것. 8은 $18 + 10$을 잘못 더한 것. 되돌릴 때는 연산과 순서를 모두 뒤집는다.",
+    "fast": "$(6 \\times 3 + 10) \\div 4 = 7$.",
+    "verify": {
+      "answer": "[x for x in range(1, 100) if (4*x - 10) % 3 == 0 and (4*x - 10)//3 == 6][0]",
+      "methods": [
+        "(6*3 + 10)//4"
+      ]
+    }
+  },
+  {
+    "id": "9-t-2",
+    "lesson": "9-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "logic"
+    ],
+    "question": "Mia read half of the pages of a book plus 10 more pages on the first day. On the second day she read half of the remaining pages plus 10 more pages. On the third day she read the remaining 20 pages. How many pages does the book have?",
+    "questionKo": "미아는 첫날 책의 절반보다 10쪽 더 읽었다. 둘째 날에는 남은 쪽수의 절반보다 10쪽 더 읽었다. 셋째 날 남은 20쪽을 읽었다. 이 책은 몇 쪽인가?",
+    "choices": [
+      "100",
+      "120",
+      "130",
+      "140",
+      "160"
+    ],
+    "answer": "D",
+    "hints": [
+      "둘째 날이 끝났을 때 20쪽 남음. 둘째 날 시작 때는? 먼저 10을 더하고 2배.",
+      "(20 + 10) × 2 = 60쪽.",
+      "첫날 시작: (60 + 10) × 2"
+    ],
+    "solution": "'절반 + 10'을 되돌리려면 **먼저 10을 더하고 2배**. 둘째 날 시작 때 $(20 + 10) \\times 2 = 60$쪽, 첫날 시작 때 $(60 + 10) \\times 2 = 140$쪽. 확인: $140 \\to 140 - 80 = 60 \\to 60 - 40 = 20$. 답 **140**.\n\n**오답 짚기**: 100은 2배를 먼저 하고 10을 더한 것($20 \\times 2 + 10 = 50$, $50 \\times 2 + 10 = 110$ 근처의 계산 실수 포함). 120은 10을 한 번 빠뜨린 것($(20 + 10) \\times 2 \\times 2$). 160은 10을 두 번 더한 것.",
+    "fast": "$20 \\to 60 \\to 140$.",
+    "verify": {
+      "answer": "[n for n in range(1, 400) if n % 2 == 0 and (n//2 - 10) % 2 == 0 and (n//2 - 10)//2 - 10 == 20][0]",
+      "methods": [
+        "((20 + 10)*2 + 10)*2"
+      ]
+    }
+  },
+  {
+    "id": "9-t-3",
+    "lesson": "9-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "logic"
+    ],
+    "question": "A pile has 33 stones. Two players alternately remove 1, 3, or 4 stones. The player who takes the last stone wins. With best play, how many stones remain after the first player's first move?",
+    "questionKo": "돌 33개가 있다. 두 사람이 번갈아 돌을 1개, 3개, 또는 4개 가져간다. 마지막 돌을 가져가는 사람이 이긴다. 최선을 다할 때, 먼저 하는 사람의 첫 수 뒤에 남는 돌은 몇 개인가?",
+    "choices": [
+      "28",
+      "29",
+      "30",
+      "31",
+      "32"
+    ],
+    "answer": "C",
+    "hints": [
+      "작은 경우 표: 0 L, 1 W, 2 L, 3 W, 4 W, 5 W, 6 W, 7 L, 8 W, 9 L, …",
+      "지는 자리는 7로 나눈 나머지가 0 또는 2인 수: 0, 2, 7, 9, 14, 16, 21, 23, 28, 30, 35.",
+      "33에서 1, 3, 4를 빼면 32, 30, 29. 이 중 지는 자리는 30뿐."
+    ],
+    "solution": "작은 경우부터 표를 채우면 지는 자리(L)는 $0, 2, 7, 9, 14, 16, \\ldots$, 즉 **7로 나눈 나머지가 0 또는 2**인 수다(주기 7: L W L W W W W).\n\n33에서 가능한 수는 $33 - 1 = 32$, $33 - 3 = 30$, $33 - 4 = 29$. 32는 나머지 4, 29는 나머지 1로 이기는 자리이고, **30**은 나머지 2로 지는 자리다. 3개를 가져가 30을 남긴다.\n\n**오답 짚기**: 28도 지는 자리(나머지 0)지만 33에서 5개를 가져갈 수는 없다. 지는 자리 목록만 보고 '한 번에 갈 수 있는지'를 확인하지 않은 실수. 32나 29는 지는 자리를 표로 확인하지 않고 '적게/많이 가져가자'고 한 것.",
+    "fast": "주기 7의 L 자리(나머지 0, 2) 중 33에서 한 번에 갈 수 있는 것은 30뿐.",
+    "verify": {
+      "answer": "def losing(moves, N):\n    L = [False]*(N+1)\n    for n in range(N+1):\n        opts = [n-m for m in moves if m <= n]\n        L[n] = all(not L[o] for o in opts) if opts else True\n    return L\nL = losing([1, 3, 4], 40)\nresult = [33 - m for m in (1, 3, 4) if L[33 - m]][0]",
+      "methods": [
+        "[33 - m for m in (1, 3, 4) if (33 - m) % 7 in (0, 2)][0]"
+      ]
+    }
+  },
+  {
+    "id": "9-t-4",
+    "lesson": "9-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "logic"
+    ],
+    "question": "Ten lamps are all off. In one move you must change the state of exactly 4 lamps. Which of the following could be the number of lamps that are on after some moves?",
+    "questionKo": "전등 10개가 모두 꺼져 있다. 한 번의 조작으로 정확히 4개의 전등의 상태를 바꾼다. 몇 번 조작한 뒤 켜진 전등의 개수가 될 수 있는 것은?",
+    "choices": [
+      "3",
+      "5",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": "D",
+    "hints": [
+      "4개를 바꿀 때 켜진 개수의 변화는 +4, +2, 0, −2, −4 중 하나.",
+      "변화가 모두 짝수 → 켜진 개수의 홀짝 불변. 처음 0개.",
+      "짝수 선택지는 8뿐. 실제로 1~4번, 5~8번을 바꾸면 8개."
+    ],
+    "solution": "4개의 전등 중 $k$개가 켜져 있었다면 바꾼 뒤 켜진 개수의 변화는 $(4 - k) - k = 4 - 2k$로 항상 **짝수**다. 처음 0개이므로 켜진 개수는 언제나 짝수. 선택지 중 짝수는 8뿐이고, 1~4번과 5~8번을 차례로 바꾸면 실제로 8개가 켜진다. 답 **8**.\n\n**오답 짚기**: 홀수 선택지는 모두 불가능. 9를 고른 것은 '10개 중 하나만 빼고 다 켤 수 있다'고 어림한 것으로, 불변량을 확인하지 않았다.",
+    "fast": "켜진 개수는 항상 짝수 → 8.",
+    "verify": {
+      "answer": "start = (0,)*10\nseen = {start}\nfrontier = [start]\nwhile frontier:\n    nxt = []\n    for s in frontier:\n        for quad in combinations(range(10), 4):\n            t = list(s)\n            for i in quad:\n                t[i] ^= 1\n            t = tuple(t)\n            if t not in seen:\n                seen.add(t)\n                nxt.append(t)\n    frontier = nxt\ncounts = {sum(s) for s in seen}\nresult = [c for c in (3, 5, 7, 8, 9) if c in counts][0]",
+      "methods": [
+        "[c for c in (3, 5, 7, 8, 9) if c % 2 == 0][0]"
+      ]
+    }
+  },
+  {
+    "id": "9-t-5",
+    "lesson": "9-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "logic",
+      "numberTheory"
+    ],
+    "question": "The numbers $1, 2, \\ldots, 25$ are written on a board. In one step you erase any two numbers and write their difference (the larger minus the smaller). This is repeated until one number remains. Which of the following could be that final number?",
+    "questionKo": "칠판에 $1, 2, \\ldots, 25$가 적혀 있다. 한 단계에서 아무 두 수를 지우고 그 차(큰 수 − 작은 수)를 적는다. 수가 하나 남을 때까지 반복한다. 마지막 수가 될 수 있는 것은?",
+    "choices": [
+      "0",
+      "2",
+      "4",
+      "13",
+      "20"
+    ],
+    "answer": "D",
+    "hints": [
+      "a + b와 a − b는 홀짝이 같다. 그러므로 칠판 위 모든 수의 합의 홀짝이 불변.",
+      "처음 합 1 + 2 + … + 25 = 325, 홀수. 마지막 수도 홀수.",
+      "홀수 선택지는 13뿐. 실제로 만들 수 있나? 25와 12로 13을 만들고 나머지를 0으로 보낸다."
+    ],
+    "solution": "$a, b$를 지우고 $a - b$를 적으면 합은 $2b$만큼 줄어들므로 합의 **홀짝이 불변**이다. 처음 합 $\\frac{25 \\times 26}{2} = 325$는 홀수이므로 마지막 수도 홀수다. 0, 2, 4, 20은 불가능하다.\n\n13은 실제로 가능하다: $(25, 12) \\to 13$. 남은 수들을 $(24, 23), (22, 21), \\ldots, (14, 13), (11, 10), \\ldots, (3, 2)$로 짝지으면 1이 11개 생기고, 원래 1까지 1이 12개. 1끼리 짝지어 0을 여섯 개 만들고, 0끼리 짝지어 0 하나로 줄인 뒤 마지막에 $13 - 0 = 13$. 답 **13**.\n\n**오답 짚기**: 0을 고른 것은 '차를 계속 내면 다 사라진다'는 느낌으로 홀짝을 확인하지 않은 것. 불변량으로 짝수를 지우고, 홀수 후보는 직접 예를 만들어 확인한다.",
+    "fast": "합의 홀짝 불변, 325는 홀수 → 홀수 선택지 13.",
+    "verify": {
+      "answer": "nums = list(range(1, 26))\ndef op(a, b):\n    nums.remove(a)\n    nums.remove(b)\n    nums.append(abs(a - b))\nop(25, 12)\nfor a in (24, 22, 20, 18, 16, 14, 11, 9, 7, 5, 3):\n    op(a, a - 1)\nwhile nums.count(1) >= 2:\n    op(1, 1)\nwhile nums.count(0) >= 2:\n    op(0, 0)\nop(13, 0)\nresult = nums[0] if len(nums) == 1 and nums[0] in (13,) and all(c % 2 == 0 for c in (0, 2, 4, 20)) else -1",
+      "methods": [
+        "[c for c in (0, 2, 4, 13, 20) if c % 2 == sum(range(1, 26)) % 2][0]"
+      ]
+    }
+  },
+  {
+    "id": "9-t-6",
+    "lesson": "9-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "logic"
+    ],
+    "question": "A box has 12 red, 9 blue, and 5 green pens. Without looking, what is the least number of pens you must take to be sure of getting 3 pens of the same color?",
+    "questionKo": "상자에 빨간 펜 12자루, 파란 펜 9자루, 초록 펜 5자루가 있다. 보지 않고 꺼낼 때, 같은 색 펜 3자루를 확실히 얻으려면 최소 몇 자루를 꺼내야 하는가?",
+    "choices": [
+      "3",
+      "6",
+      "7",
+      "8",
+      "13"
+    ],
+    "answer": "C",
+    "hints": [
+      "최악의 경우: 색마다 2자루씩.",
+      "2 × 3 = 6자루까지는 같은 색 3자루가 없을 수 있다.",
+      "6 + 1"
+    ],
+    "solution": "같은 색 3자루를 피하는 최악의 경우는 세 색을 2자루씩, 6자루. 7자루째는 반드시 어떤 색의 3자루째다. 답 **7**.\n\n**오답 짚기**: 6은 +1 빠뜨림. 13은 $12 + 1$로 '빨강 다음'을 생각한 것인데 문제는 '같은 색 3자루'다. 3은 운이 좋을 때.",
+    "fast": "$(3 - 1) \\times 3 + 1 = 7$.",
+    "verify": {
+      "answer": "2*3 + 1",
+      "methods": [
+        "min(n for n in range(1, 27) if all(max(c) >= 3 for c in product(range(13), range(10), range(6)) if sum(c) == n))"
+      ]
+    }
+  },
+  {
+    "id": "9-t-7",
+    "lesson": "9-3",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "logic"
+    ],
+    "question": "How many people must be in a room to guarantee that at least 4 of them were born on the same day of the week?",
+    "questionKo": "같은 요일에 태어난 사람이 적어도 4명 반드시 있으려면 방에 최소 몇 명이 있어야 하는가?",
+    "choices": [
+      "8",
+      "21",
+      "22",
+      "28",
+      "29"
+    ],
+    "answer": "C",
+    "hints": [
+      "집은 요일 7개.",
+      "요일마다 3명씩이면 21명인데 아직 4명인 요일이 없다.",
+      "21 + 1"
+    ],
+    "solution": "요일 7개에 3명씩 배정하면 21명까지는 어떤 요일에도 4명이 없다. 22명째는 어떤 요일의 4명째가 된다. 답 **22**.\n\n**오답 짚기**: 8은 '요일 수 + 1'로 2명을 보장하는 개수. 21은 +1을 빠뜨린 것. 28, 29는 $4 \\times 7$ 또는 $4 \\times 7 + 1$로 $k$를 잘못 잡은 것.",
+    "fast": "$(4 - 1) \\times 7 + 1 = 22$.",
+    "verify": {
+      "answer": "3*7 + 1",
+      "methods": [
+        "min(n for n in range(1, 40) if -(-n // 7) >= 4)"
+      ]
+    }
+  },
+  {
+    "id": "9-t-8",
+    "lesson": "9-3",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "logic",
+      "numberTheory"
+    ],
+    "question": "How many integers must be chosen from $\\{1, 2, \\ldots, 50\\}$ to be sure that two of the chosen integers differ by exactly 7?",
+    "questionKo": "$\\{1, 2, \\ldots, 50\\}$에서 정수를 몇 개 고르면, 고른 수 중 차가 정확히 7인 두 수가 반드시 있는가? 그 최소 개수는?",
+    "choices": [
+      "8",
+      "15",
+      "26",
+      "28",
+      "29"
+    ],
+    "answer": "E",
+    "hints": [
+      "차가 7인 수끼리 사슬로 묶는다: 1–8–15–…–50 (8개), 2–9–…–44 (7개), …, 7–14–…–49 (7개).",
+      "사슬에서 이웃하지 않게 고르는 최대 개수: 길이 8이면 4개, 길이 7이면 4개.",
+      "4 + 6 × 4 = 28개까지는 차 7인 쌍을 피할 수 있다. 29개면?"
+    ],
+    "solution": "7로 나눈 나머지가 같은 수들을 사슬로 묶는다. 나머지 1: $1, 8, \\ldots, 50$(8개), 나머지 2~6과 0: 각 7개. 사슬에서 이웃한 두 수의 차가 7이므로, 이웃을 피해 고르면 길이 8에서 4개, 길이 7에서 4개가 최대다.\n\n차 7인 쌍 없이 고를 수 있는 최대 개수는 $4 + 6 \\times 4 = 28$개(예: 각 사슬에서 1, 3, 5, 7번째). 따라서 **29**개를 고르면 어떤 사슬에서 이웃한 두 수를 고르게 된다.\n\n**오답 짚기**: 8은 '집 7개 + 1'로 사슬 안에서 여러 개를 고를 수 있음을 놓친 것. 15는 $2 \\times 7 + 1$처럼 사슬마다 2개로 잘못 본 것. 28은 +1 빠뜨림. 26은 길이 7 사슬에서 3개만 가능하다고 본 것(1, 3, 5, 7번째로 4개 가능).",
+    "fast": "사슬 7개(길이 8, 7, 7, 7, 7, 7, 7), 각 사슬에서 $\\lceil L/2 \\rceil$개 → 28 + 1 = 29.",
+    "verify": {
+      "answer": "cnt = [sum(1 for n in range(1, 51) if n % 7 == r) for r in range(7)]\nresult = sum((c + 1)//2 for c in cnt) + 1",
+      "methods": [
+        "def best_chain(L):\n    b = 0\n    for mask in range(1 << L):\n        s = [i for i in range(L) if mask >> i & 1]\n        if all(s[j + 1] - s[j] != 1 for j in range(len(s) - 1)):\n            b = max(b, len(s))\n    return b\nresult = sum(best_chain(sum(1 for n in range(1, 51) if n % 7 == r)) for r in range(7)) + 1"
+      ]
+    }
+  },
+  {
+    "id": "9-t-9",
+    "lesson": "9-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "logic"
+    ],
+    "question": "Five different positive integers have a sum of 48. What is the smallest possible value of the largest of them?",
+    "questionKo": "서로 다른 양의 정수 5개의 합이 48이다. 가장 큰 수가 될 수 있는 최솟값은?",
+    "choices": [
+      "10",
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "answer": "C",
+    "hints": [
+      "가장 큰 수 m을 작게 하려면 나머지를 m에 바짝 붙인다: m − 1, m − 2, m − 3, m − 4.",
+      "가능한 최대 합 5m − 10 ≥ 48 → m ≥ 11.6.",
+      "m = 12: 12 + 11 + 10 + 9 + 6 = 48 가능."
+    ],
+    "solution": "가장 큰 수가 $m$이면 나머지 네 수는 많아야 $m - 1, m - 2, m - 3, m - 4$이므로 합은 최대 $5m - 10$. $5m - 10 \\ge 48$에서 $m \\ge 11.6$, 즉 $m \\ge 12$. $m = 12$는 $6, 9, 10, 11, 12$(합 48)로 실제로 가능하다. 답 **12**.\n\n**오답 짚기**: 10은 $48 \\div 5 \\approx 9.6$을 올림한 것(서로 다른 수라 평균 근처에 다 둘 수 없다). 11은 $5 \\times 11 - 10 = 45 < 48$로 부족한데 부등식을 확인하지 않은 것.",
+    "fast": "$5m - 10 \\ge 48$ → $m = 12$, 예 6 + 9 + 10 + 11 + 12.",
+    "verify": {
+      "answer": "min(max(c) for c in combinations(range(1, 21), 5) if sum(c) == 48)",
+      "methods": [
+        "min(m for m in range(1, 49) if 5*m - 10 >= 48)"
+      ]
+    }
+  },
+  {
+    "id": "9-t-10",
+    "lesson": "9-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "logic",
+      "statistics"
+    ],
+    "question": "The mean of 9 different positive integers is 15. What is the greatest possible value of the median of these integers?",
+    "questionKo": "서로 다른 양의 정수 9개의 평균이 15다. 이 수들의 중앙값이 될 수 있는 최댓값은?",
+    "choices": [
+      "15",
+      "20",
+      "21",
+      "23",
+      "25"
+    ],
+    "answer": "D",
+    "hints": [
+      "합은 135. 중앙값은 5번째 수 m.",
+      "아래 네 수는 1, 2, 3, 4(합 10), 위 네 수는 m + 1, m + 2, m + 3, m + 4.",
+      "10 + 5m + 10 ≤ 135 → m ≤ 23. m = 23이면 합이 정확히 135."
+    ],
+    "solution": "합은 $9 \\times 15 = 135$, 중앙값은 5번째 수 $m$. 아래 네 수를 최소 $1, 2, 3, 4$로, 위 네 수를 $m + 1, m + 2, m + 3, m + 4$로 두면 합은 $10 + 5m + 10 = 5m + 20 \\le 135$, $m \\le 23$. $m = 23$: $1, 2, 3, 4, 23, 24, 25, 26, 27$의 합은 정확히 135. 답 **23**.\n\n**오답 짚기**: 25는 위 네 수를 $m$에 붙이지 않고 느슨하게 센 것. 15는 '평균 = 중앙값' 착각. 20, 21은 아래 네 수를 1, 2, 3, 4로 몰지 않은 것. 양쪽을 모두 극단으로 밀고 합이 정확히 맞는지 확인한다.",
+    "fast": "$5m + 20 \\le 135$ → $m = 23$.",
+    "verify": {
+      "answer": "max(m for m in range(5, 136) if 10 + m + (m + 1) + (m + 2) + (m + 3) + (m + 4) <= 135)",
+      "methods": [
+        "sorted([1, 2, 3, 4, 23, 24, 25, 26, 27])[4] if sum([1, 2, 3, 4, 23, 24, 25, 26, 27]) == 135 else -1"
+      ]
+    }
+  },
+  {
+    "id": "9-t-11",
+    "lesson": "9-5",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "logic"
+    ],
+    "question": "Five friends A, B, C, D, and E all have different ages. A is older than B. C is younger than D. B is older than D. E is older than A. Counting from the oldest, in what position is D?",
+    "questionKo": "다섯 친구 A, B, C, D, E는 나이가 모두 다르다. A는 B보다 나이가 많다. C는 D보다 어리다. B는 D보다 많다. E는 A보다 많다. 나이가 많은 순서로 셀 때 D는 몇 번째인가?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "D",
+    "hints": [
+      "'많다' 방향으로 화살표: E → A → B → D → C.",
+      "다섯 명이 한 줄로 이어진다.",
+      "D는 네 번째."
+    ],
+    "solution": "많은 쪽에서 적은 쪽으로 이으면 $E \\to A \\to B \\to D \\to C$. 한 줄로 완전히 정해지므로 D는 **4번째**.\n\n**오답 짚기**: 3은 E를 빼고 A, B, D, C만 세운 것. 5는 'C는 D보다 어리다'를 거꾸로 읽은 것. 조건의 방향(많다/어리다)을 화살표로 통일한다.",
+    "fast": "E A B D C → D는 4번째.",
+    "verify": {
+      "answer": "[p.index('D') + 1 for p in permutations('ABCDE') if p.index('A') < p.index('B') and p.index('D') < p.index('C') and p.index('B') < p.index('D') and p.index('E') < p.index('A')][0]",
+      "methods": [
+        "'EABDC'.index('D') + 1"
+      ]
+    }
+  },
+  {
+    "id": "9-t-12",
+    "lesson": "9-5",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "logic",
+      "numberTheory"
+    ],
+    "question": "A number $N$ from 1 to 9 is chosen. Four islanders, each a knight (always truthful) or a knave (always lying), speak. A: \"$N$ is odd.\" B: \"$N$ is prime.\" C: \"$N$ is greater than 6.\" D: \"$N$ is a multiple of 3.\" Exactly two of the four are knights. What is $N$?",
+    "questionKo": "1부터 9까지의 수 $N$을 하나 정했다. 기사(항상 참) 또는 건달(항상 거짓)인 섬사람 네 명이 말했다. A: \"$N$은 홀수다.\" B: \"$N$은 소수다.\" C: \"$N$은 6보다 크다.\" D: \"$N$은 3의 배수다.\" 네 명 중 정확히 두 명이 기사다. $N$은?",
+    "choices": [
+      "3",
+      "5",
+      "6",
+      "7",
+      "9"
+    ],
+    "answer": "B",
+    "hints": [
+      "기사가 정확히 두 명 = 네 진술 중 정확히 두 개가 참.",
+      "선택지마다 참인 진술 수를 센다. 3: 홀수 O, 소수 O, 6 초과 X, 3의 배수 O → 3개.",
+      "5: O, O, X, X → 2개. 7: O, O, O, X → 3개. 9: O, X, O, O → 3개. 6: X, X, X, O → 1개."
+    ],
+    "solution": "기사가 정확히 두 명이므로 네 진술 중 **정확히 두 개가 참**인 $N$을 찾는다.\n\n| $N$ | 홀수 | 소수 | $> 6$ | 3의 배수 | 참 개수 |\n|---|---|---|---|---|---|\n| 3 | O | O | X | O | 3 |\n| 5 | O | O | X | X | **2** |\n| 6 | X | X | X | O | 1 |\n| 7 | O | O | O | X | 3 |\n| 9 | O | X | O | O | 3 |\n\n답 **5** (A, B가 기사, C, D가 건달). 1~9 전체를 확인해도 참이 정확히 두 개인 수는 5뿐이다.\n\n**오답 짚기**: 3, 7, 9는 참이 세 개라 기사가 세 명이 된다. '정확히 두 명'을 '적어도 두 명'으로 읽으면 여러 답이 나온다.",
+    "fast": "선택지 대입으로 참 개수 세기: 5만 2개.",
+    "verify": {
+      "answer": "[N for N in range(1, 10) if [N % 2 == 1, N in (2, 3, 5, 7), N > 6, N % 3 == 0].count(True) == 2][0]",
+      "methods": [
+        "5"
+      ]
+    }
+  },
+  {
+    "id": "9-t-13",
+    "lesson": "9-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "logic"
+    ],
+    "question": "Five islanders A, B, C, D, and E are each a knight (always truthful) or a knave (always lying). A says, \"B and C are both knights.\" B says, \"A is a knave.\" C says, \"D is a knave.\" D says, \"E is a knave.\" E says, \"There are more knights than knaves among us.\" How many of the five are knights?",
+    "questionKo": "섬사람 A, B, C, D, E는 각각 기사(항상 참) 또는 건달(항상 거짓)이다. A: \"B와 C는 둘 다 기사다.\" B: \"A는 건달이다.\" C: \"D는 건달이다.\" D: \"E는 건달이다.\" E: \"우리 중 기사가 건달보다 많다.\" 다섯 명 중 기사는 몇 명인가?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "B",
+    "hints": [
+      "A가 기사라면 B도 기사 → B의 말 'A는 건달'이 참 → 모순. 그러므로 A는 건달, B는 기사.",
+      "A가 건달이므로 'B와 C 둘 다 기사'는 거짓 → B가 기사이니 C는 건달 → C의 말이 거짓 → D는 기사 → D의 말이 참 → E는 건달.",
+      "기사는 B, D 두 명. E의 말 '기사가 더 많다'는 거짓이어야 하는데 실제로 2 < 3이라 거짓. 일치."
+    ],
+    "solution": "**A가 기사**라면 B, C가 기사이고, 기사 B의 말 \"A는 건달\"이 참이 되어 모순. 따라서 **A는 건달**이고 B의 말은 참이므로 **B는 기사**. A의 말이 거짓인데 B는 기사이므로 **C는 건달**. C의 말이 거짓이므로 **D는 기사**. D의 말이 참이므로 **E는 건달**.\n\n기사는 B, D의 2명, 건달은 A, C, E의 3명. E의 말 \"기사가 더 많다\"는 거짓이고 E가 건달이므로 일치한다. 답 **2**.\n\n**오답 짚기**: 3은 E의 말을 참으로 믿고 끝까지 확인하지 않은 것. 1은 D까지 따라가지 않고 B에서 멈춘 것. 마지막 사람의 진술까지 모순이 없는지 확인해야 끝난다.",
+    "fast": "A 기사 가정 → B와 모순 → A 건달, B 기사 → C 건달 → D 기사 → E 건달. 기사 2명.",
+    "verify": {
+      "answer": "sols = []\nfor s in product([0, 1], repeat=5):\n    A_, B_, C_, D_, E_ = s\n    st = [B_ == 1 and C_ == 1, A_ == 0, D_ == 0, E_ == 0, sum(s) >= 3]\n    if all(st[i] == bool(s[i]) for i in range(5)):\n        sols.append(sum(s))\nresult = sols[0] if len(sols) == 1 else -1",
+      "methods": [
+        "2"
+      ]
+    }
+  },
+  {
+    "id": "9-t-14",
+    "lesson": "9-6",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "logic",
+      "algebra"
+    ],
+    "question": "What is the value of $2024 \\times 2026 - 2025^2$?",
+    "questionKo": "$2024 \\times 2026 - 2025^2$의 값은?",
+    "choices": [
+      "$-2$",
+      "$-1$",
+      "0",
+      "1",
+      "2"
+    ],
+    "answer": "B",
+    "hints": [
+      "2025를 n이라 하면 (n − 1)(n + 1) − n².",
+      "(n − 1)(n + 1) = n² − 1.",
+      "작은 수로 확인: 2 × 4 − 3² = 8 − 9 = −1."
+    ],
+    "solution": "$n = 2025$라 두면 $(n - 1)(n + 1) - n^2 = (n^2 - 1) - n^2 = -1$. 작은 수로도 확인된다: $2 \\times 4 - 3^2 = -1$, $4 \\times 6 - 5^2 = -1$. 답 **$-1$**.\n\n**오답 짚기**: 1은 부호를 반대로 쓴 것($n^2 - (n^2 - 1)$). 0은 '거의 같은 수'라고 어림만 한 것. 큰 수가 보이면 작은 수로 바꿔 규칙을 확인한다.",
+    "fast": "$(n - 1)(n + 1) = n^2 - 1$ → $-1$. 또는 2 × 4 − 9 = −1로 특수값 확인.",
+    "verify": {
+      "answer": "2024*2026 - 2025**2",
+      "methods": [
+        "2*4 - 3**2"
+      ]
+    }
+  },
+  {
+    "id": "9-t-15",
+    "lesson": "9-6",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "logic"
+    ],
+    "question": "Which integer is closest to $\\sqrt{10} + \\sqrt{40} + \\sqrt{90}$?",
+    "questionKo": "$\\sqrt{10} + \\sqrt{40} + \\sqrt{90}$에 가장 가까운 정수는?",
+    "choices": [
+      "17",
+      "18",
+      "19",
+      "20",
+      "21"
+    ],
+    "answer": "C",
+    "hints": [
+      "√40 = 2√10, √90 = 3√10. 합은 6√10.",
+      "√10 ≈ 3.16 (3.16² = 9.99).",
+      "6 × 3.16 ≈ 18.97"
+    ],
+    "solution": "$\\sqrt{40} = \\sqrt{4 \\cdot 10} = 2\\sqrt{10}$, $\\sqrt{90} = 3\\sqrt{10}$이므로 합은 $6\\sqrt{10}$. $\\sqrt{10} \\approx 3.162$이므로 $6\\sqrt{10} \\approx 18.97$. 가장 가까운 정수는 **19**.\n\n어림만으로도: $3 < \\sqrt{10} < 3.2$이므로 $18 < 6\\sqrt{10} < 19.2$이고, $\\sqrt{10}$이 3.16보다 크므로 18.9 이상 → 19.\n\n**오답 짚기**: 18은 $\\sqrt{10} \\approx 3$으로 너무 거칠게 어림한 것. 20은 $\\sqrt{10} \\approx 3.3$으로 크게 잡은 것. 제곱근은 소수 둘째 자리까지 어림해야 안전하다($3.16^2 \\approx 9.99$).",
+    "fast": "$\\sqrt{40} + \\sqrt{90} = 5\\sqrt{10}$ → 전체 $6\\sqrt{10} \\approx 6 \\times 3.16 = 18.96$ → 19.",
+    "verify": {
+      "answer": "min((17, 18, 19, 20, 21), key=lambda c: abs(c - (sqrt(10) + sqrt(40) + sqrt(90))))",
+      "methods": [
+        "round(6*sqrt(10))"
+      ]
+    }
+  }
+]

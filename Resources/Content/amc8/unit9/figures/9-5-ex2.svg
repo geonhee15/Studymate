@@ -1,0 +1,23 @@
+<svg viewBox="0 0 460 150" width="460" height="150" xmlns="http://www.w3.org/2000/svg" font-size="12" fill="currentColor">
+  <g stroke="currentColor" stroke-width="1" fill="none" opacity="0.6">
+    <rect x="34" y="10" width="200" height="125"/>
+    <line x1="34" y1="35" x2="234" y2="35"/><line x1="34" y1="60" x2="234" y2="60"/><line x1="34" y1="85" x2="234" y2="85"/><line x1="34" y1="110" x2="234" y2="110"/>
+    <line x1="84" y1="10" x2="84" y2="135"/><line x1="134" y1="10" x2="134" y2="135"/><line x1="184" y1="10" x2="184" y2="135"/>
+  </g>
+  <g text-anchor="middle" font-weight="600">
+    <text x="59" y="27">1등</text><text x="109" y="27">2등</text><text x="159" y="27">3등</text><text x="209" y="27">4등</text>
+    <text x="18" y="52">A</text><text x="18" y="77">B</text><text x="18" y="102">C</text><text x="18" y="127">D</text>
+  </g>
+  <g text-anchor="middle" font-weight="600">
+    <text x="59" y="52" fill="#DB433D">X</text><text x="109" y="52" opacity="0.5">?</text><text x="159" y="52" opacity="0.5">?</text><text x="209" y="52" fill="#DB433D">X</text>
+    <text x="59" y="77" fill="#DB433D">X</text><text x="109" y="77" fill="#DB433D">X</text><text x="159" y="77" fill="#DB433D">X</text><text x="209" y="77" fill="#29A066">O</text>
+    <text x="59" y="102" fill="#DB433D">X</text><text x="109" y="102" opacity="0.5">?</text><text x="159" y="102" opacity="0.5">?</text><text x="209" y="102" fill="#DB433D">X</text>
+    <text x="59" y="127" fill="#29A066">O</text><text x="109" y="127" fill="#DB433D">X</text><text x="159" y="127" fill="#DB433D">X</text><text x="209" y="127" fill="#DB433D">X</text>
+  </g>
+  <text x="250" y="30">조건: D는 1등, A는 B보다 앞,</text>
+  <text x="250" y="48">C는 꼴찌가 아님</text>
+  <text x="250" y="76">1. D의 1등에 O → 같은 행·열에 X</text>
+  <text x="250" y="94">2. C도 A도 4등 불가 → 4등은 B</text>
+  <text x="250" y="112">3. 남은 ?는 A, C의 2·3등</text>
+  <text x="250" y="130" opacity="0.7">(조건이 더 있어야 확정)</text>
+</svg>
