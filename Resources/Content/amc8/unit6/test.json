@@ -1,0 +1,541 @@
+[
+  {
+    "id": "6-t-1",
+    "lesson": "6-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A right triangle has legs of lengths $8$ and $15$. What is the length of the hypotenuse?",
+    "questionKo": "두 다리의 길이가 $8$, $15$인 직각삼각형의 빗변의 길이는?",
+    "figure": "<svg viewBox=\"0 0 240 142\" width=\"240\" height=\"142\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,115 215,115 20,11\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polyline points=\"27,115 27,108 20,108\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"117.5\" y=\"132\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">15</text><text x=\"9\" y=\"67\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">8</text><text x=\"125.3\" y=\"59.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text></svg>",
+    "choices": [
+      "$13$",
+      "$17$",
+      "$19$",
+      "$21$",
+      "$23$"
+    ],
+    "answer": "B",
+    "hints": [
+      "$8^2 + 15^2$",
+      "$64 + 225 = 289$",
+      "$17^2 = 289$. 8-15-17은 외워 두자."
+    ],
+    "solution": "$c^2 = 8^2 + 15^2 = 64 + 225 = 289 = 17^2$이므로 $c = 17$. 8-15-17은 자주 나오는 피타고라스 수.\n\n**오답 짚기**: 23은 $8 + 15$. 13은 5-12-13을 잘못 떠올린 것. 19, 21은 어림.",
+    "fast": "8-15-17.",
+    "verify": {
+      "answer": "isqrt(8**2+15**2)",
+      "methods": [
+        "math.dist((0,0),(15,8))",
+        "15/math.cos(math.atan2(8,15))"
+      ],
+      "note": "피타고라스 vs 좌표 거리 vs 삼각비"
+    }
+  },
+  {
+    "id": "6-t-2",
+    "lesson": "6-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "question": "What is the height of an equilateral triangle with side length $10$?",
+    "questionKo": "한 변의 길이가 $10$인 정삼각형의 높이는?",
+    "figure": "<svg viewBox=\"0 0 200 160\" width=\"200\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,140 180,140 100,1.4\" fill=\"#29A066\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"100\" y1=\"1.4\" x2=\"100\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><polyline points=\"107,140 107,133 100,133\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"100\" y=\"157\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">10</text><text x=\"110\" y=\"75.2\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text><line x1=\"100\" y1=\"135\" x2=\"100\" y2=\"145\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"135.7\" y1=\"73.2\" x2=\"144.3\" y2=\"68.2\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"64.3\" y1=\"73.2\" x2=\"55.7\" y2=\"68.2\" stroke=\"currentColor\" stroke-width=\"1.2\"/></svg>",
+    "choices": [
+      "$5$",
+      "$5\\sqrt{2}$",
+      "$5\\sqrt{3}$",
+      "$10\\sqrt{3}$",
+      "$10$"
+    ],
+    "answer": "C",
+    "hints": [
+      "높이를 내리면 밑변이 5, 5로 나뉜다.",
+      "30-60-90: 짧은 다리 5, 빗변 10. 높이는 긴 다리.",
+      "긴 다리 $= $ 짧은 다리 $\\times \\sqrt{3}$."
+    ],
+    "solution": "높이를 내리면 짧은 다리 5, 빗변 10인 30-60-90 삼각형. 높이는 긴 다리 $5\\sqrt{3}$. 피타고라스로 $\\sqrt{100 - 25} = \\sqrt{75} = 5\\sqrt{3}$.\n\n**오답 짚기**: $10\\sqrt{3}$은 빗변에 $\\sqrt{3}$을 붙인 것 — $\\sqrt{3}$은 짧은 다리에 곱한다. $5\\sqrt{2}$는 45-45-90과 혼동. 5는 짧은 다리에서 멈춘 것.",
+    "fast": "$\\frac{\\sqrt{3}}{2} \\times 10$.",
+    "verify": {
+      "answer": "5*sqrt(3)",
+      "methods": [
+        "sqrt(10**2-5**2)",
+        "10*math.sin(math.radians(60))"
+      ],
+      "note": "30-60-90 비 vs 피타고라스 vs 삼각비",
+      "choices": [
+        "5",
+        "5*sqrt(2)",
+        "5*sqrt(3)",
+        "10*sqrt(3)",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "6-t-3",
+    "lesson": "6-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "Two vertical poles have heights $6$ m and $21$ m, and their bases are $20$ m apart on level ground. A straight wire joins the tops of the poles. How long is the wire, in meters?",
+    "questionKo": "높이가 $6$ m와 $21$ m인 두 수직 기둥이 평평한 땅 위에 서 있고, 두 기둥 밑동 사이의 거리는 $20$ m이다. 두 기둥의 꼭대기를 곧은 줄로 이었을 때 줄의 길이는 몇 m인가?",
+    "figure": "<svg viewBox=\"0 0 280 170\" width=\"280\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"13\" y1=\"150\" x2=\"169\" y2=\"150\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"25\" y1=\"150\" x2=\"25\" y2=\"114\" stroke=\"currentColor\" stroke-width=\"2.5\"/><line x1=\"145\" y1=\"150\" x2=\"145\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"2.5\"/><line x1=\"25\" y1=\"114\" x2=\"145\" y2=\"24\" stroke=\"#DB433D\" stroke-width=\"1.5\"/><line x1=\"25\" y1=\"114\" x2=\"145\" y2=\"114\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.7\"/><polyline points=\"139,114 139,108 145,108\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"16\" y=\"136\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">6</text><text x=\"154\" y=\"94\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">21</text><text x=\"85\" y=\"166\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">20</text><text x=\"79.3\" y=\"67.3\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text></svg>",
+    "choices": [
+      "$20$",
+      "$25$",
+      "$27$",
+      "$29$",
+      "$35$"
+    ],
+    "answer": "B",
+    "hints": [
+      "짧은 기둥 꼭대기에서 수평 보조선을 그으면 직각삼각형이 생긴다.",
+      "다리는 20(수평)과 $21 - 6 = 15$(수직).",
+      "15-20-25."
+    ],
+    "solution": "짧은 기둥 꼭대기에서 수평선을 그으면 가로 20, 세로 $21 - 6 = 15$인 직각삼각형이 생기고 줄이 빗변이다. $\\sqrt{20^2 + 15^2} = 25$ (3-4-5의 5배).\n\n**오답 짚기**: 29는 $\\sqrt{20^2 + 21^2}$로 세로를 전체 높이 21로 둔 것(20-21-29가 되어 더 그럴듯해 보인다). 27은 $6 + 21$. 35는 $20 + 15$. 20은 수평 거리만 답한 것.",
+    "fast": "15-20-25.",
+    "verify": {
+      "answer": "isqrt(20**2+(21-6)**2)",
+      "methods": [
+        "math.dist((0,6),(20,21))",
+        "20/math.cos(math.atan2(15,20))"
+      ],
+      "note": "보조선 직각삼각형 vs 좌표 거리 vs 삼각비"
+    }
+  },
+  {
+    "id": "6-t-4",
+    "lesson": "6-1",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A cube has edge length $6$. $M$ is the midpoint of an edge, and $A$ is the vertex of the cube farthest from $M$. What is $AM$?",
+    "questionKo": "한 모서리의 길이가 $6$인 정육면체에서 $M$은 어떤 모서리의 중점이고, $A$는 $M$에서 가장 먼 꼭짓점이다. $AM$의 길이는?",
+    "figure": "<svg viewBox=\"0 0 240 190\" width=\"240\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"40,160 118,160 118,82 40,82\" fill=\"#4F6BF0\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"40,82 118,82 157,54.7 79,54.7\" fill=\"#4F6BF0\" fill-opacity=\"0.22\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"118,160 157,132.7 157,54.7 118,82\" fill=\"#4F6BF0\" fill-opacity=\"0.17\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"40\" y1=\"160\" x2=\"79\" y2=\"132.7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><line x1=\"79\" y1=\"132.7\" x2=\"157\" y2=\"132.7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><line x1=\"79\" y1=\"132.7\" x2=\"79\" y2=\"54.7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><line x1=\"40\" y1=\"160\" x2=\"157\" y2=\"93.7\" stroke=\"#DB433D\" stroke-width=\"2\"/><line x1=\"40\" y1=\"160\" x2=\"157\" y2=\"132.7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 2\" stroke-opacity=\"0.6\"/><circle cx=\"157\" cy=\"93.7\" r=\"2.5\" fill=\"currentColor\"/><text x=\"32.2\" y=\"171.8\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"167\" y=\"97.7\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">M</text><text x=\"79\" y=\"176\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">6</text></svg>",
+    "choices": [
+      "$6\\sqrt{2}$",
+      "$\\sqrt{85}$",
+      "$9$",
+      "$6\\sqrt{3}$",
+      "$12$"
+    ],
+    "answer": "C",
+    "hints": [
+      "$A$를 원점에 두면 $M$은 $(6, 6, 3)$처럼 쓸 수 있다.",
+      "바닥 대각선 $6\\sqrt{2}$와 높이 3이 직각삼각형을 이룬다.",
+      "$\\sqrt{36 + 36 + 9}$"
+    ],
+    "solution": "$A$에서 가장 먼 모서리의 중점이므로 $A$를 원점으로 두면 $M = (6, 6, 3)$. $AM = \\sqrt{6^2 + 6^2 + 3^2} = \\sqrt{81} = 9$. 두 단계로: 바닥 대각선 $\\sqrt{72}$, 다시 높이 3과 함께 $\\sqrt{72 + 9} = 9$.\n\n**오답 짚기**: $6\\sqrt{3}$은 꼭짓점까지의 공간대각선(높이를 6으로 둔 것). $6\\sqrt{2}$는 바닥 대각선에서 멈춘 것. $\\sqrt{85}$는 $36 + 36 + 13$처럼 $3^2$를 잘못 계산하거나 $M$을 다른 위치에 둔 것. 12는 $6 + 6$.",
+    "fast": "$36 + 36 + 9 = 81$.",
+    "verify": {
+      "answer": "isqrt(6**2+6**2+3**2)",
+      "methods": [
+        "math.dist((0,0,0),(6,6,3))",
+        "math.hypot(6*sqrt(2),3)"
+      ],
+      "note": "3항 공식 vs 좌표 거리 vs 두 단계(바닥 대각선, 높이)",
+      "choices": [
+        "6*sqrt(2)",
+        "sqrt(85)",
+        "9",
+        "6*sqrt(3)",
+        "12"
+      ]
+    }
+  },
+  {
+    "id": "6-t-5",
+    "lesson": "6-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A triangle has sides $4$, $6$, and $8$. A similar triangle has longest side $20$. What is the perimeter of the larger triangle?",
+    "questionKo": "세 변이 $4$, $6$, $8$인 삼각형과 닮은 삼각형의 가장 긴 변이 $20$이다. 큰 삼각형의 둘레는?",
+    "figure": "<svg viewBox=\"0 0 300 130\" width=\"300\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"10,110 66,110 29.2,89.7\" fill=\"#E08A1E\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"87,110 227,110 135.1,59.2\" fill=\"#E08A1E\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><text x=\"38\" y=\"126\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">8</text><text x=\"11.6\" y=\"99.8\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">4</text><text x=\"55.7\" y=\"99.8\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">6</text><text x=\"157\" y=\"126\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">20</text><text x=\"76.5\" y=\"82\" font-size=\"14\" text-anchor=\"middle\" fill=\"currentColor\">~</text></svg>",
+    "choices": [
+      "$30$",
+      "$36$",
+      "$45$",
+      "$50$",
+      "$54$"
+    ],
+    "answer": "C",
+    "hints": [
+      "가장 긴 변끼리 대응한다: $8 \\leftrightarrow 20$.",
+      "닮음비 $20 \\div 8 = 2.5$.",
+      "둘레도 2.5배."
+    ],
+    "solution": "가장 긴 변끼리 대응하므로 닮음비는 $20 \\div 8 = \\frac{5}{2}$. 둘레는 길이이므로 같은 비로 늘어난다: $(4 + 6 + 8) \\times \\frac{5}{2} = 45$. 변마다 하면 $10 + 15 + 20 = 45$.\n\n**오답 짚기**: 30은 닮음비를 $\\frac{20}{12}$처럼 잘못 잡은 것. 54는 둘레를 3배, 36은 2배 한 것. 50은 $20 \\times 2.5$로 변 하나에만 비를 곱한 것.",
+    "fast": "$18 \\times 2.5 = 45$.",
+    "verify": {
+      "answer": "(4+6+8)*F(20,8)",
+      "methods": [
+        "sum(s*F(20,8) for s in (4,6,8))",
+        "exec('''\nimport math as m\nk=20/8\nS=[(0,0),(8,0),(2.75,m.sqrt(16-2.75**2))]\nB=[(x*k,y*k) for x,y in S]\nresult=round(sum(m.dist(B[i],B[(i+1)%3]) for i in range(3)),9)\n''')"
+      ],
+      "note": "둘레에 닮음비 vs 변마다 곱해 더하기 vs 좌표 확대 후 변 길이 측정"
+    }
+  },
+  {
+    "id": "6-t-6",
+    "lesson": "6-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "question": "$AB \\parallel CD$, and segments $AC$ and $BD$ intersect at $P$. If $AP = 4$, $PC = 10$, and $BD = 21$, what is $BP$?",
+    "questionKo": "$AB \\parallel CD$이고 선분 $AC$와 $BD$가 점 $P$에서 만난다. $AP = 4$, $PC = 10$, $BD = 21$일 때 $BP$의 길이는?",
+    "figure": "<svg viewBox=\"0 0 250 195\" width=\"250\" height=\"195\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"141,20.4 223.8,20.4 165,62\" fill=\"#29A066\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"225,165.9 18,165.9 165,62\" fill=\"#29A066\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polyline points=\"177.4,24.4 182.4,20.4 177.4,16.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><polyline points=\"116.5,169.9 121.5,165.9 116.5,161.9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"132.4\" y=\"19.3\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"232.4\" y=\"19.3\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"232.1\" y=\"177\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"11\" y=\"177\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">D</text><text x=\"175.2\" y=\"61.9\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">P</text><text x=\"145\" y=\"49.2\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">4</text><text x=\"203.6\" y=\"112.8\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">10</text><text x=\"189.2\" y=\"36.6\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text><text x=\"104\" y=\"128\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">BD = 21</text></svg>",
+    "choices": [
+      "$6$",
+      "$7$",
+      "$8.4$",
+      "$14$",
+      "$15$"
+    ],
+    "answer": "A",
+    "hints": [
+      "모래시계 닮음 $\\triangle PAB \\sim \\triangle PCD$. 닮음비 $AP : CP = 4 : 10 = 2 : 5$.",
+      "$BP : PD = 2 : 5$이고 $BP + PD = 21$.",
+      "21을 $2 : 5$로 나눈다."
+    ],
+    "solution": "$AB \\parallel CD$이므로 $\\triangle PAB \\sim \\triangle PCD$, 닮음비 $AP : CP = 4 : 10 = 2 : 5$. 따라서 $BP : PD = 2 : 5$이고 합이 21이므로 $BP = 21 \\times \\frac{2}{7} = 6$.\n\n**오답 짚기**: 15는 $PD$를 답한 것. 8.4는 $21 \\times \\frac{4}{10}$으로 전체 21에 대해 $2 : 5$가 아닌 $\\frac{2}{5}$를 곱한 것(비의 '전체'는 $2 + 5 = 7$). 7은 $21 \\div 3$, 14는 $21 - 7$.",
+    "fast": "$21 \\times \\frac{2}{7} = 6$.",
+    "verify": {
+      "answer": "21*F(4,4+10)",
+      "methods": [
+        "[b for b in range(1,21) if F(b,21-b)==F(4,10)][0]",
+        "exec('''\nimport math as m\nP=(0.0,0.0); A=(-4.0,0.0); C=(10.0,0.0)\nux=-m.sqrt(1-0.16); u=(ux,0.4)\nk=21/14\nB=(k*4*u[0],k*4*u[1]); D=(-k*10*u[0],-k*10*u[1])\nassert abs(m.dist(B,D)-21)<1e-9 and abs((B[1]-A[1])*(D[0]-C[0])-(B[0]-A[0])*(D[1]-C[1]))<1e-9\nresult=round(m.dist(B,P),9)\n''')"
+      ],
+      "note": "비례 배분 vs 브루트포스(BP:PD = 4:10인 정수) vs 좌표에서 AB∥CD를 확인하며 BP 측정"
+    }
+  },
+  {
+    "id": "6-t-7",
+    "lesson": "6-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A right triangle has legs $9$ and $12$. What is the length of the altitude drawn to the hypotenuse?",
+    "questionKo": "두 다리가 $9$, $12$인 직각삼각형에서 빗변에 내린 높이의 길이는?",
+    "figure": "<svg viewBox=\"0 0 270 150\" width=\"270\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,130 245,130 101,22\" fill=\"#4F6BF0\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"101\" y1=\"22\" x2=\"101\" y2=\"130\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><polyline points=\"108,130 108,123 101,123\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><polyline points=\"96.8,27.6 102.4,31.8 106.6,26.2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"53.4\" y=\"72.9\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">9</text><text x=\"180.1\" y=\"72.9\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">12</text><text x=\"132.5\" y=\"147\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">15</text><text x=\"111\" y=\"80\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text></svg>",
+    "choices": [
+      "$\\frac{27}{5}$",
+      "$6$",
+      "$\\frac{36}{5}$",
+      "$\\frac{48}{5}$",
+      "$9$"
+    ],
+    "answer": "C",
+    "hints": [
+      "빗변은 9-12-15의 15.",
+      "넓이를 두 번 쓴다: $\\frac{1}{2} \\cdot 9 \\cdot 12 = \\frac{1}{2} \\cdot 15 \\cdot h$.",
+      "$h = \\frac{108}{15}$."
+    ],
+    "solution": "빗변은 15(3-4-5의 3배). 넓이를 두 가지로 쓰면 $\\frac{1}{2} \\cdot 9 \\cdot 12 = \\frac{1}{2} \\cdot 15 \\cdot h$ → $h = \\frac{108}{15} = \\frac{36}{5}$. 닮음으로 빗변이 나뉜 길이는 $\\frac{81}{15} = \\frac{27}{5}$와 $\\frac{144}{15} = \\frac{48}{5}$이고 $h^2 = \\frac{27}{5} \\cdot \\frac{48}{5} = \\frac{1296}{25}$ ✓.\n\n**오답 짚기**: $\\frac{27}{5}$와 $\\frac{48}{5}$는 높이가 아니라 빗변이 나뉜 두 조각. 9는 다리를 높이로 착각한 것(빗변에 내린 높이는 어느 다리보다 짧다). 6은 어림.",
+    "fast": "$h = \\frac{ab}{c} = \\frac{108}{15} = 7.2$.",
+    "verify": {
+      "answer": "F(9*12,15)",
+      "methods": [
+        "sqrt(F(9**2,15)*F(12**2,15))",
+        "exec('''\nA=(0,0);B=(15,0);C=(F(81,15),F(108,15))\nassert (C[0]-A[0])**2+C[1]**2==81 and (B[0]-C[0])**2+C[1]**2==144\nresult=C[1]\n''')"
+      ],
+      "note": "넓이 두 번 vs h²=pq vs 좌표(빗변을 x축에 두고 C의 y좌표)"
+    }
+  },
+  {
+    "id": "6-t-8",
+    "lesson": "6-2",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A triangle has base $12$ and height $8$. A square is inscribed in the triangle with one side lying along the base and the other two vertices on the other two sides. What is the side length of the square?",
+    "questionKo": "밑변이 $12$, 높이가 $8$인 삼각형 안에 한 변이 밑변 위에 놓이고 나머지 두 꼭짓점이 다른 두 변 위에 있도록 정사각형을 내접시켰다. 정사각형의 한 변의 길이는?",
+    "figure": "<svg viewBox=\"0 -12 260 172\" width=\"260\" height=\"172\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,140 236,140 92,-4\" fill=\"#4F6BF0\" fill-opacity=\"0.15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"63.2,140 149.6,140 149.6,53.6 63.2,53.6\" fill=\"#E08A1E\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"92\" y1=\"-4\" x2=\"92\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><text x=\"128\" y=\"157\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">12</text><text x=\"80\" y=\"72\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">8</text><text x=\"106.4\" y=\"100.8\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">s</text></svg>",
+    "choices": [
+      "$4$",
+      "$\\frac{24}{5}$",
+      "$5$",
+      "$6$",
+      "$\\frac{48}{5}$"
+    ],
+    "answer": "B",
+    "hints": [
+      "정사각형 윗변 위에 생기는 작은 삼각형은 원래 삼각형과 닮음(밑변이 평행).",
+      "작은 삼각형의 높이는 $8 - s$, 밑변은 $s$.",
+      "$\\frac{s}{12} = \\frac{8 - s}{8}$"
+    ],
+    "solution": "정사각형 변을 $s$라 하자. 정사각형 위쪽의 작은 삼각형은 밑변 $s$, 높이 $8 - s$이고 원래 삼각형(밑변 12, 높이 8)과 닮음이므로 $\\frac{s}{12} = \\frac{8 - s}{8}$ → $8s = 96 - 12s$ → $s = \\frac{96}{20} = \\frac{24}{5}$. 일반식 $s = \\frac{bh}{b + h}$.\n\n**오답 짚기**: $\\frac{48}{5}$는 $\\frac{bh}{b + h}$에서 분모를 $b + h$가 아닌 10 등으로 잘못 둔 것($96 \\div 10$). 6은 밑변의 절반, 4는 높이의 절반으로 넘겨짚은 것. 5는 어림.",
+    "fast": "$s = \\frac{bh}{b + h} = \\frac{96}{20}$.",
+    "verify": {
+      "answer": "F(12*8,12+8)",
+      "methods": [
+        "exec('''\nm=-8/8\nresult=round(12/(1+12/8),12)\n''')",
+        "[s for s in (F(k,5) for k in range(1,60)) if F(s,12)==F(8-s,8)][0]"
+      ],
+      "note": "닮음 비례식 vs 폭 함수 w(y)=12−1.5y가 y와 같아지는 y vs 1/5 단위 브루트포스"
+    }
+  },
+  {
+    "id": "6-t-9",
+    "lesson": "6-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "In triangle $ABC$, side $BC$ is extended to $D$. If $\\angle ACD = 115^\\circ$ and $\\angle B = 48^\\circ$, what is $\\angle A$?",
+    "questionKo": "삼각형 $ABC$에서 변 $BC$를 $C$ 쪽으로 연장해 점 $D$를 잡았다. $\\angle ACD = 115^\\circ$, $\\angle B = 48^\\circ$일 때 $\\angle A$의 크기는?",
+    "figure": "<svg viewBox=\"0 0 260 150\" width=\"260\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"112.2,27.6 20,130 160,130\" fill=\"#E08A1E\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"160\" y1=\"130\" x2=\"216\" y2=\"130\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M32 116.6 A18 18 0 0 1 38 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"49.2\" y=\"121\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">48°</text><path d=\"M154.1 117.3 A14 14 0 0 1 174 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"175\" y=\"110.4\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">115°</text><path d=\"M118.2 40.3 A14 14 0 0 1 102.9 38\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"108.4\" y=\"57.3\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">?</text><text x=\"112.2\" y=\"21.6\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"12.9\" y=\"141.1\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"160\" y=\"146\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"223.1\" y=\"141.1\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">D</text></svg>",
+    "choices": [
+      "$57^\\circ$",
+      "$65^\\circ$",
+      "$67^\\circ$",
+      "$73^\\circ$",
+      "$77^\\circ$"
+    ],
+    "answer": "C",
+    "hints": [
+      "$\\angle ACD$는 $C$에서의 외각.",
+      "외각 = 이웃하지 않은 두 내각의 합: $115 = \\angle A + 48$.",
+      "또는 $\\angle ACB = 65$를 구해 내각합."
+    ],
+    "solution": "외각 정리에 따라 $\\angle ACD = \\angle A + \\angle B$이므로 $\\angle A = 115 - 48 = 67^\\circ$. 돌아가면 $\\angle ACB = 180 - 115 = 65^\\circ$, $\\angle A = 180 - 48 - 65 = 67^\\circ$.\n\n**오답 짚기**: 65는 $\\angle ACB$(내각)에서 멈춘 것. 57은 $105 - 48$, 73은 $115 - 42$, 77은 $125 - 48$처럼 숫자를 잘못 옮긴 것.",
+    "fast": "$115 - 48 = 67$.",
+    "verify": {
+      "answer": "115-48",
+      "methods": [
+        "180-48-(180-115)",
+        "exec('''\nimport math as m\nang=lambda P,Q,R: m.degrees(m.acos(((Q[0]-P[0])*(R[0]-P[0])+(Q[1]-P[1])*(R[1]-P[1]))/(m.dist(P,Q)*m.dist(P,R))))\nA,B,C=(6.588105177426109,7.316832059060437),(0,0),(10,0)\nD=(14,0)\nassert abs(ang(C,A,D)-115)<1e-9 and abs(ang(B,A,C)-48)<1e-9\nresult=round(ang(A,B,C),9)\n''')"
+      ],
+      "note": "외각 정리 vs 내각합 vs 좌표에서 조건 확인 후 각 측정"
+    }
+  },
+  {
+    "id": "6-t-10",
+    "lesson": "6-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "question": "Four angles of a pentagon measure $100^\\circ$, $110^\\circ$, $120^\\circ$, and $130^\\circ$. What is the measure of the fifth angle?",
+    "questionKo": "오각형의 네 내각이 $100^\\circ$, $110^\\circ$, $120^\\circ$, $130^\\circ$이다. 나머지 한 내각의 크기는?",
+    "figure": "<svg viewBox=\"0 0 300 220\" width=\"300\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"66.3,189.4 209.3,189.4 229.6,74.2 158.1,32.9 86.6,74.2\" fill=\"#29A066\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M68.4 177.6 A12 12 0 0 1 78.3 189.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"87\" y=\"176\" font-size=\"10\" text-anchor=\"middle\" fill=\"currentColor\">x°</text><path d=\"M197.3 189.4 A12 12 0 0 1 211.4 177.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"192\" y=\"172.7\" font-size=\"10\" text-anchor=\"middle\" fill=\"currentColor\">100°</text><path d=\"M227.5 86 A12 12 0 0 1 219.2 68.2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"205.2\" y=\"89.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"currentColor\">110°</text><path d=\"M168.5 38.9 A12 12 0 0 1 147.7 38.9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"158.1\" y=\"63.9\" font-size=\"10\" text-anchor=\"middle\" fill=\"currentColor\">120°</text><path d=\"M97 68.2 A12 12 0 0 1 84.5 86\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"108.7\" y=\"93.7\" font-size=\"10\" text-anchor=\"middle\" fill=\"currentColor\">130°</text></svg>",
+    "choices": [
+      "$70^\\circ$",
+      "$80^\\circ$",
+      "$90^\\circ$",
+      "$100^\\circ$",
+      "$120^\\circ$"
+    ],
+    "answer": "B",
+    "hints": [
+      "$n$각형 내각의 합은 $180(n - 2)$.",
+      "오각형: $540^\\circ$.",
+      "$540 - (100 + 110 + 120 + 130)$"
+    ],
+    "solution": "오각형 내각의 합은 $180 \\times 3 = 540^\\circ$. $x = 540 - 460 = 80^\\circ$. 외각으로 확인: 외각은 $80, 70, 60, 50$이고 합이 360이어야 하므로 다섯째 외각은 100, 내각은 $180 - 100 = 80$ ✓.\n\n**오답 짚기**: 100은 다섯째 외각을 답한 것. 120은 $540 - 420$처럼 네 각의 합을 잘못 더한 것. 90은 '직각일 것 같다'는 그림 짐작. 70은 산술 실수.",
+    "fast": "$540 - 460 = 80$.",
+    "verify": {
+      "answer": "180*(5-2) - (100+110+120+130)",
+      "methods": [
+        "180 - (360 - sum(180-a for a in (100,110,120,130)))",
+        "exec('''\nimport math as m\nang=lambda P,Q,R: m.degrees(m.acos(((Q[0]-P[0])*(R[0]-P[0])+(Q[1]-P[1])*(R[1]-P[1]))/(m.dist(P,Q)*m.dist(P,R))))\nH=[0,80,150,210,260]\ns0,s1,s4=55.0,45.0,45.0\nrx=-(s0*m.cos(m.radians(H[0]))+s1*m.cos(m.radians(H[1]))+s4*m.cos(m.radians(H[4])))\nry=-(s0*m.sin(m.radians(H[0]))+s1*m.sin(m.radians(H[1]))+s4*m.sin(m.radians(H[4])))\na11,a12=m.cos(m.radians(H[2])),m.cos(m.radians(H[3]));a21,a22=m.sin(m.radians(H[2])),m.sin(m.radians(H[3]))\ndet=a11*a22-a12*a21\ns2=(rx*a22-a12*ry)/det;s3=(a11*ry-a21*rx)/det\nsides=[s0,s1,s2,s3,s4]\nV=[(0.0,0.0)]\nfor i in range(4):\n    x,y=V[-1];V.append((x+sides[i]*m.cos(m.radians(H[i])),y+sides[i]*m.sin(m.radians(H[i]))))\nassert abs(m.dist(V[4],V[0])-s4)<1e-9\nassert all(abs(ang(V[i],V[(i+1)%5],V[(i-1)%5])-a)<1e-9 for i,a in zip(range(1,5),(100,110,120,130)))\nresult=round(ang(V[0],V[1],V[4]),9)\n''')"
+      ],
+      "note": "내각합 vs 외각합 360 vs 네 각이 100,110,120,130인 오각형을 좌표로 실제로 닫아 만들고 다섯째 각 측정"
+    }
+  },
+  {
+    "id": "6-t-11",
+    "lesson": "6-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "What is the measure of the smaller angle between the hour hand and the minute hand of a clock at 5:44?",
+    "questionKo": "5시 44분에 시계의 시침과 분침이 이루는 작은 쪽 각의 크기는?",
+    "figure": "<svg viewBox=\"0 0 190 190\" width=\"190\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"95\" cy=\"95\" r=\"80\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"95\" y1=\"23\" x2=\"95\" y2=\"15\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"95\" y=\"37\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">12</text><line x1=\"131\" y1=\"32.6\" x2=\"135\" y2=\"25.7\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"126\" y=\"45.3\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">1</text><line x1=\"157.4\" y1=\"59\" x2=\"164.3\" y2=\"55\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"148.7\" y=\"68\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">2</text><line x1=\"167\" y1=\"95\" x2=\"175\" y2=\"95\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"157\" y=\"99\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">3</text><line x1=\"157.4\" y1=\"131\" x2=\"164.3\" y2=\"135\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"148.7\" y=\"130\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">4</text><line x1=\"131\" y1=\"157.4\" x2=\"135\" y2=\"164.3\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"126\" y=\"152.7\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">5</text><line x1=\"95\" y1=\"167\" x2=\"95\" y2=\"175\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"95\" y=\"161\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">6</text><line x1=\"59\" y1=\"157.4\" x2=\"55\" y2=\"164.3\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"64\" y=\"152.7\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">7</text><line x1=\"32.6\" y1=\"131\" x2=\"25.7\" y2=\"135\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"41.3\" y=\"130\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">8</text><line x1=\"23\" y1=\"95\" x2=\"15\" y2=\"95\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"33\" y=\"99\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">9</text><line x1=\"32.6\" y1=\"59\" x2=\"25.7\" y2=\"55\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"41.3\" y=\"68\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">10</text><line x1=\"59\" y1=\"32.6\" x2=\"55\" y2=\"25.7\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"64\" y=\"45.3\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">11</text><line x1=\"95\" y1=\"95\" x2=\"100.8\" y2=\"136.6\" stroke=\"currentColor\" stroke-width=\"4\"/><line x1=\"95\" y1=\"95\" x2=\"29.4\" y2=\"101.9\" stroke=\"currentColor\" stroke-width=\"2.5\"/><circle cx=\"95\" cy=\"95\" r=\"3\" fill=\"currentColor\"/><path d=\"M98.1 116.8 A22 22 0 0 1 73.1 97.3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"74.1\" y=\"125.8\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">?</text></svg>",
+    "choices": [
+      "$88^\\circ$",
+      "$90^\\circ$",
+      "$92^\\circ$",
+      "$94^\\circ$",
+      "$98^\\circ$"
+    ],
+    "answer": "C",
+    "hints": [
+      "분침 $44 \\times 6 = 264^\\circ$.",
+      "시침 $5 \\times 30 + 44 \\times 0.5 = 172^\\circ$.",
+      "$264 - 172$"
+    ],
+    "solution": "분침은 $44 \\times 6 = 264^\\circ$, 시침은 $150 + 22 = 172^\\circ$. 차이 $264 - 172 = 92^\\circ$. 공식 $|30 \\times 5 - 5.5 \\times 44| = |150 - 242| = 92$.\n\n**오답 짚기**: 90은 그림이 직각처럼 보여서 찍은 것이거나 어림. 98은 시침을 $150 + 16$으로 잘못 계산한 것. 88, 94는 $0.5 \\times 44 = 22$를 26이나 20으로 잘못 둔 것.",
+    "fast": "$|150 - 242| = 92$.",
+    "verify": {
+      "answer": "abs(30*5 - F(11,2)*44)",
+      "methods": [
+        "exec('''\nimport math as m\nh=m.radians(30*5+0.5*44); mi=m.radians(6*44)\nresult=round(m.degrees(m.acos(m.cos(h)*m.cos(mi)+m.sin(h)*m.sin(mi))),9)\n''')",
+        "min((264-172)%360,(172-264)%360)"
+      ],
+      "note": "공식 vs 단위 벡터 내적 vs mod 360"
+    }
+  },
+  {
+    "id": "6-t-12",
+    "lesson": "6-3",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "question": "In triangle $ABC$, $AB = AC$. Point $D$ lies on $AC$ so that $AD = BD = BC$. What is $\\angle A$?",
+    "questionKo": "삼각형 $ABC$에서 $AB = AC$이다. 점 $D$는 $AC$ 위에 있고 $AD = BD = BC$이다. $\\angle A$의 크기는?",
+    "figure": "<svg viewBox=\"0 0 230 230\" width=\"230\" height=\"230\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"99,18 35,215 163,215\" fill=\"#4F6BF0\" fill-opacity=\"0.15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"35\" y1=\"215\" x2=\"138.6\" y2=\"139.8\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"122.9\" y1=\"75.4\" x2=\"113.4\" y2=\"78.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"124.2\" y1=\"79.3\" x2=\"114.6\" y2=\"82.3\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"82.2\" y1=\"174.5\" x2=\"88.1\" y2=\"182.6\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"85.5\" y1=\"172.2\" x2=\"91.3\" y2=\"180.3\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"97\" y1=\"210\" x2=\"97\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"101\" y1=\"210\" x2=\"101\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.2\"/><path d=\"M104.6 35.1 A18 18 0 0 1 93.4 35.1\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"99\" y=\"54\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">?</text><text x=\"99\" y=\"12\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"27.9\" y=\"226.1\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"170.1\" y=\"226.1\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"148.1\" y=\"140.9\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">D</text></svg>",
+    "choices": [
+      "$30^\\circ$",
+      "$36^\\circ$",
+      "$40^\\circ$",
+      "$45^\\circ$",
+      "$72^\\circ$"
+    ],
+    "answer": "B",
+    "hints": [
+      "$\\angle A = x$로 놓자. $AD = BD$이므로 $\\angle ABD = x$.",
+      "외각: $\\angle BDC = 2x$. $BD = BC$이므로 $\\angle BCD = 2x$.",
+      "$AB = AC$이므로 $\\angle ABC = \\angle ACB = 2x$. 내각합 $x + 2x + 2x = 180$."
+    ],
+    "solution": "$\\angle A = x$라 하자. $AD = BD$ → $\\angle ABD = x$, 그 외각 $\\angle BDC = 2x$. $BD = BC$ → $\\angle BCD = \\angle BDC = 2x$. $AB = AC$ → $\\angle ABC = \\angle ACB = 2x$. 내각합 $x + 2x + 2x = 180$에서 $x = 36^\\circ$. (36-72-72 황금 삼각형.)\n\n**오답 짚기**: 72는 밑각을 답한 것. 45와 30은 '이등변이니 적당히' 찍은 값. 40은 $\\angle ABD = 2x$처럼 외각 관계를 잘못 쓴 결과($x + 2x + 1.5x$ 식).",
+    "fast": "$x + 2x + 2x = 180$ → 36.",
+    "verify": {
+      "answer": "180//(1+2+2)",
+      "methods": [
+        "[x for x in range(1,90) if x+2*x+2*x==180][0]",
+        "exec('''\nimport math as m\nbest=None\nfor x in range(1,90):\n    A=(0.0,0.0); B=(1.0,0.0); C=(m.cos(m.radians(x)),m.sin(m.radians(x)))\n    BC=m.dist(B,C)\n    # D = t*C on AC with |D-B|=BC: t^2-2t cos x+1 = BC^2\n    cx=m.cos(m.radians(x)); disc=cx*cx-(1-BC*BC)\n    if disc<0: continue\n    for t in (cx-m.sqrt(disc), cx+m.sqrt(disc)):\n        if 0<t<1:\n            err=abs(t-BC)\n            if best is None or err<best[0]: best=(err,x)\nassert best[0]<1e-9\nresult=best[1]\n''')"
+      ],
+      "note": "각 추적 방정식 vs 브루트포스 vs 좌표에서 AD=BD=BC가 실제로 성립하는 정수 각 탐색"
+    }
+  },
+  {
+    "id": "6-t-13",
+    "lesson": "6-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "An isosceles trapezoid has parallel sides of lengths $9$ and $25$, and legs of length $17$. What is its area?",
+    "questionKo": "등변사다리꼴의 두 평행한 변의 길이가 $9$, $25$이고 두 다리의 길이가 각각 $17$이다. 이 사다리꼴의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 260 182\" width=\"260\" height=\"182\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"88.6,17 171.4,17 245,155 15,155\" fill=\"#4F6BF0\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"88.6\" y1=\"17\" x2=\"88.6\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.8\"/><line x1=\"171.4\" y1=\"17\" x2=\"171.4\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.8\"/><polyline points=\"94.6,155 94.6,149 88.6,149\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><polyline points=\"177.4,155 177.4,149 171.4,149\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"130\" y=\"11\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">9</text><text x=\"130\" y=\"172\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">25</text><text x=\"40.7\" y=\"85.5\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">17</text><text x=\"219.3\" y=\"85.5\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">17</text></svg>",
+    "choices": [
+      "$170$",
+      "$255$",
+      "$289$",
+      "$425$",
+      "$510$"
+    ],
+    "answer": "B",
+    "hints": [
+      "높이 두 개를 내리면 양쪽 직각삼각형의 밑변은 $(25 - 9) \\div 2 = 8$.",
+      "8-15-17 → 높이 15.",
+      "$\\frac{1}{2}(9 + 25) \\times 15$"
+    ],
+    "solution": "높이를 내리면 양쪽 직각삼각형의 밑변은 $(25 - 9) \\div 2 = 8$, 빗변 17이므로 8-15-17에서 높이 15. 넓이 $= \\frac{1}{2}(9 + 25) \\times 15 = 255$.\n\n**오답 짚기**: 289는 다리 17을 높이로 쓴 것($17 \\times 17$). 510은 $\\frac{1}{2}$을 빼먹은 것. 425는 $25 \\times 17$. 170은 $(9 + 25) \\times 5$처럼 높이를 잘못 둔 것.",
+    "fast": "8-15-17 → $17 \\times 15 = 255$.",
+    "verify": {
+      "answer": "(9+25)*isqrt(17**2-8**2)//2",
+      "methods": [
+        "exec('''\nsh=lambda V: abs(sum(V[i][0]*V[(i+1)%len(V)][1]-V[(i+1)%len(V)][0]*V[i][1] for i in range(len(V))))/2\nresult=sh([(0,0),(25,0),(17,15),(8,15)])\n''')",
+        "9*15 + 2*(F(1,2)*8*15)"
+      ],
+      "note": "사다리꼴 공식 vs 좌표 신발끈 vs 직사각형 + 삼각형 2개"
+    }
+  },
+  {
+    "id": "6-t-14",
+    "lesson": "6-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A circle has radius $10$. Two parallel chords of lengths $12$ and $16$ lie on the same side of the center. What is the distance between the chords?",
+    "questionKo": "반지름이 $10$인 원에 길이가 $12$와 $16$인 두 평행한 현이 중심의 같은 쪽에 있다. 두 현 사이의 거리는?",
+    "figure": "<svg viewBox=\"0 0 200 200\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"105\" r=\"70\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"44\" y1=\"63\" x2=\"156\" y2=\"63\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"58\" y1=\"49\" x2=\"142\" y2=\"49\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"100\" y1=\"105\" x2=\"100\" y2=\"49\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.8\"/><line x1=\"100\" y1=\"105\" x2=\"156\" y2=\"63\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><line x1=\"100\" y1=\"105\" x2=\"142\" y2=\"49\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><circle cx=\"100\" cy=\"105\" r=\"2.5\" fill=\"currentColor\"/><text x=\"100\" y=\"120\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">O</text><text x=\"30\" y=\"67\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">16</text><text x=\"44\" y=\"53\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">12</text><text x=\"91\" y=\"60\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text></svg>",
+    "choices": [
+      "$2$",
+      "$4$",
+      "$6$",
+      "$8$",
+      "$14$"
+    ],
+    "answer": "A",
+    "hints": [
+      "중심에서 각 현에 수선을 내리고, 현의 끝으로 반지름을 긋는다.",
+      "현 16까지: $\\sqrt{10^2 - 8^2} = 6$. 현 12까지: $\\sqrt{10^2 - 6^2} = 8$.",
+      "같은 쪽이므로 차이."
+    ],
+    "solution": "중심에서 현 16까지의 거리는 $\\sqrt{100 - 64} = 6$, 현 12까지의 거리는 $\\sqrt{100 - 36} = 8$ (둘 다 6-8-10). 두 현이 중심의 같은 쪽에 있으므로 거리는 $8 - 6 = 2$.\n\n**오답 짚기**: 14는 두 거리를 더한 것 — 현이 중심의 반대쪽에 있을 때의 답이다. 6과 8은 중심에서 각 현까지의 거리에서 멈춘 것. 4는 반현 $8 - 6$을 혼동한 값.",
+    "fast": "$8 - 6 = 2$.",
+    "verify": {
+      "answer": "isqrt(10**2-6**2) - isqrt(10**2-8**2)",
+      "methods": [
+        "exec('''\nimport math as m\nd16=[d for d in range(0,11) if abs(2*m.sqrt(100-d*d)-16)<1e-9][0]\nd12=[d for d in range(0,11) if abs(2*m.sqrt(100-d*d)-12)<1e-9][0]\nresult=d12-d16\n''')",
+        "10*math.cos(math.asin(0.6)) - 10*math.cos(math.asin(0.8))"
+      ],
+      "note": "피타고라스 vs 좌표(y=d인 직선과 원이 만드는 현 길이로 d 탐색) vs 삼각비"
+    }
+  },
+  {
+    "id": "6-t-15",
+    "lesson": "6-4",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "question": "Quadrilateral $ABCD$ has area $60$. The midpoints of its four sides are joined in order to form a new quadrilateral. What is the area of the new quadrilateral?",
+    "questionKo": "넓이가 $60$인 사각형 $ABCD$의 네 변의 중점을 차례로 이어 새 사각형을 만들었다. 새 사각형의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 260 185\" width=\"260\" height=\"185\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,150 212,150 180,38 52,54\" fill=\"#4F6BF0\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"116,150 196,94 116,46 36,102\" fill=\"#E08A1E\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><circle cx=\"116\" cy=\"150\" r=\"2\" fill=\"currentColor\"/><line x1=\"68\" y1=\"145\" x2=\"68\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"164\" y1=\"145\" x2=\"164\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.2\"/><circle cx=\"196\" cy=\"94\" r=\"2\" fill=\"currentColor\"/><line x1=\"199.7\" y1=\"125.3\" x2=\"209.4\" y2=\"122.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"198.6\" y1=\"121.5\" x2=\"208.3\" y2=\"118.7\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"183.7\" y1=\"69.3\" x2=\"193.4\" y2=\"66.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"182.6\" y1=\"65.5\" x2=\"192.3\" y2=\"62.7\" stroke=\"currentColor\" stroke-width=\"1.2\"/><circle cx=\"116\" cy=\"46\" r=\"2\" fill=\"currentColor\"/><line x1=\"152.6\" y1=\"46.5\" x2=\"151.3\" y2=\"36.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"148.6\" y1=\"47\" x2=\"147.4\" y2=\"37\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"144.7\" y1=\"47.5\" x2=\"143.4\" y2=\"37.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"88.6\" y1=\"54.5\" x2=\"87.3\" y2=\"44.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"84.6\" y1=\"55\" x2=\"83.4\" y2=\"45\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"80.7\" y1=\"55.5\" x2=\"79.4\" y2=\"45.5\" stroke=\"currentColor\" stroke-width=\"1.2\"/><circle cx=\"36\" cy=\"102\" r=\"2\" fill=\"currentColor\"/><line x1=\"48.7\" y1=\"79.6\" x2=\"39.3\" y2=\"76.4\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line x1=\"32.7\" y1=\"127.6\" x2=\"23.3\" y2=\"124.4\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"116\" y=\"168\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">전체 넓이 60</text><text x=\"116\" y=\"102\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">?</text></svg>",
+    "choices": [
+      "$15$",
+      "$20$",
+      "$30$",
+      "$40$",
+      "$45$"
+    ],
+    "answer": "C",
+    "hints": [
+      "대각선 $AC$를 그으면 사각형이 두 삼각형으로 나뉜다.",
+      "각 삼각형에서 중점연결 정리: 중점을 이은 선분이 $AC$와 평행하고 길이 절반 → 귀퉁이 삼각형은 각 삼각형의 $\\frac{1}{4}$.",
+      "네 귀퉁이를 다 잘라내면 $\\frac{1}{4} \\times 60 \\times 2$가 빠진다."
+    ],
+    "solution": "대각선 $AC$를 그으면 $\\triangle ABC$와 $\\triangle ACD$로 나뉜다. 중점연결 정리에 의해 $B$ 쪽 귀퉁이 삼각형은 $\\triangle ABC$와 닮음비 $\\frac{1}{2}$, 넓이 $\\frac{1}{4}$이고 $D$ 쪽 귀퉁이도 $\\triangle ACD$의 $\\frac{1}{4}$. 합쳐서 $B$, $D$ 귀퉁이는 전체의 $\\frac{1}{4}$. 대각선 $BD$로 같은 논리를 쓰면 $A$, $C$ 귀퉁이도 전체의 $\\frac{1}{4}$. 남는 가운데 사각형은 $60 \\times \\left(1 - \\frac{1}{4} - \\frac{1}{4}\\right) = 30$. (중점을 이은 사각형은 항상 평행사변형이고 넓이는 원래의 절반.)\n\n**오답 짚기**: 15는 삼각형 중점 삼각형이 $\\frac{1}{4}$인 것을 그대로 사각형에 적용한 것. 45는 귀퉁이 한 쌍($\\frac{1}{4}$)만 뺀 것. 40, 20은 $\\frac{2}{3}$, $\\frac{1}{3}$ 어림.",
+    "fast": "중점 사각형의 넓이는 항상 절반 → 30.",
+    "verify": {
+      "answer": "F(60,2)",
+      "methods": [
+        "exec('''\nimport math as m\nsh=lambda V: abs(sum(V[i][0]*V[(i+1)%len(V)][1]-V[(i+1)%len(V)][0]*V[i][1] for i in range(len(V))))/2\nQ=[(0,0),(12,0),(10,7),(2,6)]\nk=m.sqrt(60/sh(Q)); Q=[(x*k,y*k) for x,y in Q]\nmid=lambda p,q: ((p[0]+q[0])/2,(p[1]+q[1])/2)\nM=[mid(Q[i],Q[(i+1)%4]) for i in range(4)]\nresult=round(sh(M),9)\n''')",
+        "60 - 2*F(60,4)"
+      ],
+      "note": "귀퉁이 네 개 빼기 vs 넓이 60인 구체적 사각형 좌표에서 중점 사각형 신발끈 vs 바리뇽 평행사변형 = 절반"
+    }
+  }
+]
