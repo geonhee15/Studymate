@@ -1,0 +1,137 @@
+[
+  {
+    "id": "1-t-1", "lesson": "1-1", "band": "1-10", "target": 45, "fields": ["counting"],
+    "question": "A code consists of two letters (A through Z) followed by two digits (0 through 9). Letters and digits may repeat. How many different codes are there?",
+    "questionKo": "어떤 코드는 영문자(A~Z) 2개 뒤에 숫자(0~9) 2개가 온다. 글자와 숫자는 반복해도 된다. 서로 다른 코드는 몇 가지인가?",
+    "choices": ["6,760", "26,000", "65,000", "67,600", "676,000"], "answer": "D",
+    "hints": ["칸 네 개에 각각 가능한 개수를 적는다.", "26 × 26 × 10 × 10", "676 × 100"],
+    "solution": "네 칸이 독립이므로 $26 \\times 26 \\times 10 \\times 10 = 67{,}600$.",
+    "verify": {"answer": "26*26*10*10"}
+  },
+  {
+    "id": "1-t-2", "lesson": "1-1", "band": "11-15", "target": 60, "fields": ["counting"],
+    "question": "How many four-digit positive integers use only the digits 1 through 9, with no digit repeated?",
+    "questionKo": "1부터 9까지의 숫자만 쓰고 같은 숫자를 반복하지 않는 네 자리 양의 정수는 몇 개인가?",
+    "choices": ["2520", "3024", "4536", "5040", "6561"], "answer": "B",
+    "hints": ["0이 없으니 첫 자리 제약은 없다.", "9 × 8 × 7 × 6", "선택지가 하나씩 줄어든다."],
+    "solution": "첫 자리 9가지, 둘째 8가지, 셋째 7가지, 넷째 6가지. $9 \\times 8 \\times 7 \\times 6 = 3024$.\n\n**오답 짚기**: 6561은 $9^4$으로 반복을 허용한 것. 4536은 0을 포함한 숫자 10개 중 첫 자리만 9가지로 본 것(9 × 9 × 8 × 7).",
+    "verify": {"answer": "9*8*7*6"}
+  },
+  {
+    "id": "1-t-3", "lesson": "1-1", "band": "16-20", "target": 120, "fields": ["counting"],
+    "question": "How many three-digit odd positive integers have three different digits?",
+    "questionKo": "세 자리 홀수 중 세 자리 숫자가 모두 서로 다른 수는 몇 개인가?",
+    "choices": ["320", "360", "400", "405", "450"], "answer": "A",
+    "hints": ["제약이 센 일의 자리(홀수)부터: 5가지.", "백의 자리는 0도 안 되고 일의 자리 숫자도 안 되니 8가지.", "5 × 8 × 8"],
+    "solution": "일의 자리는 1, 3, 5, 7, 9의 5가지. 백의 자리는 0과 일의 자리 숫자를 뺀 8가지. 십의 자리는 앞의 두 숫자를 뺀 8가지(0 가능). $5 \\times 8 \\times 8 = 320$.\n\n**오답 짚기**: 360은 백의 자리를 9가지로 본 것(일의 자리 숫자를 또 썼다). 405는 십의 자리를 9가지로 본 것.",
+    "verify": {"answer": "sum(1 for n in range(100,1000) if n%2==1 and len(set(str(n)))==3)"}
+  },
+  {
+    "id": "1-t-4", "lesson": "1-2", "band": "1-10", "target": 45, "fields": ["probability"],
+    "question": "A fair coin is flipped 5 times. What is the probability that at least one flip shows heads?",
+    "questionKo": "공정한 동전을 5번 던진다. 앞면이 적어도 한 번 나올 확률은?",
+    "choices": ["$\\frac{1}{32}$", "$\\frac{5}{32}$", "$\\frac{1}{2}$", "$\\frac{15}{16}$", "$\\frac{31}{32}$"], "answer": "E",
+    "hints": ["반대: 다섯 번 모두 뒷면.", "(1/2)⁵ = 1/32", "1 − 1/32"],
+    "solution": "모두 뒷면일 확률 $\\left(\\frac{1}{2}\\right)^5 = \\frac{1}{32}$이므로 $1 - \\frac{1}{32} = \\frac{31}{32}$.",
+    "verify": {"answer": "1-F(1,32)", "choices": ["F(1,32)", "F(5,32)", "F(1,2)", "F(15,16)", "F(31,32)"]}
+  },
+  {
+    "id": "1-t-5", "lesson": "1-2", "band": "11-15", "target": 75, "fields": ["counting", "numberTheory"],
+    "question": "How many positive integers less than or equal to 1000 are not perfect squares?",
+    "questionKo": "1000 이하의 양의 정수 중 완전제곱수가 아닌 수는 몇 개인가?",
+    "choices": ["900", "968", "969", "970", "990"], "answer": "C",
+    "hints": ["완전제곱수를 세서 전체에서 뺀다.", "31² = 961, 32² = 1024.", "1000 − 31"],
+    "solution": "1000 이하 완전제곱수는 $1^2, 2^2, \\ldots, 31^2 = 961$의 31개. $1000 - 31 = 969$.\n\n**오답 짚기**: 968은 32개로 잘못 센 것($32^2 = 1024 > 1000$). 970은 30개로 센 것.",
+    "verify": {"answer": "sum(1 for n in range(1,1001) if isqrt(n)**2!=n)"}
+  },
+  {
+    "id": "1-t-6", "lesson": "1-2", "band": "16-20", "target": 120, "fields": ["counting"],
+    "question": "How many four-digit positive integers have at least one digit equal to 7?",
+    "questionKo": "네 자리 양의 정수 중 숫자 7이 적어도 하나 들어 있는 수는 몇 개인가?",
+    "choices": ["2916", "3168", "3439", "3600", "4000"], "answer": "B",
+    "hints": ["전체 네 자리 수는 9000개.", "7이 없는 수: 첫 자리 8가지(0, 7 제외) × 9 × 9 × 9.", "9000 − 5832"],
+    "solution": "네 자리 수는 1000~9999의 9000개. 7이 하나도 없는 수는 첫 자리 8가지(1~9 중 7 제외) × 나머지 9가지씩 = $8 \\times 9^3 = 5832$개. 따라서 $9000 - 5832 = 3168$.\n\n**오답 짚기**: 3439는 전체를 10000(0000~9999)으로 보고 $9^4 = 6561$을 뺀 것. 네 자리 수는 9000개다. 4000은 '자리마다 1000개'로 중복을 무시한 것.",
+    "verify": {"answer": "sum(1 for n in range(1000,10000) if '7' in str(n))"}
+  },
+  {
+    "id": "1-t-7", "lesson": "1-3", "band": "1-10", "target": 60, "fields": ["counting", "numberTheory"],
+    "question": "How many integers from 1 to 150 are multiples of 3 or multiples of 5?",
+    "questionKo": "1부터 150까지의 정수 중 3의 배수이거나 5의 배수인 수는 몇 개인가?",
+    "choices": ["60", "70", "75", "80", "90"], "answer": "B",
+    "hints": ["3의 배수 50개, 5의 배수 30개.", "둘 다는 15의 배수 10개.", "50 + 30 − 10"],
+    "solution": "$50 + 30 - 10 = 70$. 15의 배수는 양쪽에 다 들어 있으니 한 번 뺀다.",
+    "verify": {"answer": "sum(1 for n in range(1,151) if n%3==0 or n%5==0)"}
+  },
+  {
+    "id": "1-t-8", "lesson": "1-3", "band": "11-15", "target": 75, "fields": ["counting"],
+    "question": "Of 45 students, 25 play the piano and 20 play the violin. If 12 students play both instruments, how many students play exactly one of the two instruments?",
+    "questionKo": "학생 45명 중 25명은 피아노를, 20명은 바이올린을 연주한다. 12명이 두 악기를 모두 연주한다면, 두 악기 중 정확히 하나만 연주하는 학생은 몇 명인가?",
+    "choices": ["13", "21", "33", "36", "45"], "answer": "B",
+    "hints": ["피아노만: 25 − 12. 바이올린만: 20 − 12.", "13 + 8", "정확히 하나 = |A| + |B| − 2|A ∩ B|"],
+    "solution": "피아노만 연주하는 학생 $25 - 12 = 13$명, 바이올린만 $20 - 12 = 8$명. 합 $13 + 8 = 21$명.\n\n**오답 짚기**: 33은 '하나라도'($25 + 20 - 12$). 45는 전체 인원이고, 둘 다 안 하는 12명이 있다는 뜻이다.",
+    "verify": {"answer": "25+20-2*12"}
+  },
+  {
+    "id": "1-t-9", "lesson": "1-3", "band": "16-20", "target": 120, "fields": ["counting", "numberTheory"],
+    "question": "How many integers from 1 to 1000 are divisible by neither 4 nor 10?",
+    "questionKo": "1부터 1000까지의 정수 중 4로도 10으로도 나누어떨어지지 않는 수는 몇 개인가?",
+    "choices": ["650", "675", "700", "725", "750"], "answer": "C",
+    "hints": ["4의 배수 250개, 10의 배수 100개.", "둘 다는 lcm(4, 10) = 20의 배수 50개. 40이 아니다.", "1000 − (250 + 100 − 50)"],
+    "solution": "4 또는 10의 배수는 $250 + 100 - 50 = 300$개(둘 다는 20의 배수 50개). 따라서 $1000 - 300 = 700$개.\n\n**오답 짚기**: 최소공배수를 40으로 잡으면 25개만 빼서 675가 나온다. 4와 10의 최소공배수는 20.",
+    "verify": {"answer": "sum(1 for n in range(1,1001) if n%4!=0 and n%10!=0)"}
+  },
+  {
+    "id": "1-t-10", "lesson": "1-4", "band": "11-15", "target": 75, "fields": ["counting"],
+    "question": "How many different arrangements of the letters in the word PEPPER are there?",
+    "questionKo": "PEPPER의 여섯 글자를 재배열하는 서로 다른 방법은 몇 가지인가?",
+    "choices": ["30", "60", "90", "120", "360"], "answer": "B",
+    "hints": ["P 3개, E 2개, R 1개.", "6! ÷ (3! × 2!)", "720 ÷ 12"],
+    "solution": "$\\frac{6!}{3!\\,2!} = \\frac{720}{12} = 60$.\n\n**오답 짚기**: 120은 E의 2!을 빼먹은 것, 360은 P를 2개로 센 것.",
+    "verify": {"answer": "len(set(permutations('PEPPER')))", "methods": ["factorial(6)//(factorial(3)*factorial(2))"]}
+  },
+  {
+    "id": "1-t-11", "lesson": "1-4", "band": "1-10", "target": 45, "fields": ["counting"],
+    "question": "Nine people each shake hands exactly once with each of the others. How many handshakes are there in total?",
+    "questionKo": "9명이 서로 한 번씩 빠짐없이 악수한다. 악수는 모두 몇 번인가?",
+    "choices": ["18", "36", "45", "72", "81"], "answer": "B",
+    "hints": ["한 사람당 8명과 악수.", "9 × 8은 각 악수를 두 번 센다.", "72 ÷ 2"],
+    "solution": "$\\frac{9 \\times 8}{2} = 36$.\n\n**오답 짚기**: 72는 2로 안 나눈 것, 81은 자기 자신과의 악수까지 센 것, 45는 10명일 때의 답.",
+    "verify": {"answer": "9*8//2"}
+  },
+  {
+    "id": "1-t-12", "lesson": "1-4", "band": "16-20", "target": 90, "fields": ["counting"],
+    "question": "Five friends sit around a circular table. Two seatings are the same if one is a rotation of the other. How many different seatings are there?",
+    "questionKo": "친구 5명이 원탁에 둘러앉는다. 회전해서 같아지는 배치는 같은 것으로 본다. 서로 다른 배치는 몇 가지인가?",
+    "choices": ["5", "12", "24", "60", "120"], "answer": "C",
+    "hints": ["일렬이면 5! = 120.", "한 배치가 회전으로 5번씩 세어진다.", "120 ÷ 5"],
+    "solution": "일렬 $5! = 120$가지를 회전 5가지로 나누면 $24 = 4!$. 한 명을 고정하고 나머지 4명을 일렬로 세워도 같은 답.\n\n**오답 짚기**: 12는 뒤집기까지 같다고 본 것(팔찌라면 12). 120은 회전을 무시한 것.",
+    "verify": {"answer": "factorial(4)"}
+  },
+  {
+    "id": "1-t-13", "lesson": "1-5", "band": "11-15", "target": 75, "fields": ["counting"],
+    "question": "A $1 \\times 6$ strip is to be covered completely with $1 \\times 1$ squares and $1 \\times 2$ rectangles. How many different coverings are there?",
+    "questionKo": "$1 \\times 6$ 띠를 $1 \\times 1$ 정사각형과 $1 \\times 2$ 직사각형으로 빈틈없이 덮는다. 서로 다른 덮기 방법은 몇 가지인가?",
+    "choices": ["8", "13", "21", "32", "64"], "answer": "B",
+    "hints": ["맨 끝 칸을 1×1이 덮으면 나머지 1×5, 1×2가 덮으면 나머지 1×4.", "f(n) = f(n−1) + f(n−2), f(1) = 1, f(2) = 2.", "1, 2, 3, 5, 8, 13"],
+    "solution": "계단 오르기와 같은 점화식 $f(n) = f(n-1) + f(n-2)$, $f(1) = 1$, $f(2) = 2$. 1, 2, 3, 5, 8, **13**.\n\n**오답 짚기**: 64는 $2^6$, 조건 없이 칸마다 둘 중 하나를 고른 것. 8은 $f(5)$.",
+    "verify": {"answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    return 1 if n==0 else sum(f(n-s) for s in (1,2) if s<=n)\n''')\nresult=f(6)"}
+  },
+  {
+    "id": "1-t-14", "lesson": "1-5", "band": "16-20", "target": 120, "fields": ["counting"],
+    "question": "How many strings of 7 digits, each digit 0 or 1, have no two 0's next to each other?",
+    "questionKo": "0과 1로만 이루어진 일곱 자리 문자열 중 0이 두 개 연달아 나오지 않는 것은 몇 개인가?",
+    "choices": ["21", "34", "55", "64", "128"], "answer": "B",
+    "hints": ["길이 1: 2개, 길이 2: 3개.", "마지막이 1이면 앞은 자유, 0이면 바로 앞은 1.", "2, 3, 5, 8, 13, 21, 34"],
+    "solution": "$f(n) = f(n-1) + f(n-2)$, $f(1) = 2$, $f(2) = 3$ → 2, 3, 5, 8, 13, 21, **34**.\n\n**오답 짚기**: 21은 길이 6, 55는 길이 8. 128은 $2^7$.",
+    "verify": {"answer": "sum(1 for s in product('01',repeat=7) if '00' not in ''.join(s))"}
+  },
+  {
+    "id": "1-t-15", "lesson": "1-5", "band": "21-25", "target": 180, "fields": ["counting"],
+    "question": "A frog climbs a staircase of 10 steps, going up 1 or 2 steps with each jump. It never makes two 2-step jumps in a row. In how many ways can the frog reach the top?",
+    "questionKo": "개구리가 10칸짜리 계단을 한 번에 1칸 또는 2칸씩 오르는데, 2칸 뛰기를 연달아 두 번 하지는 않는다. 꼭대기까지 오르는 방법은 몇 가지인가?",
+    "choices": ["34", "41", "55", "60", "89"], "answer": "B",
+    "hints": ["마지막 걸음이 1칸이면 앞은 자유: f(n−1). 마지막이 2칸이면 그 앞은 반드시 1칸.", "f(n) = f(n−1) + f(n−3). 시작값은 직접: f(1) = 1, f(2) = 2, f(3) = 3.", "1, 2, 3, 4, 6, 9, 13, 19, 28, 41"],
+    "solution": "마지막 걸음으로 나눈다. 마지막이 1칸이면 앞 $n-1$칸은 조건만 맞으면 되므로 $f(n-1)$. 마지막이 2칸이면 그 바로 앞은 1칸이어야 하고(2칸 두 번 금지), 그 앞 $n-3$칸은 자유이므로 $f(n-3)$. 따라서 $f(n) = f(n-1) + f(n-3)$. 시작값은 직접 세면 $f(1) = 1$, $f(2) = 2$(1+1, 2), $f(3) = 3$(1+1+1, 1+2, 2+1). 이어서 4, 6, 9, 13, 19, 28, **41**.\n\n**검산**: 2칸 뛰기를 k번 쓰면 1칸 뛰기는 $10 - 2k$번. 2칸 뛰기끼리 떨어져 있어야 하므로 1칸 뛰기 사이의 틈 $10 - 2k + 1$곳 중 k곳을 고른다: $k = 0$: 1, $k = 1$: $\\binom{9}{1} = 9$, $k = 2$: $\\binom{7}{2} = 21$, $k = 3$: $\\binom{5}{3} = 10$, $k = 4$: $\\binom{3}{4} = 0$. 합 $1 + 9 + 21 + 10 = 41$. 일치.\n\n**오답 짚기**: 89는 조건 없는 $f(10)$. 55는 $f(9)$ 또는 조건을 잘못 적용한 값.",
+    "verify": {"answer": "exec('''\ndef seqs(n):\n    if n==0: return [()]\n    out=[]\n    for s in (1,2):\n        if s<=n: out += [(s,)+r for r in seqs(n-s)]\n    return out\n''')\nresult=sum(1 for s in seqs(10) if all(not(s[i]==2 and s[i+1]==2) for i in range(len(s)-1)))", "methods": ["sum(comb(10-2*k+1, k) for k in range(0,5))"]}
+  }
+]

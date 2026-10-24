@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1-q-1", "lesson": "1-1", "band": "1-10", "target": 45, "fields": ["counting"],
+    "question": "A restaurant offers 3 appetizers, 5 main courses, and 4 desserts. A dinner consists of one appetizer, one main course, and one dessert. How many different dinners are possible?",
+    "questionKo": "어느 식당은 전채 3종류, 주요리 5종류, 후식 4종류를 판다. 저녁 식사는 전채, 주요리, 후식을 하나씩 고른다. 가능한 저녁 식사는 몇 가지인가?",
+    "choices": ["12", "20", "32", "60", "120"], "answer": "D",
+    "hints": ["세 단계가 이어진다 → 곱한다.", "3 × 5 × 4", "답은 세 수의 합(12)이 아니다."],
+    "solution": "전채를 고르고, 이어서 주요리를 고르고, 이어서 후식을 고르는 세 단계. 각 단계의 선택지 개수가 앞 선택과 무관하게 같으므로 곱의 법칙: $3 \\times 5 \\times 4 = 60$.",
+    "verify": {"answer": "3*5*4"}
+  },
+  {
+    "id": "1-q-2", "lesson": "1-1", "band": "11-15", "target": 75, "fields": ["counting"],
+    "question": "How many three-digit positive integers have all three digits even?",
+    "questionKo": "세 자리 양의 정수 중 세 자리 숫자가 모두 짝수인 수는 몇 개인가?",
+    "choices": ["64", "80", "100", "120", "125"], "answer": "C",
+    "hints": ["짝수 숫자는 0, 2, 4, 6, 8의 5개. 백의 자리에 0은 안 된다.", "백 4가지 × 십 5가지 × 일 5가지", "4 × 5 × 5"],
+    "solution": "짝수 숫자는 0, 2, 4, 6, 8. 백의 자리는 0을 뺀 4가지, 십의 자리와 일의 자리는 5가지씩(0 가능, 같은 숫자 반복 가능). $4 \\times 5 \\times 5 = 100$.\n\n**오답 짚기**: 125는 백의 자리에 0을 허용한 것. 64는 0을 아예 빼고 4가지씩 곱한 것. 0은 짝수이고, 백의 자리에만 올 수 없다.",
+    "verify": {"answer": "sum(1 for n in range(100,1000) if all(int(d)%2==0 for d in str(n)))"}
+  },
+  {
+    "id": "1-q-3", "lesson": "1-2", "band": "11-15", "target": 75, "fields": ["probability"],
+    "question": "Two fair six-sided dice are rolled. What is the probability that at least one of the dice shows a 5?",
+    "questionKo": "공정한 주사위 두 개를 던진다. 적어도 한 개에서 5가 나올 확률은?",
+    "choices": ["$\\frac{1}{6}$", "$\\frac{5}{18}$", "$\\frac{11}{36}$", "$\\frac{1}{3}$", "$\\frac{1}{2}$"], "answer": "C",
+    "hints": ["적어도 하나 → 반대는 둘 다 5가 아님.", "(5/6)² = 25/36", "1 − 25/36"],
+    "solution": "둘 다 5가 아닐 확률은 $\\left(\\frac{5}{6}\\right)^2 = \\frac{25}{36}$. 따라서 $1 - \\frac{25}{36} = \\frac{11}{36}$.\n\n**검산**: 6×6 표에서 5가 들어간 칸은 가로줄 6개 + 세로줄 6개 − (5,5) 1개 = 11칸.\n\n**오답 짚기**: 1/3은 1/6 + 1/6으로 (5,5)를 두 번 센 것.",
+    "verify": {"answer": "F(sum(1 for a,b in product(range(1,7),repeat=2) if 5 in (a,b)),36)", "choices": ["F(1,6)", "F(5,18)", "F(11,36)", "F(1,3)", "F(1,2)"]}
+  },
+  {
+    "id": "1-q-4", "lesson": "1-2", "band": "1-10", "target": 60, "fields": ["counting", "numberTheory"],
+    "question": "How many positive integers less than or equal to 500 are not divisible by 3?",
+    "questionKo": "500 이하의 양의 정수 중 3으로 나누어떨어지지 않는 수는 몇 개인가?",
+    "choices": ["166", "167", "333", "334", "335"], "answer": "D",
+    "hints": ["3의 배수를 세서 전체에서 뺀다.", "500 ÷ 3 = 166.67… → 3의 배수는 166개.", "500 − 166"],
+    "solution": "1~500 중 3의 배수는 $\\lfloor 500/3 \\rfloor = 166$개($3 \\times 166 = 498$). 따라서 $500 - 166 = 334$개.\n\n**오답 짚기**: 166은 반대쪽 개수. 333은 몫을 167로 잘못 본 것($3 \\times 167 = 501 > 500$).",
+    "verify": {"answer": "sum(1 for n in range(1,501) if n%3!=0)"}
+  },
+  {
+    "id": "1-q-5", "lesson": "1-3", "band": "11-15", "target": 75, "fields": ["counting", "numberTheory"],
+    "question": "How many integers from 1 to 120 are multiples of 8 or multiples of 12?",
+    "questionKo": "1부터 120까지의 정수 중 8의 배수이거나 12의 배수인 수는 몇 개인가?",
+    "choices": ["15", "20", "22", "24", "25"], "answer": "B",
+    "hints": ["8의 배수 15개, 12의 배수 10개.", "둘 다의 배수는 lcm(8, 12) = 24의 배수. 96이 아니다.", "15 + 10 − 5"],
+    "solution": "8의 배수 $\\lfloor 120/8 \\rfloor = 15$개, 12의 배수 10개, 둘 다인 24의 배수 $\\lfloor 120/24 \\rfloor = 5$개. $15 + 10 - 5 = 20$.\n\n**오답 짚기**: 25는 겹침을 안 뺀 것. 24는 최소공배수를 96으로 잡아 1개만 뺀 것.",
+    "verify": {"answer": "sum(1 for n in range(1,121) if n%8==0 or n%12==0)"}
+  },
+  {
+    "id": "1-q-6", "lesson": "1-3", "band": "1-10", "target": 60, "fields": ["counting"],
+    "question": "In a class of 36 students, 21 have a dog, 17 have a cat, and 9 have both a dog and a cat. How many students have neither a dog nor a cat?",
+    "questionKo": "36명인 반에서 21명은 개를 기르고, 17명은 고양이를 기르며, 9명은 개와 고양이를 둘 다 기른다. 개도 고양이도 기르지 않는 학생은 몇 명인가?",
+    "choices": ["2", "5", "7", "9", "10"], "answer": "C",
+    "hints": ["하나라도 기르는 학생 = 21 + 17 − 9.", "29명.", "36 − 29"],
+    "solution": "하나라도 기르는 학생은 $21 + 17 - 9 = 29$명. 둘 다 안 기르는 학생은 $36 - 29 = 7$명.\n\n**오답 짚기**: 겹침을 안 빼면 38 > 36이 되어 말이 안 된다. 그러면 바로 '겹침을 빼야 한다'는 신호다.",
+    "verify": {"answer": "36-(21+17-9)"}
+  },
+  {
+    "id": "1-q-7", "lesson": "1-4", "band": "16-20", "target": 90, "fields": ["counting"],
+    "question": "How many different arrangements of the letters in the word LETTER are there?",
+    "questionKo": "LETTER의 여섯 글자를 재배열하는 서로 다른 방법은 몇 가지인가?",
+    "choices": ["90", "120", "180", "360", "720"], "answer": "C",
+    "hints": ["글자 개수: L 1, E 2, T 2, R 1.", "6!을 E의 2!과 T의 2!로 나눈다.", "720 ÷ 4"],
+    "solution": "$\\frac{6!}{2!\\,2!} = \\frac{720}{4} = 180$. E 두 개와 T 두 개를 각각 바꿔도 같은 단어이므로 2 × 2로 나눈다.\n\n**오답 짚기**: 360은 한 쌍만 나눈 것, 720은 전부 다른 글자로 본 것.",
+    "verify": {"answer": "len(set(permutations('LETTER')))", "methods": ["factorial(6)//4"]}
+  },
+  {
+    "id": "1-q-8", "lesson": "1-5", "band": "16-20", "target": 90, "fields": ["counting"],
+    "question": "A staircase has 9 steps. Climbing 1 or 2 steps at a time, in how many ways can you go up?",
+    "questionKo": "9칸짜리 계단을 한 번에 1칸 또는 2칸씩 오른다. 오르는 방법은 몇 가지인가?",
+    "choices": ["34", "55", "64", "89", "144"], "answer": "B",
+    "hints": ["f(n) = f(n−1) + f(n−2), f(1) = 1, f(2) = 2.", "1, 2, 3, 5, 8, 13, 21, 34, …", "9번째 항"],
+    "solution": "마지막 걸음이 1칸인지 2칸인지로 나누면 $f(n) = f(n-1) + f(n-2)$. 1, 2, 3, 5, 8, 13, 21, 34, **55**.\n\n**오답 짚기**: 34는 8칸, 89는 10칸의 답. 표에 n을 적어 가며 세자.",
+    "verify": {"answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    return 1 if n==0 else sum(f(n-s) for s in (1,2) if s<=n)\n''')\nresult=f(9)"}
+  }
+]

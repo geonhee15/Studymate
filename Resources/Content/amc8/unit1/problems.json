@@ -1,0 +1,1501 @@
+[
+  {
+    "id": "1-1-1",
+    "lesson": "1-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "counting"
+    ],
+    "question": "A cafe makes a sandwich by choosing one of 4 kinds of bread, one of 3 fillings, and one of 2 sauces. How many different sandwiches can be made?",
+    "questionKo": "어느 카페는 빵 4종류 중 하나, 속재료 3종류 중 하나, 소스 2종류 중 하나를 골라 샌드위치를 만든다. 만들 수 있는 서로 다른 샌드위치는 몇 가지인가?",
+    "choices": [
+      "9",
+      "12",
+      "14",
+      "24",
+      "48"
+    ],
+    "answer": "D",
+    "hints": [
+      "빵을 고르고, 이어서 속재료를 고르고, 이어서 소스를 고른다. '이어서'가 보이면?",
+      "빵 하나마다 속재료 3가지, 그 각각마다 소스 2가지가 붙는다. 나무 그림을 떠올려 보자.",
+      "4 × 3 × 2"
+    ],
+    "solution": "세 단계가 연달아 있고, 앞 단계에서 무엇을 골랐든 다음 단계의 선택지 개수가 같다. 곱의 법칙으로 $4 \\times 3 \\times 2 = 24$.\n\n**오답 짚기**: 9는 세 수를 더한 것(합의 법칙을 잘못 씀). 단계가 연달아 있으면 더하는 게 아니라 곱한다.",
+    "verify": {
+      "answer": "4*3*2"
+    }
+  },
+  {
+    "id": "1-1-2",
+    "lesson": "1-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "Mina will either borrow one of 5 novels, or borrow one of 3 comic books together with one of 2 magazines. In how many ways can she make her choice?",
+    "questionKo": "미나는 소설 5권 중 한 권을 빌리거나, 아니면 만화책 3권 중 한 권과 잡지 2권 중 한 권을 함께 빌린다. 미나가 고를 수 있는 방법은 모두 몇 가지인가?",
+    "choices": [
+      "8",
+      "10",
+      "11",
+      "16",
+      "30"
+    ],
+    "answer": "C",
+    "hints": [
+      "'또는'으로 나뉜 두 경우는 더하고, '함께'는 곱한다.",
+      "만화책과 잡지를 함께 빌리는 방법은 3 × 2가지.",
+      "5 + 3 × 2"
+    ],
+    "solution": "두 경우는 동시에 일어나지 않으므로 합의 법칙으로 더한다. 소설만 빌리는 경우 5가지. 만화책과 잡지를 함께 빌리는 경우는 단계가 이어지므로 곱의 법칙으로 $3 \\times 2 = 6$가지. 합하면 $5 + 6 = 11$.\n\n**오답 짚기**: 30은 셋을 전부 곱한 것(소설과 만화책을 동시에 빌리지 않는다), 10은 전부 더한 것(만화책과 잡지는 '함께'라서 곱해야 한다).",
+    "verify": {
+      "answer": "5 + 3*2"
+    }
+  },
+  {
+    "id": "1-1-3",
+    "lesson": "1-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many two-digit positive integers have both digits odd?",
+    "questionKo": "두 자리 양의 정수 중 두 자리 숫자가 모두 홀수인 수는 몇 개인가?",
+    "choices": [
+      "10",
+      "20",
+      "25",
+      "45",
+      "50"
+    ],
+    "answer": "C",
+    "hints": [
+      "홀수 숫자는 1, 3, 5, 7, 9의 5개.",
+      "십의 자리에 0이 올 수 없다는 조건은 홀수 조건 안에 이미 들어 있다.",
+      "십의 자리 5가지 × 일의 자리 5가지"
+    ],
+    "solution": "십의 자리는 1, 3, 5, 7, 9 중 하나로 5가지, 일의 자리도 5가지. 앞 선택과 무관하게 개수가 같으므로 $5 \\times 5 = 25$.\n\n**오답 짚기**: 45는 십의 자리를 1~9 전부로 센 것(9 × 5). 두 자리 다 홀수여야 한다.",
+    "verify": {
+      "answer": "sum(1 for n in range(10,100) if all(int(d)%2==1 for d in str(n)))"
+    }
+  },
+  {
+    "id": "1-1-4",
+    "lesson": "1-1",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many three-digit positive integers have three different digits, all of which are odd?",
+    "questionKo": "세 자리 양의 정수 중 세 자리 숫자가 모두 서로 다르고 모두 홀수인 수는 몇 개인가?",
+    "choices": [
+      "48",
+      "60",
+      "75",
+      "100",
+      "125"
+    ],
+    "answer": "B",
+    "hints": [
+      "쓸 수 있는 숫자는 1, 3, 5, 7, 9뿐이다.",
+      "'서로 다른' 조건이 있으니 한 자리를 정할 때마다 선택지가 하나씩 줄어든다.",
+      "5 × 4 × 3"
+    ],
+    "solution": "백의 자리는 홀수 5가지. 십의 자리는 백의 자리에 쓴 숫자를 빼고 4가지. 일의 자리는 앞의 둘을 빼고 3가지. $5 \\times 4 \\times 3 = 60$.\n\n**오답 짚기**: 125는 $5^3$, 즉 '서로 다른' 조건을 읽고도 곱할 때 반영하지 않은 것.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if len(set(str(n)))==3 and all(int(d)%2==1 for d in str(n)))"
+    }
+  },
+  {
+    "id": "1-1-5",
+    "lesson": "1-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "A license plate has two letters followed by three digits. The first letter must be a vowel (A, E, I, O, or U), the two letters must be different, and the first digit cannot be 0. How many such license plates are possible?",
+    "questionKo": "번호판은 영문자 2개 뒤에 숫자 3개가 온다. 첫 글자는 모음(A, E, I, O, U) 중 하나이고, 두 글자는 서로 달라야 하며, 첫 숫자는 0이 될 수 없다. 가능한 번호판은 몇 가지인가?",
+    "choices": [
+      "81,000",
+      "112,500",
+      "117,000",
+      "125,000",
+      "130,000"
+    ],
+    "answer": "B",
+    "hints": [
+      "칸을 다섯 개 그리고 칸마다 가능한 개수를 적는다.",
+      "두 번째 글자는 26개 중 첫 글자만 빼면 된다. 모음이어야 한다는 조건은 첫 글자에만 있다.",
+      "5 × 25 × 9 × 10 × 10"
+    ],
+    "solution": "첫 글자 5가지, 둘째 글자는 첫 글자를 뺀 25가지. 첫 숫자는 0을 뺀 9가지, 나머지 두 숫자는 각각 10가지(숫자는 같아도 된다). $5 \\times 25 \\times 9 \\times 10 \\times 10 = 112{,}500$.\n\n**오답 짚기**: 117,000은 둘째 글자를 26가지로 센 것(서로 달라야 한다). 125,000은 첫 숫자에 0을 허용한 것. 81,000은 숫자까지 서로 달라야 한다고 멋대로 가정한 것.",
+    "verify": {
+      "answer": "5*25*9*10*10"
+    }
+  },
+  {
+    "id": "1-1-6",
+    "lesson": "1-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many three-digit positive integers are multiples of 5 and have three different digits?",
+    "questionKo": "세 자리 양의 정수 중 5의 배수이면서 세 자리 숫자가 모두 서로 다른 수는 몇 개인가?",
+    "choices": [
+      "72",
+      "128",
+      "136",
+      "144",
+      "180"
+    ],
+    "answer": "C",
+    "hints": [
+      "5의 배수는 일의 자리가 0 또는 5. 제약이 센 일의 자리부터 정한다.",
+      "일의 자리가 0이면 백의 자리는 1~9 중 아무거나, 5이면 백의 자리에서 0과 5를 둘 다 빼야 한다. 선택지 개수가 달라지니 경우를 나눈다.",
+      "일의 자리 0: 9 × 8. 일의 자리 5: 8 × 8."
+    ],
+    "solution": "일의 자리로 경우를 나눈다.\n\n- 일의 자리가 0: 백의 자리 1~9 중 9가지, 십의 자리는 남은 8가지 → $9 \\times 8 = 72$\n- 일의 자리가 5: 백의 자리는 0도 안 되고 5도 안 되니 8가지, 십의 자리는 백의 자리와 5를 뺀 8가지 → $8 \\times 8 = 64$\n\n합하면 $72 + 64 = 136$.\n\n**오답 짚기**: 144는 두 경우를 똑같이 9 × 8로 센 것. 일의 자리가 5일 때 백의 자리는 0이 될 수 없으므로 선택지가 하나 더 줄어든다. 이렇게 앞 선택에 따라 다음 선택지 개수가 바뀌면 원인(0)으로 경우를 나눠야 한다.",
+    "fast": "'일의 자리가 0'은 0이 이미 쓰여서 백의 자리 걱정이 없고, '일의 자리가 5'는 0이 백의 자리로 갈 수 없어 한 개가 빠진다. 두 경우가 9×8과 8×8이 되는 걸 바로 알아보면 10초 문제.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if n%5==0 and len(set(str(n)))==3)"
+    }
+  },
+  {
+    "id": "1-1-7",
+    "lesson": "1-1",
+    "band": "16-20",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many even four-digit positive integers greater than 5000 have four different digits?",
+    "questionKo": "5000보다 큰 네 자리 짝수 중 네 자리 숫자가 모두 서로 다른 수는 몇 개인가?",
+    "choices": [
+      "1120",
+      "1260",
+      "1288",
+      "1344",
+      "1400"
+    ],
+    "answer": "C",
+    "hints": [
+      "천의 자리는 5, 6, 7, 8, 9 중 하나, 일의 자리는 짝수여야 한다. 둘이 서로 영향을 준다.",
+      "천의 자리가 홀수(5, 7, 9)이면 일의 자리는 0, 2, 4, 6, 8 모두 가능. 천의 자리가 짝수(6, 8)이면 일의 자리 선택지가 하나 줄어든다.",
+      "홀수 천의 자리: 3 × 5 × 8 × 7. 짝수 천의 자리: 2 × 4 × 8 × 7."
+    ],
+    "solution": "제약이 센 두 자리(천의 자리, 일의 자리)를 먼저 정한다. 천의 자리에 따라 일의 자리 선택지 개수가 달라지므로 경우를 나눈다.\n\n- 천의 자리가 5, 7, 9 (3가지): 일의 자리는 0, 2, 4, 6, 8 중 5가지. 가운데 두 자리는 남은 8개, 7개 → $3 \\times 5 \\times 8 \\times 7 = 840$\n- 천의 자리가 6, 8 (2가지): 일의 자리는 짝수 중 천의 자리를 뺀 4가지. 가운데는 8, 7 → $2 \\times 4 \\times 8 \\times 7 = 448$\n\n합하면 $840 + 448 = 1288$.\n\n**오답 짚기**: 1400은 천의 자리 5가지 × 일의 자리 5가지로 그냥 곱한 것. 천의 자리가 짝수이면 그 숫자를 일의 자리에 또 쓸 수 없다.",
+    "verify": {
+      "answer": "sum(1 for n in range(5001,10000) if n%2==0 and len(set(str(n)))==4)"
+    }
+  },
+  {
+    "id": "1-1-8",
+    "lesson": "1-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many positive integers less than 500 have no digit equal to 3?",
+    "questionKo": "500보다 작은 양의 정수 중 어느 자리에도 숫자 3이 없는 수는 몇 개인가?",
+    "choices": [
+      "323",
+      "324",
+      "364",
+      "404",
+      "405"
+    ],
+    "answer": "A",
+    "hints": [
+      "한 자리, 두 자리, 세 자리 수를 따로 세도 되지만, 000부터 499까지 '세 자리'로 보면 한 번에 된다.",
+      "백의 자리는 0, 1, 2, 4 중 하나(5 미만이면서 3이 아님), 십과 일의 자리는 3을 뺀 9가지씩.",
+      "4 × 9 × 9에서 000, 즉 0을 하나 빼는 걸 잊지 말자."
+    ],
+    "solution": "0부터 499까지를 000~499의 세 자리로 본다. 백의 자리는 0, 1, 2, 4의 4가지, 십의 자리와 일의 자리는 3을 뺀 9가지씩. $4 \\times 9 \\times 9 = 324$개. 여기에는 000, 즉 0이 들어 있는데 양의 정수가 아니므로 뺀다. $324 - 1 = 323$.\n\n**검산**: 한 자리 8개(1,2,4,5,6,7,8,9), 두 자리 $8 \\times 9 = 72$개, 세 자리(100~499) 백의 자리 1,2,4의 3가지 × 81 = 243개. 합 $8 + 72 + 243 = 323$. 두 방법 일치.\n\n**오답 짚기**: 324는 0을 빼지 않은 것. 405는 백의 자리를 0~4 다섯 가지로 센 것(3 포함).",
+    "fast": "자리마다 '3이 아닌 숫자'를 세는 건 여사건 없이 바로 곱의 법칙이다. 범위가 1부터가 아닌 0부터라고 생각하고 마지막에 0을 조정하는 습관을 들이면 자리수별로 나누는 수고가 없다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,500) if '3' not in str(n))"
+    }
+  },
+  {
+    "id": "1-1-9",
+    "lesson": "1-1",
+    "band": "21-25",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "In how many ways can the letters of the word SMART be arranged so that the letter A is not at either end?",
+    "questionKo": "SMART의 다섯 글자를 일렬로 배열할 때, A가 맨 앞에도 맨 뒤에도 오지 않는 배열은 몇 가지인가?",
+    "choices": [
+      "24",
+      "48",
+      "72",
+      "96",
+      "120"
+    ],
+    "answer": "C",
+    "hints": [
+      "제약이 센 글자(A)의 자리부터 정한다.",
+      "A가 갈 수 있는 자리는 다섯 자리 중 양 끝을 뺀 3곳.",
+      "A의 자리 3가지 × 나머지 네 글자 배열 4!"
+    ],
+    "solution": "A의 자리를 먼저 정한다. 양 끝을 뺀 가운데 세 자리 중 하나이므로 3가지. 나머지 S, M, R, T는 남은 네 자리에 자유롭게 들어가므로 $4! = 24$가지. $3 \\times 24 = 72$.\n\n**다른 방법(여사건)**: 전체 $5! = 120$에서 A가 맨 앞인 경우 24와 맨 뒤인 경우 24를 빼면 $120 - 48 = 72$. 두 방법이 일치한다.\n\n**오답 짚기**: 96은 한쪽 끝만 뺀 것(120 − 24). 48은 '뺄 것'을 답으로 쓴 것.",
+    "verify": {
+      "answer": "sum(1 for p in permutations('SMART') if p[0]!='A' and p[4]!='A')"
+    }
+  },
+  {
+    "id": "1-1-10",
+    "lesson": "1-1",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many three-digit positive integers have exactly two digits that are the same?",
+    "questionKo": "세 자리 양의 정수 중 세 자리 숫자 가운데 정확히 두 개만 같은 수는 몇 개인가?",
+    "choices": [
+      "216",
+      "243",
+      "252",
+      "270",
+      "729"
+    ],
+    "answer": "B",
+    "hints": [
+      "어느 두 자리가 같은지로 경우를 나눈다: 백=십, 백=일, 십=일.",
+      "각 경우에서 '같은 숫자'와 '다른 숫자'를 정한다. 백의 자리가 끼면 0을 조심.",
+      "세 경우가 모두 81가지인지 확인해 보자."
+    ],
+    "solution": "같은 두 자리가 어디인지로 세 경우.\n\n- 백 = 십 ≠ 일: 백(=십)은 1~9의 9가지, 일은 그 숫자를 뺀 9가지 → 81\n- 백 = 일 ≠ 십: 마찬가지로 $9 \\times 9 = 81$\n- 십 = 일 ≠ 백: 백은 1~9의 9가지, 십(=일)은 백의 자리를 뺀 9가지(0 포함 가능) → 81\n\n세 경우는 겹치지 않으므로 $81 \\times 3 = 243$.\n\n**검산(여사건)**: 전체 900에서 세 자리가 모두 다른 648개와 세 자리가 모두 같은 9개(111, …, 999)를 빼면 $900 - 648 - 9 = 243$. 일치.\n\n**오답 짚기**: 729는 $9^3$, 조건과 무관한 수. 270은 십=일 경우에 십의 자리를 10가지로 센 것(백의 자리와 같으면 세 자리가 다 같아진다).",
+    "fast": "'정확히 두 개만 같음' = 전체 − 전부 다름 − 전부 같음. 전부 다름(648)은 레슨 예제로 이미 아는 값이니 $900 - 648 - 9$가 가장 빠르다.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if len(set(str(n)))==2)"
+    }
+  },
+  {
+    "id": "1-2-1",
+    "lesson": "1-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "probability",
+      "counting"
+    ],
+    "question": "Three fair six-sided dice are rolled. What is the probability that the product of the three numbers rolled is even?",
+    "questionKo": "공정한 정육면체 주사위 3개를 던진다. 나온 세 눈의 곱이 짝수일 확률은?",
+    "choices": [
+      "$\\frac{1}{8}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{5}{6}$",
+      "$\\frac{7}{8}$"
+    ],
+    "answer": "E",
+    "hints": [
+      "곱이 짝수이려면 하나라도 짝수면 된다. '적어도 하나' → 반대로 센다.",
+      "반대: 세 눈이 전부 홀수. 주사위 하나가 홀수일 확률은 1/2.",
+      "1 − (1/2)³"
+    ],
+    "solution": "곱이 짝수가 아닌 경우는 세 눈이 모두 홀수일 때뿐이다. 각 주사위가 홀수일 확률은 $\\frac{3}{6} = \\frac{1}{2}$이고 세 주사위는 독립이므로 전부 홀수일 확률은 $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$. 따라서 곱이 짝수일 확률은 $1 - \\frac{1}{8} = \\frac{7}{8}$.\n\n**검산**: 전체 216가지 중 전부 홀수인 경우 $3^3 = 27$가지. $216 - 27 = 189$, $\\frac{189}{216} = \\frac{7}{8}$.\n\n**오답 짚기**: 1/8은 반대쪽 확률을 그대로 답한 것. 1/2은 '곱의 홀짝은 반반'이라고 착각한 것인데, 짝수가 하나만 끼어도 곱이 짝수라서 짝수 쪽이 훨씬 많다.",
+    "fast": "'곱이 짝수' = '하나라도 짝수'. 이런 문장은 보자마자 $1 - (\\text{전부 홀수})$로 바꾼다.",
+    "verify": {
+      "answer": "F(sum(1 for t in product(range(1,7),repeat=3) if (t[0]*t[1]*t[2])%2==0),216)",
+      "choices": [
+        "F(1,8)",
+        "F(1,2)",
+        "F(3,4)",
+        "F(5,6)",
+        "F(7,8)"
+      ]
+    }
+  },
+  {
+    "id": "1-2-2",
+    "lesson": "1-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many two-digit positive integers contain at least one digit 9?",
+    "questionKo": "두 자리 양의 정수 중 숫자 9가 적어도 하나 들어 있는 수는 몇 개인가?",
+    "choices": [
+      "9",
+      "10",
+      "18",
+      "19",
+      "20"
+    ],
+    "answer": "C",
+    "hints": [
+      "'적어도 하나'가 보이면 반대를 센다: 9가 하나도 없는 두 자리 수.",
+      "9가 없는 수: 십의 자리 1~8의 8가지, 일의 자리 0~8의 9가지.",
+      "90 − 72"
+    ],
+    "solution": "두 자리 수는 10~99로 90개. 9가 하나도 없는 수는 십의 자리 8가지(1~8) × 일의 자리 9가지(0~8) = 72개. 따라서 9가 적어도 하나 있는 수는 $90 - 72 = 18$개.\n\n**검산**: 일의 자리가 9인 수 9개(19, 29, …, 99) + 십의 자리가 9인 수 10개(90~99) − 둘 다인 99 한 개 = 18. 일치.\n\n**오답 짚기**: 19는 99를 두 번 센 것. 20은 '9개 + 10개'에서 중복을 안 뺀 것도 아니고 그냥 더한 뒤 하나를 더한 것이다. 10은 90~99만 센 것.",
+    "verify": {
+      "answer": "sum(1 for n in range(10,100) if '9' in str(n))"
+    }
+  },
+  {
+    "id": "1-2-3",
+    "lesson": "1-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "probability"
+    ],
+    "question": "A fair coin is flipped 4 times. What is the probability that at least one flip shows tails?",
+    "questionKo": "공정한 동전을 4번 던진다. 뒷면이 적어도 한 번 나올 확률은?",
+    "choices": [
+      "$\\frac{1}{16}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{7}{8}$",
+      "$\\frac{15}{16}$"
+    ],
+    "answer": "E",
+    "hints": [
+      "'적어도 한 번'의 반대는 '한 번도 안 나옴', 즉 전부 앞면.",
+      "전부 앞면일 확률은 (1/2)⁴.",
+      "1 − 1/16"
+    ],
+    "solution": "뒷면이 한 번도 나오지 않는 경우는 네 번 모두 앞면일 때뿐이고 그 확률은 $\\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$. 따라서 $1 - \\frac{1}{16} = \\frac{15}{16}$.\n\n**오답 짚기**: 1/16은 반대쪽 확률. 7/8은 동전을 3번 던진 것으로 잘못 계산한 것.",
+    "verify": {
+      "answer": "1 - F(1,16)",
+      "choices": [
+        "F(1,16)",
+        "F(1,2)",
+        "F(3,4)",
+        "F(7,8)",
+        "F(15,16)"
+      ]
+    }
+  },
+  {
+    "id": "1-2-4",
+    "lesson": "1-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many of the integers from 1 to 100 are not multiples of 7?",
+    "questionKo": "1부터 100까지의 정수 중 7의 배수가 아닌 수는 몇 개인가?",
+    "choices": [
+      "14",
+      "85",
+      "86",
+      "87",
+      "93"
+    ],
+    "answer": "C",
+    "hints": [
+      "'~가 아닌'이 보이면 반대(7의 배수)를 세서 전체에서 뺀다.",
+      "1~100 중 7의 배수 개수는 100을 7로 나눈 몫.",
+      "100 − 14"
+    ],
+    "solution": "1~100 중 7의 배수는 $\\lfloor 100/7 \\rfloor = 14$개(7, 14, …, 98). 전체 100개에서 빼면 $100 - 14 = 86$개.\n\n**오답 짚기**: 14는 반대쪽 개수. 85나 87은 몫을 15나 13으로 잘못 계산한 것. $7 \\times 14 = 98 \\le 100 < 105$이므로 14개가 맞다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,101) if n%7!=0)"
+    }
+  },
+  {
+    "id": "1-2-5",
+    "lesson": "1-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "probability"
+    ],
+    "question": "Four fair six-sided dice are rolled. What is the probability that at least one of the dice shows a 6?",
+    "questionKo": "공정한 정육면체 주사위 4개를 던진다. 적어도 한 개의 주사위에서 6이 나올 확률은?",
+    "choices": [
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{625}{1296}$",
+      "$\\frac{671}{1296}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answer": "D",
+    "hints": [
+      "적어도 하나 → 반대는 '6이 하나도 안 나옴'.",
+      "주사위 하나에서 6이 안 나올 확률은 5/6. 네 개가 독립이니 곱한다.",
+      "1 − (5/6)⁴ = 1 − 625/1296"
+    ],
+    "solution": "6이 하나도 나오지 않을 확률은 $\\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296}$. 따라서 적어도 하나 나올 확률은 $1 - \\frac{625}{1296} = \\frac{671}{1296}$.\n\n**오답 짚기**: 625/1296은 반대쪽 확률. 2/3은 '1/6을 네 번 더한 것'인데, 확률은 그렇게 더하면 안 된다(주사위 6개면 1이 넘어 버린다).",
+    "verify": {
+      "answer": "1 - F(5,6)**4",
+      "choices": [
+        "F(1,6)",
+        "F(1,2)",
+        "F(625,1296)",
+        "F(671,1296)",
+        "F(2,3)"
+      ]
+    }
+  },
+  {
+    "id": "1-2-6",
+    "lesson": "1-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many subsets of $\\{1, 2, 3, 4, 5, 6, 7\\}$ contain at least one odd number?",
+    "questionKo": "집합 $\\{1, 2, 3, 4, 5, 6, 7\\}$의 부분집합 중 홀수를 적어도 하나 포함하는 것은 몇 개인가?",
+    "choices": [
+      "112",
+      "120",
+      "124",
+      "127",
+      "128"
+    ],
+    "answer": "B",
+    "hints": [
+      "원소 7개인 집합의 부분집합은 2⁷개. 원소마다 '넣는다/안 넣는다' 두 가지.",
+      "반대: 홀수를 하나도 안 포함 = 짝수 {2, 4, 6}만으로 만든 부분집합.",
+      "2⁷ − 2³"
+    ],
+    "solution": "부분집합은 원소마다 넣을지 말지 2가지씩이므로 전체 $2^7 = 128$개. 홀수가 하나도 없는 부분집합은 $\\{2, 4, 6\\}$의 부분집합이므로 $2^3 = 8$개(공집합 포함). 따라서 $128 - 8 = 120$.\n\n**오답 짚기**: 127은 공집합만 뺀 것. 124는 짝수만으로 된 부분집합을 4개(각 원소 하나씩 + 공집합?)로 잘못 센 것. 홀수가 없는 부분집합은 공집합, {2}, {4}, {6}, {2,4}, {2,6}, {4,6}, {2,4,6}의 8개다.",
+    "verify": {
+      "answer": "sum(1 for r in range(8) for c in combinations(range(1,8),r) if any(x%2==1 for x in c))"
+    }
+  },
+  {
+    "id": "1-2-7",
+    "lesson": "1-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many three-digit positive integers have at least one digit equal to 0?",
+    "questionKo": "세 자리 양의 정수 중 숫자 0이 적어도 하나 들어 있는 수는 몇 개인가?",
+    "choices": [
+      "162",
+      "171",
+      "180",
+      "190",
+      "200"
+    ],
+    "answer": "B",
+    "hints": [
+      "전체 세 자리 수는 900개(999개가 아니다).",
+      "반대: 0이 하나도 없는 수. 세 자리 모두 1~9.",
+      "900 − 9³"
+    ],
+    "solution": "세 자리 수는 100~999의 900개. 0이 하나도 없는 수는 각 자리가 1~9이므로 $9 \\times 9 \\times 9 = 729$개. 따라서 $900 - 729 = 171$개.\n\n**검산**: 십의 자리만 0: 9 × 9 = 81, 일의 자리만 0: 81, 둘 다 0: 9 → 81 + 81 + 9 = 171. 일치.\n\n**오답 짚기**: 180은 '십의 자리 0인 수 90개 + 일의 자리 0인 수 90개'로 100, 200, …, 900을 두 번 센 것. 162는 둘 다 0인 경우를 두 번 뺀 것.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if '0' in str(n))"
+    }
+  },
+  {
+    "id": "1-2-8",
+    "lesson": "1-2",
+    "band": "21-25",
+    "target": 120,
+    "fields": [
+      "probability"
+    ],
+    "question": "A bag contains 4 red marbles and 3 blue marbles. Two marbles are drawn at random without replacement. What is the probability that at least one of them is red?",
+    "questionKo": "주머니에 빨간 구슬 4개와 파란 구슬 3개가 있다. 구슬 2개를 다시 넣지 않고 임의로 꺼낼 때, 적어도 하나가 빨간 구슬일 확률은?",
+    "choices": [
+      "$\\frac{4}{7}$",
+      "$\\frac{5}{7}$",
+      "$\\frac{6}{7}$",
+      "$\\frac{11}{14}$",
+      "$\\frac{13}{14}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "적어도 하나 빨강 → 반대는 둘 다 파랑.",
+      "다시 넣지 않으므로 두 번째 뽑을 때는 구슬이 6개, 파란 구슬이 2개 남는다.",
+      "1 − (3/7)(2/6)"
+    ],
+    "solution": "둘 다 파란 구슬일 확률은 $\\frac{3}{7} \\times \\frac{2}{6} = \\frac{6}{42} = \\frac{1}{7}$. 따라서 적어도 하나가 빨간 구슬일 확률은 $1 - \\frac{1}{7} = \\frac{6}{7}$.\n\n**검산(한꺼번에 뽑기)**: 전체 $\\binom{7}{2} = 21$가지 중 둘 다 파랑은 $\\binom{3}{2} = 3$가지. $1 - \\frac{3}{21} = \\frac{6}{7}$. 일치.\n\n**오답 짚기**: 둘 다 파랑일 확률을 $\\frac{3}{7} \\times \\frac{3}{7} = \\frac{9}{49}$로 계산하면 다시 넣는 경우(복원)가 되어 틀린다.",
+    "verify": {
+      "answer": "F(sum(1 for c in combinations('RRRRBBB',2) if 'R' in c), 21)",
+      "choices": [
+        "F(4,7)",
+        "F(5,7)",
+        "F(6,7)",
+        "F(11,14)",
+        "F(13,14)"
+      ]
+    }
+  },
+  {
+    "id": "1-2-9",
+    "lesson": "1-2",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many positive integers less than or equal to 1000 contain the digit 1 at least once?",
+    "questionKo": "1000 이하의 양의 정수 중 숫자 1이 적어도 한 번 나타나는 수는 몇 개인가?",
+    "choices": [
+      "270",
+      "271",
+      "272",
+      "280",
+      "300"
+    ],
+    "answer": "C",
+    "hints": [
+      "1~999를 000~999의 세 자리로 보고 1이 없는 수를 센다. 그다음 1000을 따로 생각한다.",
+      "1이 없는 세 자리 조합: 각 자리 0~9 중 1을 뺀 9가지 → 9³ = 729개. 여기엔 000도 들어 있다.",
+      "1~999 중 1이 있는 수 = 999 − (729 − 1). 1000도 1이 들어 있다."
+    ],
+    "solution": "000부터 999까지 1000개 중 숫자 1이 없는 조합은 $9^3 = 729$개. 이 중 000은 양의 정수가 아니므로 1~999 중 1이 없는 수는 728개이고, 1이 있는 수는 $999 - 728 = 271$개. 1000은 숫자 1을 포함하므로 하나 더해 $271 + 1 = 272$개.\n\n**오답 짚기**: 271은 1000을 빼먹은 것. 270은 000 처리를 잘못한 것. 300은 '자리마다 100개씩'이라고 어림해 중복을 무시한 것.",
+    "fast": "0~999에서 1이 없는 수 729개 → 1이 있는 수 $1000 - 729 = 271$개(0은 어느 쪽에도 영향 없음: 1이 없는 쪽에 들어 있고 우리가 세는 쪽이 아니다). 여기에 1000을 더해 272. 0을 포함한 범위로 세면 계산이 가장 깔끔하다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,1001) if '1' in str(n))"
+    }
+  },
+  {
+    "id": "1-2-10",
+    "lesson": "1-2",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "probability",
+      "counting"
+    ],
+    "question": "Three friends each independently choose one of four days (Monday, Tuesday, Wednesday, or Thursday) at random to visit the library. What is the probability that at least two of them choose the same day?",
+    "questionKo": "세 친구가 각자 독립적으로 월, 화, 수, 목 네 요일 중 하루를 무작위로 골라 도서관에 간다. 적어도 두 명이 같은 요일을 고를 확률은?",
+    "choices": [
+      "$\\frac{3}{8}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{8}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{13}{16}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "'적어도 두 명이 같음'의 반대는 '세 명이 모두 다른 요일'.",
+      "전체 경우 4³ = 64. 모두 다른 요일: 4 × 3 × 2.",
+      "1 − 24/64"
+    ],
+    "solution": "전체 경우는 $4^3 = 64$가지. 세 명이 모두 다른 요일을 고르는 경우는 $4 \\times 3 \\times 2 = 24$가지이므로 그 확률은 $\\frac{24}{64} = \\frac{3}{8}$. 적어도 두 명이 같은 요일일 확률은 $1 - \\frac{3}{8} = \\frac{5}{8}$.\n\n**오답 짚기**: 3/8은 반대쪽 확률. '적어도 두 명'을 직접 세려면 '정확히 두 명 같음'과 '세 명 모두 같음'을 나눠야 해서 길어진다(각각 36가지, 4가지 → 40/64 = 5/8로 같은 답).",
+    "verify": {
+      "answer": "F(sum(1 for t in product(range(4),repeat=3) if len(set(t))<3),64)",
+      "choices": [
+        "F(3,8)",
+        "F(1,2)",
+        "F(5,8)",
+        "F(3,4)",
+        "F(13,16)"
+      ]
+    }
+  },
+  {
+    "id": "1-3-1",
+    "lesson": "1-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "In a class of 32 students, 20 play soccer, 15 play basketball, and 9 play both. How many students play neither sport?",
+    "questionKo": "32명인 반에서 20명은 축구를 하고, 15명은 농구를 하며, 9명은 둘 다 한다. 두 운동 모두 하지 않는 학생은 몇 명인가?",
+    "choices": [
+      "3",
+      "6",
+      "8",
+      "12",
+      "17"
+    ],
+    "answer": "B",
+    "hints": [
+      "벤 다이어그램을 그리고 가운데(둘 다)부터 채운다.",
+      "둘 중 하나라도 하는 학생 = 20 + 15 − 9.",
+      "32 − 26"
+    ],
+    "solution": "둘 중 하나라도 하는 학생은 $|A \\cup B| = 20 + 15 - 9 = 26$명. 겹친 9명을 두 번 셌으니 한 번 뺀다. 아무것도 안 하는 학생은 $32 - 26 = 6$명.\n\n**오답 짚기**: 겹침을 빼지 않으면 35명이 되어 반 인원보다 많아진다. 그 자체가 틀렸다는 신호다. 17은 32 − 15, 12는 32 − 20으로 한 운동만 뺀 것.",
+    "verify": {
+      "answer": "32-(20+15-9)"
+    }
+  },
+  {
+    "id": "1-3-2",
+    "lesson": "1-3",
+    "band": "1-10",
+    "target": 75,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many integers from 1 to 60 are multiples of 4 or multiples of 6?",
+    "questionKo": "1부터 60까지의 정수 중 4의 배수이거나 6의 배수인 수는 몇 개인가?",
+    "choices": [
+      "18",
+      "20",
+      "22",
+      "23",
+      "25"
+    ],
+    "answer": "B",
+    "hints": [
+      "4의 배수 개수와 6의 배수 개수를 각각 센 다음 '둘 다'를 뺀다.",
+      "둘 다의 배수 = 최소공배수의 배수. 4와 6의 최소공배수는 24가 아니다.",
+      "15 + 10 − 5"
+    ],
+    "solution": "4의 배수: $\\lfloor 60/4 \\rfloor = 15$개. 6의 배수: $\\lfloor 60/6 \\rfloor = 10$개. 둘 다의 배수는 $\\text{lcm}(4, 6) = 12$의 배수로 $\\lfloor 60/12 \\rfloor = 5$개. $15 + 10 - 5 = 20$.\n\n**오답 짚기**: 25는 겹침을 안 뺀 것. 23은 최소공배수를 4 × 6 = 24로 잘못 잡아 2개만 뺀 것. 12, 24, 36, 48, 60은 모두 4의 배수이자 6의 배수다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,61) if n%4==0 or n%6==0)"
+    }
+  },
+  {
+    "id": "1-3-3",
+    "lesson": "1-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many integers from 1 to 200 are neither multiples of 4 nor multiples of 6?",
+    "questionKo": "1부터 200까지의 정수 중 4의 배수도 아니고 6의 배수도 아닌 수는 몇 개인가?",
+    "choices": [
+      "67",
+      "117",
+      "125",
+      "133",
+      "134"
+    ],
+    "answer": "D",
+    "hints": [
+      "'~도 아니고 ~도 아닌' → 전체에서 '4의 배수 또는 6의 배수'를 뺀다.",
+      "4의 배수 50개, 6의 배수 33개, 둘 다인 12의 배수 16개.",
+      "200 − (50 + 33 − 16)"
+    ],
+    "solution": "4의 배수 $\\lfloor 200/4 \\rfloor = 50$개, 6의 배수 $\\lfloor 200/6 \\rfloor = 33$개, 둘 다인 수는 12의 배수 $\\lfloor 200/12 \\rfloor = 16$개. 4 또는 6의 배수는 $50 + 33 - 16 = 67$개. 따라서 둘 다 아닌 수는 $200 - 67 = 133$개.\n\n**오답 짚기**: 67은 '또는'의 개수를 그대로 답한 것. 125는 최소공배수를 24로 잘못 잡은 것($200 - (50 + 33 - 8)$). 117은 겹침을 안 뺀 것($200 - 83$).",
+    "verify": {
+      "answer": "sum(1 for n in range(1,201) if n%4!=0 and n%6!=0)"
+    }
+  },
+  {
+    "id": "1-3-4",
+    "lesson": "1-3",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "counting"
+    ],
+    "question": "Of 50 people surveyed, 28 like coffee, 23 like tea, and 7 like neither. How many like both coffee and tea?",
+    "questionKo": "50명에게 물었더니 28명은 커피를 좋아하고, 23명은 차를 좋아하며, 7명은 둘 다 좋아하지 않는다. 커피와 차를 둘 다 좋아하는 사람은 몇 명인가?",
+    "choices": [
+      "1",
+      "6",
+      "8",
+      "15",
+      "20"
+    ],
+    "answer": "C",
+    "hints": [
+      "둘 중 하나라도 좋아하는 사람 수부터 구한다: 50 − 7.",
+      "43 = 28 + 23 − (둘 다).",
+      "둘 다 = 51 − 43"
+    ],
+    "solution": "둘 중 하나라도 좋아하는 사람은 $50 - 7 = 43$명. 포함배제로 $43 = 28 + 23 - x$이므로 $x = 51 - 43 = 8$명.\n\n**오답 짚기**: 1은 $28 + 23 - 50$으로 '둘 다 안 좋아하는 7명'을 빼먹은 것. 벤 다이어그램 바깥에 7을 먼저 써 두면 안 틀린다.",
+    "verify": {
+      "answer": "28+23-(50-7)"
+    }
+  },
+  {
+    "id": "1-3-5",
+    "lesson": "1-3",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many integers from 1 to 100 are multiples of 3 or 5, but not both?",
+    "questionKo": "1부터 100까지의 정수 중 3의 배수이거나 5의 배수이지만 둘 다는 아닌 수는 몇 개인가?",
+    "choices": [
+      "29",
+      "35",
+      "41",
+      "47",
+      "53"
+    ],
+    "answer": "C",
+    "hints": [
+      "'정확히 하나만'은 겹친 부분을 아예 빼야 한다.",
+      "정확히 하나만 = |A| + |B| − 2|A ∩ B|.",
+      "33 + 20 − 2 × 6"
+    ],
+    "solution": "3의 배수 33개, 5의 배수 20개, 둘 다(15의 배수) 6개. '정확히 하나만'은 겹친 부분을 양쪽에서 모두 빼야 하므로 $33 + 20 - 2 \\times 6 = 41$개.\n\n**검산**: 3의 배수만 $33 - 6 = 27$개, 5의 배수만 $20 - 6 = 14$개 → $27 + 14 = 41$.\n\n**오답 짚기**: 47은 '또는'($33 + 20 - 6$)을 답한 것. '둘 다는 아닌'을 읽었으면 15의 배수는 완전히 빠져야 한다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,101) if (n%3==0) != (n%5==0))"
+    }
+  },
+  {
+    "id": "1-3-6",
+    "lesson": "1-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "Among 40 students, 22 are in the math club, 18 in the science club, and 16 in the art club. Also, 8 are in both math and science, 7 in both science and art, 9 in both math and art, and 4 are in all three clubs. How many students are in none of the three clubs?",
+    "questionKo": "학생 40명 중 수학 동아리 22명, 과학 동아리 18명, 미술 동아리 16명이다. 수학과 과학 둘 다 8명, 과학과 미술 둘 다 7명, 수학과 미술 둘 다 9명이고, 세 동아리 모두에 든 학생은 4명이다. 세 동아리 어디에도 들지 않은 학생은 몇 명인가?",
+    "choices": [
+      "0",
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "answer": "C",
+    "hints": [
+      "세 집합 포함배제: 하나씩 더하고, 둘씩 겹친 걸 빼고, 셋 다 겹친 걸 다시 더한다.",
+      "22 + 18 + 16 − 8 − 7 − 9 + 4",
+      "하나라도 든 학생은 36명."
+    ],
+    "solution": "$|A \\cup B \\cup C| = 22 + 18 + 16 - 8 - 7 - 9 + 4 = 36$명. 세 겹 부분은 세 번 더해지고 세 번 빠졌으니 한 번 다시 더해야 한다. 어디에도 안 든 학생은 $40 - 36 = 4$명.\n\n**오답 짚기**: 8은 마지막 +4를 빠뜨린 것($40 - 32$). 0은 둘씩 겹친 부분을 안 뺀 것(56 > 40, 말이 안 된다).",
+    "verify": {
+      "answer": "40-(22+18+16-8-7-9+4)"
+    }
+  },
+  {
+    "id": "1-3-7",
+    "lesson": "1-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many integers from 1 to 300 are divisible by none of 2, 3, and 5?",
+    "questionKo": "1부터 300까지의 정수 중 2, 3, 5 어느 것으로도 나누어떨어지지 않는 수는 몇 개인가?",
+    "choices": [
+      "70",
+      "80",
+      "90",
+      "100",
+      "110"
+    ],
+    "answer": "B",
+    "hints": [
+      "전체에서 '2, 3, 5 중 하나라도로 나누어떨어지는 수'를 뺀다.",
+      "하나씩: 150 + 100 + 60. 둘씩(6, 10, 15의 배수): 50 + 30 + 20. 셋 다(30의 배수): 10.",
+      "300 − (310 − 100 + 10)"
+    ],
+    "solution": "2, 3, 5 중 하나라도로 나누어떨어지는 수: $(150 + 100 + 60) - (50 + 30 + 20) + 10 = 220$개. 따라서 셋 다 아닌 수는 $300 - 220 = 80$개.\n\n**검산**: 1~30 중 2, 3, 5 어느 것으로도 안 나누어지는 수는 1, 7, 11, 13, 17, 19, 23, 29의 8개. 300은 30의 10배이고 이 성질은 30마다 반복되므로 $8 \\times 10 = 80$. 일치.",
+    "fast": "2·3·5 = 30 주기로 반복된다는 걸 쓰면 1~30만 손으로 세고 10을 곱하면 끝(8 × 10 = 80).",
+    "verify": {
+      "answer": "sum(1 for n in range(1,301) if n%2 and n%3 and n%5)"
+    }
+  },
+  {
+    "id": "1-3-8",
+    "lesson": "1-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many three-digit positive integers are divisible by 7 or by 11?",
+    "questionKo": "세 자리 양의 정수 중 7 또는 11로 나누어떨어지는 수는 몇 개인가?",
+    "choices": [
+      "187",
+      "198",
+      "205",
+      "209",
+      "220"
+    ],
+    "answer": "B",
+    "hints": [
+      "범위가 1부터가 아니다. 100~999 사이 k의 배수 = ⌊999/k⌋ − ⌊99/k⌋.",
+      "7의 배수 142 − 14 = 128개, 11의 배수 90 − 9 = 81개.",
+      "둘 다는 77의 배수: 12 − 1 = 11개."
+    ],
+    "solution": "100~999 사이의 7의 배수: $\\lfloor 999/7 \\rfloor - \\lfloor 99/7 \\rfloor = 142 - 14 = 128$개. 11의 배수: $90 - 9 = 81$개. 둘 다인 77의 배수: $\\lfloor 999/77 \\rfloor - \\lfloor 99/77 \\rfloor = 12 - 1 = 11$개. $128 + 81 - 11 = 198$.\n\n**오답 짚기**: 209는 겹침을 안 뺀 것. 220은 1~999로 세고 1~99를 빼지 않은 것에 가깝다. 범위 시작이 1이 아니면 '큰 쪽 몫 − 작은 쪽 몫'을 꼭 쓴다.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if n%7==0 or n%11==0)"
+    }
+  },
+  {
+    "id": "1-3-9",
+    "lesson": "1-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many positive integers less than or equal to 1000 are perfect squares or perfect cubes?",
+    "questionKo": "1000 이하의 양의 정수 중 완전제곱수이거나 완전세제곱수인 수는 몇 개인가?",
+    "choices": [
+      "36",
+      "38",
+      "40",
+      "41",
+      "42"
+    ],
+    "answer": "B",
+    "hints": [
+      "제곱수는 31² = 961까지 31개, 세제곱수는 10³ = 1000까지 10개.",
+      "둘 다인 수는 여섯제곱수 n⁶.",
+      "1, 64, 729가 둘 다에 들어간다."
+    ],
+    "solution": "1000 이하 완전제곱수는 $1^2$부터 $31^2 = 961$까지 31개, 완전세제곱수는 $1^3$부터 $10^3 = 1000$까지 10개. 둘 다인 수는 $n^6$ 꼴로 $1, 64, 729$의 3개. $31 + 10 - 3 = 38$.\n\n**오답 짚기**: 41은 겹침을 안 뺀 것. 40은 겹치는 수를 1만 생각한 것. 64 = 8² = 4³, 729 = 27² = 9³도 양쪽에 들어간다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,1001) if isqrt(n)**2==n or round(n**(1/3))**3==n)"
+    }
+  },
+  {
+    "id": "1-3-10",
+    "lesson": "1-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting",
+      "numberTheory"
+    ],
+    "question": "How many integers from 1 to 1000 are divisible by exactly one of the numbers 6 and 10?",
+    "questionKo": "1부터 1000까지의 정수 중 6과 10 가운데 정확히 하나로만 나누어떨어지는 수는 몇 개인가?",
+    "choices": [
+      "100",
+      "166",
+      "200",
+      "233",
+      "266"
+    ],
+    "answer": "C",
+    "hints": [
+      "6의 배수 166개, 10의 배수 100개.",
+      "둘 다의 배수는 lcm(6, 10) = 30의 배수로 33개. 60이 아니다.",
+      "정확히 하나 = 166 + 100 − 2 × 33"
+    ],
+    "solution": "6의 배수 $\\lfloor 1000/6 \\rfloor = 166$개, 10의 배수 100개, 둘 다인 수는 $\\text{lcm}(6, 10) = 30$의 배수로 $\\lfloor 1000/30 \\rfloor = 33$개. 정확히 하나로만 나누어떨어지는 수는 $166 + 100 - 2 \\times 33 = 200$개.\n\n**오답 짚기**: 233은 '또는'의 개수($166 + 100 - 33$). 266은 겹침을 무시한 것. 최소공배수를 60으로 잡으면 겹침이 16개가 되어 234가 나오는데 선택지에 없으니 그 자체로 경고다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,1001) if (n%6==0) != (n%10==0))"
+    }
+  },
+  {
+    "id": "1-4-1",
+    "lesson": "1-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many different arrangements of the letters in the word NOON are there?",
+    "questionKo": "NOON의 네 글자를 재배열하는 서로 다른 방법은 몇 가지인가?",
+    "choices": [
+      "4",
+      "6",
+      "12",
+      "24",
+      "36"
+    ],
+    "answer": "B",
+    "hints": [
+      "네 글자가 다 다르다 치고 4!을 센 다음, 같은 글자끼리 바꿔도 같은 단어라는 걸 반영한다.",
+      "N 두 개를 바꿔도 같고, O 두 개를 바꿔도 같다.",
+      "4! ÷ (2! × 2!)"
+    ],
+    "solution": "네 글자가 모두 다르다면 $4! = 24$가지. 그런데 N끼리 바꿔도, O끼리 바꿔도 같은 단어이므로 각 단어가 $2 \\times 2 = 4$번씩 세어졌다. $\\frac{4!}{2!\\,2!} = 6$.\n\n**검산**: 직접 쓰기. NNOO, NONO, NOON, ONNO, ONON, OONN의 6가지.\n\n**오답 짚기**: 12는 같은 글자를 한 쌍만 빼고 나눈 것. 24는 전부 다른 글자로 본 것.",
+    "verify": {
+      "answer": "len(set(permutations('NOON')))"
+    }
+  },
+  {
+    "id": "1-4-2",
+    "lesson": "1-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "Eight people at a meeting each shake hands exactly once with every other person. How many handshakes take place?",
+    "questionKo": "모임에 온 8명이 서로 한 번씩 빠짐없이 악수한다. 악수는 모두 몇 번 일어나는가?",
+    "choices": [
+      "16",
+      "28",
+      "36",
+      "56",
+      "64"
+    ],
+    "answer": "B",
+    "hints": [
+      "한 사람당 7명과 악수한다. 8 × 7은 무엇을 두 번 세나?",
+      "악수 한 번은 두 사람에게서 각각 세어진다.",
+      "8 × 7 ÷ 2"
+    ],
+    "solution": "각자 자기 말고 7명과 악수하므로 $8 \\times 7 = 56$. 그런데 A와 B의 악수는 A 쪽에서도 B 쪽에서도 세어져 모든 악수가 정확히 두 번씩 세어진다. $56 \\div 2 = 28$.\n\n**오답 짚기**: 56은 2로 나누지 않은 것, 64는 자기 자신과의 악수까지 센 것(8 × 8). 36은 9명일 때의 답.",
+    "verify": {
+      "answer": "8*7//2"
+    }
+  },
+  {
+    "id": "1-4-3",
+    "lesson": "1-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 220 220\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><polygon points=\"110,20 173.6,46.4 200,110 173.6,173.6 110,200 46.4,173.6 20,110 46.4,46.4\"/><g stroke-opacity=\"0.35\" stroke-dasharray=\"3 3\"><line x1=\"110\" y1=\"20\" x2=\"200\" y2=\"110\"/><line x1=\"110\" y1=\"20\" x2=\"173.6\" y2=\"173.6\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"200\"/><line x1=\"110\" y1=\"20\" x2=\"46.4\" y2=\"173.6\"/><line x1=\"110\" y1=\"20\" x2=\"20\" y2=\"110\"/></g></g><g fill=\"currentColor\"><circle cx=\"110\" cy=\"20\" r=\"3.5\"/><circle cx=\"173.6\" cy=\"46.4\" r=\"3.5\"/><circle cx=\"200\" cy=\"110\" r=\"3.5\"/><circle cx=\"173.6\" cy=\"173.6\" r=\"3.5\"/><circle cx=\"110\" cy=\"200\" r=\"3.5\"/><circle cx=\"46.4\" cy=\"173.6\" r=\"3.5\"/><circle cx=\"20\" cy=\"110\" r=\"3.5\"/><circle cx=\"46.4\" cy=\"46.4\" r=\"3.5\"/></g><text x=\"110\" y=\"12\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.7\">한 꼭짓점에서 5개</text></svg>",
+    "question": "How many diagonals does a regular octagon have?",
+    "questionKo": "정팔각형의 대각선은 모두 몇 개인가?",
+    "choices": [
+      "16",
+      "20",
+      "24",
+      "28",
+      "40"
+    ],
+    "answer": "B",
+    "hints": [
+      "한 꼭짓점에서 자기 자신과 양옆 이웃을 뺀 꼭짓점으로 대각선을 그을 수 있다.",
+      "꼭짓점 8개 × 5개 = 40. 대각선 하나가 몇 번 세어졌나?",
+      "40 ÷ 2"
+    ],
+    "solution": "꼭짓점마다 자기 자신과 이웃 둘을 뺀 $8 - 3 = 5$개의 꼭짓점으로 대각선을 그을 수 있다. $8 \\times 5 = 40$인데 대각선 하나가 양 끝 꼭짓점에서 두 번 세어졌으므로 $40 \\div 2 = 20$. 일반식 $\\frac{n(n-3)}{2}$.\n\n**오답 짚기**: 40은 2로 나누지 않은 것. 28은 변까지 포함한 '두 점을 잇는 선분' 전체($\\binom{8}{2}$)이고, 거기서 변 8개를 빼면 20이 된다.",
+    "verify": {
+      "answer": "8*5//2",
+      "methods": [
+        "8*(8-3)//2",
+        "comb(8,2)-8"
+      ]
+    }
+  },
+  {
+    "id": "1-4-4",
+    "lesson": "1-4",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many different arrangements of the letters in the word BANANA are there?",
+    "questionKo": "BANANA의 여섯 글자를 재배열하는 서로 다른 방법은 몇 가지인가?",
+    "choices": [
+      "30",
+      "60",
+      "120",
+      "360",
+      "720"
+    ],
+    "answer": "B",
+    "hints": [
+      "글자 수를 센다: A 3개, N 2개, B 1개.",
+      "6!에서 A끼리의 3!, N끼리의 2!로 나눈다.",
+      "720 ÷ (6 × 2)"
+    ],
+    "solution": "여섯 글자가 모두 다르다면 $6! = 720$. A 세 개를 서로 바꾸는 $3! = 6$가지, N 두 개를 바꾸는 $2! = 2$가지는 같은 단어를 만드므로 $\\frac{6!}{3!\\,2!} = \\frac{720}{12} = 60$.\n\n**오답 짚기**: 120은 N의 2!을 빼먹은 것, 360은 A의 3!을 2!로 잘못 센 것. 글자 개수를 세고 나서 하나씩 표시하며 나누자.",
+    "verify": {
+      "answer": "len(set(permutations('BANANA')))",
+      "methods": [
+        "factorial(6)//(factorial(3)*factorial(2))"
+      ]
+    }
+  },
+  {
+    "id": "1-4-5",
+    "lesson": "1-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many arrangements of the letters in the word BANANA have the two N's not next to each other?",
+    "questionKo": "BANANA의 여섯 글자를 재배열할 때, N 두 개가 서로 이웃하지 않는 배열은 몇 가지인가?",
+    "choices": [
+      "20",
+      "30",
+      "36",
+      "40",
+      "48"
+    ],
+    "answer": "D",
+    "hints": [
+      "'이웃하지 않는' 경우는 전체에서 '이웃하는' 경우를 빼는 게 쉽다.",
+      "N 두 개를 한 덩어리 NN으로 묶으면 NN, B, A, A, A의 5개를 배열하는 것.",
+      "60 − 5!/3!"
+    ],
+    "solution": "전체 배열은 $\\frac{6!}{3!\\,2!} = 60$가지. N 두 개가 붙어 있는 경우는 NN을 한 글자처럼 묶어 NN, B, A, A, A 다섯 개를 배열하는 것이므로 $\\frac{5!}{3!} = 20$가지(N 두 개는 같은 글자라 덩어리 안 순서는 1가지). 따라서 $60 - 20 = 40$.\n\n**검산(틈에 넣기)**: B, A, A, A를 먼저 배열하면 $\\frac{4!}{3!} = 4$가지, 그 사이와 양끝의 틈 5개 중 N이 들어갈 2곳을 고르면 $\\binom{5}{2} = 10$가지 → $4 \\times 10 = 40$. 일치.\n\n**오답 짚기**: 20은 '붙어 있는 경우'를 답한 것. 덩어리 안에서 N을 바꾸는 2를 곱해 40을 빼면 20이 나오는데, 같은 글자끼리는 바꿔도 새 배열이 아니다.",
+    "verify": {
+      "answer": "sum(1 for p in set(permutations('BANANA')) if 'NN' not in ''.join(p))",
+      "methods": [
+        "60 - factorial(5)//factorial(3)",
+        "(factorial(4)//factorial(3)) * comb(5,2)"
+      ]
+    }
+  },
+  {
+    "id": "1-4-6",
+    "lesson": "1-4",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "Seven friends sit around a round table. Two seatings are considered the same if one can be rotated to give the other. How many different seatings are there?",
+    "questionKo": "친구 7명이 원탁에 둘러앉는다. 한 배치를 회전해서 다른 배치가 되면 같은 배치로 본다. 서로 다른 배치는 몇 가지인가?",
+    "choices": [
+      "120",
+      "720",
+      "840",
+      "2520",
+      "5040"
+    ],
+    "answer": "B",
+    "hints": [
+      "일렬이면 7! = 5040. 원탁에선 한 배치를 몇 칸씩 돌려도 같은 배치다.",
+      "한 배치가 7번씩(0칸, 1칸, …, 6칸 회전) 세어진다.",
+      "5040 ÷ 7 = 6!"
+    ],
+    "solution": "일렬로 세우면 $7! = 5040$가지. 원탁에서는 한 배치를 7가지 방향으로 회전한 것이 모두 같은 배치이므로 $5040 \\div 7 = 720 = 6!$.\n\n**다른 관점**: 한 명을 아무 자리에 고정하면 나머지 6명을 일렬로 세우는 것과 같아 $6! = 720$.\n\n**오답 짚기**: 5040은 회전을 고려하지 않은 것. 뒤집기까지 같다고 보면 360이 되지만, 문제는 회전만 같다고 했다.",
+    "verify": {
+      "answer": "factorial(6)",
+      "methods": [
+        "factorial(7)//7"
+      ]
+    }
+  },
+  {
+    "id": "1-4-7",
+    "lesson": "1-4",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "A bracelet is made by stringing 6 different beads in a circle. Two bracelets are the same if one can be rotated or flipped over to give the other. How many different bracelets can be made?",
+    "questionKo": "서로 다른 구슬 6개를 원형으로 꿰어 팔찌를 만든다. 회전하거나 뒤집어서 같아지는 팔찌는 같은 것으로 본다. 서로 다른 팔찌는 몇 가지인가?",
+    "choices": [
+      "30",
+      "60",
+      "120",
+      "360",
+      "720"
+    ],
+    "answer": "B",
+    "hints": [
+      "먼저 회전만 같다고 보면 원순열 (6 − 1)! = 120.",
+      "팔찌는 뒤집을 수도 있다. 뒤집으면 각 배치가 또 하나의 배치와 짝이 된다.",
+      "120 ÷ 2"
+    ],
+    "solution": "회전만 같다고 보면 원순열로 $(6-1)! = 120$가지. 팔찌는 뒤집어도 같은 것이므로 시계 방향 배치와 반시계 방향 배치가 한 쌍씩 묶여 $120 \\div 2 = 60$.\n\n**오답 짚기**: 120은 뒤집기를 빠뜨린 것(원탁 자리 배치라면 120이 맞다). 문제에 '뒤집어서'라는 말이 있는지 꼭 확인.",
+    "verify": {
+      "answer": "factorial(5)//2"
+    }
+  },
+  {
+    "id": "1-4-8",
+    "lesson": "1-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "question": "In how many ways can 8 students be divided into 4 pairs for a project? (The pairs are not labeled.)",
+    "questionKo": "학생 8명을 2명씩 4개 조로 나누는 방법은 몇 가지인가? (조에는 이름이나 순서가 없다.)",
+    "choices": [
+      "28",
+      "70",
+      "105",
+      "210",
+      "420"
+    ],
+    "answer": "C",
+    "hints": [
+      "8명을 일렬로 세우고 앞에서부터 둘씩 끊으면 조가 생긴다. 8!에서 무엇이 중복되나?",
+      "각 조 안에서 두 명의 순서(2!씩 4개 조), 그리고 조끼리의 순서(4!)는 결과를 바꾸지 않는다.",
+      "8! ÷ (2⁴ × 4!)"
+    ],
+    "solution": "8명을 일렬로 세워 앞에서부터 둘씩 묶으면 조가 정해진다: $8! = 40320$. 그런데 각 조 안의 두 명을 바꿔도($2^4 = 16$), 네 조의 순서를 바꿔도($4! = 24$) 같은 나눔이다. $\\frac{8!}{2^4 \\cdot 4!} = \\frac{40320}{384} = 105$.\n\n**다른 방법**: 가장 어린 학생의 짝을 고르는 7가지, 그다음 남은 사람 중 가장 어린 학생의 짝 5가지, 그다음 3가지, 마지막 1가지 → $7 \\times 5 \\times 3 \\times 1 = 105$.\n\n**오답 짚기**: 2520은 조 순서 4!로 나누지 않은 것. 70은 $\\binom{8}{4}$로 '4명씩 두 조'를 센 것.",
+    "verify": {
+      "answer": "factorial(8)//(2**4*factorial(4))",
+      "methods": [
+        "7*5*3*1"
+      ]
+    }
+  },
+  {
+    "id": "1-4-9",
+    "lesson": "1-4",
+    "band": "21-25",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 220 220\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"110\" cy=\"110\" r=\"90\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-opacity=\"0.5\"/><g stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.35\"><line x1=\"110\" y1=\"20\" x2=\"162.9\" y2=\"37.2\"/><line x1=\"110\" y1=\"20\" x2=\"195.6\" y2=\"82.2\"/><line x1=\"110\" y1=\"20\" x2=\"195.6\" y2=\"137.8\"/><line x1=\"110\" y1=\"20\" x2=\"162.9\" y2=\"182.8\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"200\"/><line x1=\"110\" y1=\"20\" x2=\"57.1\" y2=\"182.8\"/><line x1=\"110\" y1=\"20\" x2=\"24.4\" y2=\"137.8\"/><line x1=\"110\" y1=\"20\" x2=\"24.4\" y2=\"82.2\"/><line x1=\"110\" y1=\"20\" x2=\"57.1\" y2=\"37.2\"/></g><g fill=\"currentColor\"><circle cx=\"110\" cy=\"20\" r=\"3.5\"/><circle cx=\"162.9\" cy=\"37.2\" r=\"3.5\"/><circle cx=\"195.6\" cy=\"82.2\" r=\"3.5\"/><circle cx=\"195.6\" cy=\"137.8\" r=\"3.5\"/><circle cx=\"162.9\" cy=\"182.8\" r=\"3.5\"/><circle cx=\"110\" cy=\"200\" r=\"3.5\"/><circle cx=\"57.1\" cy=\"182.8\" r=\"3.5\"/><circle cx=\"24.4\" cy=\"137.8\" r=\"3.5\"/><circle cx=\"24.4\" cy=\"82.2\" r=\"3.5\"/><circle cx=\"57.1\" cy=\"37.2\" r=\"3.5\"/></g></svg>",
+    "question": "Ten points are marked on a circle. How many line segments can be drawn that connect two of the marked points?",
+    "questionKo": "원 위에 점 10개가 찍혀 있다. 이 점들 중 두 점을 잇는 선분은 모두 몇 개 그을 수 있는가?",
+    "choices": [
+      "20",
+      "45",
+      "50",
+      "90",
+      "100"
+    ],
+    "answer": "B",
+    "hints": [
+      "점 하나에서 다른 9개 점으로 선분을 그을 수 있다.",
+      "10 × 9에서 선분 하나가 두 번씩 세어진다(양 끝점에서 한 번씩).",
+      "90 ÷ 2"
+    ],
+    "solution": "각 점에서 나머지 9개 점으로 선분을 그을 수 있으므로 $10 \\times 9 = 90$. 선분 하나는 양 끝점에서 각각 한 번씩, 두 번 세어졌으므로 $90 \\div 2 = 45$. 악수 문제와 완전히 같은 구조다.\n\n**오답 짚기**: 90은 2로 나누지 않은 것, 100은 점 자신과 잇는 것까지 센 것(10 × 10).",
+    "verify": {
+      "answer": "10*9//2",
+      "methods": [
+        "comb(10,2)"
+      ]
+    }
+  },
+  {
+    "id": "1-4-10",
+    "lesson": "1-4",
+    "band": "21-25",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many different arrangements of the letters in the word SUCCESS are there?",
+    "questionKo": "SUCCESS의 일곱 글자를 재배열하는 서로 다른 방법은 몇 가지인가?",
+    "choices": [
+      "210",
+      "420",
+      "840",
+      "1260",
+      "5040"
+    ],
+    "answer": "B",
+    "hints": [
+      "글자 수를 센다: S 3개, C 2개, U 1개, E 1개.",
+      "7!에서 S의 3!과 C의 2!로 나눈다.",
+      "5040 ÷ 12"
+    ],
+    "solution": "일곱 글자가 모두 다르다면 $7! = 5040$. S 세 개끼리 바꾸는 $3! = 6$, C 두 개끼리 바꾸는 $2! = 2$는 같은 단어이므로 $\\frac{7!}{3!\\,2!} = \\frac{5040}{12} = 420$.\n\n**오답 짚기**: 840은 S를 2개로 잘못 센 것(SUCCESS에는 S가 앞에 하나, 뒤에 둘, 모두 세 개). 1260은 C의 2!을 빼먹은 것. 긴 단어는 글자를 하나씩 체크하며 세자.",
+    "verify": {
+      "answer": "len(set(permutations('SUCCESS')))",
+      "methods": [
+        "factorial(7)//(factorial(3)*factorial(2))"
+      ]
+    }
+  },
+  {
+    "id": "1-5-1",
+    "lesson": "1-5",
+    "band": "1-10",
+    "target": 75,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 260 150\" width=\"260\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"><path d=\"M10 140 H40 V122 H70 V104 H100 V86 H130 V68 H160 V50 H190 V32 H220 V14 H250\"/></g><g font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\" text-anchor=\"middle\"><text x=\"55\" y=\"137\">1</text><text x=\"85\" y=\"119\">2</text><text x=\"115\" y=\"101\">3</text><text x=\"145\" y=\"83\">4</text><text x=\"175\" y=\"65\">5</text><text x=\"205\" y=\"47\">6</text><text x=\"235\" y=\"29\">7</text></g><circle cx=\"22\" cy=\"132\" r=\"6\" fill=\"currentColor\" opacity=\"0.8\"/></svg>",
+    "question": "A frog climbs a staircase of 7 steps. With each jump it goes up either 1 step or 2 steps. In how many different ways can the frog reach the top?",
+    "questionKo": "개구리가 7칸짜리 계단을 오른다. 한 번 뛸 때마다 1칸 또는 2칸을 오른다. 꼭대기까지 오르는 방법은 몇 가지인가?",
+    "choices": [
+      "13",
+      "15",
+      "20",
+      "21",
+      "34"
+    ],
+    "answer": "D",
+    "hints": [
+      "작은 경우부터: 1칸 1가지, 2칸 2가지, 3칸 3가지.",
+      "마지막 한 번이 1칸이었거나 2칸이었거나 → f(n) = f(n−1) + f(n−2).",
+      "1, 2, 3, 5, 8, 13, …"
+    ],
+    "solution": "$f(1) = 1$, $f(2) = 2$. n칸을 오르는 마지막 걸음이 1칸이면 그 전까지 $n-1$칸, 2칸이면 $n-2$칸을 올라온 것이므로 $f(n) = f(n-1) + f(n-2)$. 표로 쌓으면 1, 2, 3, 5, 8, 13, **21**.\n\n**오답 짚기**: 13은 6칸의 답(한 칸 밀림). 34는 8칸의 답. 표를 적을 때 n을 같이 적어야 밀리지 않는다.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    return 1 if n==0 else sum(f(n-s) for s in (1,2) if s<=n)\n''')\nresult = f(7)"
+    }
+  },
+  {
+    "id": "1-5-2",
+    "lesson": "1-5",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 240 140\" width=\"240\" height=\"140\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\" stroke-linejoin=\"round\"><path d=\"M10 130 H40 V110 H75 V90 H110 V70 H145 V50 H180 V30 H215 V10 H235\"/></g><g font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\" text-anchor=\"middle\"><text x=\"57\" y=\"127\">1</text><text x=\"92\" y=\"107\">2</text><text x=\"127\" y=\"87\">3</text><text x=\"162\" y=\"67\">4</text><text x=\"197\" y=\"47\">5</text><text x=\"225\" y=\"27\">6</text></g><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\" opacity=\"0.5\"><path d=\"M25 118 Q40 95 57 100\"/><path d=\"M57 100 Q90 60 127 80\"/><path d=\"M127 80 Q180 10 225 20\"/></g><g font-size=\"9\" fill=\"currentColor\" opacity=\"0.6\" text-anchor=\"middle\"><text x=\"40\" y=\"96\">1</text><text x=\"92\" y=\"62\">2</text><text x=\"176\" y=\"18\">3</text></g></svg>",
+    "question": "A staircase has 6 steps. Going up, you may take 1, 2, or 3 steps at a time. In how many different ways can you climb the staircase?",
+    "questionKo": "6칸짜리 계단이 있다. 한 번에 1칸, 2칸, 또는 3칸씩 오를 수 있을 때, 계단을 오르는 방법은 몇 가지인가?",
+    "choices": [
+      "13",
+      "20",
+      "24",
+      "27",
+      "32"
+    ],
+    "answer": "C",
+    "hints": [
+      "마지막 한 걸음이 1칸, 2칸, 3칸 중 하나 → f(n) = f(n−1) + f(n−2) + f(n−3).",
+      "시작값은 직접: f(1) = 1, f(2) = 2, f(3) = 4 (1+1+1, 1+2, 2+1, 3).",
+      "4, 7, 13, 24"
+    ],
+    "solution": "마지막 걸음으로 경우를 나누면 $f(n) = f(n-1) + f(n-2) + f(n-3)$. 시작값은 직접 센다: $f(1) = 1$, $f(2) = 2$, $f(3) = 4$. 그러면 $f(4) = 4 + 2 + 1 = 7$, $f(5) = 7 + 4 + 2 = 13$, $f(6) = 13 + 7 + 4 = 24$.\n\n**오답 짚기**: 13은 $f(5)$, 즉 한 칸 밀린 것. $f(3)$을 3으로 잘못 세면(3칸 한 번에 오르기를 빼먹음) 뒤가 전부 틀어진다. 20은 그 결과($f = 1, 2, 3, 6, 11, 20$).",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    return 1 if n==0 else sum(f(n-s) for s in (1,2,3) if s<=n)\n''')\nresult = f(6)"
+    }
+  },
+  {
+    "id": "1-5-3",
+    "lesson": "1-5",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many strings of six digits, each digit 0 or 1, have no two 1's next to each other?",
+    "questionKo": "0과 1로만 이루어진 여섯 자리 문자열 중 1이 두 개 연달아 나오지 않는 것은 몇 개인가?",
+    "choices": [
+      "13",
+      "20",
+      "21",
+      "32",
+      "34"
+    ],
+    "answer": "C",
+    "hints": [
+      "길이 1: 2개, 길이 2: 3개(00, 01, 10). 길이 3은 직접 써 보자.",
+      "마지막이 0이면 앞은 자유, 마지막이 1이면 바로 앞은 0이고 그 앞은 자유.",
+      "2, 3, 5, 8, 13, 21"
+    ],
+    "solution": "마지막 글자로 경우를 나눈다. 마지막이 0이면 앞 $n-1$글자는 조건만 맞으면 되므로 $f(n-1)$, 마지막이 1이면 그 앞은 반드시 0이고 그 앞 $n-2$글자는 자유이므로 $f(n-2)$. $f(n) = f(n-1) + f(n-2)$, $f(1) = 2$, $f(2) = 3$ → 2, 3, 5, 8, 13, **21**.\n\n**오답 짚기**: 13은 길이 5의 답. 32는 2⁵, 34는 길이 7의 답. 시작값이 1, 2가 아니라 2, 3이라는 데 주의(길이 1은 0과 1 둘 다 허용).",
+    "verify": {
+      "answer": "sum(1 for s in product('01',repeat=6) if '11' not in ''.join(s))"
+    }
+  },
+  {
+    "id": "1-5-4",
+    "lesson": "1-5",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 300 70\" width=\"300\" height=\"70\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\"><rect x=\"10\" y=\"15\" width=\"30\" height=\"30\" fill=\"#DB433D\" fill-opacity=\"0.35\"/><rect x=\"40\" y=\"15\" width=\"90\" height=\"30\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"130\" y=\"15\" width=\"30\" height=\"30\" fill=\"#DB433D\" fill-opacity=\"0.35\"/><rect x=\"160\" y=\"15\" width=\"90\" height=\"30\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"250\" y=\"15\" width=\"30\" height=\"30\" fill=\"#DB433D\" fill-opacity=\"0.35\"/></g><g fill=\"currentColor\" font-size=\"10\" opacity=\"0.7\"><text x=\"10\" y=\"62\">1×1 빨강과 1×3 파랑으로 1×9를 덮은 예</text></g></svg>",
+    "question": "A $1 \\times 8$ strip is to be completely covered, without overlap, using $1 \\times 1$ red tiles and $1 \\times 3$ blue tiles. How many different tilings are possible?",
+    "questionKo": "$1 \\times 8$ 띠를 $1 \\times 1$ 빨간 타일과 $1 \\times 3$ 파란 타일로 겹치지 않게 빈틈없이 덮으려고 한다. 가능한 서로 다른 덮기 방법은 몇 가지인가?",
+    "choices": [
+      "9",
+      "12",
+      "13",
+      "21",
+      "34"
+    ],
+    "answer": "C",
+    "hints": [
+      "맨 오른쪽 끝을 덮는 타일이 1×1이면 나머지는 1×(n−1), 1×3이면 나머지는 1×(n−3).",
+      "f(n) = f(n−1) + f(n−3). f(1) = 1, f(2) = 1, f(3) = 2.",
+      "1, 1, 2, 3, 4, 6, 9, 13"
+    ],
+    "solution": "맨 오른쪽 칸을 덮는 타일로 경우를 나누면 $f(n) = f(n-1) + f(n-3)$. 시작값 $f(1) = 1$, $f(2) = 1$, $f(3) = 2$(빨강 셋 또는 파랑 하나). 이어서 $f(4) = 2 + 1 = 3$, $f(5) = 3 + 1 = 4$, $f(6) = 4 + 2 = 6$, $f(7) = 6 + 3 = 9$, $f(8) = 9 + 4 = 13$.\n\n**오답 짚기**: 21과 34는 1×2 타일일 때의 피보나치 값. 타일 길이가 3이면 점화식이 $f(n-1) + f(n-3)$이 된다. 9는 $f(7)$.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    return 1 if n==0 else sum(f(n-s) for s in (1,3) if s<=n)\n''')\nresult = f(8)"
+    }
+  },
+  {
+    "id": "1-5-5",
+    "lesson": "1-5",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 320 130\" width=\"320\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><rect x=\"8\" y=\"8\" width=\"90\" height=\"90\" rx=\"4\"/><line x1=\"8\" y1=\"60\" x2=\"98\" y2=\"30\"/><rect x=\"115\" y=\"8\" width=\"90\" height=\"90\" rx=\"4\"/><line x1=\"115\" y1=\"60\" x2=\"205\" y2=\"30\"/><line x1=\"140\" y1=\"8\" x2=\"175\" y2=\"98\"/><rect x=\"222\" y=\"8\" width=\"90\" height=\"90\" rx=\"4\"/><line x1=\"222\" y1=\"60\" x2=\"312\" y2=\"30\"/><line x1=\"247\" y1=\"8\" x2=\"282\" y2=\"98\"/><line x1=\"222\" y1=\"25\" x2=\"312\" y2=\"85\"/></g><g fill=\"currentColor\" font-size=\"10\" opacity=\"0.7\" text-anchor=\"middle\"><text x=\"53\" y=\"118\">1개: 2조각</text><text x=\"160\" y=\"118\">2개: 4조각</text><text x=\"267\" y=\"118\">3개: 7조각</text></g></svg>",
+    "question": "Six lines are drawn in a plane so that no two are parallel and no three pass through the same point. Into how many regions do the lines divide the plane?",
+    "questionKo": "평면에 직선 6개를 긋는데, 어느 두 직선도 평행하지 않고 어느 세 직선도 한 점에서 만나지 않는다. 직선들은 평면을 몇 개의 영역으로 나누는가?",
+    "choices": [
+      "16",
+      "21",
+      "22",
+      "24",
+      "32"
+    ],
+    "answer": "C",
+    "hints": [
+      "작은 경우: 직선 1개 2조각, 2개 4조각, 3개 7조각. 늘어나는 개수를 보자.",
+      "n번째 직선은 앞의 n−1개 직선과 n−1번 만나 n개의 조각을 새로 만든다 → f(n) = f(n−1) + n.",
+      "2, 4, 7, 11, 16, 22"
+    ],
+    "solution": "n번째 직선은 앞의 $n-1$개 직선과 모두 서로 다른 점에서 만나므로 $n$개의 조각으로 잘리고, 각 조각이 기존 영역 하나를 둘로 나눈다. 따라서 $f(n) = f(n-1) + n$. $f(1) = 2$부터 2, 4, 7, 11, 16, **22**. 일반식 $1 + n + \\binom{n}{2}$.\n\n**오답 짚기**: 32는 '2배씩 늘어난다'고 단정한 것(2, 4, 8, 16, 32). 처음 몇 항만 보고 규칙을 정하지 말고 이유를 확인하자. 16은 직선 5개의 답.",
+    "verify": {
+      "answer": "1+6+comb(6,2)",
+      "methods": [
+        "exec('''\nf=2\nfor n in range(2,7): f+=n\n''')\nresult=f",
+        "1+6+15"
+      ]
+    }
+  },
+  {
+    "id": "1-5-6",
+    "lesson": "1-5",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many strings of length 5 can be made from the letters A, B, and C if no two adjacent letters are the same?",
+    "questionKo": "A, B, C 세 글자로 길이 5인 문자열을 만들 때, 이웃한 두 글자가 같지 않은 문자열은 몇 개인가?",
+    "choices": [
+      "32",
+      "48",
+      "96",
+      "162",
+      "243"
+    ],
+    "answer": "B",
+    "hints": [
+      "첫 글자는 3가지. 그다음 글자는?",
+      "앞 글자와 다르기만 하면 되므로 매번 2가지.",
+      "3 × 2⁴"
+    ],
+    "solution": "첫 글자는 3가지, 그 뒤 각 글자는 바로 앞 글자와 다르기만 하면 되므로 2가지씩. $3 \\times 2^4 = 48$. 점화식으로 보면 $f(n) = 2f(n-1)$, $f(1) = 3$.\n\n**오답 짚기**: 243은 $3^5$, 조건을 무시한 것. 96은 $3 \\times 2^5$로 길이를 하나 더 센 것. 162는 $2 \\times 3^4$로 곱하는 순서가 뒤바뀐 것.",
+    "verify": {
+      "answer": "sum(1 for s in product('ABC',repeat=5) if all(s[i]!=s[i+1] for i in range(4)))",
+      "methods": [
+        "3*2**4"
+      ]
+    }
+  },
+  {
+    "id": "1-5-7",
+    "lesson": "1-5",
+    "band": "21-25",
+    "target": 90,
+    "fields": [
+      "algebra",
+      "counting"
+    ],
+    "question": "A sequence is defined by $a_1 = 3$ and $a_{n+1} = 2a_n - 1$ for $n \\ge 1$. What is $a_6$?",
+    "questionKo": "수열이 $a_1 = 3$, $a_{n+1} = 2a_n - 1$ ($n \\ge 1$)로 정해진다. $a_6$은 얼마인가?",
+    "choices": [
+      "33",
+      "63",
+      "64",
+      "65",
+      "129"
+    ],
+    "answer": "D",
+    "hints": [
+      "표로 쌓아 올린다: a₁ = 3, a₂ = 5, a₃ = 9, …",
+      "각 항에서 1을 빼면 2, 4, 8, … 2의 거듭제곱이 보인다.",
+      "aₙ = 2ⁿ + 1"
+    ],
+    "solution": "직접 계산하면 $a_1 = 3$, $a_2 = 5$, $a_3 = 9$, $a_4 = 17$, $a_5 = 33$, $a_6 = 65$. 규칙을 보면 $a_n - 1$이 2, 4, 8, 16, 32, 64로 2배씩 늘어나므로 $a_n = 2^n + 1$이고 $a_6 = 64 + 1 = 65$.\n\n**오답 짚기**: 33은 $a_5$(한 칸 밀림), 129는 $a_7$. 63은 $2^6 - 1$로 부호를 반대로 본 것. 표에 n을 같이 적자.",
+    "verify": {
+      "answer": "exec('''\na=3\nfor _ in range(5): a=2*a-1\n''')\nresult=a",
+      "methods": [
+        "2**6+1"
+      ]
+    }
+  },
+  {
+    "id": "1-5-8",
+    "lesson": "1-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 330 90\" width=\"330\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\"><rect x=\"10\" y=\"10\" width=\"25\" height=\"50\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"35\" y=\"10\" width=\"50\" height=\"25\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"35\" y=\"35\" width=\"50\" height=\"25\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"85\" y=\"10\" width=\"50\" height=\"50\" fill=\"#E08A1E\" fill-opacity=\"0.4\"/><rect x=\"150\" y=\"10\" width=\"25\" height=\"50\" fill=\"none\" stroke-dasharray=\"3 2\"/><text x=\"185\" y=\"40\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">1×2 도미노 (세로·가로)와 2×2 정사각형</text></g><text x=\"10\" y=\"80\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">2×5 판을 덮은 예: 세로, 가로 둘, 2×2</text></svg>",
+    "question": "A $2 \\times 5$ board is to be completely covered, without overlap, using $1 \\times 2$ dominoes (placed either way) and $2 \\times 2$ square tiles. How many different tilings are there?",
+    "questionKo": "$2 \\times 5$ 판을 $1 \\times 2$ 도미노(가로·세로 모두 가능)와 $2 \\times 2$ 정사각형 타일로 겹치지 않게 빈틈없이 덮는다. 서로 다른 덮기 방법은 몇 가지인가?",
+    "choices": [
+      "11",
+      "13",
+      "16",
+      "21",
+      "32"
+    ],
+    "answer": "D",
+    "hints": [
+      "맨 오른쪽 끝의 모양으로 경우를 나눈다: 세로 도미노 하나 / 가로 도미노 두 개 / 2×2 정사각형 하나.",
+      "f(n) = f(n−1) + 2f(n−2). 시작값 f(1) = 1, f(2) = 3.",
+      "1, 3, 5, 11, 21"
+    ],
+    "solution": "맨 오른쪽 열을 덮는 방법으로 나눈다. 세로 도미노 하나 → 나머지 $2 \\times (n-1)$, 가로 도미노 두 개 또는 $2 \\times 2$ 정사각형 하나 → 나머지 $2 \\times (n-2)$. 따라서 $f(n) = f(n-1) + 2f(n-2)$. $f(1) = 1$, $f(2) = 3$(세로 둘, 가로 둘, 정사각형). $f(3) = 3 + 2 = 5$, $f(4) = 5 + 6 = 11$, $f(5) = 11 + 10 = 21$.\n\n**오답 짚기**: 11은 $f(4)$. 도미노만 쓰면 피보나치(1, 2, 3, 5, 8)가 되지만 정사각형 타일이 추가되어 $f(n-2)$ 항이 2배가 된다. 13은 그 혼동에서 나온 값.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    if n==0: return 1\n    if n==1: return 1\n    return f(n-1)+2*f(n-2)\n''')\nresult=f(5)",
+      "methods": [
+        "exec(\"\"\"\ndef count(n):\n    def rec(filled):\n        for c in range(n):\n            for r in range(2):\n                if (r,c) in filled: continue\n                total=0\n                if r==0 and (1,c) not in filled:\n                    total+=rec(filled|{(0,c),(1,c)})\n                if c+1<n and (r,c+1) not in filled:\n                    total+=rec(filled|{(r,c),(r,c+1)})\n                if r==0 and c+1<n and all(x not in filled for x in [(1,c),(0,c+1),(1,c+1)]):\n                    total+=rec(filled|{(0,c),(1,c),(0,c+1),(1,c+1)})\n                return total\n        return 1\n    return rec(frozenset())\n\"\"\")\nresult = count(5)"
+      ]
+    }
+  },
+  {
+    "id": "1-5-9",
+    "lesson": "1-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many subsets of $\\{1, 2, 3, 4, 5, 6, 7, 8\\}$ (including the empty set) contain no two consecutive integers?",
+    "questionKo": "집합 $\\{1, 2, 3, 4, 5, 6, 7, 8\\}$의 부분집합(공집합 포함) 중 연속한 두 정수를 함께 포함하지 않는 것은 몇 개인가?",
+    "choices": [
+      "34",
+      "55",
+      "64",
+      "89",
+      "128"
+    ],
+    "answer": "B",
+    "hints": [
+      "원소마다 '넣음/안 넣음'을 1/0로 적으면 '1이 연달아 없는 길이 8 문자열' 문제가 된다.",
+      "작은 경우: {1}은 2개, {1,2}는 3개, {1,2,3}은 5개.",
+      "2, 3, 5, 8, 13, 21, 34, 55"
+    ],
+    "solution": "각 원소를 넣으면 1, 안 넣으면 0으로 적으면 조건은 '1이 두 개 연달아 나오지 않음'이 된다. 가장 큰 수 n으로 경우를 나누면: n을 안 넣으면 $\\{1, …, n-1\\}$에서 조건을 만족하는 $f(n-1)$개, n을 넣으면 $n-1$은 못 넣고 $\\{1, …, n-2\\}$에서 $f(n-2)$개. $f(n) = f(n-1) + f(n-2)$, $f(1) = 2$, $f(2) = 3$ → 2, 3, 5, 8, 13, 21, 34, **55**.\n\n**오답 짚기**: 34는 원소 7개의 답. 128은 조건 없는 부분집합 전체 $2^7$… 실제 전체는 $2^8 = 256$이니 128도 아무 의미 없는 수다.",
+    "verify": {
+      "answer": "sum(1 for r in range(9) for c in combinations(range(1,9),r) if all(c[i+1]-c[i]>1 for i in range(len(c)-1)))"
+    }
+  },
+  {
+    "id": "1-5-10",
+    "lesson": "1-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 340 70\" width=\"340\" height=\"70\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"15\" y1=\"40\" x2=\"325\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"1.5\"/><g fill=\"currentColor\"><circle cx=\"20\" cy=\"40\" r=\"3\"/><circle cx=\"50\" cy=\"40\" r=\"3\"/><circle cx=\"80\" cy=\"40\" r=\"3\"/><circle cx=\"110\" cy=\"40\" r=\"3\"/><circle cx=\"140\" cy=\"40\" r=\"3\"/><circle cx=\"170\" cy=\"40\" r=\"5\" fill=\"#E08A1E\"/><circle cx=\"200\" cy=\"40\" r=\"3\"/><circle cx=\"230\" cy=\"40\" r=\"3\"/><circle cx=\"260\" cy=\"40\" r=\"3\"/><circle cx=\"290\" cy=\"40\" r=\"3\"/><circle cx=\"320\" cy=\"40\" r=\"5\" fill=\"#29A066\"/></g><g font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\" text-anchor=\"middle\"><text x=\"20\" y=\"60\">0</text><text x=\"170\" y=\"60\">5</text><text x=\"320\" y=\"60\">10</text></g><g stroke=\"currentColor\" fill=\"none\" stroke-width=\"1.2\" opacity=\"0.5\"><path d=\"M20 36 Q35 15 50 36\"/><path d=\"M50 36 Q80 5 110 36\"/><path d=\"M110 36 Q140 5 170 36\"/></g></svg>",
+    "question": "A frog starts at 0 on a number line and makes jumps of length 1 or 2 to the right. How many different sequences of jumps take the frog from 0 to 10 if it must land on 5 along the way?",
+    "questionKo": "개구리가 수직선의 0에서 출발해 오른쪽으로 1 또는 2만큼씩 뛴다. 도중에 반드시 5를 밟으면서 0에서 10까지 가는 뛰기 순서는 몇 가지인가?",
+    "choices": [
+      "55",
+      "64",
+      "81",
+      "89",
+      "144"
+    ],
+    "answer": "B",
+    "hints": [
+      "5를 지나야 하므로 '0 → 5'와 '5 → 10'으로 나눠서 각각 센 뒤 곱한다.",
+      "0에서 5까지 1, 2칸씩 뛰는 방법은 계단 5칸과 같다: 8가지.",
+      "8 × 8"
+    ],
+    "solution": "반드시 5에 내려야 하므로 여정을 0 → 5와 5 → 10으로 나눈다. 각 구간은 1 또는 2칸씩 5칸을 가는 것이므로 $f(5)$가지이고, $f(n) = f(n-1) + f(n-2)$로 1, 2, 3, 5, 8이니 8가지. 두 구간은 독립이므로 곱의 법칙으로 $8 \\times 8 = 64$.\n\n**오답 짚기**: 89는 5를 밟는 조건 없이 0 → 10을 간 전체 경우($f(10)$). 조건이 있으면 그 점에서 끊어 곱한다. 55는 $f(9)$.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    return 1 if n==0 else sum(f(n-s) for s in (1,2) if s<=n)\n''')\nresult=f(5)*f(5)",
+      "methods": [
+        "exec('''\ndef seqs(n):\n    if n==0: return [()]\n    out=[]\n    for s in (1,2):\n        if s<=n: out += [(s,)+r for r in seqs(n-s)]\n    return out\ndef lands(seq, k):\n    pos=0\n    for s in seq:\n        pos+=s\n        if pos==k: return True\n    return False\n''')\nresult=sum(1 for s in seqs(10) if lands(s,5))"
+      ]
+    }
+  }
+]
