@@ -1,0 +1,483 @@
+[
+  {
+    "id": "8-t-1",
+    "lesson": "8-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "algebra"
+    ],
+    "question": "The sum of two numbers is 45, and one number is 9 more than the other. What is the larger number?",
+    "questionKo": "두 수의 합은 45이고 한 수는 다른 수보다 9 크다. 큰 수는?",
+    "choices": [
+      "18",
+      "22",
+      "27",
+      "36",
+      "54"
+    ],
+    "answer": "C",
+    "hints": [
+      "작은 수를 x로 두면 큰 수는 x + 9.",
+      "x + (x + 9) = 45 → 2x = 36.",
+      "x = 18, 큰 수는 27."
+    ],
+    "solution": "작은 수를 $x$라 하면 큰 수는 $x + 9$. $2x + 9 = 45$, $x = 18$. 큰 수는 $18 + 9 = 27$.\n\n**오답 짚기**: 18은 작은 수. 36은 $45 - 9$로 한 번만 뺀 것(그러면 두 수가 36과 9라서 차가 27). 22는 반으로 나눈 어림. 합과 차가 주어지면 큰 수 = (합 + 차) ÷ 2.",
+    "fast": "(45 + 9) ÷ 2 = 27.",
+    "verify": {
+      "answer": "[x+9 for x in range(0,46) if x+(x+9)==45][0]",
+      "methods": [
+        "(45+9)//2"
+      ]
+    }
+  },
+  {
+    "id": "8-t-2",
+    "lesson": "8-1",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "algebra"
+    ],
+    "question": "A bike shop has bicycles and tricycles, 15 in all, with a total of 37 wheels. How many tricycles are there?",
+    "questionKo": "자전거 가게에 두발자전거와 세발자전거가 모두 15대 있고 바퀴는 총 37개이다. 세발자전거는 몇 대인가?",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": "C",
+    "hints": [
+      "세발자전거 t대, 두발자전거 15 − t대.",
+      "3t + 2(15 − t) = 37.",
+      "t + 30 = 37."
+    ],
+    "solution": "세발자전거 $t$대, 두발자전거 $15 - t$대. 바퀴 $3t + 2(15 - t) = 37$, $t + 30 = 37$, $t = 7$. 두발자전거 8대.\n\n**오답 짚기**: 8은 두발자전거 수. 5나 9는 전체 15를 \"대충 반\"으로 나눈 것. 전부 두발자전거라면 바퀴 30개, 남는 7개가 세발자전거 한 대당 1개씩이므로 7대.",
+    "fast": "전부 두발이면 30개. 37 − 30 = 7개 남음, 한 대 바꿀 때마다 +1 → 7대.",
+    "verify": {
+      "answer": "[t for t in range(0,16) if 3*t+2*(15-t)==37][0]",
+      "methods": [
+        "37-2*15"
+      ]
+    }
+  },
+  {
+    "id": "8-t-3",
+    "lesson": "8-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "algebra"
+    ],
+    "question": "A two-digit number is 7 times the sum of its digits. When its digits are reversed, the new number is 36 less than the original. What is the original number?",
+    "questionKo": "어떤 두 자리 수는 각 자리 숫자의 합의 7배이다. 두 숫자의 순서를 바꾼 수는 원래 수보다 36 작다. 원래 수는?",
+    "choices": [
+      "21",
+      "42",
+      "48",
+      "63",
+      "84"
+    ],
+    "answer": "E",
+    "hints": [
+      "10a + b = 7(a + b) → 3a = 6b → a = 2b. 후보는 21, 42, 63, 84.",
+      "뒤집은 수와의 차는 9(a − b) = 9b.",
+      "9b = 36 → b = 4."
+    ],
+    "solution": "십의 자리 $a$, 일의 자리 $b$. $10a + b = 7(a + b)$에서 $3a = 6b$, $a = 2b$이므로 후보는 21, 42, 63, 84. 뒤집은 수와의 차는 $(10a + b) - (10b + a) = 9(a - b) = 9b = 36$이므로 $b = 4$, $a = 8$. 원래 수는 84. 확인: $8 + 4 = 12$, $12 \\times 7 = 84$, $84 - 48 = 36$.\n\n**오답 짚기**: 21, 42, 63은 첫째 조건만 만족한다(차가 각각 9, 18, 27). 48은 답을 뒤집은 수. 조건이 둘이면 둘 다 확인해야 한다.",
+    "fast": "선택지 대입: 자릿수 합의 7배인 것은 21, 42, 63, 84. 이 중 뒤집어 36 작아지는 것은 84(84 − 48)뿐.",
+    "verify": {
+      "answer": "[10*a+b for a in range(1,10) for b in range(10) if 10*a+b==7*(a+b) and (10*a+b)-(10*b+a)==36][0]",
+      "methods": [
+        "10*(2*(36//9))+36//9"
+      ]
+    }
+  },
+  {
+    "id": "8-t-4",
+    "lesson": "8-2",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "algebra"
+    ],
+    "question": "In a class of 32 students, 37.5% are boys. How many girls are in the class?",
+    "questionKo": "학생 32명인 학급에서 37.5%가 남학생이다. 여학생은 몇 명인가?",
+    "choices": [
+      "12",
+      "16",
+      "18",
+      "20",
+      "24"
+    ],
+    "answer": "D",
+    "hints": [
+      "37.5% = 3/8.",
+      "남학생 32 × 3/8 = 12.",
+      "여학생은 32 − 12."
+    ],
+    "solution": "$37.5\\% = \\frac{3}{8}$이므로 남학생은 $32 \\times \\frac{3}{8} = 12$명, 여학생은 $32 - 12 = 20$명.\n\n**오답 짚기**: 12는 남학생 수(여학생을 물었다). 16은 반으로 어림한 것. 24는 $32 \\times \\frac{3}{4}$로 37.5%를 75%와 혼동한 것. 자주 나오는 퍼센트는 분수로 외워 두자: 12.5% = 1/8, 37.5% = 3/8, 62.5% = 5/8.",
+    "fast": "여학생은 62.5% = 5/8 → 32 × 5/8 = 20.",
+    "verify": {
+      "answer": "32*F(5,8)",
+      "methods": [
+        "32-32*F(375,1000)"
+      ]
+    }
+  },
+  {
+    "id": "8-t-5",
+    "lesson": "8-2",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "algebra"
+    ],
+    "question": "A 400-gram juice drink is 15% sugar. If 100 grams of water are added, what percent of the new drink is sugar?",
+    "questionKo": "400 g의 주스 음료에 설탕이 15% 들어 있다. 여기에 물 100 g을 넣으면 새 음료에서 설탕은 몇 %인가?",
+    "choices": [
+      "10",
+      "11",
+      "12",
+      "14",
+      "15"
+    ],
+    "answer": "C",
+    "hints": [
+      "변하지 않는 것은 설탕의 양: 400 × 0.15 = 60 g.",
+      "전체는 500 g이 된다.",
+      "60 ÷ 500"
+    ],
+    "solution": "설탕은 $400 \\times 0.15 = 60$ g이고 물을 넣어도 그대로다. 전체는 $400 + 100 = 500$ g이므로 설탕 비율은 $\\frac{60}{500} = 12\\%$.\n\n**오답 짚기**: 15는 \"물을 넣어도 설탕이 그대로니 퍼센트도 그대로\"라는 착각(전체가 늘면 비율은 준다). 10은 $15 - 5$처럼 물 100 g을 5%로 어림해 뺀 것. 14는 $60 \\div 400$ 근처의 계산 실수. 농도 = 설탕 ÷ 전체이고 전체에 물이 더해진다.",
+    "fast": "전체가 400 → 500으로 5/4배. 농도는 4/5배: 15 × 4/5 = 12.",
+    "verify": {
+      "answer": "100*F(400*F(15,100), 500)",
+      "methods": [
+        "15*F(400,500)"
+      ]
+    }
+  },
+  {
+    "id": "8-t-6",
+    "lesson": "8-3",
+    "band": "11-15",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "question": "Two cyclists start from the same point and ride in opposite directions, one at 14 km/h and the other at 18 km/h. How many kilometers apart are they after 45 minutes?",
+    "questionKo": "두 사람이 같은 지점에서 출발하여 서로 반대 방향으로 각각 시속 14 km, 18 km로 자전거를 탄다. 45분 뒤 두 사람 사이의 거리는 몇 km인가?",
+    "choices": [
+      "18",
+      "24",
+      "32",
+      "36",
+      "48"
+    ],
+    "answer": "B",
+    "hints": [
+      "반대 방향이면 멀어지는 속력은 두 속력의 합 32 km/h.",
+      "45분 = 3/4시간.",
+      "32 × 3/4"
+    ],
+    "solution": "반대 방향으로 가므로 두 사람은 매시간 $14 + 18 = 32$ km씩 멀어진다. 45분은 $\\frac{3}{4}$시간이므로 $32 \\times \\frac{3}{4} = 24$ km.\n\n**오답 짚기**: 32는 1시간 뒤의 거리(45분을 1시간으로 본 것). 18과 36은 한 사람의 속력이나 그 2배. 48은 45분을 1.5시간처럼 쓴 것. 분은 시간으로 바꿔서 곱한다.",
+    "fast": "45분 동안 각각 10.5 km, 13.5 km → 합 24 km.",
+    "verify": {
+      "answer": "(14+18)*F(45,60)",
+      "methods": [
+        "14*F(3,4)+18*F(3,4)"
+      ]
+    }
+  },
+  {
+    "id": "8-t-7",
+    "lesson": "8-3",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "algebra"
+    ],
+    "question": "Ana can paint a room alone in 4 hours, Ben in 6 hours, and Cal in 12 hours. If all three work together, how many hours will it take them to paint the room?",
+    "questionKo": "아나는 혼자서 방을 4시간에, 벤은 6시간에, 칼은 12시간에 칠한다. 세 사람이 함께 칠하면 몇 시간이 걸리는가?",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "6",
+      "22"
+    ],
+    "answer": "A",
+    "hints": [
+      "1시간에 하는 일: 1/4, 1/6, 1/12.",
+      "더하면 3/12 + 2/12 + 1/12 = 6/12 = 1/2.",
+      "1시간에 절반 → 2시간."
+    ],
+    "solution": "1시간에 아나 $\\frac{1}{4}$, 벤 $\\frac{1}{6}$, 칼 $\\frac{1}{12}$을 칠한다. 합은 $\\frac{3 + 2 + 1}{12} = \\frac{1}{2}$이므로 2시간.\n\n**오답 짚기**: 22는 세 시간을 더한 것. 셋이 함께 하면 가장 빠른 사람(4시간)보다도 빨라야 하므로 4 이상인 답은 모두 틀렸다. 시간은 더하지 않고 시간당 일의 양을 더한다.",
+    "fast": "방을 12로 두면 시간당 3 + 2 + 1 = 6 → 12 ÷ 6 = 2시간.",
+    "verify": {
+      "answer": "1/(F(1,4)+F(1,6)+F(1,12))",
+      "methods": [
+        "F(12, 12//4+12//6+12//12)"
+      ]
+    }
+  },
+  {
+    "id": "8-t-8",
+    "lesson": "8-3",
+    "band": "21-25",
+    "target": 120,
+    "fields": [
+      "algebra"
+    ],
+    "question": "Towns P and Q are 48 km apart. Dan starts walking from P toward Q at 4 km/h. One hour later, Eve starts cycling from Q toward P at 7 km/h. How many hours after Eve starts do they meet?",
+    "questionKo": "마을 P와 Q는 48 km 떨어져 있다. 댄이 P에서 Q를 향해 시속 4 km로 걷기 시작했다. 1시간 뒤 이브가 Q에서 P를 향해 시속 7 km로 자전거를 타고 출발했다. 두 사람은 이브가 출발한 지 몇 시간 뒤에 만나는가?",
+    "choices": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "12"
+    ],
+    "answer": "B",
+    "hints": [
+      "이브가 출발할 때 댄은 이미 4 km를 걸었다. 남은 거리는?",
+      "44 km. 마주 보니 가까워지는 속력은 4 + 7 = 11 km/h.",
+      "44 ÷ 11"
+    ],
+    "solution": "이브가 출발할 때 댄은 1시간 동안 4 km를 걸어 두 사람 사이는 $48 - 4 = 44$ km. 마주 보고 가므로 매시간 $4 + 7 = 11$ km씩 가까워진다. $44 \\div 11 = 4$시간.\n\n**오답 짚기**: 5는 댄의 출발 시각부터 잰 시간(이브 출발 기준을 물었다). 12는 $48 \\div 4$로 댄 혼자 걷는 시간. 3은 48 ÷ 11 ≈ 4.4를 잘못 어림하거나 7 − 4 = 3처럼 속력을 뺀 것(마주 보면 더한다). 먼저 출발한 사람이 간 거리를 빼고 시작하자.",
+    "fast": "댄이 먼저 간 4 km를 빼면 44 km, 합 속력 11 → 4시간.",
+    "verify": {
+      "answer": "F(48-4*1, 4+7)",
+      "methods": [
+        "[h for h in range(1,20) if 4*(h+1)+7*h==48][0]"
+      ]
+    }
+  },
+  {
+    "id": "8-t-9",
+    "lesson": "8-4",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "statistics"
+    ],
+    "question": "What is the median of the numbers 5, 12, 8, 20, 12, 3, 9?",
+    "questionKo": "수 5, 12, 8, 20, 12, 3, 9의 중앙값(median)은?",
+    "choices": [
+      "8",
+      "9",
+      "10",
+      "12",
+      "20"
+    ],
+    "answer": "B",
+    "hints": [
+      "먼저 정렬: 3, 5, 8, 9, 12, 12, 20.",
+      "7개(홀수)이므로 가운데 4번째.",
+      "4번째 수는 9."
+    ],
+    "solution": "정렬하면 3, 5, 8, 9, 12, 12, 20. 7개이므로 가운데 4번째 수 9가 중앙값.\n\n**오답 짚기**: 20은 정렬하지 않고 주어진 순서의 가운데(4번째)를 고른 것. 12는 최빈값. 10은 평균 $69 \\div 7 \\approx 9.9$를 어림한 것. 중앙값은 정렬이 먼저다.",
+    "verify": {
+      "answer": "sorted([5,12,8,20,12,3,9])[3]",
+      "methods": [
+        "9"
+      ]
+    }
+  },
+  {
+    "id": "8-t-10",
+    "lesson": "8-4",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "statistics"
+    ],
+    "question": "The mean high temperature for the first $n$ days of a month was 20°C. After a day with a high of 29°C, the mean for the $n + 1$ days became 21°C. What is $n$?",
+    "questionKo": "어느 달 처음 $n$일 동안 낮 최고기온의 평균은 20°C였다. 최고기온이 29°C인 하루가 지나자 $n + 1$일의 평균은 21°C가 되었다. $n$의 값은?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "answer": "C",
+    "hints": [
+      "합으로: 처음 n일의 합은 20n.",
+      "20n + 29 = 21(n + 1).",
+      "20n + 29 = 21n + 21 → n = 8."
+    ],
+    "solution": "처음 $n$일의 합은 $20n$. 29°C인 날을 더하면 합 $20n + 29$, 날수 $n + 1$, 평균 21이므로 $20n + 29 = 21(n + 1)$, $n = 8$. 확인: 9일 평균 $(160 + 29) \\div 9 = 21$.\n\n**오답 짚기**: 9는 $n + 1$(전체 날수)을 답한 것. 7이나 10은 식을 세우지 않고 어림한 것. 새 값이 새 평균보다 8 크고, 그 8이 기존 n일에 1씩 나눠 얹혀 평균을 1 올렸으므로 n = 8.",
+    "fast": "29는 새 평균 21보다 8 크다. 그 8을 n일에 1씩 나눠 주면 평균이 1 오르니 n = 8.",
+    "verify": {
+      "answer": "[n for n in range(1,50) if 20*n+29==21*(n+1)][0]",
+      "methods": [
+        "(29-21)//(21-20)"
+      ]
+    }
+  },
+  {
+    "id": "8-t-11",
+    "lesson": "8-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "statistics"
+    ],
+    "question": "Four distinct positive integers have mean 10 and median 9. What is the largest possible value of the largest integer?",
+    "questionKo": "서로 다른 양의 정수 네 개의 평균(mean)은 10, 중앙값(median)은 9이다. 가장 큰 수가 가질 수 있는 최댓값은?",
+    "choices": [
+      "18",
+      "19",
+      "20",
+      "21",
+      "22"
+    ],
+    "answer": "D",
+    "hints": [
+      "합은 40. 크기순 a < b < c < d에서 중앙값은 (b + c) ÷ 2 = 9 → b + c = 18.",
+      "d = 40 − a − 18 = 22 − a. d를 크게 하려면 a를 작게.",
+      "a = 1 → d = 21 (예: 1, 2, 16, 21)."
+    ],
+    "solution": "합은 $10 \\times 4 = 40$. 크기순으로 $a < b < c < d$라 하면 짝수 개이므로 중앙값은 $\\frac{b + c}{2} = 9$, 즉 $b + c = 18$. 따라서 $d = 40 - a - 18 = 22 - a$이고 $a \\ge 1$이므로 $d \\le 21$. $a = 1, b = 2, c = 16, d = 21$이면 조건을 모두 만족한다. 답 21.\n\n**오답 짚기**: 22는 $a = 0$으로 둔 것(양의 정수). 20은 범위 $d - a$를 답한 것. 18은 $b + c$의 값. 19는 $a = 3$ 같은 덜 최소화된 경우. 짝수 개의 중앙값은 가운데 두 수의 평균이라는 점이 출발점이다.",
+    "fast": "d = 22 − a, a의 최소는 1 → 21.",
+    "verify": {
+      "answer": "max(40-a-b-c for a in range(1,40) for b in range(a+1,40) for c in range(b+1,40) if b+c==18 and 40-a-b-c>c)",
+      "methods": [
+        "40-1-18"
+      ]
+    }
+  },
+  {
+    "id": "8-t-12",
+    "lesson": "8-5",
+    "band": "11-15",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "question": "What is the sum of all even integers from 10 to 50, inclusive?",
+    "questionKo": "10부터 50까지의 짝수를 모두 더하면 얼마인가? (10과 50 포함)",
+    "choices": [
+      "600",
+      "620",
+      "630",
+      "650",
+      "660"
+    ],
+    "answer": "C",
+    "hints": [
+      "개수: (50 − 10) ÷ 2 + 1 = 21.",
+      "평균은 (10 + 50) ÷ 2 = 30.",
+      "30 × 21"
+    ],
+    "solution": "10, 12, …, 50은 $\\frac{50 - 10}{2} + 1 = 21$개. 평균은 $\\frac{10 + 50}{2} = 30$이므로 합은 $30 \\times 21 = 630$.\n\n**오답 짚기**: 600은 20개로 센 것(+1 빠뜨림). 660은 22개로 센 것. 620과 650은 덧셈 실수. 개수를 먼저 정확히 세자.",
+    "fast": "앞뒤 짝 60이 10쌍에 가운데 30 하나 → 600 + 30 = 630.",
+    "verify": {
+      "answer": "sum(range(10,51,2))",
+      "methods": [
+        "(10+50)*21//2"
+      ]
+    }
+  },
+  {
+    "id": "8-t-13",
+    "lesson": "8-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "algebra"
+    ],
+    "question": "In an arithmetic sequence, the sum of the first 3 terms is 24 and the sum of the first 6 terms is 93. What is the 10th term?",
+    "questionKo": "어떤 등차수열(arithmetic sequence)의 처음 3개 항의 합은 24이고 처음 6개 항의 합은 93이다. 10번째 항은?",
+    "choices": [
+      "43",
+      "45",
+      "48",
+      "50",
+      "53"
+    ],
+    "answer": "C",
+    "hints": [
+      "4, 5, 6번째 항의 합은 93 − 24 = 69.",
+      "1~3번째 합 24와 4~6번째 합 69의 차 45는 공차의 9배(각 항이 3칸씩 밀림).",
+      "d = 5. 첫째 항은 24 ÷ 3 = 8이 2번째 항이므로 a = 3. 10번째 항은 3 + 9 × 5."
+    ],
+    "solution": "처음 3항의 합이 24이므로 가운데인 2번째 항은 8. 4~6번째 항의 합은 $93 - 24 = 69$이고 가운데인 5번째 항은 23. 2번째에서 5번째까지 3칸 동안 15 커졌으므로 공차 $d = 5$. 첫째 항은 $8 - 5 = 3$, 10번째 항은 $3 + 9 \\times 5 = 48$.\n\n**오답 짚기**: 53은 $3 + 10 \\times 5$로 10칸을 뛴 것(9칸이 맞다). 43은 8칸. 45와 50은 공차를 4나 다른 값으로 잘못 구한 것. 등차수열에서 연속한 홀수 개 항의 합 ÷ 개수 = 가운데 항이라는 성질을 쓰면 빠르다.",
+    "fast": "2번째 항 8, 5번째 항 23 → 3칸에 15, d = 5. 10번째는 5번째에서 5칸 더: 23 + 25 = 48.",
+    "verify": {
+      "answer": "exec('''\nsol=[(a,d) for a in range(-100,100) for d in range(-50,50) if 3*a+3*d==24 and 6*a+15*d==93]\na,d=sol[0]\n''')\nresult = a+9*d",
+      "methods": [
+        "(93-24)//3+5*5"
+      ]
+    }
+  },
+  {
+    "id": "8-t-14",
+    "lesson": "8-6",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "statistics"
+    ],
+    "figure": "<svg viewBox=\"0 0 320 190\" width=\"320\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M92.0,95.0 L92.0,23.0 A72,72 0 0,1 138.3,39.8 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"106.8\" y=\"58.4\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">40%</text><rect x=\"200\" y=\"14\" width=\"12\" height=\"12\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"218\" y=\"24\" font-size=\"12\" fill=\"currentColor\">Comedy</text><path d=\"M92.0,95.0 L138.3,39.8 A72,72 0 0,1 159.7,70.4 Z\" fill=\"#E08A1E\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"164.0\" y=\"48.6\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"start\">30%</text><rect x=\"200\" y=\"36\" width=\"12\" height=\"12\" fill=\"#E08A1E\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"218\" y=\"46\" font-size=\"12\" fill=\"currentColor\">Drama</text><path d=\"M92.0,95.0 L159.7,70.4 A72,72 0 0,1 164.0,95.0 Z\" fill=\"#29A066\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"178.5\" y=\"83.7\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"start\">20%</text><rect x=\"200\" y=\"58\" width=\"12\" height=\"12\" fill=\"#29A066\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"218\" y=\"68\" font-size=\"12\" fill=\"currentColor\">Action</text><path d=\"M92.0,95.0 L164.0,95.0 A72,72 0 0,1 162.9,107.5 Z\" fill=\"#DB433D\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"179.5\" y=\"106.7\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"start\">10%</text><rect x=\"200\" y=\"80\" width=\"12\" height=\"12\" fill=\"#DB433D\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"218\" y=\"90\" font-size=\"12\" fill=\"currentColor\">Animation</text></svg>",
+    "question": "The circle graph shows the favorite movie genre of 120 people. How many of them chose Drama?",
+    "questionKo": "원그래프는 120명이 좋아하는 영화 장르를 조사한 결과이다. 드라마(Drama)를 고른 사람은 몇 명인가?",
+    "choices": [
+      "30",
+      "36",
+      "40",
+      "48",
+      "108"
+    ],
+    "answer": "B",
+    "hints": [
+      "드라마는 30%.",
+      "120의 30%.",
+      "120 × 0.3"
+    ],
+    "solution": "드라마는 30%이므로 $120 \\times 0.3 = 36$명.\n\n**오답 짚기**: 30은 퍼센트 숫자를 그대로 쓴 것. 108은 30%의 중심각(108°)을 사람 수로 착각한 것. 48은 코미디(40%)의 인원. 퍼센트 × 전체 인원.",
+    "fast": "120의 10%는 12 → 30%는 36.",
+    "verify": {
+      "answer": "120*F(30,100)",
+      "methods": [
+        "120*F(108,360)"
+      ]
+    }
+  },
+  {
+    "id": "8-t-15",
+    "lesson": "8-6",
+    "band": "16-20",
+    "target": 75,
+    "fields": [
+      "statistics"
+    ],
+    "figure": "<svg viewBox=\"0 0 320 200\" width=\"320\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"170.0\" x2=\"310\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"174.0\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">20</text><line x1=\"40\" y1=\"144.3\" x2=\"310\" y2=\"144.3\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"148.3\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">22</text><line x1=\"40\" y1=\"118.7\" x2=\"310\" y2=\"118.7\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"122.7\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">24</text><line x1=\"40\" y1=\"93.0\" x2=\"310\" y2=\"93.0\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"97.0\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">26</text><line x1=\"40\" y1=\"67.3\" x2=\"310\" y2=\"67.3\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"71.3\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">28</text><line x1=\"40\" y1=\"41.7\" x2=\"310\" y2=\"41.7\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"45.7\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">30</text><line x1=\"40\" y1=\"16.0\" x2=\"310\" y2=\"16.0\" stroke=\"currentColor\" stroke-width=\"0.8\" opacity=\"0.25\"/><text x=\"34\" y=\"20.0\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">32</text><line x1=\"40\" y1=\"16\" x2=\"40\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"170\" x2=\"310\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"44\" y=\"12\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">Members</text><rect x=\"54.8\" y=\"105.8\" width=\"37.8\" height=\"64.2\" fill=\"#DB433D\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"73.8\" y=\"186\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">Art</text><rect x=\"122.3\" y=\"41.7\" width=\"37.8\" height=\"128.3\" fill=\"#DB433D\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"141.2\" y=\"186\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">Chess</text><rect x=\"189.8\" y=\"67.3\" width=\"37.8\" height=\"102.7\" fill=\"#DB433D\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"208.8\" y=\"186\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">Music</text><rect x=\"257.4\" y=\"144.3\" width=\"37.8\" height=\"25.7\" fill=\"#DB433D\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"276.2\" y=\"186\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">Robotics</text></svg>",
+    "question": "The bar graph shows the number of members in four clubs. The Chess bar is twice as tall as the Art bar. The Chess club actually has what percent more members than the Art club?",
+    "questionKo": "막대그래프는 네 동아리의 회원 수이다. 체스(Chess) 막대의 길이는 미술(Art) 막대의 2배이다. 실제로 체스 동아리 회원은 미술 동아리보다 몇 % 더 많은가?",
+    "choices": [
+      "5",
+      "20",
+      "25",
+      "50",
+      "100"
+    ],
+    "answer": "B",
+    "hints": [
+      "세로축이 20부터 시작한다. 값은 눈금으로: 미술 25, 체스 30.",
+      "차이 5를 기준(미술 25)으로 나눈다.",
+      "5 ÷ 25 = 20%."
+    ],
+    "solution": "세로축이 20부터 시작하므로 막대 길이(5와 10)는 값의 비가 아니다. 눈금으로 읽으면 미술 25명, 체스 30명. 체스는 미술보다 $\\frac{30 - 25}{25} = \\frac{5}{25} = 20\\%$ 많다.\n\n**오답 짚기**: 100은 막대 길이가 2배라는 것을 그대로 \"100% 많다\"로 본 것. 5는 사람 수 차이를 퍼센트로 착각한 것. 25는 기준을 잘못 잡거나 미술 인원을 답한 것, 50은 $\\frac{5}{10}$처럼 막대 길이로 나눈 것. 축이 0에서 시작하지 않으면 길이 비교를 버리고 값으로 계산한다.",
+    "fast": "값 25 → 30은 1/5 증가 = 20%.",
+    "verify": {
+      "answer": "100*F(30-25,25)",
+      "methods": [
+        "100*(F(30,25)-1)"
+      ]
+    }
+  }
+]
