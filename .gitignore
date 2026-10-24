@@ -5,3 +5,4 @@ build/
 *.xcodeproj
 *.xcworkspace
 Scripts/toolchain-fix/overlay.yaml
+__pycache__/
