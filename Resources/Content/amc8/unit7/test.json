@@ -1,0 +1,552 @@
+[
+  {
+    "id": "7-t-1",
+    "lesson": "7-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A bicycle wheel has radius 35 cm. How far, in meters, does the bicycle travel while the wheel makes 100 complete turns?",
+    "questionKo": "자전거 바퀴의 반지름이 35 cm이다. 바퀴가 100바퀴 도는 동안 자전거가 나아가는 거리는 몇 m인가?",
+    "figure": "<svg viewBox=\"0 0 280 150\" width=\"280\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"70\" cy=\"80\" r=\"50\" fill=\"#4F6BF0\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"70\" cy=\"80\" r=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\"><line x1=\"70\" y1=\"80\" x2=\"120\" y2=\"80\"/></g><text x=\"95\" y=\"74\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">35 cm</text><g stroke=\"currentColor\" stroke-width=\"1.5\"><line x1=\"10\" y1=\"131\" x2=\"270\" y2=\"131\"/></g><defs><marker id=\"art1\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"4\" orient=\"auto\"><path d=\"M0 0 L8 4 L0 8 z\" fill=\"currentColor\"/></marker></defs><path d=\"M135 80 H200\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" marker-end=\"url(#art1)\"/><text x=\"170\" y=\"70\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">100바퀴</text></svg>",
+    "choices": [
+      "$35\\pi$",
+      "$70\\pi$",
+      "$140\\pi$",
+      "$700\\pi$",
+      "$7000\\pi$"
+    ],
+    "answer": "B",
+    "hints": [
+      "한 바퀴 돌면 둘레만큼 나아간다. 둘레 $2\\pi r = 70\\pi$ cm.",
+      "100바퀴 → $7000\\pi$ cm.",
+      "cm를 m로: 100으로 나눈다."
+    ],
+    "solution": "한 바퀴에 둘레 $2\\pi \\cdot 35 = 70\\pi$ cm씩 나아가므로 100바퀴면 $7000\\pi$ cm $= 70\\pi$ m.\n\n**오답 짚기**: $7000\\pi$는 cm를 m로 바꾸지 않은 것. $35\\pi$는 둘레를 $\\pi r$로 잘못 쓴 것. $140\\pi$는 지름 70을 반지름 자리에 넣은 것. $700\\pi$는 단위 변환을 10으로 한 것.",
+    "fast": "70π cm × 100 = 7000π cm = 70π m.",
+    "verify": {
+      "answer": "2*pi*35*100/100",
+      "methods": [
+        "pi*70*100/100"
+      ],
+      "note": "방법 1: 2πr × 바퀴 수 ÷ 100. 방법 2: 둘레를 π × 지름으로.",
+      "choices": [
+        "35*pi",
+        "70*pi",
+        "140*pi",
+        "700*pi",
+        "7000*pi"
+      ]
+    }
+  },
+  {
+    "id": "7-t-2",
+    "lesson": "7-2",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "geometry"
+    ],
+    "question": "What is the volume of a sphere with radius 3?",
+    "questionKo": "반지름이 3인 구의 부피는?",
+    "figure": "<svg viewBox=\"0 0 220 180\" width=\"220\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"110\" cy=\"90\" r=\"60\" fill=\"#4F6BF0\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1.5\"/><ellipse cx=\"110\" cy=\"90\" rx=\"60\" ry=\"18.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\"/><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\"><line x1=\"110\" y1=\"90\" x2=\"170\" y2=\"90\"/></g><circle cx=\"110\" cy=\"90\" r=\"2\" fill=\"currentColor\"/><text x=\"140\" y=\"84\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">3</text></svg>",
+    "choices": [
+      "$12\\pi$",
+      "$36\\pi$",
+      "$48\\pi$",
+      "$108\\pi$",
+      "$288\\pi$"
+    ],
+    "answer": "B",
+    "hints": [
+      "구의 부피 $\\frac{4}{3}\\pi r^3$.",
+      "$r^3 = 27$.",
+      "$\\frac{4}{3} \\cdot 27\\pi$"
+    ],
+    "solution": "구(sphere)의 부피는 $\\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi \\cdot 27 = 36\\pi$.\n\n**오답 짚기**: $12\\pi$는 겉넓이 $4\\pi r^2 = 36\\pi$와 혼동하거나 $\\frac{4}{3}\\pi r^2$을 쓴 것. $108\\pi$는 $\\frac{4}{3}$ 대신 4를 곱한 것. $288\\pi$는 지름 6을 반지름으로 쓴 것.",
+    "verify": {
+      "answer": "4/3*pi*3**3",
+      "methods": [
+        "n=60\nR=3\nf=lambda z: pi*(R*R-z*z)\ns=f(-R)+f(R)+sum((4 if i%2 else 2)*f(-R+i*2*R/n) for i in range(1,n))\nresult=s*2*R/(3*n)"
+      ],
+      "note": "방법 1: 공식. 방법 2: 높이 z 단면 원 넓이 π(R² − z²)를 심프슨 적분(2차식이라 정확).",
+      "choices": [
+        "12*pi",
+        "36*pi",
+        "48*pi",
+        "108*pi",
+        "288*pi"
+      ]
+    }
+  },
+  {
+    "id": "7-t-3",
+    "lesson": "7-3",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "geometry"
+    ],
+    "question": "Identical cubes are stacked on a table. The top view shows how many cubes are in each column. How many cubes are there in all?",
+    "questionKo": "똑같은 정육면체를 탁자 위에 쌓았다. 위에서 본 모양의 숫자는 각 자리에 쌓인 개수이다. 정육면체는 모두 몇 개인가?",
+    "figure": "<svg viewBox=\"0 0 180 190\" width=\"180\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"52.0\" y=\"24\" width=\"38\" height=\"38\" fill=\"#4F6BF0\" fill-opacity=\"0.46\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"71\" y=\"47.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">4</text><rect x=\"90.0\" y=\"24\" width=\"38\" height=\"38\" fill=\"#4F6BF0\" fill-opacity=\"0.19\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"109\" y=\"47.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">1</text><rect x=\"52.0\" y=\"62\" width=\"38\" height=\"38\" fill=\"#4F6BF0\" fill-opacity=\"0.28\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"71\" y=\"85.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">2</text><rect x=\"90.0\" y=\"62\" width=\"38\" height=\"38\" fill=\"#4F6BF0\" fill-opacity=\"0.37\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"109\" y=\"85.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">3</text><rect x=\"52.0\" y=\"100\" width=\"38\" height=\"38\" fill=\"#4F6BF0\" fill-opacity=\"0.19\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"71\" y=\"123.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">1</text><rect x=\"90.0\" y=\"100\" width=\"38\" height=\"38\" fill=\"#4F6BF0\" fill-opacity=\"0.19\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"109\" y=\"123.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">1</text><text x=\"90\" y=\"14\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.75\">위에서 본 모양 (숫자 = 쌓인 개수)</text></svg>",
+    "choices": [
+      "6",
+      "10",
+      "12",
+      "14",
+      "24"
+    ],
+    "answer": "C",
+    "hints": [
+      "칸마다 적힌 숫자가 그 자리의 개수.",
+      "$4 + 1 + 2 + 3 + 1 + 1$",
+      "12"
+    ],
+    "solution": "각 칸의 숫자를 모두 더하면 $4 + 1 + 2 + 3 + 1 + 1 = 12$.\n\n**오답 짚기**: 6은 칸 수(바닥층만 센 것). 24는 가장 높은 4층이 모두 찼다고 보고 $4 \\times 6$을 한 것. 10, 14는 덧셈 실수.",
+    "verify": {
+      "answer": "sum([4,1,2,3,1,1])",
+      "methods": [
+        "h=[[4,1],[2,3],[1,1]]\nresult=len({(r,c,k) for r in range(3) for c in range(2) for k in range(h[r][c])})"
+      ],
+      "note": "방법 1: 숫자 합. 방법 2: (행, 열, 층) 좌표 나열."
+    }
+  },
+  {
+    "id": "7-t-4",
+    "lesson": "7-4",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "geometry"
+    ],
+    "question": "On a standard die, opposite faces add to 7. The die shown has 1 on top, 2 in front, and 3 on the right. What is the sum of the numbers on the three faces that cannot be seen?",
+    "questionKo": "보통 주사위는 마주 보는 면의 합이 7이다. 그림의 주사위는 윗면 1, 앞면 2, 오른쪽 면 3이다. 보이지 않는 세 면의 숫자의 합은?",
+    "figure": "<svg viewBox=\"0 0 230 200\" width=\"230\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"50,165 110,165 110,105 50,105\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"none\"/><polygon points=\"50,105 110,105 131.2,83.8 71.2,83.8\" fill=\"#4F6BF0\" fill-opacity=\"0.18\" stroke=\"none\"/><polygon points=\"110,165 110,105 131.2,83.8 131.2,143.8\" fill=\"#4F6BF0\" fill-opacity=\"0.24\" stroke=\"none\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><polygon points=\"50,165 110,165 110,105 50,105\"/><polygon points=\"50,105 110,105 131.2,83.8 71.2,83.8\"/><polygon points=\"110,165 110,105 131.2,83.8 131.2,143.8\"/></g><text x=\"80\" y=\"141\" font-size=\"18\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"700\">2</text><text x=\"90.6\" y=\"99.4\" font-size=\"18\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"700\">1</text><text x=\"120.6\" y=\"129.4\" font-size=\"18\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"700\">3</text></svg>",
+    "choices": [
+      "6",
+      "9",
+      "12",
+      "15",
+      "21"
+    ],
+    "answer": "D",
+    "hints": [
+      "보이지 않는 면은 각각 보이는 면의 맞은편.",
+      "$(7-1) + (7-2) + (7-3)$",
+      "또는 전체 합 21에서 보이는 합 6을 뺀다."
+    ],
+    "solution": "보이지 않는 세 면은 보이는 면 1, 2, 3의 맞은편이므로 $6, 5, 4$. 합은 15. 여섯 면의 합이 $1 + 2 + \\cdots + 6 = 21$이므로 $21 - (1 + 2 + 3) = 15$로도 구할 수 있다.\n\n**오답 짚기**: 6은 보이는 면의 합. 21은 여섯 면 전체 합. 12는 $4 + 5 + 3$처럼 한 면을 잘못 짝지은 것. 9는 $7 \\cdot 3 - 12$ 같은 계산 실수.",
+    "fast": "21 − 6 = 15.",
+    "verify": {
+      "answer": "(7-1)+(7-2)+(7-3)",
+      "methods": [
+        "21-(1+2+3)"
+      ],
+      "note": "방법 1: 맞은편 세 면 각각. 방법 2: 전체 21에서 보이는 면 합을 뺌."
+    }
+  },
+  {
+    "id": "7-t-5",
+    "lesson": "7-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A sector of a circle with radius 12 has arc length $3\\pi$. What is the measure of its central angle?",
+    "questionKo": "반지름이 12인 원의 부채꼴의 호의 길이가 $3\\pi$이다. 이 부채꼴의 중심각의 크기는?",
+    "figure": "<svg viewBox=\"0 0 250 180\" width=\"250\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M60 150 L150 150 A90 90 0 0 0 123.6 86.4 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M78 150 A18 18 0 0 0 72.7 137.3\" stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\"/><text x=\"93.7\" y=\"142.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">?</text><text x=\"105\" y=\"166\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">12</text><text x=\"153.1\" y=\"119.6\" font-size=\"12\" text-anchor=\"start\" fill=\"currentColor\" font-weight=\"600\">호 3π</text><circle cx=\"60\" cy=\"150\" r=\"2.5\" fill=\"currentColor\"/></svg>",
+    "choices": [
+      "$30^\\circ$",
+      "$45^\\circ$",
+      "$60^\\circ$",
+      "$90^\\circ$",
+      "$135^\\circ$"
+    ],
+    "answer": "B",
+    "hints": [
+      "전체 둘레는 $2\\pi \\cdot 12 = 24\\pi$.",
+      "호 $3\\pi$는 전체의 $\\frac{3\\pi}{24\\pi} = \\frac{1}{8}$.",
+      "$360° \\times \\frac{1}{8}$"
+    ],
+    "solution": "원 전체 둘레는 $2\\pi \\cdot 12 = 24\\pi$. 호의 길이 $3\\pi$는 전체의 $\\frac{3\\pi}{24\\pi} = \\frac{1}{8}$이므로 중심각은 $360° \\div 8 = 45°$.\n\n**오답 짚기**: $90°$는 둘레를 $\\pi r = 12\\pi$로 잘못 잡아 $\\frac{3}{12} = \\frac{1}{4}$로 본 것. $30°$는 $\\frac{3}{36}$처럼 둘레를 $3r$로 둔 실수. $60°$와 $135°$는 비율 계산 실수.",
+    "fast": "3π/24π = 1/8 → 45°.",
+    "verify": {
+      "answer": "360*(3*pi)/(2*pi*12)",
+      "methods": [
+        "[t for t in range(1,361) if abs(t/360*2*pi*12-3*pi)<1e-9][0]"
+      ],
+      "note": "방법 1: 호/둘레 × 360. 방법 2: 1°~360° 정수각을 모두 넣어 호가 3π가 되는 각을 찾음."
+    }
+  },
+  {
+    "id": "7-t-6",
+    "lesson": "7-2",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A cube-shaped tank has edge length 50 cm. How many liters of water does it hold when full? (1 L = 1000 cm³)",
+    "questionKo": "한 모서리가 50 cm인 정육면체 모양 물탱크가 있다. 가득 채우면 물이 몇 L 들어가는가? (1 L = 1000 cm³)",
+    "figure": "<svg viewBox=\"0 0 290 185\" width=\"290\" height=\"185\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"50,150 140,150 140,60 50,60\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"none\"/><polygon points=\"50,60 140,60 171.8,28.2 81.8,28.2\" fill=\"#4F6BF0\" fill-opacity=\"0.18\" stroke=\"none\"/><polygon points=\"140,150 140,60 171.8,28.2 171.8,118.2\" fill=\"#4F6BF0\" fill-opacity=\"0.24\" stroke=\"none\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><polygon points=\"50,150 140,150 140,60 50,60\"/><polygon points=\"50,60 140,60 171.8,28.2 81.8,28.2\"/><polygon points=\"140,150 140,60 171.8,28.2 171.8,118.2\"/></g><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\" stroke-dasharray=\"3 3\" opacity=\"0.5\"><line x1=\"50\" y1=\"150\" x2=\"81.8\" y2=\"118.2\"/><line x1=\"81.8\" y1=\"118.2\" x2=\"171.8\" y2=\"118.2\"/><line x1=\"81.8\" y1=\"118.2\" x2=\"81.8\" y2=\"28.2\"/></g><text x=\"95\" y=\"168\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">50 cm</text><text x=\"42\" y=\"110\" font-size=\"12\" text-anchor=\"end\" fill=\"currentColor\" font-weight=\"600\">50 cm</text><text x=\"210\" y=\"90\" font-size=\"12\" text-anchor=\"start\" fill=\"currentColor\" font-weight=\"600\">몇 L?</text></svg>",
+    "choices": [
+      "1.25",
+      "12.5",
+      "125",
+      "1,250",
+      "125,000"
+    ],
+    "answer": "C",
+    "hints": [
+      "부피 $50^3 = 125{,}000$ cm³.",
+      "1 L = 1000 cm³이므로 1000으로 나눈다.",
+      "또는 50 cm = 5 dm로 바꿔 $5^3 = 125$ dm³ = 125 L."
+    ],
+    "solution": "부피는 $50^3 = 125{,}000$ cm³이고 1 L $= 1000$ cm³이므로 $125{,}000 \\div 1000 = 125$ L. 길이를 먼저 dm로 바꾸면 $5^3 = 125$ dm³ $= 125$ L로 바로 나온다(1 dm³ = 1 L).\n\n**오답 짚기**: 125,000은 cm³를 L로 바꾸지 않은 것. 1.25는 0.5 m로 바꿔 $0.125$ m³를 구한 뒤 1 m³ = 10 L처럼 잘못 환산한 것(1 m³ = 1000 L이므로 125 L). 12.5와 1,250은 자릿수 실수.",
+    "fast": "50 cm = 5 dm → 5³ = 125 L.",
+    "verify": {
+      "answer": "50**3/1000",
+      "methods": [
+        "5**3"
+      ],
+      "note": "방법 1: cm³ ÷ 1000. 방법 2: 길이를 dm로 바꿔 dm³ = L로 바로 계산."
+    }
+  },
+  {
+    "id": "7-t-7",
+    "lesson": "7-3",
+    "band": "11-15",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A $10 \\times 10 \\times 10$ cube is painted on all faces and cut into unit cubes. How many unit cubes have paint on exactly two faces?",
+    "questionKo": "$10 \\times 10 \\times 10$ 정육면체의 모든 면을 칠한 뒤 단위 정육면체로 잘랐다. 정확히 두 면이 칠해진 조각은 몇 개인가?",
+    "figure": "<svg viewBox=\"0 0 230 200\" width=\"230\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"40,159 51,159 51,148 40,148\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"43.9,56.1 54.9,56.1 58.8,52.2 47.8,52.2\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,159 150,148 153.9,144.1 153.9,155.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,148 51,148 51,137 40,137\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"47.8,52.2 58.8,52.2 62.7,48.3 51.7,48.3\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,148 150,137 153.9,133.1 153.9,144.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,137 51,137 51,126 40,126\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"51.7,48.3 62.7,48.3 66.6,44.4 55.6,44.4\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,137 150,126 153.9,122.1 153.9,133.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,126 51,126 51,115 40,115\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"55.6,44.4 66.6,44.4 70.4,40.6 59.4,40.6\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,126 150,115 153.9,111.1 153.9,122.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,115 51,115 51,104 40,104\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"59.4,40.6 70.4,40.6 74.3,36.7 63.3,36.7\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,115 150,104 153.9,100.1 153.9,111.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,104 51,104 51,93 40,93\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"63.3,36.7 74.3,36.7 78.2,32.8 67.2,32.8\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,104 150,93 153.9,89.1 153.9,100.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,93 51,93 51,82 40,82\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"67.2,32.8 78.2,32.8 82.1,28.9 71.1,28.9\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,93 150,82 153.9,78.1 153.9,89.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"40,82 51,82 51,71 40,71\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"71.1,28.9 82.1,28.9 86,25 75,25\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"150,82 150,71 153.9,67.1 153.9,78.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"51,170 62,170 62,159 51,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"51,60 62,60 65.9,56.1 54.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"153.9,166.1 153.9,155.1 157.8,151.2 157.8,162.2\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"51,71 62,71 62,60 51,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"86,25 97,25 100.9,21.1 89.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"153.9,67.1 153.9,56.1 157.8,52.2 157.8,63.2\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"62,170 73,170 73,159 62,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"62,60 73,60 76.9,56.1 65.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"157.8,162.2 157.8,151.2 161.7,147.3 161.7,158.3\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"62,71 73,71 73,60 62,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"97,25 108,25 111.9,21.1 100.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"157.8,63.2 157.8,52.2 161.7,48.3 161.7,59.3\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"73,170 84,170 84,159 73,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"73,60 84,60 87.9,56.1 76.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"161.7,158.3 161.7,147.3 165.6,143.4 165.6,154.4\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"73,71 84,71 84,60 73,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"108,25 119,25 122.9,21.1 111.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"161.7,59.3 161.7,48.3 165.6,44.4 165.6,55.4\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"84,170 95,170 95,159 84,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"84,60 95,60 98.9,56.1 87.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"165.6,154.4 165.6,143.4 169.4,139.6 169.4,150.6\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"84,71 95,71 95,60 84,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"119,25 130,25 133.9,21.1 122.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"165.6,55.4 165.6,44.4 169.4,40.6 169.4,51.6\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"95,170 106,170 106,159 95,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"95,60 106,60 109.9,56.1 98.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"169.4,150.6 169.4,139.6 173.3,135.7 173.3,146.7\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"95,71 106,71 106,60 95,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"130,25 141,25 144.9,21.1 133.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"169.4,51.6 169.4,40.6 173.3,36.7 173.3,47.7\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"106,170 117,170 117,159 106,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"106,60 117,60 120.9,56.1 109.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"173.3,146.7 173.3,135.7 177.2,131.8 177.2,142.8\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"106,71 117,71 117,60 106,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"141,25 152,25 155.9,21.1 144.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"173.3,47.7 173.3,36.7 177.2,32.8 177.2,43.8\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"117,170 128,170 128,159 117,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"117,60 128,60 131.9,56.1 120.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"177.2,142.8 177.2,131.8 181.1,127.9 181.1,138.9\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"117,71 128,71 128,60 117,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"152,25 163,25 166.9,21.1 155.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"177.2,43.8 177.2,32.8 181.1,28.9 181.1,39.9\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"128,170 139,170 139,159 128,159\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"128,60 139,60 142.9,56.1 131.9,56.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"181.1,138.9 181.1,127.9 185,124 185,135\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"128,71 139,71 139,60 128,60\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"163,25 174,25 177.9,21.1 166.9,21.1\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"181.1,39.9 181.1,28.9 185,25 185,36\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,159 150,159 150,148 139,148\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"142.9,56.1 153.9,56.1 157.8,52.2 146.8,52.2\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,124 185,113 188.9,109.1 188.9,120.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,148 150,148 150,137 139,137\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"146.8,52.2 157.8,52.2 161.7,48.3 150.7,48.3\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,113 185,102 188.9,98.1 188.9,109.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,137 150,137 150,126 139,126\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"150.7,48.3 161.7,48.3 165.6,44.4 154.6,44.4\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,102 185,91 188.9,87.1 188.9,98.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,126 150,126 150,115 139,115\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"154.6,44.4 165.6,44.4 169.4,40.6 158.4,40.6\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,91 185,80 188.9,76.1 188.9,87.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,115 150,115 150,104 139,104\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"158.4,40.6 169.4,40.6 173.3,36.7 162.3,36.7\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,80 185,69 188.9,65.1 188.9,76.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,104 150,104 150,93 139,93\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"162.3,36.7 173.3,36.7 177.2,32.8 166.2,32.8\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,69 185,58 188.9,54.1 188.9,65.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,93 150,93 150,82 139,82\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"166.2,32.8 177.2,32.8 181.1,28.9 170.1,28.9\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,58 185,47 188.9,43.1 188.9,54.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"139,82 150,82 150,71 139,71\" fill=\"#E08A1E\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"170.1,28.9 181.1,28.9 185,25 174,25\" fill=\"#E08A1E\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"185,47 185,36 188.9,32.1 188.9,43.1\" fill=\"#E08A1E\" fill-opacity=\"0.32\" stroke=\"none\"/><g stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\" opacity=\"0.85\"><line x1=\"40\" y1=\"170\" x2=\"40\" y2=\"60\"/><line x1=\"40\" y1=\"170\" x2=\"150\" y2=\"170\"/><line x1=\"40\" y1=\"60\" x2=\"78.9\" y2=\"21.1\"/><line x1=\"40\" y1=\"60\" x2=\"150\" y2=\"60\"/><line x1=\"150\" y1=\"170\" x2=\"188.9\" y2=\"131.1\"/><line x1=\"150\" y1=\"170\" x2=\"150\" y2=\"60\"/><line x1=\"51\" y1=\"170\" x2=\"51\" y2=\"60\"/><line x1=\"40\" y1=\"159\" x2=\"150\" y2=\"159\"/><line x1=\"51\" y1=\"60\" x2=\"89.9\" y2=\"21.1\"/><line x1=\"43.9\" y1=\"56.1\" x2=\"153.9\" y2=\"56.1\"/><line x1=\"150\" y1=\"159\" x2=\"188.9\" y2=\"120.1\"/><line x1=\"153.9\" y1=\"166.1\" x2=\"153.9\" y2=\"56.1\"/><line x1=\"62\" y1=\"170\" x2=\"62\" y2=\"60\"/><line x1=\"40\" y1=\"148\" x2=\"150\" y2=\"148\"/><line x1=\"62\" y1=\"60\" x2=\"100.9\" y2=\"21.1\"/><line x1=\"47.8\" y1=\"52.2\" x2=\"157.8\" y2=\"52.2\"/><line x1=\"150\" y1=\"148\" x2=\"188.9\" y2=\"109.1\"/><line x1=\"157.8\" y1=\"162.2\" x2=\"157.8\" y2=\"52.2\"/><line x1=\"73\" y1=\"170\" x2=\"73\" y2=\"60\"/><line x1=\"40\" y1=\"137\" x2=\"150\" y2=\"137\"/><line x1=\"73\" y1=\"60\" x2=\"111.9\" y2=\"21.1\"/><line x1=\"51.7\" y1=\"48.3\" x2=\"161.7\" y2=\"48.3\"/><line x1=\"150\" y1=\"137\" x2=\"188.9\" y2=\"98.1\"/><line x1=\"161.7\" y1=\"158.3\" x2=\"161.7\" y2=\"48.3\"/><line x1=\"84\" y1=\"170\" x2=\"84\" y2=\"60\"/><line x1=\"40\" y1=\"126\" x2=\"150\" y2=\"126\"/><line x1=\"84\" y1=\"60\" x2=\"122.9\" y2=\"21.1\"/><line x1=\"55.6\" y1=\"44.4\" x2=\"165.6\" y2=\"44.4\"/><line x1=\"150\" y1=\"126\" x2=\"188.9\" y2=\"87.1\"/><line x1=\"165.6\" y1=\"154.4\" x2=\"165.6\" y2=\"44.4\"/><line x1=\"95\" y1=\"170\" x2=\"95\" y2=\"60\"/><line x1=\"40\" y1=\"115\" x2=\"150\" y2=\"115\"/><line x1=\"95\" y1=\"60\" x2=\"133.9\" y2=\"21.1\"/><line x1=\"59.4\" y1=\"40.6\" x2=\"169.4\" y2=\"40.6\"/><line x1=\"150\" y1=\"115\" x2=\"188.9\" y2=\"76.1\"/><line x1=\"169.4\" y1=\"150.6\" x2=\"169.4\" y2=\"40.6\"/><line x1=\"106\" y1=\"170\" x2=\"106\" y2=\"60\"/><line x1=\"40\" y1=\"104\" x2=\"150\" y2=\"104\"/><line x1=\"106\" y1=\"60\" x2=\"144.9\" y2=\"21.1\"/><line x1=\"63.3\" y1=\"36.7\" x2=\"173.3\" y2=\"36.7\"/><line x1=\"150\" y1=\"104\" x2=\"188.9\" y2=\"65.1\"/><line x1=\"173.3\" y1=\"146.7\" x2=\"173.3\" y2=\"36.7\"/><line x1=\"117\" y1=\"170\" x2=\"117\" y2=\"60\"/><line x1=\"40\" y1=\"93\" x2=\"150\" y2=\"93\"/><line x1=\"117\" y1=\"60\" x2=\"155.9\" y2=\"21.1\"/><line x1=\"67.2\" y1=\"32.8\" x2=\"177.2\" y2=\"32.8\"/><line x1=\"150\" y1=\"93\" x2=\"188.9\" y2=\"54.1\"/><line x1=\"177.2\" y1=\"142.8\" x2=\"177.2\" y2=\"32.8\"/><line x1=\"128\" y1=\"170\" x2=\"128\" y2=\"60\"/><line x1=\"40\" y1=\"82\" x2=\"150\" y2=\"82\"/><line x1=\"128\" y1=\"60\" x2=\"166.9\" y2=\"21.1\"/><line x1=\"71.1\" y1=\"28.9\" x2=\"181.1\" y2=\"28.9\"/><line x1=\"150\" y1=\"82\" x2=\"188.9\" y2=\"43.1\"/><line x1=\"181.1\" y1=\"138.9\" x2=\"181.1\" y2=\"28.9\"/><line x1=\"139\" y1=\"170\" x2=\"139\" y2=\"60\"/><line x1=\"40\" y1=\"71\" x2=\"150\" y2=\"71\"/><line x1=\"139\" y1=\"60\" x2=\"177.9\" y2=\"21.1\"/><line x1=\"75\" y1=\"25\" x2=\"185\" y2=\"25\"/><line x1=\"150\" y1=\"71\" x2=\"188.9\" y2=\"32.1\"/><line x1=\"185\" y1=\"135\" x2=\"185\" y2=\"25\"/><line x1=\"150\" y1=\"170\" x2=\"150\" y2=\"60\"/><line x1=\"40\" y1=\"60\" x2=\"150\" y2=\"60\"/><line x1=\"150\" y1=\"60\" x2=\"188.9\" y2=\"21.1\"/><line x1=\"78.9\" y1=\"21.1\" x2=\"188.9\" y2=\"21.1\"/><line x1=\"150\" y1=\"60\" x2=\"188.9\" y2=\"21.1\"/><line x1=\"188.9\" y1=\"131.1\" x2=\"188.9\" y2=\"21.1\"/></g><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><polygon points=\"40,170 150,170 150,60 40,60\"/><polygon points=\"40,60 150,60 188.9,21.1 78.9,21.1\"/><polygon points=\"150,170 150,60 188.9,21.1 188.9,131.1\"/></g><text x=\"95\" y=\"186\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">10</text><text x=\"32\" y=\"119\" font-size=\"12\" text-anchor=\"end\" fill=\"currentColor\" font-weight=\"600\">10</text></svg>",
+    "choices": [
+      "64",
+      "96",
+      "120",
+      "384",
+      "512"
+    ],
+    "answer": "B",
+    "hints": [
+      "두 면 칠해진 조각은 모서리에서 양 끝을 뺀 것.",
+      "모서리마다 $10 - 2 = 8$개, 모서리 12개.",
+      "$12 \\times 8$"
+    ],
+    "solution": "모서리(edge) 하나에 10개의 조각 중 양 끝 꼭짓점을 뺀 8개가 두 면 칠해진다. 모서리가 12개이므로 $12 \\times 8 = 96$.\n\n**오답 짚기**: 120은 $12 \\times 10$으로 양 끝을 빼지 않은 것. 384는 1면 조각 $6 \\cdot 8^2$. 512는 0면 조각 $8^3$. 64는 $8^2$.",
+    "fast": "12 × 8 = 96.",
+    "verify": {
+      "answer": "12*(10-2)",
+      "methods": [
+        "def paint(n):\n    c=Counter()\n    for x,y,z in product(range(n),repeat=3):\n        c[(x in (0,n-1))+(y in (0,n-1))+(z in (0,n-1))]+=1\n    return c\nresult=paint(10)[2]"
+      ],
+      "note": "방법 1: 12(n−2). 방법 2: 1000개 조각 브루트포스."
+    }
+  },
+  {
+    "id": "7-t-8",
+    "lesson": "7-4",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "geometry"
+    ],
+    "question": "The net shown is folded into a cube. Which number is on the face opposite the face numbered 2?",
+    "questionKo": "그림의 전개도를 접어 정육면체를 만든다. 2가 적힌 면과 마주 보는 면의 숫자는?",
+    "figure": "<svg viewBox=\"0 0 190 100\" width=\"190\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"20\" y=\"20\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"35\" y=\"39.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">1</text><rect x=\"50\" y=\"20\" width=\"30\" height=\"30\" fill=\"#E08A1E\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"65\" y=\"39.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">2</text><rect x=\"80\" y=\"20\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"95\" y=\"39.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">3</text><rect x=\"80\" y=\"50\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"95\" y=\"69.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">4</text><rect x=\"110\" y=\"50\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"125\" y=\"69.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">5</text><rect x=\"140\" y=\"50\" width=\"30\" height=\"30\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"155\" y=\"69.5\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">6</text></svg>",
+    "choices": [
+      "1",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": "D",
+    "hints": [
+      "윗줄 1, 2, 3은 일직선이므로 1과 3이 마주 본다.",
+      "아랫줄 4, 5, 6도 일직선이므로 4와 6이 마주 본다.",
+      "남은 2와 5가 마주 본다."
+    ],
+    "solution": "윗줄 $1, 2, 3$은 일직선으로 붙은 세 칸이므로 양끝 1과 3이 마주 본다. 아랫줄 $4, 5, 6$도 마찬가지로 4와 6이 마주 본다. 남은 두 면 2와 5가 마주 본다. 실제로 3을 바닥으로 접어 보면 2와 4가 옆면으로 서고, 5는 4 너머에서 2의 반대쪽으로 온다.\n\n**오답 짚기**: 1과 3은 2의 양옆 칸이라 이웃면. 4는 2와 대각선 방향으로 붙어 있어 접으면 역시 이웃이 된다. 6은 4의 짝.",
+    "fast": "1–3, 4–6이 짝 → 남는 2–5.",
+    "verify": {
+      "answer": "pairs={1:3,3:1,4:6,6:4}\nresult=[x for x in range(1,7) if x not in pairs and x!=2][0]",
+      "methods": [
+        "def fold(cells):\n    for (r,c) in cells:\n        if all((r+dr,c+dc) in cells for dr in (0,1) for dc in (0,1)): return None\n    def roll(o,d):\n        B,T,N,S,E,W=o\n        return {'E':(E,W,N,S,T,B),'W':(W,E,N,S,B,T),'S':(S,N,B,T,E,W),'N':(N,S,T,B,E,W)}[d]\n    start=sorted(cells)[0]\n    faces={}; seen={start}; stack=[(start,('B','T','N','S','E','W'))]\n    while stack:\n        cell,o=stack.pop()\n        if o[0] in faces: return None\n        faces[o[0]]=cells[cell]\n        for d,(dr,dc) in (('E',(0,1)),('W',(0,-1)),('S',(1,0)),('N',(-1,0))):\n            nx=(cell[0]+dr,cell[1]+dc)\n            if nx in cells and nx not in seen:\n                seen.add(nx); stack.append((nx,roll(o,d)))\n    return faces if len(faces)==6 else None\nOPP={'B':'T','T':'B','N':'S','S':'N','E':'W','W':'E'}\ndef opposite(cells,label):\n    f=fold(cells); inv={v:k for k,v in f.items()}\n    return f[OPP[inv[label]]]\nresult=opposite({(0,0):1,(0,1):2,(0,2):3,(1,2):4,(1,3):5,(1,4):6},2)"
+      ],
+      "note": "방법 1: 두 일직선의 양끝 짝을 빼고 남은 것. 방법 2: 굴리기 시뮬레이션."
+    }
+  },
+  {
+    "id": "7-t-9",
+    "lesson": "7-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A square is inscribed in a circle of radius 5. What is the area of the shaded region inside the circle but outside the square?",
+    "questionKo": "반지름이 5인 원에 정사각형이 내접해 있다. 원 안쪽이면서 정사각형 바깥쪽인 색칠된 부분의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 220 190\" width=\"220\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M40 95 a70 70 0 1 0 140 0 a70 70 0 1 0 -140 0 Z M60.5 45.5 L159.5 45.5 L159.5 144.5 L60.5 144.5 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" fill-rule=\"evenodd\" stroke=\"none\"/><circle cx=\"110\" cy=\"95\" r=\"70\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"/><polygon points=\"60.5,45.5 159.5,45.5 159.5,144.5 60.5,144.5\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"/><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\" stroke-dasharray=\"3 3\" opacity=\"0.6\"><line x1=\"60.5\" y1=\"45.5\" x2=\"159.5\" y2=\"144.5\"/><line x1=\"159.5\" y1=\"45.5\" x2=\"60.5\" y2=\"144.5\"/></g><circle cx=\"110\" cy=\"95\" r=\"2.5\" fill=\"currentColor\"/><text x=\"128\" y=\"81\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">5</text></svg>",
+    "choices": [
+      "$25\\pi - 25$",
+      "$25\\pi - 50$",
+      "$25\\pi - 100$",
+      "$50\\pi - 50$",
+      "$100 - 25\\pi$"
+    ],
+    "answer": "B",
+    "hints": [
+      "정사각형의 대각선은 원의 지름 10.",
+      "대각선이 d인 정사각형의 넓이는 $\\frac{d^2}{2}$, 또는 중심에서 나눈 직각삼각형 4개 $4 \\cdot \\frac{1}{2} \\cdot 5 \\cdot 5$.",
+      "$25\\pi - 50$"
+    ],
+    "solution": "내접 정사각형의 대각선은 원의 지름 10이므로 넓이는 $\\frac{10^2}{2} = 50$. (중심에서 네 꼭짓점으로 자르면 두 변이 5인 직각삼각형 4개: $4 \\cdot \\frac{25}{2} = 50$.) 원의 넓이 $25\\pi$에서 빼면 $25\\pi - 50$.\n\n**오답 짚기**: $25\\pi - 100$은 지름 10을 정사각형의 한 변으로 본 것. $25\\pi - 25$는 반지름 5를 한 변으로 본 것. $50\\pi - 50$은 원 넓이를 $\\pi d^2 / 2$로 잘못 계산한 것.",
+    "fast": "내접 정사각형 넓이 = 2r² = 50. 25π − 50.",
+    "verify": {
+      "answer": "pi*5**2 - 10**2/2",
+      "methods": [
+        "pi*25 - 4*(5*5/2)"
+      ],
+      "note": "방법 1: 원 − 정사각형(d²/2). 방법 2: 원 − 직각삼각형 4개(두 변이 반지름).",
+      "choices": [
+        "25*pi-25",
+        "25*pi-50",
+        "25*pi-100",
+        "50*pi-50",
+        "100-25*pi"
+      ]
+    }
+  },
+  {
+    "id": "7-t-10",
+    "lesson": "7-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "Three solid metal spheres with radii 3, 4, and 5 are melted together and recast into a single sphere. What is the radius of the new sphere?",
+    "questionKo": "반지름이 각각 3, 4, 5인 금속 구 세 개를 녹여 구 하나로 다시 만들었다. 새 구의 반지름은?",
+    "figure": "<svg viewBox=\"0 0 320 140\" width=\"320\" height=\"140\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"40\" cy=\"80\" r=\"18\" fill=\"#E08A1E\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"40\" y=\"112\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">3</text><circle cx=\"95\" cy=\"80\" r=\"24\" fill=\"#E08A1E\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"95\" y=\"118\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">4</text><circle cx=\"165\" cy=\"80\" r=\"30\" fill=\"#E08A1E\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"165\" y=\"124\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">5</text><defs><marker id=\"art10\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"4\" orient=\"auto\"><path d=\"M0 0 L8 4 L0 8 z\" fill=\"currentColor\"/></marker></defs><path d=\"M205 80 H230\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" marker-end=\"url(#art10)\"/><circle cx=\"270\" cy=\"80\" r=\"36\" fill=\"#E08A1E\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"270\" y=\"130\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">?</text></svg>",
+    "choices": [
+      "4",
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "answer": "B",
+    "hints": [
+      "녹여서 다시 만들면 부피가 보존된다. 구의 부피는 $r^3$에 비례.",
+      "$3^3 + 4^3 + 5^3 = 27 + 64 + 125 = 216$.",
+      "$216 = 6^3$"
+    ],
+    "solution": "부피가 보존되므로 $\\frac{4}{3}\\pi(3^3 + 4^3 + 5^3) = \\frac{4}{3}\\pi R^3$에서 $R^3 = 27 + 64 + 125 = 216 = 6^3$, $R = 6$.\n\n**오답 짚기**: 12는 반지름을 그냥 더한 것(길이는 보존되지 않는다). 4는 평균. 8과 9는 $3 + 4 + 5 = 12$에서 적당히 줄인 추측.",
+    "fast": "3³ + 4³ + 5³ = 6³ (유명한 항등식). R = 6.",
+    "verify": {
+      "answer": "[r for r in range(1,100) if r**3==3**3+4**3+5**3][0]",
+      "methods": [
+        "V=sum(4/3*pi*r**3 for r in (3,4,5))\nlo,hi=0.0,100.0\nfor _ in range(200):\n    m=(lo+hi)/2\n    if 4/3*pi*m**3<V: lo=m\n    else: hi=m\nresult=(lo+hi)/2"
+      ],
+      "note": "방법 1: r³의 합이 세제곱수인 정수 r 탐색. 방법 2: 총 부피를 구하고 이분법으로 R을 수치적으로 풀기."
+    }
+  },
+  {
+    "id": "7-t-11",
+    "lesson": "7-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "An $n \\times n \\times n$ cube is painted on all faces and cut into unit cubes. Exactly 54 of the unit cubes have paint on exactly one face. What is $n$?",
+    "questionKo": "$n \\times n \\times n$ 정육면체의 모든 면을 칠한 뒤 단위 정육면체로 잘랐더니 한 면만 칠해진 조각이 정확히 54개였다. $n$은?",
+    "figure": "<svg viewBox=\"0 0 310 200\" width=\"310\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"52,153 74,153 74,131 52,131\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"59.8,57.2 81.8,57.2 89.6,49.4 67.6,49.4\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"147.8,145.2 147.8,123.2 155.6,115.4 155.6,137.4\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"52,131 74,131 74,109 52,109\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"67.6,49.4 89.6,49.4 97.3,41.7 75.3,41.7\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"147.8,123.2 147.8,101.2 155.6,93.4 155.6,115.4\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"52,109 74,109 74,87 52,87\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"75.3,41.7 97.3,41.7 105.1,33.9 83.1,33.9\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"147.8,101.2 147.8,79.2 155.6,71.4 155.6,93.4\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"74,153 96,153 96,131 74,131\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"81.8,57.2 103.8,57.2 111.6,49.4 89.6,49.4\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"155.6,137.4 155.6,115.4 163.3,107.7 163.3,129.7\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"74,131 96,131 96,109 74,109\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"89.6,49.4 111.6,49.4 119.3,41.7 97.3,41.7\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"155.6,115.4 155.6,93.4 163.3,85.7 163.3,107.7\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"74,109 96,109 96,87 74,87\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"97.3,41.7 119.3,41.7 127.1,33.9 105.1,33.9\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"155.6,93.4 155.6,71.4 163.3,63.7 163.3,85.7\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"96,153 118,153 118,131 96,131\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"103.8,57.2 125.8,57.2 133.6,49.4 111.6,49.4\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"163.3,129.7 163.3,107.7 171.1,99.9 171.1,121.9\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"96,131 118,131 118,109 96,109\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"111.6,49.4 133.6,49.4 141.3,41.7 119.3,41.7\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"163.3,107.7 163.3,85.7 171.1,77.9 171.1,99.9\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><polygon points=\"96,109 118,109 118,87 96,87\" fill=\"#4F6BF0\" fill-opacity=\"0.38\" stroke=\"none\"/><polygon points=\"119.3,41.7 141.3,41.7 149.1,33.9 127.1,33.9\" fill=\"#4F6BF0\" fill-opacity=\"0.26\" stroke=\"none\"/><polygon points=\"163.3,85.7 163.3,63.7 171.1,55.9 171.1,77.9\" fill=\"#4F6BF0\" fill-opacity=\"0.32\" stroke=\"none\"/><g stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\" opacity=\"0.85\"><line x1=\"30\" y1=\"175\" x2=\"30\" y2=\"65\"/><line x1=\"30\" y1=\"175\" x2=\"140\" y2=\"175\"/><line x1=\"30\" y1=\"65\" x2=\"68.9\" y2=\"26.1\"/><line x1=\"30\" y1=\"65\" x2=\"140\" y2=\"65\"/><line x1=\"140\" y1=\"175\" x2=\"178.9\" y2=\"136.1\"/><line x1=\"140\" y1=\"175\" x2=\"140\" y2=\"65\"/><line x1=\"52\" y1=\"175\" x2=\"52\" y2=\"65\"/><line x1=\"30\" y1=\"153\" x2=\"140\" y2=\"153\"/><line x1=\"52\" y1=\"65\" x2=\"90.9\" y2=\"26.1\"/><line x1=\"37.8\" y1=\"57.2\" x2=\"147.8\" y2=\"57.2\"/><line x1=\"140\" y1=\"153\" x2=\"178.9\" y2=\"114.1\"/><line x1=\"147.8\" y1=\"167.2\" x2=\"147.8\" y2=\"57.2\"/><line x1=\"74\" y1=\"175\" x2=\"74\" y2=\"65\"/><line x1=\"30\" y1=\"131\" x2=\"140\" y2=\"131\"/><line x1=\"74\" y1=\"65\" x2=\"112.9\" y2=\"26.1\"/><line x1=\"45.6\" y1=\"49.4\" x2=\"155.6\" y2=\"49.4\"/><line x1=\"140\" y1=\"131\" x2=\"178.9\" y2=\"92.1\"/><line x1=\"155.6\" y1=\"159.4\" x2=\"155.6\" y2=\"49.4\"/><line x1=\"96\" y1=\"175\" x2=\"96\" y2=\"65\"/><line x1=\"30\" y1=\"109\" x2=\"140\" y2=\"109\"/><line x1=\"96\" y1=\"65\" x2=\"134.9\" y2=\"26.1\"/><line x1=\"53.3\" y1=\"41.7\" x2=\"163.3\" y2=\"41.7\"/><line x1=\"140\" y1=\"109\" x2=\"178.9\" y2=\"70.1\"/><line x1=\"163.3\" y1=\"151.7\" x2=\"163.3\" y2=\"41.7\"/><line x1=\"118\" y1=\"175\" x2=\"118\" y2=\"65\"/><line x1=\"30\" y1=\"87\" x2=\"140\" y2=\"87\"/><line x1=\"118\" y1=\"65\" x2=\"156.9\" y2=\"26.1\"/><line x1=\"61.1\" y1=\"33.9\" x2=\"171.1\" y2=\"33.9\"/><line x1=\"140\" y1=\"87\" x2=\"178.9\" y2=\"48.1\"/><line x1=\"171.1\" y1=\"143.9\" x2=\"171.1\" y2=\"33.9\"/><line x1=\"140\" y1=\"175\" x2=\"140\" y2=\"65\"/><line x1=\"30\" y1=\"65\" x2=\"140\" y2=\"65\"/><line x1=\"140\" y1=\"65\" x2=\"178.9\" y2=\"26.1\"/><line x1=\"68.9\" y1=\"26.1\" x2=\"178.9\" y2=\"26.1\"/><line x1=\"140\" y1=\"65\" x2=\"178.9\" y2=\"26.1\"/><line x1=\"178.9\" y1=\"136.1\" x2=\"178.9\" y2=\"26.1\"/></g><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><polygon points=\"30,175 140,175 140,65 30,65\"/><polygon points=\"30,65 140,65 178.9,26.1 68.9,26.1\"/><polygon points=\"140,175 140,65 178.9,26.1 178.9,136.1\"/></g><text x=\"85\" y=\"191\" font-size=\"13\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\" font-style=\"italic\">n</text><text x=\"205\" y=\"80\" font-size=\"11\" text-anchor=\"start\" fill=\"currentColor\" opacity=\"0.8\">한 면만 칠해진</text><text x=\"205\" y=\"96\" font-size=\"11\" text-anchor=\"start\" fill=\"currentColor\" opacity=\"0.8\">조각: 모두 54개</text></svg>",
+    "choices": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "9"
+    ],
+    "answer": "B",
+    "hints": [
+      "1면 조각은 $6(n-2)^2$개.",
+      "$6(n-2)^2 = 54 \\Rightarrow (n-2)^2 = 9$.",
+      "$n - 2 = 3$"
+    ],
+    "solution": "한 면만 칠해진 조각은 $6(n-2)^2$개이므로 $6(n-2)^2 = 54$, $(n-2)^2 = 9$, $n - 2 = 3$, $n = 5$.\n\n**오답 짚기**: 9는 $(n-2)^2 = 9$를 n으로 착각한 것. 7은 $n - 2 = 3$에서 2를 더하는 대신 $3 + 2 + 2$를 한 것. 4는 2면 조각 공식 $12(n-2)$에 54를 넣어 어림한 것. 6은 $6 \\cdot 6^2 \\cdot$ 식의 오해.",
+    "fast": "54 ÷ 6 = 9 = 3² → n = 5.",
+    "verify": {
+      "answer": "[n for n in range(3,30) if 6*(n-2)**2==54][0]",
+      "methods": [
+        "def paint(n):\n    c=Counter()\n    for x,y,z in product(range(n),repeat=3):\n        c[(x in (0,n-1))+(y in (0,n-1))+(z in (0,n-1))]+=1\n    return c\nresult=[n for n in range(3,12) if paint(n)[1]==54][0]"
+      ],
+      "note": "방법 1: 공식의 정수해 탐색. 방법 2: n마다 브루트포스로 1면 조각을 세어 54인 n을 찾음."
+    }
+  },
+  {
+    "id": "7-t-12",
+    "lesson": "7-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A vine grows around a cylindrical pole with circumference 8, winding around the pole exactly twice while climbing from the bottom to the point directly above on the top, a height of 12. What is the shortest possible length of the vine?",
+    "questionKo": "둘레가 8인 원기둥 모양 기둥을 덩굴이 정확히 두 바퀴 감으면서, 아래쪽 한 점에서 바로 위 높이 12인 점까지 올라간다. 덩굴의 최소 길이는?",
+    "figure": "<svg viewBox=\"0 0 230 208\" width=\"230\" height=\"208\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M45 45 V155 A55 16.5 0 0 0 155 155 V45\" fill=\"#4F6BF0\" fill-opacity=\"0.15\" stroke=\"currentColor\" stroke-width=\"1.5\"/><ellipse cx=\"100\" cy=\"45\" rx=\"55\" ry=\"16.5\" fill=\"#4F6BF0\" fill-opacity=\"0.25\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M45 155 A55 16.5 0 0 1 155 155\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\"/><path d=\"M100 138.5 L105.7 137.7 L111.4 137 L117 136.6 L122.4 136.3 L127.5 136.1 L132.3 136.2 L136.8 136.3 L140.9 136.6 L144.5 137.1 L147.6 137.6 L150.2 138.2 L152.3 138.9 L153.8 139.7 L154.7 140.4\" fill=\"none\" stroke=\"#DB433D\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\" opacity=\"0.6\"/><path d=\"M154.7 140.4 L155 141.2 L154.7 142.1 L153.8 142.8 L152.3 143.6 L150.2 144.3 L147.6 144.9 L144.5 145.4 L140.9 145.9 L136.8 146.2 L132.3 146.3 L127.5 146.4 L122.4 146.2 L117 145.9 L111.4 145.5 L105.7 144.8 L100 144 L94.3 143 L88.6 141.8 L83 140.4 L77.6 138.9 L72.5 137.2 L67.7 135.3 L63.2 133.3 L59.1 131.2 L55.5 128.9 L52.4 126.6 L49.8 124.1 L47.7 121.6 L46.2 119 L45.3 116.4 L45 113.8\" fill=\"none\" stroke=\"#DB433D\" stroke-width=\"2.2\"/><path d=\"M45 113.8 L45.3 111.1 L46.2 108.5 L47.7 105.9 L49.8 103.4 L52.4 100.9 L55.5 98.6 L59.1 96.3 L63.2 94.2 L67.7 92.2 L72.5 90.3 L77.6 88.6 L83 87.1 L88.6 85.7 L94.3 84.5 L100 83.5 L105.7 82.7 L111.4 82 L117 81.6 L122.4 81.3 L127.5 81.1 L132.3 81.2 L136.8 81.3 L140.9 81.6 L144.5 82.1 L147.6 82.6 L150.2 83.2 L152.3 83.9 L153.8 84.7 L154.7 85.4 L155 86.2\" fill=\"none\" stroke=\"#DB433D\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\" opacity=\"0.6\"/><path d=\"M155 86.2 L154.7 87.1 L153.8 87.8 L152.3 88.6 L150.2 89.3 L147.6 89.9 L144.5 90.4 L140.9 90.9 L136.8 91.2 L132.3 91.3 L127.5 91.4 L122.4 91.2 L117 90.9 L111.4 90.5 L105.7 89.8 L100 89 L94.3 88 L88.6 86.8 L83 85.4 L77.6 83.9 L72.5 82.2 L67.7 80.3 L63.2 78.3 L59.1 76.2 L55.5 73.9 L52.4 71.6 L49.8 69.1 L47.7 66.6 L46.2 64 L45.3 61.4 L45 58.8\" fill=\"none\" stroke=\"#DB433D\" stroke-width=\"2.2\"/><path d=\"M45 58.8 L45.3 56.1 L46.2 53.5 L47.7 50.9 L49.8 48.4 L52.4 45.9 L55.5 43.6 L59.1 41.3 L63.2 39.2 L67.7 37.2 L72.5 35.3 L77.6 33.6 L83 32.1 L88.6 30.7 L94.3 29.5 L100 28.5\" fill=\"none\" stroke=\"#DB433D\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\" opacity=\"0.6\"/><circle cx=\"100\" cy=\"171.5\" r=\"3\" fill=\"currentColor\"/><circle cx=\"100\" cy=\"61.5\" r=\"3\" fill=\"currentColor\"/><text x=\"165\" y=\"104\" font-size=\"12\" text-anchor=\"start\" fill=\"currentColor\" font-weight=\"600\">12</text><text x=\"100\" y=\"187.5\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.85\">둘레 8, 두 바퀴</text></svg>",
+    "choices": [
+      "12",
+      "$4\\sqrt{13}$",
+      "20",
+      "24",
+      "28"
+    ],
+    "answer": "C",
+    "hints": [
+      "옆면을 펼치면 가로 8, 세로 12인 직사각형. 두 바퀴 감으면 이 직사각형을 가로로 두 장 이어 붙인 것과 같다.",
+      "가로 $8 \\times 2 = 16$, 세로 12인 직사각형의 대각선.",
+      "$\\sqrt{16^2 + 12^2}$"
+    ],
+    "solution": "옆면을 펼치면 가로 8(둘레), 세로 12인 직사각형이다. 두 바퀴를 감는 덩굴은 이 직사각형을 가로로 두 장 이어 붙인 $16 \\times 12$ 직사각형의 대각선이 된다(한 바퀴마다 가로로 8씩 전진). 길이는 $\\sqrt{16^2 + 12^2} = \\sqrt{400} = 20$. 한 바퀴씩 끊어 생각하면 $\\sqrt{8^2 + 6^2} = 10$씩 두 번으로 같은 결과.\n\n**오답 짚기**: $4\\sqrt{13} = \\sqrt{208}$은 두 바퀴인데 $8 \\times 12$ 직사각형 한 장만 펼쳐 대각선을 구한 것(펼치기를 한 가지만 해봄). 28은 둘레 두 번 16과 높이 12를 따로 더한 것. 12는 높이만, 24는 $12 \\times 2$.",
+    "fast": "한 바퀴에 높이 6씩: 6-8-10 두 번 = 20.",
+    "verify": {
+      "answer": "sqrt((2*8)**2+12**2)",
+      "methods": [
+        "def hl(C,H,turns,n):\n    r=C/(2*pi); L=0.0; px,py,pz=r,0.0,0.0\n    for i in range(1,n+1):\n        a=2*pi*turns*i/n; x,y,z=r*math.cos(a),r*math.sin(a),H*i/n\n        L+=sqrt((x-px)**2+(y-py)**2+(z-pz)**2); px,py,pz=x,y,z\n    return L\na=hl(8,12,2,20000)\nb=hl(8,12,2,40000)\nresult=b+(b-a)/3"
+      ],
+      "note": "방법 1: 두 장 이어 붙인 직사각형의 대각선. 방법 2: 3차원 나선(두 바퀴)을 잘게 쪼개 길이를 더하고 리처드슨 외삽.",
+      "choices": [
+        "12",
+        "sqrt(208)",
+        "20",
+        "24",
+        "28"
+      ]
+    }
+  },
+  {
+    "id": "7-t-13",
+    "lesson": "7-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A semicircle has diameter 12. Two smaller semicircles with diameters 4 and 8 are drawn inside it on the same diameter, as shown. What is the area of the shaded region?",
+    "questionKo": "지름이 12인 반원 안에, 같은 지름 위에 지름이 4와 8인 작은 반원 두 개를 그림처럼 그렸다. 색칠된 부분의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 240 170\" width=\"240\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M40 140 A72 72 0 0 1 184 140 A48 48 0 0 0 88 140 A24 24 0 0 0 40 140 Z\" fill=\"#29A066\" fill-opacity=\"0.35\" stroke=\"none\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><path d=\"M40 140 A72 72 0 0 1 184 140\"/><path d=\"M40 140 A24 24 0 0 1 88 140\"/><path d=\"M88 140 A48 48 0 0 1 184 140\"/><line x1=\"40\" y1=\"140\" x2=\"184\" y2=\"140\"/></g><text x=\"64\" y=\"156\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">4</text><text x=\"136\" y=\"156\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">8</text></svg>",
+    "choices": [
+      "$6\\pi$",
+      "$8\\pi$",
+      "$10\\pi$",
+      "$16\\pi$",
+      "$32\\pi$"
+    ],
+    "answer": "B",
+    "hints": [
+      "큰 반원 − 작은 반원 두 개. 반지름은 6, 2, 4.",
+      "$\\frac{1}{2}\\pi(36 - 4 - 16)$",
+      "$\\frac{1}{2}\\pi \\cdot 16$"
+    ],
+    "solution": "반지름은 각각 6, 2, 4. 색칠된 부분 $= \\frac{1}{2}\\pi \\cdot 6^2 - \\frac{1}{2}\\pi \\cdot 2^2 - \\frac{1}{2}\\pi \\cdot 4^2 = \\frac{1}{2}\\pi(36 - 4 - 16) = 8\\pi$. 작은 반원의 반지름을 $a, b$라 하면 큰 반지름은 $a + b$이고 넓이는 $\\frac{\\pi}{2}[(a+b)^2 - a^2 - b^2] = \\pi ab$로 항상 두 반지름의 곱이 된다.\n\n**오답 짚기**: $32\\pi$는 지름 12, 4, 8을 그대로 반지름 자리에 넣은 것. $16\\pi$는 $\\frac{1}{2}$을 빼먹고 원 전체로 계산한 것. $10\\pi$는 작은 반원 중 지름 8인 것 하나만 뺀 것. $6\\pi$는 넓이 대신 반지름의 합에 π를 곱한 것.",
+    "fast": "아르벨로스 넓이 = π × (작은 반지름의 곱) = π·2·4 = 8π.",
+    "verify": {
+      "answer": "pi/2*(6**2-2**2-4**2)",
+      "methods": [
+        "pi*2*4"
+      ],
+      "note": "방법 1: 반원 세 개의 넓이 차. 방법 2: 아르벨로스 항등식 π·r₁·r₂ (r₁ + r₂ = R).",
+      "choices": [
+        "6*pi",
+        "8*pi",
+        "10*pi",
+        "16*pi",
+        "32*pi"
+      ]
+    }
+  },
+  {
+    "id": "7-t-14",
+    "lesson": "7-2",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A cone-shaped cup with its point down has radius 6 and height 12. Water is poured in until the water is 6 deep. What fraction of the cup's volume is filled?",
+    "questionKo": "꼭짓점이 아래로 향한 원뿔 모양 컵의 반지름이 6, 높이가 12이다. 물을 부어 깊이가 6이 되었다. 컵 부피의 몇 분의 몇이 찼는가?",
+    "figure": "<svg viewBox=\"0 0 240 190\" width=\"240\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M44 40 L110 170 L176 40 A66 19.8 0 0 1 44 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><ellipse cx=\"110\" cy=\"40\" rx=\"66\" ry=\"19.8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M77 105 L110 170 L143 105 A33 9.9 0 0 1 77 105 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"1.2\"/><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\"><line x1=\"110\" y1=\"40\" x2=\"176\" y2=\"40\"/></g><circle cx=\"110\" cy=\"40\" r=\"2\" fill=\"currentColor\"/><text x=\"143\" y=\"34\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">6</text><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"none\" stroke-dasharray=\"3 3\"><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"170\"/><line x1=\"182\" y1=\"105\" x2=\"198\" y2=\"105\"/></g><text x=\"196\" y=\"76.5\" font-size=\"12\" text-anchor=\"start\" fill=\"currentColor\" font-weight=\"600\">6</text><text x=\"196\" y=\"141.5\" font-size=\"12\" text-anchor=\"start\" fill=\"currentColor\" font-weight=\"600\">6</text><text x=\"38\" y=\"109\" font-size=\"11\" text-anchor=\"end\" fill=\"currentColor\" opacity=\"0.8\">물</text></svg>",
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{8}$"
+    ],
+    "answer": "E",
+    "hints": [
+      "물이 찬 부분도 원뿔이고, 컵 전체와 닮음이다.",
+      "높이 비 $6 : 12 = 1 : 2$이면 물의 반지름도 3으로 절반.",
+      "부피비는 닮음비의 세제곱 $\\left(\\frac{1}{2}\\right)^3$."
+    ],
+    "solution": "물이 찬 부분은 컵과 닮은 작은 원뿔이고 높이 비가 $6 : 12 = 1 : 2$이므로 반지름도 $3 : 6$. 부피비는 닮음비의 세제곱 $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$. 직접 계산하면 물 $\\frac{1}{3}\\pi \\cdot 9 \\cdot 6 = 18\\pi$, 컵 $\\frac{1}{3}\\pi \\cdot 36 \\cdot 12 = 144\\pi$로 $\\frac{18}{144} = \\frac{1}{8}$.\n\n**오답 짚기**: $\\frac{1}{2}$은 높이 비를 그대로 부피비로 쓴 것. $\\frac{1}{4}$은 넓이비(제곱)까지만 간 것. $\\frac{1}{3}$은 원뿔의 $\\frac{1}{3}$을 답으로 착각한 것. $\\frac{1}{6}$은 $\\frac{1}{2} \\cdot \\frac{1}{3}$.",
+    "fast": "높이 절반 → 부피 1/8.",
+    "verify": {
+      "answer": "F(1,2)**3",
+      "methods": [
+        "F(3**2*6, 6**2*12)"
+      ],
+      "note": "방법 1: 닮음비 세제곱. 방법 2: 두 원뿔 부피 ⅓πr²h를 직접 계산해 비(π, ⅓ 약분).",
+      "choices": [
+        "F(1,2)",
+        "F(1,3)",
+        "F(1,4)",
+        "F(1,6)",
+        "F(1,8)"
+      ]
+    }
+  },
+  {
+    "id": "7-t-15",
+    "lesson": "7-3",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A $6 \\times 6 \\times 6$ cube rests on a table. Its five exposed faces (all except the bottom) are painted, and then the cube is cut into unit cubes. How many unit cubes have no paint on any face?",
+    "questionKo": "$6 \\times 6 \\times 6$ 정육면체가 탁자 위에 놓여 있다. 바닥면을 뺀 다섯 면을 칠한 뒤 단위 정육면체로 잘랐다. 어느 면에도 칠이 없는 조각은 몇 개인가?",
+    "figure": "<svg viewBox=\"0 0 240 210\" width=\"240\" height=\"210\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\" opacity=\"0.85\"><line x1=\"40\" y1=\"170\" x2=\"40\" y2=\"62\"/><line x1=\"40\" y1=\"170\" x2=\"148\" y2=\"170\"/><line x1=\"40\" y1=\"62\" x2=\"78.2\" y2=\"23.8\"/><line x1=\"40\" y1=\"62\" x2=\"148\" y2=\"62\"/><line x1=\"148\" y1=\"170\" x2=\"186.2\" y2=\"131.8\"/><line x1=\"148\" y1=\"170\" x2=\"148\" y2=\"62\"/><line x1=\"58\" y1=\"170\" x2=\"58\" y2=\"62\"/><line x1=\"40\" y1=\"152\" x2=\"148\" y2=\"152\"/><line x1=\"58\" y1=\"62\" x2=\"96.2\" y2=\"23.8\"/><line x1=\"46.4\" y1=\"55.6\" x2=\"154.4\" y2=\"55.6\"/><line x1=\"148\" y1=\"152\" x2=\"186.2\" y2=\"113.8\"/><line x1=\"154.4\" y1=\"163.6\" x2=\"154.4\" y2=\"55.6\"/><line x1=\"76\" y1=\"170\" x2=\"76\" y2=\"62\"/><line x1=\"40\" y1=\"134\" x2=\"148\" y2=\"134\"/><line x1=\"76\" y1=\"62\" x2=\"114.2\" y2=\"23.8\"/><line x1=\"52.7\" y1=\"49.3\" x2=\"160.7\" y2=\"49.3\"/><line x1=\"148\" y1=\"134\" x2=\"186.2\" y2=\"95.8\"/><line x1=\"160.7\" y1=\"157.3\" x2=\"160.7\" y2=\"49.3\"/><line x1=\"94\" y1=\"170\" x2=\"94\" y2=\"62\"/><line x1=\"40\" y1=\"116\" x2=\"148\" y2=\"116\"/><line x1=\"94\" y1=\"62\" x2=\"132.2\" y2=\"23.8\"/><line x1=\"59.1\" y1=\"42.9\" x2=\"167.1\" y2=\"42.9\"/><line x1=\"148\" y1=\"116\" x2=\"186.2\" y2=\"77.8\"/><line x1=\"167.1\" y1=\"150.9\" x2=\"167.1\" y2=\"42.9\"/><line x1=\"112\" y1=\"170\" x2=\"112\" y2=\"62\"/><line x1=\"40\" y1=\"98\" x2=\"148\" y2=\"98\"/><line x1=\"112\" y1=\"62\" x2=\"150.2\" y2=\"23.8\"/><line x1=\"65.5\" y1=\"36.5\" x2=\"173.5\" y2=\"36.5\"/><line x1=\"148\" y1=\"98\" x2=\"186.2\" y2=\"59.8\"/><line x1=\"173.5\" y1=\"144.5\" x2=\"173.5\" y2=\"36.5\"/><line x1=\"130\" y1=\"170\" x2=\"130\" y2=\"62\"/><line x1=\"40\" y1=\"80\" x2=\"148\" y2=\"80\"/><line x1=\"130\" y1=\"62\" x2=\"168.2\" y2=\"23.8\"/><line x1=\"71.8\" y1=\"30.2\" x2=\"179.8\" y2=\"30.2\"/><line x1=\"148\" y1=\"80\" x2=\"186.2\" y2=\"41.8\"/><line x1=\"179.8\" y1=\"138.2\" x2=\"179.8\" y2=\"30.2\"/><line x1=\"148\" y1=\"170\" x2=\"148\" y2=\"62\"/><line x1=\"40\" y1=\"62\" x2=\"148\" y2=\"62\"/><line x1=\"148\" y1=\"62\" x2=\"186.2\" y2=\"23.8\"/><line x1=\"78.2\" y1=\"23.8\" x2=\"186.2\" y2=\"23.8\"/><line x1=\"148\" y1=\"62\" x2=\"186.2\" y2=\"23.8\"/><line x1=\"186.2\" y1=\"131.8\" x2=\"186.2\" y2=\"23.8\"/></g><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><polygon points=\"40,170 148,170 148,62 40,62\"/><polygon points=\"40,62 148,62 186.2,23.8 78.2,23.8\"/><polygon points=\"148,170 148,62 186.2,23.8 186.2,131.8\"/></g><g stroke=\"currentColor\" stroke-width=\"2\" opacity=\"0.6\"><line x1=\"10\" y1=\"171\" x2=\"230\" y2=\"171\"/></g><text x=\"226\" y=\"186\" font-size=\"11\" text-anchor=\"end\" fill=\"currentColor\" opacity=\"0.75\">바닥 (칠하지 않음)</text><text x=\"32\" y=\"120\" font-size=\"12\" text-anchor=\"end\" fill=\"currentColor\" font-weight=\"600\">6</text></svg>",
+    "choices": [
+      "64",
+      "80",
+      "96",
+      "100",
+      "125"
+    ],
+    "answer": "B",
+    "hints": [
+      "모든 면을 칠했다면 안쪽 $4^3 = 64$개. 바닥을 안 칠하면 무엇이 더 늘어나나?",
+      "바닥층의 조각 중 테두리가 아닌 $4 \\times 4$개는 옆면도, 바닥도 칠이 없다.",
+      "$64 + 16$"
+    ],
+    "solution": "바닥을 칠하지 않으면 칠이 안 묻은 조각은 '안쪽 덩어리'가 바닥까지 한 층 더 내려온다. 가로·세로는 테두리를 빼 $4 \\times 4$, 높이는 윗면 한 층만 빼 $6 - 1 = 5$층. 따라서 $4 \\times 4 \\times 5 = 80$. (모든 면을 칠했을 때의 $4^3 = 64$에 바닥층의 안쪽 $4 \\times 4 = 16$개가 더해진 것.)\n\n**오답 짚기**: 64는 바닥을 칠한 것으로 보고 $(n-2)^3$을 쓴 것. 100은 바닥층 전체 $6 \\times 6 = 36$을 더한 것($64 + 36$). 96은 $4 \\times 4 \\times 6$으로 윗면도 안 칠했다고 본 것. 125는 $5^3$.",
+    "fast": "안쪽 4×4 기둥이 바닥까지 5층: 80.",
+    "verify": {
+      "answer": "(6-2)**2*(6-1)",
+      "methods": [
+        "n=6\nresult=sum(1 for x,y,z in product(range(n),repeat=3) if (x in (0,n-1))+(y in (0,n-1))+(z==n-1)==0)"
+      ],
+      "note": "방법 1: (n−2)²(n−1). 방법 2: 바닥(z=0)을 칠한 면에서 제외하고 좌표 브루트포스."
+    }
+  }
+]
