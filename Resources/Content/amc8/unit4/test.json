@@ -1,0 +1,500 @@
+[
+  {
+    "id": "4-t-1",
+    "lesson": "4-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "When $n$ is divided by 6, the remainder is 4. What is the remainder when $5n - 2$ is divided by 6?",
+    "questionKo": "$n$을 6으로 나눈 나머지는 4이다. $5n - 2$를 6으로 나눈 나머지는?",
+    "choices": [
+      "0",
+      "2",
+      "4",
+      "6",
+      "18"
+    ],
+    "answer": "A",
+    "hints": [
+      "n 자리에 4를 넣어 계산한다.",
+      "5 × 4 − 2 = 18.",
+      "18을 6으로 나눈 나머지."
+    ],
+    "solution": "$5n - 2 \\equiv 5 \\times 4 - 2 = 18 \\equiv$ **0** $\\pmod 6$. 검산: $n = 4$이면 $18 = 6 \\times 3$, $n = 10$이면 $48 = 6 \\times 8$.\n\n**오답 짚기**: 18은 6으로 나누지 않은 것, 6은 '나머지 0'을 6이라고 쓴 것. 나머지는 0 이상 6 미만이다. 4는 나머지가 그대로라고 본 것, 2는 $4 - 2$만 계산한 것.",
+    "verify": {
+      "answer": "(5*4-2)%6",
+      "methods": [
+        "max((5*n-2)%6 for n in range(4,400,6))",
+        "min((5*n-2)%6 for n in range(4,400,6))"
+      ]
+    }
+  },
+  {
+    "id": "4-t-2",
+    "lesson": "4-1",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "Today is Wednesday. What day of the week was it 90 days ago?",
+    "questionKo": "오늘은 수요일이다. 90일 전은 무슨 요일이었는가?",
+    "choices": [
+      "Monday",
+      "Tuesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "choicesKo": [
+      "월요일",
+      "화요일",
+      "목요일",
+      "금요일",
+      "토요일"
+    ],
+    "answer": "C",
+    "hints": [
+      "90 = 7 × 12 + 6. 90일 전은 6일 전과 요일이 같다.",
+      "6일 전으로 가는 것은 1일 뒤로 가는 것과 같다(7일 전 = 같은 요일).",
+      "수요일의 하루 뒤."
+    ],
+    "solution": "$90 = 7 \\times 12 + 6$이므로 90일 전은 6일 전과 요일이 같다. 7일 전이 같은 요일이니 6일 전은 하루 **뒤**와 같다. 수요일 + 1 = **목요일**. 직접 세어도 된다: 수 → 화(1일 전) → 월 → 일 → 토 → 금 → 목(6일 전).\n\n**오답 짚기**: 화요일은 90일 **뒤**(수요일 + 6)를 계산한 것으로 방향을 반대로 잡았다. 월요일은 나머지를 2로 잘못 구해 2일 전으로 간 것. 금요일은 '6일 전 = 2일 뒤'로 잘못 바꾼 것. 토요일은 90을 7로 나눈 나머지를 3으로 잘못 구해 3일 전으로 간 것.",
+    "fast": "−90 ≡ −6 ≡ +1 (mod 7). 수요일 + 1 = 목요일.",
+    "verify": {
+      "answer": "(3-90)%7",
+      "choices": [
+        "1",
+        "2",
+        "4",
+        "5",
+        "6"
+      ],
+      "note": "일 0, 월 1, 화 2, 수 3, 목 4, 금 5, 토 6"
+    }
+  },
+  {
+    "id": "4-t-3",
+    "lesson": "4-1",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest positive integer that leaves a remainder of 3 when divided by 4, a remainder of 2 when divided by 5, and a remainder of 1 when divided by 7?",
+    "questionKo": "4로 나누면 3이 남고, 5로 나누면 2가 남고, 7로 나누면 1이 남는 가장 작은 양의 정수는?",
+    "choices": [
+      "7",
+      "27",
+      "47",
+      "127",
+      "267"
+    ],
+    "answer": "D",
+    "hints": [
+      "가장 큰 나눗수 7부터: 7로 나누어 1이 남는 수 1, 8, 15, 22, 29, ….",
+      "그중 5로 나누어 2가 남는 수(끝자리 2 또는 7): 22, 57, 92, 127, … → 35마다.",
+      "그중 4로 나누어 3이 남는 수: 22 → 2, 57 → 1, 92 → 0, 127 → 3."
+    ],
+    "solution": "큰 나눗수 목록을 쓰고 작은 쪽으로 거른다. 7로 나누어 1이 남는 수 중 끝자리가 2나 7인 것(5로 나누어 2가 남음)은 22, 57, 92, 127, …로 $\\text{lcm}(5, 7) = 35$마다 나온다. 이 중 4로 나누어 3이 남는 것은 $22 \\to 2$, $57 \\to 1$, $92 \\to 0$, $127 \\to 3$으로 127만 맞는다. 답 **127**. 다음 수는 $127 + 140 = 267$.\n\n**오답 짚기**: 7은 4와 5의 조건만 맞는다($7 \\div 7$의 나머지는 0). 27과 47도 4와 5의 조건만 맞고 7로 나누면 6, 5가 남는다. 267은 조건을 만족하지만 가장 작지 않다. 선택지가 조건 두 개를 만족하도록 만들어져 있으니 세 조건을 모두 확인해야 한다.",
+    "fast": "선택지 대입: 7로 나눈 나머지가 1인 것은 127(=126+1)과 267뿐. 작은 127을 4와 5로 확인.",
+    "verify": {
+      "answer": "min(n for n in range(1,10000) if n%4==3 and n%5==2 and n%7==1)"
+    }
+  },
+  {
+    "id": "4-t-4",
+    "lesson": "4-2",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the units digit of $9^{30}$?",
+    "questionKo": "$9^{30}$의 일의 자리 숫자는?",
+    "choices": [
+      "0",
+      "1",
+      "3",
+      "7",
+      "9"
+    ],
+    "answer": "B",
+    "hints": [
+      "9의 거듭제곱 일의 자리: 9, 1, 9, 1, … 주기 2.",
+      "30은 짝수.",
+      "짝수 제곱은 1."
+    ],
+    "solution": "9의 거듭제곱 일의 자리는 9, 1, 9, 1, …(주기 2). 지수 30은 짝수이므로 **1**.\n\n**오답 짚기**: 9는 30 ÷ 4의 나머지 2를 보고 '두 번째 = 9'로 읽거나, 주기 2에서 나머지 0을 첫 번째로 착각한 것. 3과 7은 3의 주기와 혼동한 것. 0은 9의 거듭제곱이 10의 배수가 될 수 없으니 바로 지운다.",
+    "fast": "9의 짝수 제곱 → 끝자리 1.",
+    "verify": {
+      "answer": "pow(9,30,10)",
+      "methods": [
+        "9**30 % 10"
+      ]
+    }
+  },
+  {
+    "id": "4-t-5",
+    "lesson": "4-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the units digit of $2^1 + 2^2 + 2^3 + \\cdots + 2^{30}$?",
+    "questionKo": "$2^1 + 2^2 + 2^3 + \\cdots + 2^{30}$의 일의 자리 숫자는?",
+    "choices": [
+      "0",
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "answer": "D",
+    "hints": [
+      "각 항의 일의 자리는 2, 4, 8, 6의 반복. 네 항의 합 2 + 4 + 8 + 6 = 20.",
+      "20은 0으로 끝나므로 네 항씩 묶은 부분은 일의 자리에 영향이 없다.",
+      "30 = 4 × 7 + 2. 남는 두 항 $2^{29}$, $2^{30}$의 일의 자리는 2, 4."
+    ],
+    "solution": "각 항의 일의 자리는 2, 4, 8, 6의 반복이고 네 항의 합 $2 + 4 + 8 + 6 = 20$은 0으로 끝난다. $30 = 4 \\times 7 + 2$이므로 28항까지는 일의 자리에 영향이 없고, $2^{29} \\to 2$, $2^{30} \\to 4$가 남아 $2 + 4 =$ **6**.\n\n**검산**: 합은 $2^{31} - 2 = 2147483648 - 2 = 2147483646$ → 6.\n\n**오답 짚기**: 0은 30항이 네 개씩 딱 묶인다고 본 것. 4는 마지막 항만 본 것, 2는 $2^{29}$만 남긴 것. 8은 남는 두 항을 $2^{30}, 2^{31}$(4 + 8 = 12)로 잘못 잡은 것.",
+    "fast": "주기 합 20 → 0. 30 = 28 + 2 → 2 + 4 = 6.",
+    "verify": {
+      "answer": "sum(2**k for k in range(1,31))%10",
+      "methods": [
+        "(2**31-2)%10"
+      ]
+    }
+  },
+  {
+    "id": "4-t-6",
+    "lesson": "4-2",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "For how many positive integers $n \\le 60$ is the units digit of $n^4$ equal to 1?",
+    "questionKo": "60 이하의 양의 정수 $n$ 중 $n^4$의 일의 자리가 1인 것은 몇 개인가?",
+    "choices": [
+      "12",
+      "18",
+      "24",
+      "30",
+      "36"
+    ],
+    "answer": "C",
+    "hints": [
+      "$n^4$의 일의 자리는 n의 일의 자리로 정해진다. 0~9 각각의 4제곱 일의 자리를 적어 보자.",
+      "주기 4인 숫자(2, 3, 7, 8)와 주기 2인 숫자(4, 9)는 4제곱에서 주기의 마지막이 된다: 3, 7, 9는 1, 2, 4, 8은 6.",
+      "1로 끝나는 것은 n의 일의 자리가 1, 3, 7, 9일 때. 1~60에 10개마다 4개."
+    ],
+    "solution": "$n^4$의 일의 자리는 $n$의 일의 자리로 정해진다. 0~9의 4제곱 일의 자리는 차례로 0, 1, 6, 1, 6, 5, 6, 1, 6, 1. 즉 $n$의 일의 자리가 1, 3, 7, 9일 때 1이다. 1~60에서 10개마다 4개씩 있으므로 $6 \\times 4 =$ **24**개.\n\n**오답 짚기**: 12는 일의 자리 1, 9만 센 것(3과 7도 4제곱하면 81, 2401로 1로 끝난다). 36은 일의 자리가 2, 4, 6, 8인 경우(4제곱이 6으로 끝남)까지 더한 것. 30은 '홀수이면 된다'고 본 것인데 5는 5로 끝난다. 18은 10개마다 3개로 잘못 센 것.",
+    "fast": "홀수이면서 5의 배수가 아닌 n: 60의 절반 30에서 5로 끝나는 6개를 빼면 24.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,61) if n**4%10==1)",
+      "methods": [
+        "6*4"
+      ]
+    }
+  },
+  {
+    "id": "4-t-7",
+    "lesson": "4-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "Which of the following numbers is divisible by 6?",
+    "questionKo": "다음 중 6으로 나누어떨어지는 수는?",
+    "choices": [
+      "1,234",
+      "2,463",
+      "3,456",
+      "5,678",
+      "7,893"
+    ],
+    "answer": "C",
+    "hints": [
+      "6의 배수 = 2의 배수이면서 3의 배수.",
+      "짝수인 것: 1,234, 3,456, 5,678. 자리합이 3의 배수인 것: 2,463(15), 3,456(18), 7,893(27).",
+      "둘 다 만족하는 수는 하나."
+    ],
+    "solution": "6 = 2 × 3이므로 짝수이면서 자리합이 3의 배수여야 한다. 짝수는 1,234, 3,456, 5,678이고 자리합은 각각 10, 18, 26. 3의 배수 조건까지 만족하는 것은 **3,456** $= 6 \\times 576$뿐이다.\n\n**오답 짚기**: 2,463과 7,893은 자리합(15, 27)이 3의 배수지만 홀수라 2의 배수가 아니다. 1,234와 5,678은 짝수지만 자리합이 3의 배수가 아니다. 6의 판정은 두 조건을 **모두** 확인해야 한다.",
+    "verify": {
+      "answer": "[n for n in (1234,2463,3456,5678,7893) if n%6==0][0]",
+      "methods": [
+        "sum(n for n in (1234,2463,3456,5678,7893) if n%6==0)"
+      ]
+    }
+  },
+  {
+    "id": "4-t-8",
+    "lesson": "4-3",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "The three-digit number $\\overline{8A3}$ is divisible by 11. What is the digit $A$?",
+    "questionKo": "세 자리 수 $\\overline{8A3}$이 11의 배수일 때, 숫자 $A$는?",
+    "choices": [
+      "0",
+      "1",
+      "3",
+      "5",
+      "8"
+    ],
+    "answer": "A",
+    "hints": [
+      "11의 판정: (홀수 번째 자리합) − (짝수 번째 자리합)이 11의 배수.",
+      "(8 + 3) − A = 11 − A.",
+      "11 − A가 0 또는 11이 되는 한 자리 숫자 A."
+    ],
+    "solution": "일의 자리부터 번갈아: $3 - A + 8 = 11 - A$가 11의 배수여야 한다. $A$가 0~9이므로 $11 - A = 11$, 즉 $A =$ **0**. 검산: $803 = 11 \\times 73$.\n\n**오답 짚기**: 차가 꼭 0이어야 한다고 믿으면 $A = 11$이 되어 '답이 없다'고 느끼고 아무 숫자나 고르게 된다. 11, 0, −11 모두 11의 배수다. 1은 $11 - A = 10$으로 '거의 11'을 허용한 것, 5는 $8 - 3$을 답으로 쓴 것, 3과 8은 자리 숫자를 그대로 옮긴 것.",
+    "fast": "교대합 11 − A가 11의 배수 → A = 0. 803 = 11 × 73.",
+    "verify": {
+      "answer": "[a for a in range(10) if int(f'8{a}3')%11==0][0]",
+      "methods": [
+        "len([a for a in range(10) if int(f'8{a}3')%11==0])-1"
+      ]
+    }
+  },
+  {
+    "id": "4-t-9",
+    "lesson": "4-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many three-digit positive integers with tens digit 3 are divisible by 11?",
+    "questionKo": "십의 자리 숫자가 3인 세 자리 양의 정수 중 11의 배수는 몇 개인가?",
+    "choices": [
+      "3",
+      "5",
+      "8",
+      "9",
+      "10"
+    ],
+    "answer": "C",
+    "hints": [
+      "$\\overline{a3b}$가 11의 배수 ⇔ a − 3 + b가 11의 배수 ⇔ a + b = 3 또는 14.",
+      "a + b = 3: (1,2), (2,1), (3,0). a는 0이 될 수 없다.",
+      "a + b = 14: (5,9), (6,8), (7,7), (8,6), (9,5)."
+    ],
+    "solution": "$\\overline{a3b}$가 11의 배수이려면 $a - 3 + b$가 11의 배수, 즉 $a + b - 3 \\in \\{0, 11\\}$이어야 한다($a + b \\le 18$).\n\n- $a + b = 3$: $(a, b) = (1, 2), (2, 1), (3, 0)$ → 132, 231, 330\n- $a + b = 14$: $(5, 9), (6, 8), (7, 7), (8, 6), (9, 5)$ → 539, 638, 737, 836, 935\n\n모두 **8**개.\n\n**오답 짚기**: 5는 차가 0인 경우($a + b = 3$)를 '11의 배수가 아니다'라고 버린 것. 3은 반대로 차가 11인 경우를 빠뜨린 것. 9는 $a = 0$인 033을 넣은 것. 10은 $(4, 10)$처럼 숫자가 아닌 쌍을 센 것.",
+    "fast": "11의 배수 132, 143, …를 11씩 더해 가며 십의 자리가 3인 것을 세어도 된다: 132, 231, 330, 539, 638, 737, 836, 935.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if n%11==0 and str(n)[1]=='3')",
+      "methods": [
+        "sum(1 for a in range(1,10) for b in range(10) if (a+b-3)%11==0)"
+      ]
+    }
+  },
+  {
+    "id": "4-t-10",
+    "lesson": "4-4",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory",
+      "logic"
+    ],
+    "question": "The sum of three consecutive integers is odd. Which of the following could be the middle integer?",
+    "questionKo": "연속한 세 정수의 합이 홀수이다. 다음 중 가운데 정수가 될 수 있는 것은?",
+    "choices": [
+      "10",
+      "12",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": "D",
+    "hints": [
+      "연속한 세 정수 m − 1, m, m + 1의 합은 3m.",
+      "3m이 홀수 ⇔ m이 홀수.",
+      "선택지에서 홀수는 하나."
+    ],
+    "solution": "연속한 세 정수 $m - 1, m, m + 1$의 합은 $3m$이다. $3m$이 홀수이려면 $m$이 홀수여야 한다. 선택지 중 홀수는 **15**뿐이다($14 + 15 + 16 = 45$).\n\n**오답 짚기**: 10, 12, 14, 16은 짝수라 합 $3m$이 짝수가 된다. 가운데가 짝수이면 양옆이 홀수 둘이라 홀 + 짝 + 홀 = 짝이다.",
+    "fast": "합 = 3 × 가운데 수. 홀수가 되려면 가운데가 홀수 → 15.",
+    "verify": {
+      "answer": "[m for m in (10,12,14,15,16) if ((m-1)+m+(m+1))%2==1][0]"
+    }
+  },
+  {
+    "id": "4-t-11",
+    "lesson": "4-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory",
+      "logic"
+    ],
+    "question": "Twelve lamps in a row are all off. In each move you switch two adjacent lamps (each one from off to on or from on to off). Which of the following cannot be the number of lamps that are on after some number of moves?",
+    "questionKo": "한 줄로 놓인 전등 12개가 모두 꺼져 있다. 한 번 움직일 때마다 이웃한 전등 두 개의 상태를 각각 바꾼다(꺼짐 ↔ 켜짐). 몇 번 움직인 뒤 켜진 전등의 개수가 될 수 **없는** 것은?",
+    "choices": [
+      "0",
+      "2",
+      "7",
+      "10",
+      "12"
+    ],
+    "answer": "C",
+    "hints": [
+      "한 번 움직이면 켜진 개수는 +2, 0, −2 중 하나로 변한다.",
+      "0에서 시작해 짝수만큼만 변하므로 켜진 개수는 항상 짝수.",
+      "선택지에서 홀수는 하나."
+    ],
+    "solution": "두 등을 함께 바꾸면 켜진 등의 개수는 $+2$(둘 다 켜짐), $0$(하나 켜지고 하나 꺼짐), $-2$(둘 다 꺼짐) 중 하나로 변한다. 처음 0개에서 시작하므로 켜진 개수는 항상 **짝수**이고, **7**은 불가능하다. 나머지 0, 2, 10, 12는 실제로 만들 수 있다(1-2, 3-4, …처럼 겹치지 않는 이웃 쌍을 차례로 켜면 2, 4, …, 12).\n\n**오답 짚기**: 12는 '전부 켤 수 있나?'라는 의심에서 고른 것인데 이웃한 쌍 여섯 개를 켜면 된다. 10도 쌍 다섯 개. 0은 시작 상태이고, 2는 한 번만 움직이면 된다.",
+    "fast": "±2 또는 0씩 변함 → 항상 짝수 → 홀수 7만 불가능.",
+    "verify": {
+      "answer": "seen={0}; todo=[0]\nwhile todo:\n    s=todo.pop()\n    for i in range(11):\n        t=s^(3<<i)\n        if t not in seen: seen.add(t); todo.append(t)\nok={bin(s).count('1') for s in seen}\nresult=[c for c in (0,2,7,10,12) if c not in ok][0]",
+      "note": "4096가지 상태를 전수 탐색해 도달 가능한 개수 {0, 2, 4, …, 12}를 확인"
+    }
+  },
+  {
+    "id": "4-t-12",
+    "lesson": "4-4",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "numberTheory",
+      "logic",
+      "counting"
+    ],
+    "question": "One square is removed from a $5 \\times 5$ checkerboard so that the remaining 24 squares can be completely covered by 12 non-overlapping $1 \\times 2$ dominoes. How many of the 25 squares could be the removed square?",
+    "questionKo": "$5 \\times 5$ 체스판에서 한 칸을 떼어 내어, 남은 24칸을 서로 겹치지 않는 $1 \\times 2$ 도미노 12개로 완전히 덮을 수 있게 하려고 한다. 떼어 낼 수 있는 칸은 25칸 중 몇 개인가?",
+    "figure": "<svg viewBox=\"0 0 156 156\" width=\"156\" height=\"156\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"36\" y=\"8\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"92\" y=\"8\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"8\" y=\"36\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"64\" y=\"36\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"120\" y=\"36\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"36\" y=\"64\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"92\" y=\"64\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"8\" y=\"92\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"64\" y=\"92\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"120\" y=\"92\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"36\" y=\"120\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><rect x=\"92\" y=\"120\" width=\"28\" height=\"28\" fill=\"currentColor\" fill-opacity=\"0.28\"/><g stroke=\"currentColor\" stroke-opacity=\"0.6\" stroke-width=\"1\"><line x1=\"8\" y1=\"8\" x2=\"148\" y2=\"8\"/><line x1=\"8\" y1=\"8\" x2=\"8\" y2=\"148\"/><line x1=\"8\" y1=\"36\" x2=\"148\" y2=\"36\"/><line x1=\"36\" y1=\"8\" x2=\"36\" y2=\"148\"/><line x1=\"8\" y1=\"64\" x2=\"148\" y2=\"64\"/><line x1=\"64\" y1=\"8\" x2=\"64\" y2=\"148\"/><line x1=\"8\" y1=\"92\" x2=\"148\" y2=\"92\"/><line x1=\"92\" y1=\"8\" x2=\"92\" y2=\"148\"/><line x1=\"8\" y1=\"120\" x2=\"148\" y2=\"120\"/><line x1=\"120\" y1=\"8\" x2=\"120\" y2=\"148\"/><line x1=\"8\" y1=\"148\" x2=\"148\" y2=\"148\"/><line x1=\"148\" y1=\"8\" x2=\"148\" y2=\"148\"/></g></svg>",
+    "choices": [
+      "1",
+      "5",
+      "12",
+      "13",
+      "25"
+    ],
+    "answer": "D",
+    "hints": [
+      "체스판처럼 칠하면 5 × 5는 한 색 13칸, 다른 색 12칸이다.",
+      "도미노 12개는 두 색을 12칸씩 덮는다. 그러니 남은 24칸은 두 색이 12칸씩이어야 한다.",
+      "13칸인 색의 칸을 떼어야 한다. 그 색의 칸은 모두 몇 개? (실제로 그 어느 칸을 떼어도 덮을 수 있다.)"
+    ],
+    "solution": "칸을 두 색으로 번갈아 칠하면 $5 \\times 5$에서는 귀퉁이 색이 13칸, 다른 색이 12칸이다. 도미노 하나는 두 색을 한 칸씩 덮으므로 도미노 12개는 각 색을 정확히 12칸씩 덮는다. 따라서 떼어 내는 칸은 반드시 **13칸인 색**이어야 한다. 반대로 그 색의 어느 칸을 떼어 내도 남은 판은 실제로 덮을 수 있다(귀퉁이를 떼면 나머지를 $2 \\times 1$ 띠로 나누고, 가운데를 떼면 바깥 고리를 돌아가며 덮는다). 답 **13**.\n\n**오답 짚기**: 25는 색을 생각하지 않고 '칸 수 24가 짝수이니 어느 칸이든 된다'고 본 것. 12는 적은 색(12칸)의 칸을 떼면 11 대 13이 되어 불가능하다. 1은 가운데 칸만 된다고 본 것, 5는 귀퉁이 네 개와 가운데만 센 것인데 귀퉁이 색의 칸은 13개 모두 가능하다.",
+    "fast": "홀수 × 홀수 판: 다수 색 = (25 + 1)/2 = 13칸, 그 칸만 뗄 수 있다.",
+    "verify": {
+      "answer": "def can_tile(cells):\n    match={}\n    def aug(u,seen):\n        r,c=u\n        for v in ((r+1,c),(r-1,c),(r,c+1),(r,c-1)):\n            if v in cells and v not in seen:\n                seen.add(v)\n                if v not in match or aug(match[v],seen):\n                    match[v]=u; return True\n        return False\n    return sum(1 for u in cells if (u[0]+u[1])%2==0 and aug(u,set()))*2==len(cells)\nallc={(r,c) for r in range(5) for c in range(5)}\nresult=sum(1 for x in allc if can_tile(allc-{x}))",
+      "methods": [
+        "(5*5+1)//2"
+      ],
+      "note": "25칸 각각을 떼어 낸 뒤 최대 매칭이 12인지 전수 확인"
+    }
+  },
+  {
+    "id": "4-t-13",
+    "lesson": "4-5",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the base-10 value of $56_7$?",
+    "questionKo": "7진법 수 $56_7$을 10진법으로 나타내면?",
+    "choices": [
+      "11",
+      "35",
+      "41",
+      "47",
+      "56"
+    ],
+    "answer": "C",
+    "hints": [
+      "자리값은 오른쪽부터 1, 7.",
+      "5 × 7 + 6.",
+      "35 + 6."
+    ],
+    "solution": "$56_7 = 5 \\times 7 + 6 =$ **41**.\n\n**오답 짚기**: 47은 자리값을 거꾸로 한 것($6 \\times 7 + 5$). 56은 진법을 무시한 것. 35는 $5 \\times 7$에서 6을 더하지 않은 것, 11은 두 숫자를 더하기만 한 것.",
+    "verify": {
+      "answer": "int('56',7)",
+      "methods": [
+        "5*7+6"
+      ]
+    }
+  },
+  {
+    "id": "4-t-14",
+    "lesson": "4-5",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is 100 written in base 4?",
+    "questionKo": "100을 4진법으로 나타내면?",
+    "choices": [
+      "$121_4$",
+      "$1120_4$",
+      "$1201_4$",
+      "$1210_4$",
+      "$2110_4$"
+    ],
+    "answer": "D",
+    "hints": [
+      "4로 계속 나눈다: 100 ÷ 4 = 25 … 0, 25 ÷ 4 = 6 … 1, 6 ÷ 4 = 1 … 2, 1 ÷ 4 = 0 … 1.",
+      "나머지를 거꾸로 읽는다: 1, 2, 1, 0.",
+      "검산: 64 + 2 × 16 + 4 = 100."
+    ],
+    "solution": "$100 = 4 \\times 25 + 0$, $25 = 4 \\times 6 + 1$, $6 = 4 \\times 1 + 2$, $1 = 4 \\times 0 + 1$. 나머지 0, 1, 2, 1을 거꾸로 읽으면 **$1210_4$**. 검산: $1 \\times 64 + 2 \\times 16 + 1 \\times 4 + 0 = 100$.\n\n**다른 방법**: $100 = 64 + 36 = 64 + 2 \\times 16 + 4$ → 자리 64, 16, 4, 1에 1, 2, 1, 0.\n\n**오답 짚기**: $121_4 = 25$는 나머지를 나온 순서대로(0, 1, 2, 1) 읽은 것. $1201_4 = 97$은 마지막 두 자리를 바꿔 쓴 것, $1120_4 = 88$과 $2110_4 = 148$은 자리값 계산이 어긋난 것. 변환 뒤 10진법으로 되돌려 검산하면 바로 걸러진다.",
+    "fast": "100 = 64 + 32 + 4 = 1·64 + 2·16 + 1·4 + 0·1 → 1210.",
+    "verify": {
+      "answer": "100",
+      "choices": [
+        "int('121',4)",
+        "int('1120',4)",
+        "int('1201',4)",
+        "int('1210',4)",
+        "int('2110',4)"
+      ],
+      "methods": [
+        "int('1210',4)"
+      ]
+    }
+  },
+  {
+    "id": "4-t-15",
+    "lesson": "4-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive integers have exactly 5 digits when written in base 3 and exactly 3 digits when written in base 5?",
+    "questionKo": "3진법으로 나타내면 정확히 5자리이고 5진법으로 나타내면 정확히 3자리인 양의 정수는 몇 개인가?",
+    "choices": [
+      "43",
+      "44",
+      "45",
+      "81",
+      "100"
+    ],
+    "answer": "B",
+    "hints": [
+      "3진법 5자리: $10000_3 = 81$부터 $22222_3 = 242$까지.",
+      "5진법 3자리: $100_5 = 25$부터 $444_5 = 124$까지.",
+      "두 범위의 공통 부분 81~124."
+    ],
+    "solution": "3진법으로 5자리인 수는 $3^4 = 81$ 이상 $3^5 - 1 = 242$ 이하. 5진법으로 3자리인 수는 $5^2 = 25$ 이상 $5^3 - 1 = 124$ 이하. 둘 다 만족하는 수는 81부터 124까지 $124 - 81 + 1 =$ **44**개.\n\n**오답 짚기**: 43은 양 끝 중 하나를 빼먹은 것($124 - 81$). 45는 양 끝을 두 번 넣은 것. 81과 100은 범위의 끝값이나 '3자리·5자리' 같은 숫자에 끌린 것이다. 'b진법 n자리' = $b^{n-1}$ 이상 $b^n$ 미만을 정확히 적는 것이 핵심.",
+    "fast": "81 ≤ N ≤ 124 → 44개.",
+    "verify": {
+      "answer": "sum(1 for n in range(1,1000) if 3**4<=n<3**5 and 5**2<=n<5**3)",
+      "methods": [
+        "124-81+1"
+      ]
+    }
+  }
+]

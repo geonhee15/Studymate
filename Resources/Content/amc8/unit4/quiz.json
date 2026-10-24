@@ -1,0 +1,248 @@
+[
+  {
+    "id": "4-q-1",
+    "lesson": "4-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "When a positive integer $n$ is divided by 5, the remainder is 3. What is the remainder when $n^2$ is divided by 5?",
+    "questionKo": "양의 정수 $n$을 5로 나눈 나머지는 3이다. $n^2$을 5로 나눈 나머지는?",
+    "choices": [
+      "1",
+      "3",
+      "4",
+      "6",
+      "9"
+    ],
+    "answer": "C",
+    "hints": [
+      "거듭제곱도 나머지끼리 계산해도 된다.",
+      "$3^2 = 9$.",
+      "9를 5로 나눈 나머지."
+    ],
+    "solution": "$n \\equiv 3 \\pmod 5$이므로 $n^2 \\equiv 9 \\equiv$ **4**. 검산: $n = 3$이면 $9 = 5 + 4$, $n = 8$이면 $64 = 60 + 4$.\n\n**오답 짚기**: 9는 $3^2$을 5로 나누지 않고 그대로 둔 것. 나머지는 5보다 작아야 한다. 3은 제곱해도 나머지가 그대로라고 본 것. 6은 $3 \\times 2$, 1은 $n \\equiv \\pm 1$일 때의 $n^2$ 나머지와 헷갈린 것.",
+    "verify": {
+      "answer": "(3*3)%5",
+      "methods": [
+        "max(n*n%5 for n in range(3,500,5))",
+        "min(n*n%5 for n in range(3,500,5))"
+      ]
+    }
+  },
+  {
+    "id": "4-q-2",
+    "lesson": "4-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the largest three-digit integer that leaves a remainder of 2 when divided by 7 and a remainder of 5 when divided by 6?",
+    "questionKo": "7로 나누면 2가 남고 6으로 나누면 5가 남는 세 자리 정수 중 가장 큰 수는?",
+    "choices": [
+      "947",
+      "965",
+      "983",
+      "989",
+      "995"
+    ],
+    "answer": "D",
+    "hints": [
+      "7로 나누어 2가 남는 수: 2, 9, 16, 23, …. 이 중 6으로 나누어 5가 남는 가장 작은 수는 23.",
+      "두 조건을 만족하는 수는 lcm(6, 7) = 42마다 반복: 23, 65, 107, ….",
+      "23 + 42k ≤ 999인 가장 큰 k는 23 → 23 + 966."
+    ],
+    "solution": "7로 나누어 2가 남는 수 2, 9, 16, 23, … 중 6으로 나누어 5가 남는 첫 수는 23이다. 조건을 만족하는 수는 $\\text{lcm}(6, 7) = 42$마다 반복되므로 $23 + 42k$ 꼴. $23 + 42k \\le 999$에서 $k \\le 23.2$, 즉 $k = 23$일 때 $23 + 966 =$ **989**. 검산: $989 = 7 \\times 141 + 2 = 6 \\times 164 + 5$.\n\n**오답 짚기**: 947은 $k = 22$로 한 주기 덜 간 것. 965, 983, 995는 6으로 나눈 나머지만 5이고 7로 나누면 각각 6, 3, 1이 남아 틀린다. 조건이 두 개면 둘 다 확인해야 한다.",
+    "fast": "999부터 내려가며 6으로 나눈 나머지가 5인 수(995, 989, …)를 쓰고, 7로 나눈 나머지가 2인 첫 수를 찾는다. 995 → 1, 989 → 2이므로 989.",
+    "verify": {
+      "answer": "max(n for n in range(100,1000) if n%7==2 and n%6==5)",
+      "methods": [
+        "23+42*23"
+      ]
+    }
+  },
+  {
+    "id": "4-q-3",
+    "lesson": "4-2",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the units digit of $13^{21} \\times 17^{22}$?",
+    "questionKo": "$13^{21} \\times 17^{22}$의 일의 자리 숫자는?",
+    "choices": [
+      "0",
+      "1",
+      "3",
+      "7",
+      "9"
+    ],
+    "answer": "D",
+    "hints": [
+      "밑은 일의 자리 3과 7만 본다. 둘 다 주기 4.",
+      "21 ÷ 4의 나머지 1 → 3의 첫 번째 3. 22 ÷ 4의 나머지 2 → 7의 두 번째 9.",
+      "3 × 9 = 27."
+    ],
+    "solution": "$13^{21}$의 일의 자리는 3의 주기(3, 9, 7, 1)에서 $21 \\div 4$의 나머지 1 → 3. $17^{22}$는 7의 주기(7, 9, 3, 1)에서 나머지 2 → 9. 곱의 일의 자리는 $3 \\times 9 = 27$ → **7**.\n\n**오답 짚기**: 1은 두 지수를 각각 4의 배수로 잘못 보아 1 × 1로 한 것. 9는 $17^{22}$만 본 것, 3은 $13^{21}$만 본 것. 0은 '서로 다른 밑을 곱하면 0으로 끝난다'는 착각으로, 3과 7은 둘 다 홀수라 곱이 0으로 끝날 수 없다.",
+    "verify": {
+      "answer": "(13**21*17**22)%10"
+    }
+  },
+  {
+    "id": "4-q-4",
+    "lesson": "4-3",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "The three-digit number $\\overline{3A7}$ is divisible by 9. What is the digit $A$?",
+    "questionKo": "세 자리 수 $\\overline{3A7}$이 9의 배수일 때, 숫자 $A$는?",
+    "choices": [
+      "1",
+      "2",
+      "5",
+      "8",
+      "9"
+    ],
+    "answer": "D",
+    "hints": [
+      "9의 배수: 자리합이 9의 배수.",
+      "3 + A + 7 = 10 + A.",
+      "10 + A = 18."
+    ],
+    "solution": "자리합 $3 + A + 7 = 10 + A$가 9의 배수 → $10 + A = 18$ → $A =$ **8**. 검산: $387 = 9 \\times 43$.\n\n**오답 짚기**: 2와 5는 3의 배수 판정을 쓴 것($327 = 3 \\times 109$, $357 = 3 \\times 119$이지만 9의 배수는 아니다). 9는 $10 + A = 19$로 더한 것. 1은 자리합을 잘못 센 것.",
+    "verify": {
+      "answer": "min(a for a in range(10) if int(f'3{a}7')%9==0)",
+      "methods": [
+        "max(a for a in range(10) if int(f'3{a}7')%9==0)"
+      ]
+    }
+  },
+  {
+    "id": "4-q-5",
+    "lesson": "4-3",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "For how many digits $A$ is the three-digit number $\\overline{4A8}$ divisible by 8?",
+    "questionKo": "세 자리 수 $\\overline{4A8}$이 8의 배수가 되게 하는 숫자 $A$는 몇 개인가?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "5",
+      "10"
+    ],
+    "answer": "C",
+    "hints": [
+      "8의 배수는 끝 **세** 자리가 8의 배수. 세 자리 수이니 수 전체 $\\overline{4A8}$을 8로 나눠 본다.",
+      "408 = 8 × 51. A가 1 커지면 수는 10 커지고, 10은 8로 나누면 2가 남는다.",
+      "408, 448, 488만 8의 배수."
+    ],
+    "solution": "$\\overline{4A8} = 408 + 10A$. $408 = 8 \\times 51$이므로 $10A$가 8의 배수여야 하고, $10A = 0, 40, 80$에서 $A = 0, 4, 8$의 **3**개(408, 448, 488).\n\n**오답 짚기**: 5는 4의 배수 판정(끝 두 자리 $\\overline{A8}$이 4의 배수 → A 짝수)을 쓴 것. $428 = 8 \\times 53 + 4$, $468 = 8 \\times 58 + 4$라 8의 배수가 아니다. 10은 끝자리가 8이면 된다고 본 것(2의 배수 판정). 1과 2는 A = 0을 빼놓은 것.",
+    "verify": {
+      "answer": "sum(1 for a in range(10) if int(f'4{a}8')%8==0)"
+    }
+  },
+  {
+    "id": "4-q-6",
+    "lesson": "4-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory",
+      "logic"
+    ],
+    "question": "Eight light switches are all off. In one move you must flip exactly three switches. What is the minimum number of moves needed to turn all eight switches on?",
+    "questionKo": "스위치 8개가 모두 꺼져 있다. 한 번 움직일 때마다 정확히 세 개의 스위치를 반대로 바꿔야 한다. 8개를 모두 켜려면 최소 몇 번 움직여야 하는가?",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": "C",
+    "hints": [
+      "한 번 움직이면 켜진 스위치의 개수는 홀수만큼(±1 또는 ±3) 변한다.",
+      "0에서 8(짝수)로 가려면 움직인 횟수가 짝수여야 한다. 2번으로는 최대 6개.",
+      "4번으로 가능한지 확인: {1,2,3}, {1,2,4}, {1,5,6}, {2,7,8}."
+    ],
+    "solution": "한 번에 세 개를 뒤집으면 켜진 개수는 $+3, +1, -1, -3$ 중 하나로, 즉 홀수만큼 변한다. 켜진 개수의 홀짝은 매번 바뀌므로 0(짝수)에서 8(짝수)이 되려면 **짝수 번** 움직여야 한다. 2번으로는 최대 6개까지만 켤 수 있으므로 적어도 4번. 실제로 $\\{1,2,3\\}$, $\\{1,2,4\\}$, $\\{1,5,6\\}$, $\\{2,7,8\\}$을 차례로 뒤집으면 1번과 2번은 세 번, 나머지는 한 번씩 뒤집혀 모두 켜진다. 답 **4**.\n\n**오답 짚기**: 3은 $8 \\div 3$을 올림한 것인데, 홀수 번 움직이면 켜진 개수가 홀수가 되어 8이 될 수 없다. 2는 $3 \\times 2 = 6 < 8$이라 모자란다. 5는 홀수라 불가능하고, 6은 가능하지만 최소가 아니다.",
+    "fast": "홀수 개씩 바꾸니 짝수 번 → 2번은 모자람 → 4번.",
+    "verify": {
+      "answer": "target=(1<<8)-1; dist={0:0}; todo=[0]\nwhile todo:\n    s=todo.pop(0)\n    for c in combinations(range(8),3):\n        t=s\n        for i in c: t^=1<<i\n        if t not in dist: dist[t]=dist[s]+1; todo.append(t)\nresult=dist[target]",
+      "note": "256가지 상태의 너비 우선 탐색으로 최소 횟수 확인"
+    }
+  },
+  {
+    "id": "4-q-7",
+    "lesson": "4-5",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the base-10 value of $312_4$?",
+    "questionKo": "4진법 수 $312_4$를 10진법으로 나타내면?",
+    "choices": [
+      "27",
+      "39",
+      "50",
+      "54",
+      "312"
+    ],
+    "answer": "D",
+    "hints": [
+      "자리값은 오른쪽부터 1, 4, 16.",
+      "3 × 16 + 1 × 4 + 2.",
+      "48 + 4 + 2."
+    ],
+    "solution": "$312_4 = 3 \\times 16 + 1 \\times 4 + 2 = 48 + 4 + 2 =$ **54**.\n\n**오답 짚기**: 39는 자리값을 거꾸로 붙인 것($2 \\times 16 + 1 \\times 4 + 3$). 312는 진법을 무시한 것. 50은 가운데 자리 $1 \\times 4$를 빠뜨린 것, 27은 $3 \\times 9$처럼 3진법으로 착각한 것.",
+    "verify": {
+      "answer": "int('312',4)",
+      "methods": [
+        "3*16+1*4+2"
+      ]
+    }
+  },
+  {
+    "id": "4-q-8",
+    "lesson": "4-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive integers less than 100 have a base-3 representation that uses only the digits 0 and 1?",
+    "questionKo": "100보다 작은 양의 정수 중 3진법으로 나타냈을 때 숫자 0과 1만 쓰이는 수는 몇 개인가?",
+    "choices": [
+      "16",
+      "23",
+      "24",
+      "31",
+      "32"
+    ],
+    "answer": "B",
+    "hints": [
+      "0과 1만 쓴 3진법 수 = 서로 다른 3의 거듭제곱들의 합: 1, 3, 9, 27, 81 중 몇 개를 고른 합.",
+      "다섯 개 중 고르는 방법은 $2^5 = 32$가지, 아무것도 안 고른 0을 빼면 31개.",
+      "그중 100 이상인 것을 빼자. 81과 27을 둘 다 포함하면 108 이상."
+    ],
+    "solution": "3진법에서 0과 1만 쓴 수는 $1, 3, 9, 27, 81$ 중 몇 개를 골라 더한 수다($243 > 100$이므로 더 큰 자리는 필요 없다). 공집합을 뺀 고르는 방법은 $2^5 - 1 = 31$가지. 이 중 100 이상인 것은 81과 27을 둘 다 포함하는 경우로, 나머지 1, 3, 9의 포함 여부에 따라 $2^3 = 8$가지(108, 109, 111, 112, 117, 118, 120, 121)다. 따라서 $31 - 8 =$ **23**개.\n\n**오답 짚기**: 31은 100 미만 조건을 빠뜨린 것. 32는 0까지 센 것. 16은 81을 아예 빼고 $2^4$으로 센 것(81, 82, 84, 85, 90, 91, 93, 94도 100 미만이다). 24는 100 이상인 수를 7개로 잘못 센 것.",
+    "fast": "부분집합 32개 − 공집합 1 − (81과 27을 포함하는 8개) = 23.",
+    "verify": {
+      "answer": "def b3(n):\n    s=''\n    while n: s=str(n%3)+s; n//=3\n    return s\nresult=sum(1 for n in range(1,100) if set(b3(n))<=set('01'))",
+      "methods": [
+        "sum(1 for t in product((0,1),repeat=5) if 0<sum(c*w for c,w in zip(t,(1,3,9,27,81)))<100)"
+      ]
+    }
+  }
+]
