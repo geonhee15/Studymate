@@ -1,0 +1,273 @@
+[
+  {
+    "id": "2-q-1",
+    "lesson": "2-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "counting"
+    ],
+    "question": "A team has 11 players. In how many ways can a captain and a vice-captain be chosen if they must be different players?",
+    "questionKo": "어느 팀에 선수가 11명 있다. 서로 다른 두 선수를 주장과 부주장으로 뽑는 방법은 몇 가지인가?",
+    "choices": [
+      "20",
+      "22",
+      "55",
+      "110",
+      "121"
+    ],
+    "answer": "D",
+    "hints": [
+      "주장과 부주장은 직책이 다르다 → 순서가 있다.",
+      "주장 11가지, 그 다음 부주장은 남은 10명 중.",
+      "11 × 10"
+    ],
+    "solution": "직책이 다르므로 순열이다. 주장 11가지, 부주장은 남은 10명 중 하나 → $11 \\times 10 = 110$.\n\n**오답 짚기**: 55는 두 명을 자격 구분 없이 뽑은 조합 $\\binom{11}{2}$. 121은 같은 사람이 두 직책을 맡는 경우까지 센 $11^2$. 22는 $11 \\times 2$.",
+    "verify": {
+      "answer": "11*10",
+      "methods": [
+        "perm(11,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-q-2",
+    "lesson": "2-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "A committee of 3 is to be chosen from 7 teachers. Ms. Lee, one of the teachers, must be on the committee. How many different committees are possible?",
+    "questionKo": "교사 7명 중에서 3명으로 위원회를 만든다. 교사 중 한 명인 이 선생님은 반드시 위원회에 들어가야 한다. 가능한 위원회는 몇 가지인가?",
+    "choices": [
+      "15",
+      "20",
+      "21",
+      "30",
+      "35"
+    ],
+    "answer": "A",
+    "hints": [
+      "반드시 포함되는 사람은 미리 뽑아 둔다.",
+      "이 선생님을 빼고 남은 6명 중 2명만 더 고르면 된다.",
+      "$\\binom{6}{2}$"
+    ],
+    "solution": "이 선생님은 이미 위원이므로, 나머지 6명 중 2명을 더 고르면 된다. $\\binom{6}{2} = 15$.\n\n**오답 짚기**: 35는 조건을 무시한 $\\binom{7}{3}$. 20은 이 선생님이 **없는** 위원회 $\\binom{6}{3}$. 30은 남은 두 자리를 순서 있게 센 $6 \\times 5$.",
+    "verify": {
+      "answer": "comb(6,2)",
+      "methods": [
+        "sum(1 for c in combinations(range(7),3) if 0 in c)",
+        "comb(7,3)-comb(6,3)"
+      ]
+    }
+  },
+  {
+    "id": "2-q-3",
+    "lesson": "2-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "Eight identical pencils are given to 3 students so that each student gets at least one pencil. In how many ways can this be done?",
+    "questionKo": "똑같은 연필 8자루를 학생 3명에게 모두 적어도 한 자루씩 받도록 나누어 준다. 나누어 주는 방법은 몇 가지인가?",
+    "choices": [
+      "21",
+      "28",
+      "36",
+      "45",
+      "56"
+    ],
+    "answer": "A",
+    "hints": [
+      "모두 1개 이상 → 별 사이의 틈에 칸막이.",
+      "별 8개 사이의 틈은 7개, 칸막이는 2개.",
+      "$\\binom{7}{2}$"
+    ],
+    "solution": "같은 물건 8개를 3명에게 모두 1개 이상 나누는 경우이므로 별 8개 사이의 틈 7개 중 2곳에 칸막이를 넣는다. $\\binom{7}{2} = 21$.\n\n**오답 짚기**: 45는 0개 허용 공식 $\\binom{10}{2}$. 28은 $\\binom{8}{2}$로 틈 수를 별 수와 같게 잡은 것. 56은 $\\binom{8}{3}$.",
+    "verify": {
+      "answer": "sum(1 for t in product(range(1,9),repeat=3) if sum(t)==8)",
+      "methods": [
+        "comb(7,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-q-4",
+    "lesson": "2-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "Fourteen identical stickers are shared among 3 children so that each child gets at least 2 stickers. In how many ways can the stickers be shared?",
+    "questionKo": "똑같은 스티커 14장을 아이 3명에게 각자 적어도 2장씩 받도록 나누어 준다. 나누어 주는 방법은 몇 가지인가?",
+    "choices": [
+      "28",
+      "36",
+      "45",
+      "66",
+      "78"
+    ],
+    "answer": "C",
+    "hints": [
+      "최소 조건은 미리 나눠주고 시작한다.",
+      "2장씩 먼저 주면 남는 것은 14 − 6 = 8장. 이것을 0장 허용으로 나눈다.",
+      "$\\binom{10}{2}$"
+    ],
+    "solution": "각자 2장씩 먼저 주면 $14 - 6 = 8$장이 남는다. 남은 8장을 3명에게 0장 허용으로 나누면 $\\binom{8+2}{2} = \\binom{10}{2} = 45$.\n\n**오답 짚기**: 78은 $\\binom{13}{2}$로 \"각자 1장 이상\"으로 푼 것. 28은 $\\binom{8}{2}$로 남은 8장에 \"1장 이상\" 공식을 쓴 것. 66은 $\\binom{12}{2}$로 1장씩만 미리 준 것. 36은 $\\binom{9}{2}$.",
+    "verify": {
+      "answer": "sum(1 for t in product(range(2,15),repeat=3) if sum(t)==14)",
+      "methods": [
+        "comb(10,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-q-5",
+    "lesson": "2-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 156 110\" width=\"156\" height=\"110\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><line x1=\"22\" y1=\"74\" x2=\"22\" y2=\"18\"/><line x1=\"50\" y1=\"74\" x2=\"50\" y2=\"18\"/><line x1=\"78\" y1=\"74\" x2=\"78\" y2=\"18\"/><line x1=\"106\" y1=\"74\" x2=\"106\" y2=\"18\"/><line x1=\"134\" y1=\"74\" x2=\"134\" y2=\"18\"/><line x1=\"22\" y1=\"74\" x2=\"134\" y2=\"74\"/><line x1=\"22\" y1=\"46\" x2=\"134\" y2=\"46\"/><line x1=\"22\" y1=\"18\" x2=\"134\" y2=\"18\"/></g><circle cx=\"50\" cy=\"46\" r=\"5\" fill=\"#4F6BF0\"/><circle cx=\"22\" cy=\"74\" r=\"3.5\" fill=\"currentColor\"/><text x=\"10\" y=\"88\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">A</text><circle cx=\"134\" cy=\"18\" r=\"3.5\" fill=\"currentColor\"/><text x=\"146\" y=\"12\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">B</text><text x=\"78.0\" y=\"104\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" opacity=\"0.75\">P = (1, 1)</text></svg>",
+    "question": "How many paths from $A$ at $(0,0)$ to $B$ at $(4,2)$ move only right or up and pass through the point $P$ at $(1,1)$?",
+    "questionKo": "$A(0,0)$에서 $B(4,2)$까지 오른쪽 또는 위로만 움직이는 경로 중 점 $P(1,1)$을 지나는 경로는 몇 가지인가?",
+    "choices": [
+      "4",
+      "6",
+      "7",
+      "8",
+      "15"
+    ],
+    "answer": "D",
+    "hints": [
+      "(출발 → P) × (P → 도착).",
+      "(0,0) → (1,1): 2가지. (1,1) → (4,2): 오른쪽 3, 위 1 → $\\binom{4}{1} = 4$.",
+      "2 × 4"
+    ],
+    "solution": "$A \\to P$: R 1, U 1 → $\\binom{2}{1} = 2$. $P \\to B$: R 3, U 1 → $\\binom{4}{1} = 4$. $2 \\times 4 = 8$.\n\n**오답 짚기**: 15는 조건 없는 전체 경로 $\\binom{6}{2}$. 7은 $P$를 피하는 경로($15 - 8$). 6은 두 수를 더한 것. 4는 뒷부분만 센 것.",
+    "verify": {
+      "answer": "comb(2,1)*comb(4,1)",
+      "methods": [
+        "sum(1 for p in set(permutations('RRRRUU')) if (1,1) in {(p[:i].count('R'),p[:i].count('U')) for i in range(7)})"
+      ]
+    }
+  },
+  {
+    "id": "2-q-6",
+    "lesson": "2-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "probability"
+    ],
+    "question": "A bag contains 4 red marbles and 6 blue marbles. Two marbles are drawn at random without replacement. What is the probability that both are blue?",
+    "questionKo": "주머니에 빨간 구슬 4개와 파란 구슬 6개가 있다. 구슬 2개를 다시 넣지 않고 무작위로 꺼낼 때, 둘 다 파란색일 확률은?",
+    "choices": [
+      "$\\frac{1}{4}$",
+      "$\\frac{3}{10}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{9}{25}$",
+      "$\\frac{3}{5}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "첫 구슬이 파랑일 확률 $\\frac{6}{10}$. 다시 넣지 않으니 둘째는 9개 중 파랑 5개.",
+      "$\\frac{6}{10} \\times \\frac{5}{9}$",
+      "한꺼번에 뽑기로 검산: $\\binom{6}{2} / \\binom{10}{2}$"
+    ],
+    "solution": "순서대로 뽑으면 $\\frac{6}{10} \\times \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$. 한꺼번에 뽑는 것으로 봐도 $\\frac{\\binom{6}{2}}{\\binom{10}{2}} = \\frac{15}{45} = \\frac{1}{3}$으로 같다.\n\n**오답 짚기**: $\\frac{9}{25}$는 다시 넣는다고 본 $\\left(\\frac{6}{10}\\right)^2$ (복원/비복원 혼동). $\\frac{3}{5}$는 한 개만 뽑을 때의 확률. $\\frac{3}{10}$은 $\\frac{6}{10} \\times \\frac{1}{2}$처럼 둘째 분수를 잘못 잡은 것.",
+    "verify": {
+      "answer": "F(6,10)*F(5,9)",
+      "choices": [
+        "F(1,4)",
+        "F(3,10)",
+        "F(1,3)",
+        "F(9,25)",
+        "F(3,5)"
+      ],
+      "methods": [
+        "F(comb(6,2),comb(10,2))"
+      ]
+    }
+  },
+  {
+    "id": "2-q-7",
+    "lesson": "2-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "probability"
+    ],
+    "question": "Two fair six-sided dice are rolled. What is the probability that the product of the two numbers is a multiple of 3?",
+    "questionKo": "공정한 주사위 2개를 던진다. 두 눈의 곱이 3의 배수일 확률은?",
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{4}{9}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{9}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answer": "D",
+    "hints": [
+      "곱이 3의 배수 ⇔ 적어도 하나의 눈이 3 또는 6.",
+      "여사건: 두 눈 모두 3의 배수가 아닐 확률은 $\\left(\\frac{4}{6}\\right)^2$.",
+      "$1 - \\frac{4}{9}$"
+    ],
+    "solution": "곱이 3의 배수가 되려면 적어도 한 눈이 3의 배수(3 또는 6)여야 한다. 여사건(complement)으로: 한 눈이 3의 배수가 아닐 확률 $\\frac{4}{6} = \\frac{2}{3}$, 두 눈 모두 아닐 확률 $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$. 따라서 $1 - \\frac{4}{9} = \\frac{5}{9}$.\n\n**검산 (6×6 표)**: 둘 다 3의 배수가 아닌 칸 $4 \\times 4 = 16$개, 나머지 $36 - 16 = 20$개 → $\\frac{20}{36} = \\frac{5}{9}$.\n\n**오답 짚기**: $\\frac{4}{9}$는 여사건의 확률을 그대로 답한 것. $\\frac{2}{3}$은 $\\frac{1}{3} + \\frac{1}{3}$으로 두 확률을 그냥 더한 것(둘 다 3의 배수인 경우가 두 번 세어짐). $\\frac{1}{3}$은 한 주사위만 본 것.",
+    "verify": {
+      "answer": "F(sum(1 for a,b in product(range(1,7),repeat=2) if (a*b)%3==0),36)",
+      "choices": [
+        "F(1,3)",
+        "F(4,9)",
+        "F(1,2)",
+        "F(5,9)",
+        "F(2,3)"
+      ],
+      "methods": [
+        "1-F(4,6)**2"
+      ]
+    }
+  },
+  {
+    "id": "2-q-8",
+    "lesson": "2-5",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "probability"
+    ],
+    "question": "A fair six-sided die is rolled once. You win 12 points if it shows a 6, you win 3 points if it shows a 5, and you win nothing otherwise. What is the expected number of points you win?",
+    "questionKo": "공정한 주사위를 한 번 굴린다. 6이 나오면 12점, 5가 나오면 3점을 받고, 그 밖에는 아무것도 받지 않는다. 받는 점수의 기댓값은?",
+    "choices": [
+      "2",
+      "$\\frac{5}{2}$",
+      "3",
+      "5",
+      "15"
+    ],
+    "answer": "B",
+    "hints": [
+      "기댓값 = Σ (값 × 확률).",
+      "$12 \\times \\frac{1}{6} + 3 \\times \\frac{1}{6} + 0 \\times \\frac{4}{6}$",
+      "$\\frac{15}{6}$"
+    ],
+    "solution": "$E = 12 \\times \\frac{1}{6} + 3 \\times \\frac{1}{6} + 0 \\times \\frac{4}{6} = \\frac{12 + 3}{6} = \\frac{15}{6} = \\frac{5}{2}$.\n\n**오답 짚기**: 15는 상금을 더하기만 한 것. 5는 \"상금 종류 3가지(12, 3, 0)\"를 같은 확률로 보고 15 ÷ 3을 한 것(같은 확률이 아닌 결과로 나눔). 2는 12 ÷ 6만 계산한 것.",
+    "verify": {
+      "answer": "F(12+3,6)",
+      "choices": [
+        "2",
+        "F(5,2)",
+        "3",
+        "5",
+        "15"
+      ],
+      "methods": [
+        "sum(F(v,6) for v in [0,0,0,0,3,12])"
+      ]
+    }
+  }
+]

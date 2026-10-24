@@ -1,0 +1,522 @@
+[
+  {
+    "id": "2-t-1",
+    "lesson": "2-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "counting"
+    ],
+    "question": "A team of 8 players must choose 2 of its members to serve as co-captains. The two co-captains have the same role. In how many ways can they be chosen?",
+    "questionKo": "선수 8명으로 된 팀에서 공동 주장 2명을 뽑는다. 두 공동 주장의 역할은 같다. 뽑는 방법은 몇 가지인가?",
+    "choices": [
+      "14",
+      "16",
+      "28",
+      "56",
+      "64"
+    ],
+    "answer": "C",
+    "hints": [
+      "역할이 같으면 둘의 순서를 바꿔도 같은 결과다.",
+      "순서 있게 세면 8 × 7 = 56. 각 쌍이 두 번씩 세어졌다.",
+      "56 ÷ 2"
+    ],
+    "solution": "역할이 같으므로 조합이다. $\\binom{8}{2} = \\frac{8 \\times 7}{2} = 28$.\n\n**오답 짚기**: 56은 두 사람을 순서 있게 센 순열 $8 \\times 7$. 역할이 같으면 (A, B)와 (B, A)는 같은 경우다. 64는 $8^2$, 16은 $8 \\times 2$.",
+    "verify": {
+      "answer": "comb(8,2)",
+      "methods": [
+        "8*7//2"
+      ]
+    }
+  },
+  {
+    "id": "2-t-2",
+    "lesson": "2-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "A test has 10 questions, and a student must answer exactly 7 of them. In how many ways can the student choose which questions to answer?",
+    "questionKo": "시험에 문제가 10개 있고, 학생은 그중 정확히 7문제에 답해야 한다. 답할 문제를 고르는 방법은 몇 가지인가?",
+    "choices": [
+      "30",
+      "120",
+      "210",
+      "720",
+      "604800"
+    ],
+    "answer": "B",
+    "hints": [
+      "어떤 순서로 풀든 고른 문제 묶음은 같다.",
+      "7문제를 고르는 것은 풀지 않을 3문제를 고르는 것과 같다.",
+      "$\\binom{10}{3}$"
+    ],
+    "solution": "순서가 없으므로 조합이다. $\\binom{10}{7} = \\binom{10}{3} = \\frac{10 \\times 9 \\times 8}{6} = 120$.\n\n**오답 짚기**: 720은 안 풀 3문제를 순서 있게 센 $10 \\times 9 \\times 8$. 604800은 $P(10, 7)$로 푸는 순서까지 구분한 것. 210은 $\\binom{10}{4}$, 30은 $10 \\times 3$.",
+    "verify": {
+      "answer": "comb(10,7)",
+      "methods": [
+        "comb(10,3)",
+        "len(list(combinations(range(10),7)))"
+      ]
+    }
+  },
+  {
+    "id": "2-t-3",
+    "lesson": "2-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "question": "From a club of 9 students, a committee of 4 is formed, and then one of the 4 committee members is chosen as its leader. In how many ways can the committee and its leader be chosen?",
+    "questionKo": "학생 9명으로 된 동아리에서 4명으로 위원회를 만들고, 그 4명 중 한 명을 위원장으로 정한다. 위원회와 위원장을 정하는 방법은 몇 가지인가?",
+    "choices": [
+      "126",
+      "252",
+      "504",
+      "756",
+      "3024"
+    ],
+    "answer": "C",
+    "hints": [
+      "위원 4명을 먼저 고르고($\\binom{9}{4}$), 그중 위원장 1명(4가지).",
+      "위원장을 먼저 고르면: 9가지 × 나머지 8명 중 위원 3명 $\\binom{8}{3}$.",
+      "두 방법 모두 504가 나와야 한다."
+    ],
+    "solution": "**방법 1**: 위원 4명을 고르고($\\binom{9}{4} = 126$) 그중 위원장을 고른다(4가지). $126 \\times 4 = 504$.\n\n**방법 2**: 위원장을 먼저 고르고(9가지) 나머지 8명 중 위원 3명을 고른다($\\binom{8}{3} = 56$). $9 \\times 56 = 504$. 두 방법이 일치한다.\n\n**오답 짚기**: 126은 위원장을 정하지 않은 것. 3024는 $P(9,4)$로 위원 4명 모두에 순서를 매긴 것. 756은 위원장을 고른 뒤 \"남은 8명\"이 아닌 \"9명 전체\"에서 3명을 고른 $9 \\times \\binom{9}{3}$으로, 위원장이 위원으로 한 번 더 뽑히는 중복이 있다. 252는 $126 \\times 2$.",
+    "verify": {
+      "answer": "comb(9,4)*4",
+      "methods": [
+        "9*comb(8,3)",
+        "sum(1 for c in combinations(range(9),4) for leader in c)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-4",
+    "lesson": "2-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "question": "Five identical candies are to be given to 4 children. A child may receive no candy. In how many ways can the candies be distributed?",
+    "questionKo": "똑같은 사탕 5개를 아이 4명에게 나누어 준다. 사탕을 못 받는 아이가 있어도 된다. 나누어 주는 방법은 몇 가지인가?",
+    "choices": [
+      "4",
+      "56",
+      "70",
+      "84",
+      "1024"
+    ],
+    "answer": "B",
+    "hints": [
+      "별 5개와 칸막이 3개를 나열한다.",
+      "총 8칸 중 칸막이 자리 3개를 고른다.",
+      "$\\binom{8}{3}$"
+    ],
+    "solution": "같은 물건 5개를 서로 다른 4명에게 0개 허용으로 나누므로 $\\binom{5+4-1}{4-1} = \\binom{8}{3} = 56$.\n\n**오답 짚기**: 4는 모두 1개 이상일 때의 $\\binom{4}{3}$. 1024는 $4^5$로 사탕이 서로 다를 때의 답. 84는 $\\binom{9}{3}$으로 칸막이를 4개로 잘못 잡은 것(4명을 나누는 칸막이는 3개). 70은 $\\binom{8}{4}$.",
+    "verify": {
+      "answer": "sum(1 for t in product(range(6),repeat=4) if sum(t)==5)",
+      "methods": [
+        "comb(8,3)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-5",
+    "lesson": "2-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "How many ordered triples of nonnegative integers $(a, b, c)$ satisfy $a + b + c = 12$ with $a \\ge 4$ and $b \\ge 1$?",
+    "questionKo": "$a \\ge 4$, $b \\ge 1$이고 $a + b + c = 12$를 만족하는 음이 아닌 정수의 순서쌍 $(a, b, c)$는 몇 개인가?",
+    "choices": [
+      "28",
+      "36",
+      "45",
+      "78",
+      "91"
+    ],
+    "answer": "B",
+    "hints": [
+      "최소 조건은 미리 빼서 시작한다: $a' = a - 4$, $b' = b - 1$.",
+      "$a' + b' + c = 12 - 4 - 1 = 7$의 음이 아닌 정수해.",
+      "$\\binom{9}{2}$"
+    ],
+    "solution": "$a' = a - 4 \\ge 0$, $b' = b - 1 \\ge 0$으로 두면 $a' + b' + c = 7$. 음이 아닌 정수해는 $\\binom{7+2}{2} = \\binom{9}{2} = 36$.\n\n**오답 짚기**: 91은 $\\binom{14}{2}$로 조건을 모두 무시한 것. 45는 $a$의 조건만 적용한 $\\binom{10}{2}$. 78은 $b$의 조건만 적용한 $\\binom{13}{2}$. 28은 $\\binom{8}{2}$로 변환 뒤 \"1 이상\" 공식을 또 쓴 것.",
+    "verify": {
+      "answer": "sum(1 for t in product(range(13),repeat=3) if sum(t)==12 and t[0]>=4 and t[1]>=1)",
+      "methods": [
+        "comb(9,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-6",
+    "lesson": "2-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "Eleven identical balls are placed into 3 distinct boxes so that no box contains more than 5 balls. A box may be empty. In how many ways can this be done?",
+    "questionKo": "똑같은 공 11개를 서로 다른 상자 3개에 넣는데, 어느 상자에도 공이 5개를 넘게 들어가면 안 된다. 빈 상자가 있어도 된다. 넣는 방법은 몇 가지인가?",
+    "choices": [
+      "15",
+      "21",
+      "36",
+      "57",
+      "78"
+    ],
+    "answer": "A",
+    "hints": [
+      "최대 조건 → 제한 없이 센 뒤 넘친 경우를 뺀다.",
+      "제한 없이 $\\binom{13}{2} = 78$. 한 상자가 6개 이상: 6개를 미리 넣으면 남는 5개 → $\\binom{7}{2} = 21$, 상자 3개 → 63.",
+      "두 상자가 동시에 6개 이상이면 12개 이상이라 불가능. 78 − 63"
+    ],
+    "solution": "1. 제한 없이: $\\binom{11+2}{2} = \\binom{13}{2} = 78$\n2. 어떤 상자에 6개 이상: 그 상자에 6개를 먼저 넣으면 남은 5개를 자유롭게 → $\\binom{7}{2} = 21$. 상자가 3개이므로 63\n3. 두 상자가 동시에 6개 이상이면 12개 이상 필요하므로 불가능\n4. $78 - 63 = 15$\n\n**오답 짚기**: 78은 상한을 무시한 것. 57은 넘친 경우를 한 상자에 대해서만 뺀 것($78 - 21$). 36은 $\\binom{9}{2}$, 21은 빼야 할 \"넘친 경우\" 하나의 값.",
+    "verify": {
+      "answer": "sum(1 for t in product(range(6),repeat=3) if sum(t)==11)",
+      "methods": [
+        "comb(13,2)-3*comb(7,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-7",
+    "lesson": "2-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 128 94\" width=\"128\" height=\"94\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><line x1=\"22\" y1=\"74\" x2=\"22\" y2=\"18\"/><line x1=\"50\" y1=\"74\" x2=\"50\" y2=\"18\"/><line x1=\"78\" y1=\"74\" x2=\"78\" y2=\"18\"/><line x1=\"106\" y1=\"74\" x2=\"106\" y2=\"18\"/><line x1=\"22\" y1=\"74\" x2=\"106\" y2=\"74\"/><line x1=\"22\" y1=\"46\" x2=\"106\" y2=\"46\"/><line x1=\"22\" y1=\"18\" x2=\"106\" y2=\"18\"/></g><circle cx=\"22\" cy=\"74\" r=\"3.5\" fill=\"currentColor\"/><text x=\"10\" y=\"88\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">A</text><circle cx=\"106\" cy=\"18\" r=\"3.5\" fill=\"currentColor\"/><text x=\"118\" y=\"12\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">B</text></svg>",
+    "question": "In the grid shown, how many paths go from $A$ at $(0,0)$ to $B$ at $(3,2)$ moving only right or up along the grid lines?",
+    "questionKo": "그림의 격자에서 격자선을 따라 오른쪽 또는 위로만 움직여 $A(0,0)$에서 $B(3,2)$까지 가는 경로는 몇 가지인가?",
+    "choices": [
+      "5",
+      "6",
+      "10",
+      "12",
+      "20"
+    ],
+    "answer": "C",
+    "hints": [
+      "R 3개와 U 2개를 나열한다.",
+      "5자리 중 U 자리 2개 고르기.",
+      "$\\binom{5}{2}$"
+    ],
+    "solution": "오른쪽 3번, 위 2번, 총 5번의 이동 중 위로 가는 2번의 자리를 고른다. $\\binom{5}{2} = 10$.\n\n**오답 짚기**: 6은 $3 \\times 2$로 칸 수를 곱한 것. 5는 $3 + 2$. 20은 U 2개를 서로 구별한 순열 $5 \\times 4$. 12는 교차점 수.",
+    "verify": {
+      "answer": "len(set(permutations('RRRUU')))",
+      "methods": [
+        "comb(5,2)",
+        "AV=set()\n@lru_cache(None)\ndef f(x,y):\n    if (x,y) in AV: return 0\n    if x==0 and y==0: return 1\n    return (f(x-1,y) if x>0 else 0)+(f(x,y-1) if y>0 else 0)\nresult=f(3,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-8",
+    "lesson": "2-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 184 138\" width=\"184\" height=\"138\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><line x1=\"22\" y1=\"102\" x2=\"22\" y2=\"18\"/><line x1=\"50\" y1=\"102\" x2=\"50\" y2=\"18\"/><line x1=\"78\" y1=\"102\" x2=\"78\" y2=\"18\"/><line x1=\"106\" y1=\"102\" x2=\"106\" y2=\"18\"/><line x1=\"134\" y1=\"102\" x2=\"134\" y2=\"18\"/><line x1=\"162\" y1=\"102\" x2=\"162\" y2=\"18\"/><line x1=\"22\" y1=\"102\" x2=\"162\" y2=\"102\"/><line x1=\"22\" y1=\"74\" x2=\"162\" y2=\"74\"/><line x1=\"22\" y1=\"46\" x2=\"162\" y2=\"46\"/><line x1=\"22\" y1=\"18\" x2=\"162\" y2=\"18\"/></g><circle cx=\"78\" cy=\"46\" r=\"5\" fill=\"#4F6BF0\"/><circle cx=\"22\" cy=\"102\" r=\"3.5\" fill=\"currentColor\"/><text x=\"10\" y=\"116\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">A</text><circle cx=\"162\" cy=\"18\" r=\"3.5\" fill=\"currentColor\"/><text x=\"174\" y=\"12\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">B</text><text x=\"92.0\" y=\"132\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" opacity=\"0.75\">P = (2, 2)</text></svg>",
+    "question": "How many paths from $A$ at $(0,0)$ to $B$ at $(5,3)$ move only right or up and pass through the point $P$ at $(2,2)$?",
+    "questionKo": "$A(0,0)$에서 $B(5,3)$까지 오른쪽 또는 위로만 움직이는 경로 중 점 $P(2,2)$를 지나는 경로는 몇 가지인가?",
+    "choices": [
+      "10",
+      "12",
+      "24",
+      "32",
+      "56"
+    ],
+    "answer": "C",
+    "hints": [
+      "(출발 → P) × (P → 도착).",
+      "(0,0) → (2,2): $\\binom{4}{2} = 6$. (2,2) → (5,3): 오른쪽 3, 위 1 → $\\binom{4}{1} = 4$.",
+      "6 × 4"
+    ],
+    "solution": "$A \\to P$: R 2, U 2 → $\\binom{4}{2} = 6$. $P \\to B$: R 3, U 1 → $\\binom{4}{1} = 4$. $6 \\times 4 = 24$.\n\n**오답 짚기**: 56은 조건 없는 전체 $\\binom{8}{3}$. 32는 $P$를 **피하는** 경로($56 - 24$). 10은 $6 + 4$. 12는 $6 \\times 2$로 뒷부분을 잘못 센 것.",
+    "verify": {
+      "answer": "comb(4,2)*comb(4,1)",
+      "methods": [
+        "sum(1 for p in set(permutations('RRRRRUUU')) if (2,2) in {(p[:i].count('R'),p[:i].count('U')) for i in range(9)})"
+      ]
+    }
+  },
+  {
+    "id": "2-t-9",
+    "lesson": "2-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "figure": "<svg viewBox=\"0 0 184 166\" width=\"184\" height=\"166\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><line x1=\"22\" y1=\"130\" x2=\"22\" y2=\"18\"/><line x1=\"50\" y1=\"130\" x2=\"50\" y2=\"18\"/><line x1=\"78\" y1=\"130\" x2=\"78\" y2=\"18\"/><line x1=\"106\" y1=\"130\" x2=\"106\" y2=\"18\"/><line x1=\"134\" y1=\"130\" x2=\"134\" y2=\"18\"/><line x1=\"162\" y1=\"130\" x2=\"162\" y2=\"18\"/><line x1=\"22\" y1=\"130\" x2=\"162\" y2=\"130\"/><line x1=\"22\" y1=\"102\" x2=\"162\" y2=\"102\"/><line x1=\"22\" y1=\"74\" x2=\"162\" y2=\"74\"/><line x1=\"22\" y1=\"46\" x2=\"162\" y2=\"46\"/><line x1=\"22\" y1=\"18\" x2=\"162\" y2=\"18\"/></g><g stroke=\"#DB433D\" stroke-width=\"2.5\" stroke-linecap=\"round\"><line x1=\"73\" y1=\"97\" x2=\"83\" y2=\"107\"/><line x1=\"73\" y1=\"107\" x2=\"83\" y2=\"97\"/></g><g stroke=\"#DB433D\" stroke-width=\"2.5\" stroke-linecap=\"round\"><line x1=\"101\" y1=\"41\" x2=\"111\" y2=\"51\"/><line x1=\"101\" y1=\"51\" x2=\"111\" y2=\"41\"/></g><circle cx=\"22\" cy=\"130\" r=\"3.5\" fill=\"currentColor\"/><text x=\"10\" y=\"144\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">A</text><circle cx=\"162\" cy=\"18\" r=\"3.5\" fill=\"currentColor\"/><text x=\"174\" y=\"12\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">B</text><text x=\"92.0\" y=\"160\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" opacity=\"0.75\">X = (2,1), (3,3)</text></svg>",
+    "question": "A path from $A$ at $(0,0)$ to $B$ at $(5,4)$ moves only right or up. The two points $(2,1)$ and $(3,3)$, marked with an X, are blocked. How many paths avoid both blocked points?",
+    "questionKo": "$A(0,0)$에서 $B(5,4)$까지 오른쪽 또는 위로만 움직인다. X로 표시된 두 점 $(2,1)$과 $(3,3)$은 막혀 있다. 두 점을 모두 피하는 경로는 몇 가지인가?",
+    "choices": [
+      "6",
+      "33",
+      "60",
+      "66",
+      "93"
+    ],
+    "answer": "B",
+    "hints": [
+      "전체 − (첫 점 지남) − (둘째 점 지남) + (둘 다 지남). 이번에는 둘 다 지나는 경로가 있다.",
+      "전체 $\\binom{9}{4} = 126$. (2,1) 지남: $3 \\times 20 = 60$. (3,3) 지남: $20 \\times 3 = 60$.",
+      "둘 다 지남: $3 \\times [(2,1) \\to (3,3)$: $\\binom{3}{1} = 3] \\times 3 = 27$. 126 − 60 − 60 + 27"
+    ],
+    "solution": "포함배제를 쓴다.\n- 전체: $\\binom{9}{4} = 126$\n- $(2,1)$을 지남: $\\binom{3}{1} \\times \\binom{6}{3} = 3 \\times 20 = 60$\n- $(3,3)$을 지남: $\\binom{6}{3} \\times \\binom{3}{1} = 20 \\times 3 = 60$\n- 둘 다 지남: $(2,1) \\to (3,3)$은 R 1, U 2 → $\\binom{3}{1} = 3$이므로 $3 \\times 3 \\times 3 = 27$\n\n피하는 경로 = $126 - (60 + 60 - 27) = 126 - 93 = 33$.\n\n**오답 짚기**: 6은 둘 다 지나는 27을 더하지 않고 $126 - 120$을 한 것(두 번 뺀 경로가 있다). 66은 막힌 점 하나만 뺀 것. 93은 \"적어도 한 막힌 점을 지나는\" 경로 수. 60은 한 점을 지나는 경로 수.",
+    "fast": "덧셈 표: 막힌 두 점에 0을 쓰고 왼쪽 + 아래를 채워 올라가면 B에서 33이 나온다. 장애물이 둘 이상이면 이 방법이 실수가 적다.",
+    "verify": {
+      "answer": "AV={(2,1),(3,3)}\n@lru_cache(None)\ndef f(x,y):\n    if (x,y) in AV: return 0\n    if x==0 and y==0: return 1\n    return (f(x-1,y) if x>0 else 0)+(f(x,y-1) if y>0 else 0)\nresult=f(5,4)",
+      "methods": [
+        "comb(9,4)-(comb(3,1)*comb(6,3)+comb(6,3)*comb(3,1)-comb(3,1)*comb(3,1)*comb(3,1))"
+      ]
+    }
+  },
+  {
+    "id": "2-t-10",
+    "lesson": "2-4",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "probability"
+    ],
+    "question": "Two fair coins are flipped and a fair six-sided die is rolled. What is the probability that both coins show heads and the die shows an even number?",
+    "questionKo": "공정한 동전 2개를 던지고 공정한 주사위 하나를 굴린다. 두 동전이 모두 앞면이고 주사위 눈이 짝수일 확률은?",
+    "choices": [
+      "$\\frac{1}{24}$",
+      "$\\frac{1}{16}$",
+      "$\\frac{1}{12}$",
+      "$\\frac{1}{8}$",
+      "$\\frac{1}{4}$"
+    ],
+    "answer": "D",
+    "hints": [
+      "세 사건은 서로 독립이다.",
+      "앞면 $\\frac{1}{2}$, 앞면 $\\frac{1}{2}$, 짝수 $\\frac{3}{6} = \\frac{1}{2}$.",
+      "$\\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2}$"
+    ],
+    "solution": "동전 두 개와 주사위는 서로 독립이므로 확률을 곱한다. 짝수 눈은 2, 4, 6의 3가지로 $\\frac{3}{6} = \\frac{1}{2}$. $\\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{8}$.\n\n**오답 짚기**: $\\frac{1}{12}$은 짝수 확률을 $\\frac{1}{3}$으로 잘못 둔 것. $\\frac{1}{24}$는 짝수를 6 하나로만 센 것. $\\frac{1}{16}$은 주사위까지 동전처럼 두 번 곱한 $\\left(\\frac{1}{2}\\right)^4$. $\\frac{1}{4}$는 동전 두 개만 보고 주사위 조건을 빠뜨린 것.",
+    "verify": {
+      "answer": "F(sum(1 for a,b,d in product('HT','HT',range(1,7)) if a=='H' and b=='H' and d%2==0),24)",
+      "choices": [
+        "F(1,24)",
+        "F(1,16)",
+        "F(1,12)",
+        "F(1,8)",
+        "F(1,4)"
+      ],
+      "methods": [
+        "F(1,2)**3"
+      ]
+    }
+  },
+  {
+    "id": "2-t-11",
+    "lesson": "2-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "probability",
+      "counting"
+    ],
+    "question": "A bag contains 2 red, 3 green, and 1 blue marble. Two marbles are drawn at random without replacement. What is the probability that the two marbles are the same color?",
+    "questionKo": "주머니에 빨간 구슬 2개, 초록 구슬 3개, 파란 구슬 1개가 있다. 구슬 2개를 다시 넣지 않고 무작위로 꺼낼 때, 두 구슬의 색이 같을 확률은?",
+    "choices": [
+      "$\\frac{4}{15}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{7}{18}$",
+      "$\\frac{4}{9}$",
+      "$\\frac{1}{2}$"
+    ],
+    "answer": "A",
+    "hints": [
+      "한꺼번에 2개를 뽑는 경우의 수 $\\binom{6}{2} = 15$가 모두 같은 확률.",
+      "같은 색 쌍: 빨강 $\\binom{2}{2} = 1$, 초록 $\\binom{3}{2} = 3$, 파랑은 1개뿐이라 0.",
+      "(1 + 3) ÷ 15"
+    ],
+    "solution": "전체 $\\binom{6}{2} = 15$가지가 같은 확률이다. 같은 색인 쌍은 빨강 $\\binom{2}{2} = 1$, 초록 $\\binom{3}{2} = 3$, 파랑은 하나뿐이므로 0. 합 4. $\\frac{4}{15}$.\n\n**순서대로 검산**: $\\frac{2}{6} \\cdot \\frac{1}{5} + \\frac{3}{6} \\cdot \\frac{2}{5} = \\frac{2 + 6}{30} = \\frac{4}{15}$. 일치.\n\n**오답 짚기**: $\\frac{7}{18}$은 다시 넣는다고 본 $\\frac{2^2 + 3^2 + 1^2}{36}$ (복원/비복원 혼동). $\\frac{1}{3}$은 \"색이 3가지니 $\\frac{1}{3}$\"로 같은 확률이 아닌 결과로 나눈 것. $\\frac{1}{2}$은 \"같거나 다르거나 반반\"이라고 어림한 것. $\\frac{4}{9}$는 분모를 $\\binom{6}{2}$ 대신 $3^2$으로 잘못 잡은 값.",
+    "verify": {
+      "answer": "F(sum(1 for c in combinations('RRGGGB',2) if c[0]==c[1]),comb(6,2))",
+      "choices": [
+        "F(4,15)",
+        "F(1,3)",
+        "F(7,18)",
+        "F(4,9)",
+        "F(1,2)"
+      ],
+      "methods": [
+        "F(2,6)*F(1,5)+F(3,6)*F(2,5)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-12",
+    "lesson": "2-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "probability",
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 160 160\" width=\"160\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,138 80,138 140,18 20,18\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"#4F6BF0\" stroke-width=\"1.5\"/><rect x=\"20\" y=\"18\" width=\"120\" height=\"120\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"80\" cy=\"138\" r=\"3\" fill=\"currentColor\"/><text x=\"12\" y=\"152\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">A</text><text x=\"148\" y=\"152\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">B</text><text x=\"148\" y=\"14\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">C</text><text x=\"12\" y=\"14\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">D</text><text x=\"80\" y=\"152\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\" text-anchor=\"middle\">E</text></svg>",
+    "question": "A square dartboard $ABCD$ has side length 4, and $E$ is the midpoint of side $AB$. A dart lands at a random point on the board, with every point equally likely. What is the probability that it lands inside the shaded quadrilateral $AECD$?",
+    "questionKo": "한 변의 길이가 4인 정사각형 다트판 $ABCD$에서 $E$는 변 $AB$의 중점이다. 다트가 판 위의 임의의 점에 같은 확률로 떨어질 때, 색칠된 사각형 $AECD$ 안에 떨어질 확률은?",
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{8}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{7}{8}$"
+    ],
+    "answer": "D",
+    "hints": [
+      "확률 = (색칠된 넓이) ÷ (전체 넓이 16).",
+      "색칠되지 않은 부분은 삼각형 $EBC$: 밑 $EB = 2$, 높이 $BC = 4$.",
+      "(16 − 4) ÷ 16"
+    ],
+    "solution": "판 안 어디든 같은 확률이므로 넓이비를 구한다. 정사각형 넓이 16. 색칠되지 않은 삼각형 $EBC$는 밑변 $EB = 2$, 높이 $BC = 4$이므로 넓이 $\\frac{1}{2} \\times 2 \\times 4 = 4$. 색칠된 넓이는 $16 - 4 = 12$, 확률 $\\frac{12}{16} = \\frac{3}{4}$.\n\n**검산 (신발끈)**: $A(0,0), E(2,0), C(4,4), D(0,4)$에 대해 $\\frac{1}{2}|0 + 8 + 16 + 0| = 12$. 일치.\n\n**오답 짚기**: $\\frac{1}{2}$은 $E$가 중점이니 \"반\"이라고 어림한 것. $\\frac{7}{8}$은 삼각형 $EBC$의 넓이를 2로 잘못 계산한 것. $\\frac{5}{8}$은 사다리꼴 넓이를 $\\frac{(2+4) \\times 4}{2} = 12$가 아닌 10으로 잘못 계산한 값.",
+    "verify": {
+      "answer": "F(16-F(1,2)*2*4,16)",
+      "choices": [
+        "F(1,2)",
+        "F(5,8)",
+        "F(2,3)",
+        "F(3,4)",
+        "F(7,8)"
+      ],
+      "methods": [
+        "F(abs((0*0-2*0)+(2*4-4*0)+(4*4-0*4)+(0*0-0*4)),2)/16",
+        "F((2+4)*4,2)/16"
+      ],
+      "note": "방법 1: 전체에서 삼각형 빼기. 방법 2: 신발끈 공식. 방법 3: 사다리꼴 넓이."
+    }
+  },
+  {
+    "id": "2-t-13",
+    "lesson": "2-5",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "probability"
+    ],
+    "question": "A fair ten-sided die has faces numbered 1 through 10. What is the expected value of the number rolled?",
+    "questionKo": "1부터 10까지 적힌 공정한 10면체 주사위가 있다. 굴려서 나오는 수의 기댓값은?",
+    "choices": [
+      "5",
+      "$\\frac{11}{2}$",
+      "6",
+      "10",
+      "55"
+    ],
+    "answer": "B",
+    "hints": [
+      "확률이 모두 $\\frac{1}{10}$로 같으니 평균이다.",
+      "1부터 10까지의 합은 55.",
+      "55 ÷ 10"
+    ],
+    "solution": "각 면이 나올 확률이 $\\frac{1}{10}$로 같으므로 기댓값은 평균 $\\frac{1 + 2 + \\cdots + 10}{10} = \\frac{55}{10} = \\frac{11}{2}$.\n\n**오답 짚기**: 55는 합만 구하고 확률을 곱하지 않은 것. 5는 가운데쯤이라고 어림한 것. 1과 10의 평균 $\\frac{11}{2}$이 정확한 값이다. 기댓값은 정수일 필요가 없다.",
+    "verify": {
+      "answer": "F(sum(range(1,11)),10)",
+      "choices": [
+        "5",
+        "F(11,2)",
+        "6",
+        "10",
+        "55"
+      ],
+      "methods": [
+        "F(1+10,2)"
+      ]
+    }
+  },
+  {
+    "id": "2-t-14",
+    "lesson": "2-5",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "probability"
+    ],
+    "question": "To play a game, you pay 2 dollars and roll two fair six-sided dice. If the two dice show the same number, you receive 10 dollars; otherwise you receive nothing. What is the expected value of your net gain, in dollars?",
+    "questionKo": "어떤 게임은 2달러를 내고 공정한 주사위 2개를 굴린다. 두 눈이 같으면 10달러를 받고, 아니면 아무것도 받지 못한다. 순이익의 기댓값은 몇 달러인가?",
+    "choices": [
+      "$-1$",
+      "$-\\frac{2}{3}$",
+      "$-\\frac{1}{3}$",
+      "0",
+      "$\\frac{5}{3}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "두 눈이 같을 확률은 6×6 표에서 $\\frac{6}{36} = \\frac{1}{6}$.",
+      "받는 돈의 기댓값 $10 \\times \\frac{1}{6} = \\frac{5}{3}$.",
+      "$\\frac{5}{3} - 2$"
+    ],
+    "solution": "두 눈이 같을 확률은 36칸 중 6칸으로 $\\frac{1}{6}$. 받는 돈의 기댓값은 $10 \\times \\frac{1}{6} = \\frac{5}{3}$달러. 참가비 2달러를 빼면 $\\frac{5}{3} - 2 = -\\frac{1}{3}$달러. 평균적으로 손해인 게임이다.\n\n**오답 짚기**: $\\frac{5}{3}$은 참가비를 빼지 않은 것. $-1$은 같을 확률을 $\\frac{1}{10}$쯤으로 잘못 잡은 값. $-\\frac{2}{3}$은 $10 \\times \\frac{2}{15} - 2$처럼 확률을 잘못 계산한 값. 0은 \"공정한 게임\"이라고 어림한 것.",
+    "verify": {
+      "answer": "10*F(sum(1 for a,b in product(range(1,7),repeat=2) if a==b),36)-2",
+      "choices": [
+        "-1",
+        "F(-2,3)",
+        "F(-1,3)",
+        "0",
+        "F(5,3)"
+      ],
+      "methods": [
+        "10*F(1,6)-2"
+      ]
+    }
+  },
+  {
+    "id": "2-t-15",
+    "lesson": "2-5",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "probability"
+    ],
+    "question": "Six people each independently choose one of the 7 days of the week at random. What is the expected number of pairs of people who choose the same day?",
+    "questionKo": "6명이 각자 독립적으로 일주일 7일 중 하루를 무작위로 고른다. 같은 날을 고른 두 사람 쌍의 개수의 기댓값은?",
+    "choices": [
+      "$\\frac{15}{49}$",
+      "$\\frac{6}{7}$",
+      "$\\frac{15}{7}$",
+      "$\\frac{5}{2}$",
+      "3"
+    ],
+    "answer": "C",
+    "hints": [
+      "두 사람으로 된 쌍은 $\\binom{6}{2} = 15$개. 쌍마다 \"같은 날이면 1, 아니면 0\".",
+      "특정 두 사람이 같은 날을 고를 확률은 $\\frac{1}{7}$ (첫 사람이 무슨 날이든 둘째가 그 날을 고를 확률).",
+      "$15 \\times \\frac{1}{7}$"
+    ],
+    "solution": "두 사람씩 짝지은 쌍은 $\\binom{6}{2} = 15$개. 각 쌍에 대해 \"같은 날을 골랐으면 1, 아니면 0\"을 더한 것이 구하는 개수다. 특정 두 사람이 같은 날을 고를 확률은 $\\frac{7}{49} = \\frac{1}{7}$. 쌍끼리는 사람을 공유해 독립이 아니지만 선형성은 성립하므로 $15 \\times \\frac{1}{7} = \\frac{15}{7}$.\n\n**오답 짚기**: $\\frac{15}{49}$는 한 쌍의 확률을 $\\frac{1}{49}$(둘 다 특정한 하루를 고를 확률)로 잘못 잡은 것. $\\frac{6}{7}$은 쌍의 수를 사람 수 6으로 잘못 센 것. 3은 \"6명을 7일에 넣으면 셋쯤 겹친다\"는 어림. $\\frac{5}{2}$도 어림값.",
+    "fast": "\"같은 것을 고른 쌍의 수\"의 기댓값은 항상 $\\binom{n}{2} \\times \\frac{1}{(\\text{가짓수})}$. 사람 수가 몇 명이든 한 줄로 끝난다.",
+    "verify": {
+      "answer": "F(sum(sum(1 for i,j in combinations(range(6),2) if t[i]==t[j]) for t in product(range(7),repeat=6)),7**6)",
+      "choices": [
+        "F(15,49)",
+        "F(6,7)",
+        "F(15,7)",
+        "F(5,2)",
+        "3"
+      ],
+      "methods": [
+        "comb(6,2)*F(1,7)"
+      ]
+    }
+  }
+]
