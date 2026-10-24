@@ -1,0 +1,540 @@
+[
+  {
+    "id": "5-t-1",
+    "lesson": "5-1",
+    "band": "1-10",
+    "target": 50,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 226 148\" width=\"226\" height=\"148\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"204,74 113,22 22,74 113,126\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"204\" y1=\"74\" x2=\"22\" y2=\"74\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><line x1=\"113\" y1=\"22\" x2=\"113\" y2=\"126\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><text x=\"158.5\" y=\"88\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">14</text><text x=\"104\" y=\"52\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">8</text></svg>",
+    "question": "The diagonals of a rhombus have lengths 8 and 14. What is the area of the rhombus?",
+    "questionKo": "어떤 마름모의 두 대각선의 길이가 8과 14이다. 이 마름모의 넓이는?",
+    "choices": [
+      "28",
+      "44",
+      "56",
+      "64",
+      "112"
+    ],
+    "answer": "C",
+    "hints": [
+      "마름모 넓이 = $\\frac{1}{2} \\times$ (대각선) $\\times$ (대각선).",
+      "$\\frac{1}{2} \\times 8 \\times 14$",
+      "56"
+    ],
+    "solution": "마름모(rhombus)의 넓이는 두 대각선 곱의 절반: $\\frac{1}{2} \\times 8 \\times 14 = 56$. 대각선이 서로를 수직이등분하므로 밑변 4, 높이 7인 직각삼각형 4개 $= 4 \\times 14 = 56$으로도 같다.\n\n**오답 짚기**: 112는 $\\frac{1}{2}$을 빠뜨린 것. 28은 $\\frac{1}{4}$을 곱한 것. 44는 $2 \\times (8 + 14)$로 둘레처럼 계산한 것, 64는 $8^2$.",
+    "fast": "$\\frac{1}{2} \\cdot 8 \\cdot 14 = 56$.",
+    "verify": {
+      "answer": "F(1,2)*8*14",
+      "methods": [
+        "F(1,2)*abs((7*4-0*0) + (0*0--7*4) + (-7*-4-0*0) + (0*0-7*-4))",
+        "4*F(1,2)*4*7"
+      ],
+      "note": "대각선 공식 vs 좌표 신발끈 vs 직각삼각형 4개"
+    }
+  },
+  {
+    "id": "5-t-2",
+    "lesson": "5-1",
+    "band": "11-15",
+    "target": 80,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 153 167\" width=\"153\" height=\"167\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"76.5\" cy=\"76.5\" r=\"55\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"76.5\" cy=\"76.5\" r=\"2.5\" fill=\"currentColor\"/><text x=\"76.5\" y=\"159\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.85\">둘레 10π</text></svg>",
+    "question": "A circle has circumference $10\\pi$. What is its area?",
+    "questionKo": "둘레가 $10\\pi$인 원의 넓이는?",
+    "choices": [
+      "$5\\pi$",
+      "$10\\pi$",
+      "$25\\pi$",
+      "$50\\pi$",
+      "$100\\pi$"
+    ],
+    "answer": "C",
+    "hints": [
+      "둘레 $= 2\\pi r$에서 먼저 반지름을 구한다.",
+      "$2\\pi r = 10\\pi$ → $r = 5$.",
+      "$\\pi \\cdot 5^2$"
+    ],
+    "solution": "둘레(circumference) $2\\pi r = 10\\pi$에서 $r = 5$. 넓이 $= \\pi r^2 = 25\\pi$.\n\n**오답 짚기**: $100\\pi$는 지름 10을 제곱한 것. $10\\pi$는 둘레를 그대로 쓴 것, $5\\pi$는 $\\pi r$. $50\\pi$는 $\\pi \\cdot 5 \\cdot 10$.",
+    "fast": "$r = 5$ → $25\\pi$.",
+    "verify": {
+      "answer": "pi*(10*pi/(2*pi))**2",
+      "choices": [
+        "5*pi",
+        "10*pi",
+        "25*pi",
+        "50*pi",
+        "100*pi"
+      ],
+      "methods": [
+        "N=4000\nh=(5-(0))/N\narea=sum(2*pi*((0)+(i+0.5)*h) for i in range(N))*h\nresult=area"
+      ],
+      "note": "공식 vs 반지름 5까지 얇은 고리 수치 적분(중점법, 정확)"
+    }
+  },
+  {
+    "id": "5-t-3",
+    "lesson": "5-1",
+    "band": "16-20",
+    "target": 110,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 273 108\" width=\"273\" height=\"108\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"24,84 249,84 204,24 69,24\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"69\" y1=\"24\" x2=\"69\" y2=\"84\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><polyline points=\"75,84 75,78 69,78\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"136.5\" y=\"17\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">9</text><text x=\"136.5\" y=\"100\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">15</text><text x=\"35.5\" y=\"58\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">5</text><text x=\"237.5\" y=\"58\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">5</text></svg>",
+    "question": "An isosceles trapezoid has parallel sides of lengths 9 and 15, and each of its legs has length 5. What is the area of the trapezoid?",
+    "questionKo": "어떤 등변사다리꼴의 평행한 두 변의 길이는 9와 15이고, 두 다리의 길이는 각각 5이다. 이 사다리꼴의 넓이는?",
+    "choices": [
+      "48",
+      "60",
+      "72",
+      "96",
+      "120"
+    ],
+    "answer": "A",
+    "hints": [
+      "높이가 안 주어졌다. 다리 5는 기울어진 변이라 높이가 아니다.",
+      "양 끝의 직각삼각형: 밑변은 $(15 - 9) \\div 2 = 3$, 빗변 5 → 높이 4.",
+      "$\\frac{1}{2}(9 + 15) \\cdot 4$"
+    ],
+    "solution": "등변사다리꼴(isosceles trapezoid)이므로 긴 변이 양쪽으로 $(15 - 9) \\div 2 = 3$씩 튀어나온다. 다리 5를 빗변으로 하는 3-4-5 직각삼각형에서 높이는 4. 넓이 $= \\frac{1}{2}(9 + 15) \\times 4 = 48$.\n\n**오답 짚기**: 60은 다리 5를 높이로 쓴 것. 96은 $\\frac{1}{2}$을 빠뜨린 것($24 \\times 4$). 120은 두 실수를 함께 한 것($24 \\times 5$). 72는 $9 \\times 8$.",
+    "fast": "3-4-5 → 높이 4 → $12 \\times 4 = 48$.",
+    "verify": {
+      "answer": "F(1,2)*(9+15)*isqrt(5**2-3**2)",
+      "methods": [
+        "F(1,2)*abs((0*0-15*0) + (15*4-12*0) + (12*4-3*4) + (3*0-0*4))"
+      ],
+      "note": "피타고라스 → 공식 vs 좌표 (0,0),(15,0),(12,4),(3,4) 신발끈"
+    }
+  },
+  {
+    "id": "5-t-4",
+    "lesson": "5-1",
+    "band": "21-25",
+    "target": 165,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 256 139\" width=\"256\" height=\"139\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"89,24 193,24 232,115 24,115\" fill=\"#4F6BF0\" fill-opacity=\"0.25\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"56.5\" y1=\"69.5\" x2=\"212.5\" y2=\"69.5\" stroke=\"#E08A1E\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><circle cx=\"56.5\" cy=\"69.5\" r=\"2.5\" fill=\"currentColor\"/><circle cx=\"212.5\" cy=\"69.5\" r=\"2.5\" fill=\"currentColor\"/><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"75.4\" y1=\"48.6\" x2=\"70.1\" y2=\"44.9\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"42.9\" y1=\"94.1\" x2=\"37.6\" y2=\"90.4\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"205.3\" y1=\"44.4\" x2=\"199.3\" y2=\"47\"/><line x1=\"206.2\" y1=\"46.5\" x2=\"200.2\" y2=\"49.1\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"224.8\" y1=\"89.9\" x2=\"218.8\" y2=\"92.5\"/><line x1=\"225.7\" y1=\"92\" x2=\"219.7\" y2=\"94.6\"/></g><line x1=\"89\" y1=\"24\" x2=\"89\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.6\"/><text x=\"80\" y=\"95.6\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">7</text><text x=\"141\" y=\"63.5\" font-size=\"12\" text-anchor=\"middle\" fill=\"#E08A1E\" font-weight=\"600\">?</text><text x=\"147.5\" y=\"102.1\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.8\">넓이 84</text></svg>",
+    "question": "A trapezoid has area 84 and height 7. What is the length of the segment joining the midpoints of its two legs (the dashed segment)?",
+    "questionKo": "어떤 사다리꼴의 넓이는 84이고 높이는 7이다. 두 다리의 중점을 이은 선분(점선)의 길이는?",
+    "choices": [
+      "6",
+      "12",
+      "14",
+      "24",
+      "42"
+    ],
+    "answer": "B",
+    "hints": [
+      "두 다리의 중점을 이은 선분(중간선)의 길이는 (윗변 + 아랫변)의 절반이다.",
+      "넓이 $= \\frac{1}{2}(a + b) \\cdot h$이므로 $\\frac{1}{2}(a + b) = $ 넓이 $\\div$ 높이.",
+      "$84 \\div 7$"
+    ],
+    "solution": "사다리꼴의 두 다리의 중점을 이은 선분(중간선, midsegment)은 두 평행한 변의 평균 $\\frac{a + b}{2}$이다. 넓이 공식 $\\frac{1}{2}(a + b) \\cdot h = 84$에서 $\\frac{a + b}{2} = \\frac{84}{7} = 12$. 즉 사다리꼴 넓이 = 중간선 × 높이.\n\n**오답 짚기**: 24는 $a + b$ 전체(절반을 안 함). 6은 반을 두 번 한 것. 14는 $2 \\times 7$, 42는 넓이의 절반.",
+    "fast": "넓이 = 중간선 × 높이 → $84 \\div 7 = 12$.",
+    "verify": {
+      "answer": "F(84,7)",
+      "methods": [
+        "exec('''\nD=(0,0);C=(16,0);B=(13,7);A=(5,7)\npts=[A,B,C,D]\ns=sum(pts[i][0]*pts[(i+1)%4][1]-pts[(i+1)%4][0]*pts[i][1] for i in range(4))\nm1=((A[0]+D[0])/2,(A[1]+D[1])/2)\nm2=((B[0]+C[0])/2,(B[1]+C[1])/2)\n''')\nresult=sqrt((m2[0]-m1[0])**2+(m2[1]-m1[1])**2) if F(abs(s),2)==84 else None"
+      ],
+      "note": "넓이 ÷ 높이 vs 그림의 좌표(넓이 84 확인)에서 두 다리 중점 사이 거리"
+    }
+  },
+  {
+    "id": "5-t-5",
+    "lesson": "5-2",
+    "band": "1-10",
+    "target": 50,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 210 174\" width=\"210\" height=\"174\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"24,150 186,150 186,60 150,60 150,24 60,24 60,60 24,60\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><text x=\"105\" y=\"166\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">9</text><text x=\"14\" y=\"109\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">5</text><text x=\"105\" y=\"17\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">5</text><text x=\"42\" y=\"54\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">2</text><text x=\"69\" y=\"46\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">2</text><text x=\"168\" y=\"54\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">2</text><text x=\"141\" y=\"46\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">2</text></svg>",
+    "question": "All angles in the figure are right angles. The figure is a 9 by 7 rectangle with a 2 by 2 square removed from each of its two top corners. What is the area of the figure?",
+    "questionKo": "그림의 모든 각은 직각이다. 이 도형은 $9 \\times 7$ 직사각형의 위쪽 두 귀퉁이에서 $2 \\times 2$ 정사각형을 하나씩 잘라낸 것이다. 이 도형의 넓이는?",
+    "choices": [
+      "51",
+      "55",
+      "59",
+      "63",
+      "67"
+    ],
+    "answer": "B",
+    "hints": [
+      "큰 직사각형에서 잘라낸 정사각형 두 개를 뺀다.",
+      "$9 \\times 7 = 63$, 정사각형 하나는 4.",
+      "$63 - 8$"
+    ],
+    "solution": "빼기: $9 \\times 7 = 63$에서 $2 \\times 2$ 정사각형 두 개 $= 8$을 빼면 $55$.\n\n쪼개기로 확인: 아래 직사각형 $9 \\times 5 = 45$와 위 직사각형 $5 \\times 2 = 10$ → $55$.\n\n**오답 짚기**: 63은 아무것도 안 뺀 것. 59는 정사각형 하나만 뺀 것. 51은 정사각형을 세 개 뺀 것(두 번 빼기). 67은 더한 것.",
+    "fast": "$63 - 8 = 55$.",
+    "verify": {
+      "answer": "9*7-2*(2*2)",
+      "methods": [
+        "9*5+5*2",
+        "sum(1 for x in range(9) for y in range(7) if not (y>=5 and (x<2 or x>=7)))"
+      ],
+      "note": "큰 직사각형 − 정사각형 2개 vs 직사각형 두 개 쪼개기 vs 단위 정사각형 세기"
+    }
+  },
+  {
+    "id": "5-t-6",
+    "lesson": "5-2",
+    "band": "11-15",
+    "target": 80,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 228 156\" width=\"228\" height=\"156\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"24,24 204,24 204,132 24,132\" fill=\"#4F6BF0\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"114,24 204,132 24,132\" fill=\"#4F6BF0\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linejoin=\"round\"/><line x1=\"114\" y1=\"24\" x2=\"24\" y2=\"132\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"114\" y1=\"24\" x2=\"204\" y2=\"132\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"114\" cy=\"24\" r=\"2.5\" fill=\"currentColor\"/><text x=\"16\" y=\"20\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"212\" y=\"20\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"212\" y=\"146\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"16\" y=\"146\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">D</text><text x=\"114\" y=\"18\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">M</text><text x=\"114\" y=\"148\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">10</text><text x=\"214\" y=\"82\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">6</text></svg>",
+    "question": "In rectangle $ABCD$, $AB = 10$ and $BC = 6$. Point $M$ is the midpoint of $AB$. What is the area of triangle $MCD$?",
+    "questionKo": "직사각형 $ABCD$에서 $AB = 10$, $BC = 6$이다. 점 $M$은 변 $AB$의 중점이다. 삼각형 $MCD$의 넓이는?",
+    "choices": [
+      "15",
+      "20",
+      "25",
+      "30",
+      "45"
+    ],
+    "answer": "D",
+    "hints": [
+      "삼각형 MCD의 밑변 DC = 10, 높이는 M에서 DC까지의 거리.",
+      "M이 AB 위 어디에 있든 높이는 6이다.",
+      "$\\frac{1}{2} \\times 10 \\times 6$"
+    ],
+    "solution": "삼각형 $MCD$는 밑변 $DC = 10$, 높이 $6$이므로 넓이 $= \\frac{1}{2} \\times 10 \\times 6 = 30$. 직사각형의 정확히 절반이며, $M$이 $AB$ 위 어디에 있든 같다.\n\n빼기로 확인: $60 - AMD - MBC = 60 - 15 - 15 = 30$.\n\n**오답 짚기**: 15는 $\\frac{1}{2} \\cdot 5 \\cdot 6$으로 밑변을 $AM$으로 잡은 것(밑변은 $DC$). 45는 $60 - 15$로 귀퉁이 하나만 뺀 것. 20과 25는 $\\frac{1}{3}$, $\\frac{5}{12}$ 같은 근거 없는 비.",
+    "fast": "밑변이 한 변, 꼭짓점이 맞은편 변 위 → 직사각형의 절반 $= 30$.",
+    "verify": {
+      "answer": "F(1,2)*10*6",
+      "methods": [
+        "10*6 - F(1,2)*5*6 - F(1,2)*5*6",
+        "F(1,2)*abs((5*0-10*6) + (10*0-0*0) + (0*6-5*0))"
+      ],
+      "note": "밑변×높이/2 vs 직사각형 − 귀퉁이 2개 vs 신발끈"
+    }
+  },
+  {
+    "id": "5-t-7",
+    "lesson": "5-2",
+    "band": "16-20",
+    "target": 110,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 212 122\" width=\"212\" height=\"122\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 22 100 A 84 84 0 0 1 190 100 Z M 22 100 L 190 100 L 106 16 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" fill-rule=\"evenodd\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"106\" cy=\"100\" r=\"2.5\" fill=\"currentColor\"/><line x1=\"106\" y1=\"100\" x2=\"106\" y2=\"16\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.7\"/><text x=\"114\" y=\"62\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">6</text></svg>",
+    "question": "A semicircle has radius 6. A triangle is drawn with the diameter as one side and its third vertex at the top of the semicircle, as shown. What is the total area of the shaded regions inside the semicircle but outside the triangle?",
+    "questionKo": "반지름이 6인 반원이 있다. 그림처럼 지름을 한 변으로 하고 나머지 꼭짓점이 반원의 꼭대기에 있는 삼각형을 그렸다. 반원 안쪽이면서 삼각형 바깥쪽인 색칠된 부분의 넓이의 합은?",
+    "choices": [
+      "$9\\pi - 18$",
+      "$18\\pi - 36$",
+      "$18\\pi - 72$",
+      "$36\\pi - 36$",
+      "$36\\pi - 72$"
+    ],
+    "answer": "B",
+    "hints": [
+      "색칠된 부분 = 반원 − 삼각형.",
+      "반원 $= \\frac{1}{2}\\pi \\cdot 36 = 18\\pi$. 삼각형은 밑변 12(지름), 높이 6(반지름).",
+      "$18\\pi - 36$"
+    ],
+    "solution": "반원의 넓이는 $\\frac{1}{2} \\pi \\cdot 6^2 = 18\\pi$. 삼각형은 밑변이 지름 12, 높이가 반지름 6이므로 $\\frac{1}{2} \\cdot 12 \\cdot 6 = 36$. 색칠된 부분 $= 18\\pi - 36$.\n\n다른 방법: 중심에서 꼭대기로 선을 그으면 색칠된 두 조각은 각각 사분원 − 직각삼각형 $= 9\\pi - 18$. 둘이면 $18\\pi - 36$.\n\n**오답 짚기**: $36\\pi - 36$은 반원이 아니라 원 전체를 쓴 것. $18\\pi - 72$는 삼각형에서 $\\frac{1}{2}$을 빠뜨린 것. $9\\pi - 18$은 조각 하나만, $36\\pi - 72$는 두 실수를 모두 한 것.",
+    "fast": "$18\\pi - 36$.",
+    "verify": {
+      "answer": "pi*36/2 - F(1,2)*12*6",
+      "choices": [
+        "9*pi-18",
+        "18*pi-36",
+        "18*pi-72",
+        "36*pi-36",
+        "36*pi-72"
+      ],
+      "methods": [
+        "2*(pi*36/4 - F(1,2)*6*6)",
+        "N=4000\nh=(6-(0))/N\narea=sum(2*pi*((0)+(i+0.5)*h) for i in range(N))*h\nresult=area/2-36"
+      ],
+      "note": "반원 − 삼각형 vs 활꼴 2개 vs 원 넓이 수치 적분의 절반 − 36"
+    }
+  },
+  {
+    "id": "5-t-8",
+    "lesson": "5-2",
+    "band": "21-25",
+    "target": 165,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 224 204\" width=\"224\" height=\"204\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.18\"><line x1=\"32\" y1=\"172\" x2=\"32\" y2=\"32\"/><line x1=\"52\" y1=\"172\" x2=\"52\" y2=\"32\"/><line x1=\"72\" y1=\"172\" x2=\"72\" y2=\"32\"/><line x1=\"92\" y1=\"172\" x2=\"92\" y2=\"32\"/><line x1=\"112\" y1=\"172\" x2=\"112\" y2=\"32\"/><line x1=\"132\" y1=\"172\" x2=\"132\" y2=\"32\"/><line x1=\"152\" y1=\"172\" x2=\"152\" y2=\"32\"/><line x1=\"172\" y1=\"172\" x2=\"172\" y2=\"32\"/><line x1=\"192\" y1=\"172\" x2=\"192\" y2=\"32\"/><line x1=\"32\" y1=\"172\" x2=\"192\" y2=\"172\"/><line x1=\"32\" y1=\"152\" x2=\"192\" y2=\"152\"/><line x1=\"32\" y1=\"132\" x2=\"192\" y2=\"132\"/><line x1=\"32\" y1=\"112\" x2=\"192\" y2=\"112\"/><line x1=\"32\" y1=\"92\" x2=\"192\" y2=\"92\"/><line x1=\"32\" y1=\"72\" x2=\"192\" y2=\"72\"/><line x1=\"32\" y1=\"52\" x2=\"192\" y2=\"52\"/><line x1=\"32\" y1=\"32\" x2=\"192\" y2=\"32\"/></g><polygon points=\"32,172 192,172 192,32 32,32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linejoin=\"round\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.6\"/><polygon points=\"32,172 192,132 152,32 72,52\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><circle cx=\"32\" cy=\"172\" r=\"3\" fill=\"currentColor\"/><circle cx=\"192\" cy=\"132\" r=\"3\" fill=\"currentColor\"/><circle cx=\"152\" cy=\"32\" r=\"3\" fill=\"currentColor\"/><circle cx=\"72\" cy=\"52\" r=\"3\" fill=\"currentColor\"/><text x=\"34\" y=\"188\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(0, 0)</text><text x=\"198\" y=\"148\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(8, 2)</text><text x=\"160\" y=\"26\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(6, 7)</text><text x=\"56\" y=\"46\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(2, 6)</text></svg>",
+    "question": "What is the area of the quadrilateral with vertices $(0, 0)$, $(8, 2)$, $(6, 7)$, and $(2, 6)$, listed in order?",
+    "questionKo": "꼭짓점이 순서대로 $(0, 0)$, $(8, 2)$, $(6, 7)$, $(2, 6)$인 사각형의 넓이는?",
+    "choices": [
+      "30",
+      "31",
+      "33",
+      "35",
+      "56"
+    ],
+    "answer": "C",
+    "hints": [
+      "감싸는 직사각형 $8 \\times 7 = 56$에서 바깥 조각을 뺀다. 왼쪽 조각의 모양을 잘 보자.",
+      "아래 삼각형 8, 오른쪽 삼각형 5, 위 삼각형 2, 왼쪽은 사다리꼴 $(0,0), (2,6), (2,7), (0,7)$로 넓이 $\\frac{1}{2}(7 + 1) \\cdot 2 = 8$.",
+      "$56 - (8 + 5 + 2 + 8)$"
+    ],
+    "solution": "감싸는 직사각형 $8 \\times 7 = 56$에서 바깥 조각을 뺀다.\n- 아래: $(0,0), (8,0), (8,2)$ → $\\frac{1}{2} \\cdot 8 \\cdot 2 = 8$\n- 오른쪽: $(8,2), (8,7), (6,7)$ → $\\frac{1}{2} \\cdot 2 \\cdot 5 = 5$\n- 위: $(6,7), (2,7), (2,6)$ → $\\frac{1}{2} \\cdot 4 \\cdot 1 = 2$\n- 왼쪽: $(2,6), (2,7), (0,7), (0,0)$은 **사다리꼴** → $\\frac{1}{2}(7 + 1) \\cdot 2 = 8$\n\n$56 - 23 = 33$. 신발끈 공식으로 확인: $\\frac{1}{2}|0 + (56 - 12) + (36 - 14) + 0| = \\frac{1}{2} \\cdot 66 = 33$.\n\n**오답 짚기**: 35는 왼쪽 조각을 삼각형 $(0,0), (2,6), (0,6)$(넓이 6)으로만 보고 위의 $2 \\times 1$을 안 뺀 것. 31은 그 $2 \\times 1$을 두 번 뺀 것. 56은 감싸는 직사각형, 30은 조각 하나를 더 뺀 것.",
+    "fast": "신발끈 $\\frac{1}{2}|0 + 44 + 22 + 0| = 33$.",
+    "verify": {
+      "answer": "F(1,2)*abs((0*2-8*0) + (8*7-6*2) + (6*6-2*7) + (2*0-0*6))",
+      "methods": [
+        "8*7 - F(1,2)*8*2 - F(1,2)*2*5 - F(1,2)*4*1 - F(1,2)*(7+1)*2",
+        "pts=[(0, 0), (8, 2), (6, 7), (2, 6)]\nn=len(pts)\ndef cr(o,a,b): return (a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0])\ndef onseg(p,a,b): return cr(a,b,p)==0 and min(a[0],b[0])<=p[0]<=max(a[0],b[0]) and min(a[1],b[1])<=p[1]<=max(a[1],b[1])\ndef inside(p):\n    if any(onseg(p,pts[i],pts[(i+1)%n]) for i in range(n)): return False\n    c=False\n    for i in range(n):\n        a,b=pts[i],pts[(i+1)%n]\n        if (a[1]>p[1])!=(b[1]>p[1]) and F(p[1]-a[1],b[1]-a[1])*(b[0]-a[0])+a[0]>p[0]: c=not c\n    return c\nxs=[p[0] for p in pts]; ys=[p[1] for p in pts]\nI=sum(1 for x in range(min(xs),max(xs)+1) for y in range(min(ys),max(ys)+1) if inside((x,y)))\nB=sum(gcd(abs(pts[i][0]-pts[(i+1)%n][0]),abs(pts[i][1]-pts[(i+1)%n][1])) for i in range(n))\nresult=I+F(B,2)-1"
+      ],
+      "note": "신발끈 vs 감싸는 직사각형 − (삼각형 3개 + 사다리꼴) vs 격자점 세어 픽"
+    }
+  },
+  {
+    "id": "5-t-9",
+    "lesson": "5-3",
+    "band": "1-10",
+    "target": 50,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 246 180\" width=\"246\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"90,24 24,156 222,156\" fill=\"#4F6BF0\" fill-opacity=\"0.15\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"90,24 134,156 222,156\" fill=\"#4F6BF0\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linejoin=\"round\"/><line x1=\"90\" y1=\"24\" x2=\"134\" y2=\"156\" stroke=\"currentColor\" stroke-width=\"1.5\"/><text x=\"90\" y=\"17\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"18\" y=\"170\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"228\" y=\"170\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"134\" y=\"171\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">D</text><text x=\"79\" y=\"171\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">5</text><text x=\"178\" y=\"171\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">4</text><text x=\"76.8\" y=\"120.4\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.8\">넓이 72</text></svg>",
+    "question": "The area of triangle $ABC$ is 72. Point $D$ lies on $BC$ with $BD : DC = 5 : 4$. What is the area of triangle $ADC$?",
+    "questionKo": "삼각형 $ABC$의 넓이는 72이다. 점 $D$는 변 $BC$ 위에 있고 $BD : DC = 5 : 4$이다. 삼각형 $ADC$의 넓이는?",
+    "choices": [
+      "32",
+      "36",
+      "40",
+      "45",
+      "50"
+    ],
+    "answer": "A",
+    "hints": [
+      "ABD와 ADC는 높이가 같다(꼭짓점 A 공유, 밑변이 직선 BC 위).",
+      "ADC는 전체의 $\\frac{4}{5 + 4}$.",
+      "$72 \\times \\frac{4}{9}$"
+    ],
+    "solution": "삼각형 $ABD$와 $ADC$는 높이가 같으므로 넓이비는 밑변비 $5 : 4$. $ADC = 72 \\times \\frac{4}{9} = 32$.\n\n**오답 짚기**: 40은 $ABD$의 넓이(반대쪽 조각). 36은 절반으로 넘겨짚은 것. 45는 $72 \\times \\frac{5}{8}$처럼 비의 합을 8로 잘못 둔 것, 50은 $72 - 22$.",
+    "fast": "$72 \\cdot \\frac{4}{9} = 32$.",
+    "verify": {
+      "answer": "F(72*4,9)",
+      "methods": [
+        "F(1,2)*abs((3*0-5*16) + (5*0-9*0) + (9*16-3*0))"
+      ],
+      "note": "밑변비 vs 좌표 B(0,0),C(9,0),A(3,16)(넓이 72),D(5,0) 신발끈"
+    }
+  },
+  {
+    "id": "5-t-10",
+    "lesson": "5-3",
+    "band": "11-15",
+    "target": 80,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 224 180\" width=\"224\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"68,24 24,156 200,156\" fill=\"#4F6BF0\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"24,156 112,156 90,90\" fill=\"#4F6BF0\" fill-opacity=\"0.45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linejoin=\"round\"/><line x1=\"68\" y1=\"24\" x2=\"112\" y2=\"156\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"24\" y1=\"156\" x2=\"90\" y2=\"90\" stroke=\"currentColor\" stroke-width=\"1.5\"/><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"68\" y1=\"150.5\" x2=\"68\" y2=\"161.5\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"156\" y1=\"150.5\" x2=\"156\" y2=\"161.5\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"83.6\" y1=\"53.4\" x2=\"73.2\" y2=\"56.9\"/><line x1=\"84.8\" y1=\"57.1\" x2=\"74.4\" y2=\"60.6\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"105.6\" y1=\"119.4\" x2=\"95.2\" y2=\"122.9\"/><line x1=\"106.8\" y1=\"123.1\" x2=\"96.4\" y2=\"126.6\"/></g><circle cx=\"112\" cy=\"156\" r=\"2.5\" fill=\"currentColor\"/><circle cx=\"90\" cy=\"90\" r=\"2.5\" fill=\"currentColor\"/><text x=\"68\" y=\"17\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"18\" y=\"170\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"206\" y=\"170\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"112\" y=\"171\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">D</text><text x=\"99\" y=\"90\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">E</text><text x=\"76.8\" y=\"140.2\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">6</text></svg>",
+    "question": "In triangle $ABC$, $D$ is the midpoint of $BC$ and $E$ is the midpoint of $AD$. If the area of triangle $BDE$ is 6, what is the area of triangle $ABC$?",
+    "questionKo": "삼각형 $ABC$에서 $D$는 변 $BC$의 중점이고 $E$는 선분 $AD$의 중점이다. 삼각형 $BDE$의 넓이가 6일 때, 삼각형 $ABC$의 넓이는?",
+    "choices": [
+      "12",
+      "18",
+      "24",
+      "36",
+      "48"
+    ],
+    "answer": "C",
+    "hints": [
+      "거꾸로 올라간다. BDE와 ABE는 꼭짓점 B를 공유하고 밑변 DE = EA → 넓이가 같다.",
+      "$ABD = 2 \\times 6 = 12$. 다시 ABD와 ADC는 밑변 BD = DC → 같다.",
+      "$6 \\times 2 \\times 2$"
+    ],
+    "solution": "작은 삼각형에서 거꾸로 올라간다. $E$가 $AD$의 중점이므로 $BE$는 삼각형 $ABD$의 중선 → $ABD = 2 \\times BDE = 12$. $D$가 $BC$의 중점이므로 $AD$는 삼각형 $ABC$의 중선 → $ABC = 2 \\times ABD = 24$.\n\n**오답 짚기**: 12는 $ABD$에서 멈춘 것. 36은 $6 \\times 6$으로 무게중심의 6등분과 혼동한 것. 18은 $6 \\times 3$, 48은 $6 \\times 8$로 중점을 세 번 쓴 것.",
+    "fast": "$6 \\times 4 = 24$.",
+    "verify": {
+      "answer": "6*2*2",
+      "methods": [
+        "exec('''\nB=(0,0);C=(8,0);A=(2,6);D=(4,0);E=(3,3)\ndef area(p):\n    n=len(p)\n    return F(abs(sum(p[i][0]*p[(i+1)%n][1]-p[(i+1)%n][0]*p[i][1] for i in range(n))),2)\n''')\nresult=area([A,B,C]) if area([B,D,E])==6 else None"
+      ],
+      "note": "중선 두 번 거꾸로 vs 좌표 B(0,0),C(8,0),A(2,6)에서 [BDE]=6 확인 후 [ABC] 신발끈"
+    }
+  },
+  {
+    "id": "5-t-11",
+    "lesson": "5-3",
+    "band": "16-20",
+    "target": 110,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 204 166\" width=\"204\" height=\"166\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"50,24 154,24 180,128 24,128\" fill=\"#4F6BF0\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"50\" y1=\"24\" x2=\"180\" y2=\"128\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"154\" y1=\"24\" x2=\"24\" y2=\"128\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"50,24 154,24 102,65.6\" fill=\"#4F6BF0\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linejoin=\"round\"/><circle cx=\"102\" cy=\"65.6\" r=\"2.5\" fill=\"currentColor\"/><text x=\"43\" y=\"20\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"161\" y=\"20\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"187\" y=\"142\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"17\" y=\"142\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">D</text><text x=\"102\" y=\"80.6\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">P</text><text x=\"102\" y=\"41.9\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">8</text><text x=\"102\" y=\"158\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\" opacity=\"0.85\">AB : CD = 2 : 3</text></svg>",
+    "question": "In trapezoid $ABCD$, $AB$ is parallel to $CD$ and $AB : CD = 2 : 3$. The diagonals meet at $P$, and the area of triangle $ABP$ is 8. What is the area of the trapezoid?",
+    "questionKo": "사다리꼴 $ABCD$에서 $AB$와 $CD$는 평행하고 $AB : CD = 2 : 3$이다. 두 대각선이 점 $P$에서 만나고 삼각형 $ABP$의 넓이가 8일 때, 사다리꼴의 넓이는?",
+    "choices": [
+      "26",
+      "38",
+      "44",
+      "50",
+      "54"
+    ],
+    "answer": "D",
+    "hints": [
+      "ABP와 CDP는 닮음, 닮음비 2 : 3 → 넓이비 4 : 9.",
+      "CDP = 18. 옆 삼각형 BCP는 ABP와 꼭짓점 B를 공유하고 밑변 AP : PC = 2 : 3 → $8 \\times \\frac{3}{2} = 12$. 반대쪽도 12.",
+      "$8 + 18 + 12 + 12$"
+    ],
+    "solution": "$AB \\parallel CD$이므로 삼각형 $ABP$와 $CDP$는 닮음이고 닮음비 $2 : 3$, 넓이비 $4 : 9$ → $CDP = 8 \\times \\frac{9}{4} = 18$. 대각선은 $P$에서 $2 : 3$으로 나뉘므로 옆 삼각형 $BCP = 8 \\times \\frac{3}{2} = 12$, $ADP = 12$. 전체 $= 8 + 18 + 12 + 12 = 50$.\n\n**오답 짚기**: 44는 닮음비 $2 : 3$을 넓이비로 써서 $CDP = 12$로 둔 것($8 + 12 + 12 + 12$). 26은 위아래만 더한 것, 38은 옆 삼각형을 하나만 더한 것. 54는 $8 \\times \\frac{27}{4}$ 같은 엉뚱한 배수.",
+    "fast": "네 조각 $4 : 6 : 6 : 9$ → $8 \\times \\frac{25}{4} = 50$.",
+    "verify": {
+      "answer": "exec('''\na=F(8)\nr=F(3,2)\n''')\nresult=a + a*r*r + 2*a*r",
+      "methods": [
+        "def inter(p1,p2,p3,p4):\n    x1,y1=p1;x2,y2=p2;x3,y3=p3;x4,y4=p4\n    d=(x1-x2)*(y3-y4)-(y1-y2)*(x3-x4)\n    t=F((x1-x3)*(y3-y4)-(y1-y3)*(x3-x4),d)\n    return (x1+t*(x2-x1), y1+t*(y2-y1))\ndef area(pts):\n    n=len(pts)\n    return F(abs(sum(pts[i][0]*pts[(i+1)%n][1]-pts[(i+1)%n][0]*pts[i][1] for i in range(n))),2)\nD=(F(0),F(0));C=(F(6),F(0));A=(F(1),F(10));B=(F(5),F(10))\nP=inter(A,C,B,D)\nresult=area([A,B,C,D]) if area([A,B,P])==8 else None"
+      ],
+      "note": "닮음+밑변비 vs 좌표 D(0,0),C(6,0),A(1,10),B(5,10)에서 교점 P로 [ABP]=8 확인 후 사다리꼴 신발끈"
+    }
+  },
+  {
+    "id": "5-t-12",
+    "lesson": "5-3",
+    "band": "21-25",
+    "target": 165,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 224 202\" width=\"224\" height=\"202\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"46,24 24,178 200,178\" fill=\"#4F6BF0\" fill-opacity=\"0.1\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><polygon points=\"200,178 97.3,178 75.3,112 101,79\" fill=\"#E08A1E\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linejoin=\"round\"/><line x1=\"46\" y1=\"24\" x2=\"97.3\" y2=\"178\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"24\" y1=\"178\" x2=\"101\" y2=\"79\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"97.3\" cy=\"178\" r=\"2.5\" fill=\"currentColor\"/><circle cx=\"101\" cy=\"79\" r=\"2.5\" fill=\"currentColor\"/><circle cx=\"75.3\" cy=\"112\" r=\"2.5\" fill=\"currentColor\"/><text x=\"46\" y=\"17\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">A</text><text x=\"18\" y=\"192\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">B</text><text x=\"206\" y=\"192\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">C</text><text x=\"97.3\" y=\"193\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">D</text><text x=\"110\" y=\"79\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">E</text><text x=\"72.3\" y=\"105\" font-size=\"12\" text-anchor=\"middle\" fill=\"currentColor\">P</text><text x=\"48.4\" y=\"108.7\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">20</text><text x=\"65.6\" y=\"160\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">15</text><text x=\"74.1\" y=\"75.7\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\" font-weight=\"600\">10</text><text x=\"118.4\" y=\"140.8\" font-size=\"13\" text-anchor=\"middle\" fill=\"#E08A1E\" font-weight=\"600\">?</text></svg>",
+    "question": "In triangle $ABC$, point $D$ lies on $BC$ and point $E$ lies on $AC$. Segments $AD$ and $BE$ meet at $P$. The areas of triangles $ABP$, $AEP$, and $BDP$ are 20, 10, and 15, respectively. What is the area of quadrilateral $CDPE$?",
+    "questionKo": "삼각형 $ABC$에서 점 $D$는 변 $BC$ 위에, 점 $E$는 변 $AC$ 위에 있다. 선분 $AD$와 $BE$가 점 $P$에서 만나고, 삼각형 $ABP$, $AEP$, $BDP$의 넓이가 각각 20, 10, 15이다. 사각형 $CDPE$의 넓이는?",
+    "choices": [
+      "25",
+      "30",
+      "35",
+      "39",
+      "45"
+    ],
+    "answer": "D",
+    "hints": [
+      "CP를 그어 CDP = x, CEP = y로 둔다. ABP : AEP = 2 : 1 → BP : PE = 2 : 1.",
+      "꼭짓점 C에서 같은 비: $(15 + x) : y = 2 : 1$. 또 ABP : BDP = 4 : 3 → AP : PD = 4 : 3 → $(10 + y) : x = 4 : 3$.",
+      "$15 + x = 2y$, $30 + 3y = 4x$ → $x = 21$, $y = 18$"
+    ],
+    "solution": "$CP$를 그어 $CDP = x$, $CEP = y$로 둔다.\n- $ABP : AEP = 20 : 10 = 2 : 1$ → $BP : PE = 2 : 1$. 꼭짓점 $C$에서 보면 $BCP : CEP = 2 : 1$, 즉 $15 + x = 2y$.\n- $ABP : BDP = 20 : 15 = 4 : 3$ → $AP : PD = 4 : 3$. 꼭짓점 $C$에서 보면 $ACP : CDP = 4 : 3$, 즉 $3(10 + y) = 4x$.\n\n첫 식에서 $x = 2y - 15$, 둘째 식에 넣으면 $30 + 3y = 8y - 60$ → $y = 18$, $x = 21$. 사각형 $CDPE = 39$.\n\n**오답 짚기**: 25는 $10 + 15$로 작은 두 삼각형을 더한 것. 30은 $BDP$의 2배로 넘겨짚은 것. 35는 $x$만 구하고 $y$ 대신 14를 더한 것, 45는 $20 + 10 + 15$.",
+    "verify": {
+      "answer": "exec('''\n# x - 2y = -15,  4x - 3y = 30  (Cramer)\ndet=1*(-3)-(-2)*4\nx=F((-15)*(-3)-(-2)*30,det)\ny=F(1*30-(-15)*4,det)\n''')\nresult=x+y",
+      "methods": [
+        "def inter(p1,p2,p3,p4):\n    x1,y1=p1;x2,y2=p2;x3,y3=p3;x4,y4=p4\n    d=(x1-x2)*(y3-y4)-(y1-y2)*(x3-x4)\n    t=F((x1-x3)*(y3-y4)-(y1-y3)*(x3-x4),d)\n    return (x1+t*(x2-x1), y1+t*(y2-y1))\ndef area(pts):\n    n=len(pts)\n    return F(abs(sum(pts[i][0]*pts[(i+1)%n][1]-pts[(i+1)%n][0]*pts[i][1] for i in range(n))),2)\nB=(F(0),F(0));C=(F(12),F(0));D=(F(5),F(0));A=(F(0),F(14))\nE=(A[0]+F(5,14)*(C[0]-A[0]),A[1]+F(5,14)*(C[1]-A[1]))\nP=inter(A,D,B,E)\nok=(area([A,B,P]),area([A,E,P]),area([B,D,P]))==(20,10,15)\nresult=area([C,D,P,E]) if ok else None"
+      ],
+      "note": "비율 연립 vs 질량점으로 얻은 BD:DC=5:7, AE:EC=5:9를 좌표 B(0,0),C(12,0),A(0,14)에 놓고 교점 P로 세 넓이 확인 후 사각형 신발끈"
+    }
+  },
+  {
+    "id": "5-t-13",
+    "lesson": "5-4",
+    "band": "1-10",
+    "target": 50,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 212 188\" width=\"212\" height=\"188\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.18\"><line x1=\"34\" y1=\"154\" x2=\"34\" y2=\"34\"/><line x1=\"58\" y1=\"154\" x2=\"58\" y2=\"34\"/><line x1=\"82\" y1=\"154\" x2=\"82\" y2=\"34\"/><line x1=\"106\" y1=\"154\" x2=\"106\" y2=\"34\"/><line x1=\"130\" y1=\"154\" x2=\"130\" y2=\"34\"/><line x1=\"154\" y1=\"154\" x2=\"154\" y2=\"34\"/><line x1=\"178\" y1=\"154\" x2=\"178\" y2=\"34\"/><line x1=\"34\" y1=\"154\" x2=\"178\" y2=\"154\"/><line x1=\"34\" y1=\"130\" x2=\"178\" y2=\"130\"/><line x1=\"34\" y1=\"106\" x2=\"178\" y2=\"106\"/><line x1=\"34\" y1=\"82\" x2=\"178\" y2=\"82\"/><line x1=\"34\" y1=\"58\" x2=\"178\" y2=\"58\"/><line x1=\"34\" y1=\"34\" x2=\"178\" y2=\"34\"/></g><polygon points=\"34,154 178,154 178,34 34,34\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linejoin=\"round\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.6\"/><polygon points=\"34,154 178,106 82,34\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><circle cx=\"34\" cy=\"154\" r=\"3\" fill=\"currentColor\"/><circle cx=\"178\" cy=\"106\" r=\"3\" fill=\"currentColor\"/><circle cx=\"82\" cy=\"34\" r=\"3\" fill=\"currentColor\"/><text x=\"36\" y=\"170\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(0, 0)</text><text x=\"186\" y=\"120\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(6, 2)</text><text x=\"82\" y=\"26\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(2, 5)</text></svg>",
+    "question": "What is the area of the triangle with vertices $(0, 0)$, $(6, 2)$, and $(2, 5)$?",
+    "questionKo": "꼭짓점이 $(0, 0)$, $(6, 2)$, $(2, 5)$인 삼각형의 넓이는?",
+    "choices": [
+      "11",
+      "12",
+      "13",
+      "14",
+      "26"
+    ],
+    "answer": "C",
+    "hints": [
+      "한 꼭짓점이 원점이면 신발끈이 짧다: $\\frac{1}{2}|x_1 y_2 - x_2 y_1|$.",
+      "$\\frac{1}{2}|6 \\cdot 5 - 2 \\cdot 2|$",
+      "$\\frac{26}{2}$"
+    ],
+    "solution": "한 꼭짓점이 원점 $(0, 0)$이면 신발끈 공식은 $\\frac{1}{2}|x_1 y_2 - x_2 y_1|$로 줄어든다: $\\frac{1}{2}|6 \\cdot 5 - 2 \\cdot 2| = \\frac{1}{2} \\cdot 26 = 13$.\n\n빼기로 확인: 감싸는 직사각형 $6 \\times 5 = 30$에서 직각삼각형 $\\frac{1}{2} \\cdot 6 \\cdot 2 = 6$, $\\frac{1}{2} \\cdot 4 \\cdot 3 = 6$, $\\frac{1}{2} \\cdot 2 \\cdot 5 = 5$를 빼면 $30 - 17 = 13$.\n\n**오답 짚기**: 26은 $\\frac{1}{2}$을 빠뜨린 것. 14는 $6 \\cdot 5 - 2 \\cdot 2$ 대신 $30 - 2$처럼 곱을 하나 틀린 것. 11과 12는 바깥 직각삼각형을 하나 더 뺀 계산.",
+    "fast": "원점 꼭짓점: $\\frac{1}{2}|30 - 4| = 13$.",
+    "verify": {
+      "answer": "F(1,2)*abs((0*2-6*0) + (6*5-2*2) + (2*0-0*5))",
+      "methods": [
+        "6*5 - F(1,2)*6*2 - F(1,2)*4*3 - F(1,2)*2*5",
+        "pts=[(0, 0), (6, 2), (2, 5)]\nn=len(pts)\ndef cr(o,a,b): return (a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0])\ndef onseg(p,a,b): return cr(a,b,p)==0 and min(a[0],b[0])<=p[0]<=max(a[0],b[0]) and min(a[1],b[1])<=p[1]<=max(a[1],b[1])\ndef inside(p):\n    if any(onseg(p,pts[i],pts[(i+1)%n]) for i in range(n)): return False\n    c=False\n    for i in range(n):\n        a,b=pts[i],pts[(i+1)%n]\n        if (a[1]>p[1])!=(b[1]>p[1]) and F(p[1]-a[1],b[1]-a[1])*(b[0]-a[0])+a[0]>p[0]: c=not c\n    return c\nxs=[p[0] for p in pts]; ys=[p[1] for p in pts]\nI=sum(1 for x in range(min(xs),max(xs)+1) for y in range(min(ys),max(ys)+1) if inside((x,y)))\nB=sum(gcd(abs(pts[i][0]-pts[(i+1)%n][0]),abs(pts[i][1]-pts[(i+1)%n][1])) for i in range(n))\nresult=I+F(B,2)-1"
+      ],
+      "note": "신발끈 vs 감싸는 직사각형 − 직각삼각형 3개 vs 격자점 세어 픽"
+    }
+  },
+  {
+    "id": "5-t-14",
+    "lesson": "5-4",
+    "band": "11-15",
+    "target": 80,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 242 170\" width=\"242\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.18\"><line x1=\"31\" y1=\"139\" x2=\"31\" y2=\"31\"/><line x1=\"49\" y1=\"139\" x2=\"49\" y2=\"31\"/><line x1=\"67\" y1=\"139\" x2=\"67\" y2=\"31\"/><line x1=\"85\" y1=\"139\" x2=\"85\" y2=\"31\"/><line x1=\"103\" y1=\"139\" x2=\"103\" y2=\"31\"/><line x1=\"121\" y1=\"139\" x2=\"121\" y2=\"31\"/><line x1=\"139\" y1=\"139\" x2=\"139\" y2=\"31\"/><line x1=\"157\" y1=\"139\" x2=\"157\" y2=\"31\"/><line x1=\"175\" y1=\"139\" x2=\"175\" y2=\"31\"/><line x1=\"193\" y1=\"139\" x2=\"193\" y2=\"31\"/><line x1=\"211\" y1=\"139\" x2=\"211\" y2=\"31\"/><line x1=\"31\" y1=\"139\" x2=\"211\" y2=\"139\"/><line x1=\"31\" y1=\"121\" x2=\"211\" y2=\"121\"/><line x1=\"31\" y1=\"103\" x2=\"211\" y2=\"103\"/><line x1=\"31\" y1=\"85\" x2=\"211\" y2=\"85\"/><line x1=\"31\" y1=\"67\" x2=\"211\" y2=\"67\"/><line x1=\"31\" y1=\"49\" x2=\"211\" y2=\"49\"/><line x1=\"31\" y1=\"31\" x2=\"211\" y2=\"31\"/></g><polygon points=\"31,139 211,139 103,31\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><g fill=\"currentColor\" fill-opacity=\"0.45\"><circle cx=\"31\" cy=\"139\" r=\"2\"/><circle cx=\"31\" cy=\"121\" r=\"2\"/><circle cx=\"31\" cy=\"103\" r=\"2\"/><circle cx=\"31\" cy=\"85\" r=\"2\"/><circle cx=\"31\" cy=\"67\" r=\"2\"/><circle cx=\"31\" cy=\"49\" r=\"2\"/><circle cx=\"31\" cy=\"31\" r=\"2\"/><circle cx=\"49\" cy=\"139\" r=\"2\"/><circle cx=\"49\" cy=\"121\" r=\"2\"/><circle cx=\"49\" cy=\"103\" r=\"2\"/><circle cx=\"49\" cy=\"85\" r=\"2\"/><circle cx=\"49\" cy=\"67\" r=\"2\"/><circle cx=\"49\" cy=\"49\" r=\"2\"/><circle cx=\"49\" cy=\"31\" r=\"2\"/><circle cx=\"67\" cy=\"139\" r=\"2\"/><circle cx=\"67\" cy=\"121\" r=\"2\"/><circle cx=\"67\" cy=\"103\" r=\"2\"/><circle cx=\"67\" cy=\"85\" r=\"2\"/><circle cx=\"67\" cy=\"67\" r=\"2\"/><circle cx=\"67\" cy=\"49\" r=\"2\"/><circle cx=\"67\" cy=\"31\" r=\"2\"/><circle cx=\"85\" cy=\"139\" r=\"2\"/><circle cx=\"85\" cy=\"121\" r=\"2\"/><circle cx=\"85\" cy=\"103\" r=\"2\"/><circle cx=\"85\" cy=\"85\" r=\"2\"/><circle cx=\"85\" cy=\"67\" r=\"2\"/><circle cx=\"85\" cy=\"49\" r=\"2\"/><circle cx=\"85\" cy=\"31\" r=\"2\"/><circle cx=\"103\" cy=\"139\" r=\"2\"/><circle cx=\"103\" cy=\"121\" r=\"2\"/><circle cx=\"103\" cy=\"103\" r=\"2\"/><circle cx=\"103\" cy=\"85\" r=\"2\"/><circle cx=\"103\" cy=\"67\" r=\"2\"/><circle cx=\"103\" cy=\"49\" r=\"2\"/><circle cx=\"103\" cy=\"31\" r=\"2\"/><circle cx=\"121\" cy=\"139\" r=\"2\"/><circle cx=\"121\" cy=\"121\" r=\"2\"/><circle cx=\"121\" cy=\"103\" r=\"2\"/><circle cx=\"121\" cy=\"85\" r=\"2\"/><circle cx=\"121\" cy=\"67\" r=\"2\"/><circle cx=\"121\" cy=\"49\" r=\"2\"/><circle cx=\"121\" cy=\"31\" r=\"2\"/><circle cx=\"139\" cy=\"139\" r=\"2\"/><circle cx=\"139\" cy=\"121\" r=\"2\"/><circle cx=\"139\" cy=\"103\" r=\"2\"/><circle cx=\"139\" cy=\"85\" r=\"2\"/><circle cx=\"139\" cy=\"67\" r=\"2\"/><circle cx=\"139\" cy=\"49\" r=\"2\"/><circle cx=\"139\" cy=\"31\" r=\"2\"/><circle cx=\"157\" cy=\"139\" r=\"2\"/><circle cx=\"157\" cy=\"121\" r=\"2\"/><circle cx=\"157\" cy=\"103\" r=\"2\"/><circle cx=\"157\" cy=\"85\" r=\"2\"/><circle cx=\"157\" cy=\"67\" r=\"2\"/><circle cx=\"157\" cy=\"49\" r=\"2\"/><circle cx=\"157\" cy=\"31\" r=\"2\"/><circle cx=\"175\" cy=\"139\" r=\"2\"/><circle cx=\"175\" cy=\"121\" r=\"2\"/><circle cx=\"175\" cy=\"103\" r=\"2\"/><circle cx=\"175\" cy=\"85\" r=\"2\"/><circle cx=\"175\" cy=\"67\" r=\"2\"/><circle cx=\"175\" cy=\"49\" r=\"2\"/><circle cx=\"175\" cy=\"31\" r=\"2\"/><circle cx=\"193\" cy=\"139\" r=\"2\"/><circle cx=\"193\" cy=\"121\" r=\"2\"/><circle cx=\"193\" cy=\"103\" r=\"2\"/><circle cx=\"193\" cy=\"85\" r=\"2\"/><circle cx=\"193\" cy=\"67\" r=\"2\"/><circle cx=\"193\" cy=\"49\" r=\"2\"/><circle cx=\"193\" cy=\"31\" r=\"2\"/><circle cx=\"211\" cy=\"139\" r=\"2\"/><circle cx=\"211\" cy=\"121\" r=\"2\"/><circle cx=\"211\" cy=\"103\" r=\"2\"/><circle cx=\"211\" cy=\"85\" r=\"2\"/><circle cx=\"211\" cy=\"67\" r=\"2\"/><circle cx=\"211\" cy=\"49\" r=\"2\"/><circle cx=\"211\" cy=\"31\" r=\"2\"/></g><circle cx=\"31\" cy=\"139\" r=\"3\" fill=\"currentColor\"/><circle cx=\"211\" cy=\"139\" r=\"3\" fill=\"currentColor\"/><circle cx=\"103\" cy=\"31\" r=\"3\" fill=\"currentColor\"/><text x=\"29\" y=\"155\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(0, 0)</text><text x=\"215\" y=\"155\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(10, 0)</text><text x=\"103\" y=\"23\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(4, 6)</text></svg>",
+    "question": "How many lattice points lie strictly inside the triangle with vertices $(0, 0)$, $(10, 0)$, and $(4, 6)$?",
+    "questionKo": "꼭짓점이 $(0, 0)$, $(10, 0)$, $(4, 6)$인 삼각형의 내부(경계 제외)에 있는 격자점은 몇 개인가?",
+    "choices": [
+      "20",
+      "21",
+      "22",
+      "23",
+      "24"
+    ],
+    "answer": "C",
+    "hints": [
+      "넓이 $= \\frac{1}{2} \\cdot 10 \\cdot 6 = 30$. 픽의 정리를 거꾸로 쓰려면 B가 필요하다.",
+      "$B = 10 + \\gcd(6, 6) + \\gcd(4, 6) = 10 + 6 + 2 = 18$.",
+      "$30 = I + 9 - 1$"
+    ],
+    "solution": "넓이 $= \\frac{1}{2} \\times 10 \\times 6 = 30$. 경계 격자점은 밑변 10, 변 $(10,0) \\to (4,6)$은 $\\gcd(6, 6) = 6$, 변 $(4,6) \\to (0,0)$은 $\\gcd(4, 6) = 2$ (중간에 $(2, 3)$) → $B = 18$. 픽의 정리 $30 = I + \\frac{18}{2} - 1$ → $I = 22$.\n\n직접 세기: $y = 1$: $x = 1, \\ldots, 8$ (8개), $y = 2$: 2~7 (6개), $y = 3$: 3~6 (4개), $y = 4$: 3~5 (3개), $y = 5$: 4 (1개) → 22.\n\n**오답 짚기**: 23은 변 위의 $(2, 3)$을 놓쳐 $B = 16$으로 둔 것. 21은 $-1$을 두 번 한 것. 20과 24는 $B$를 20이나 12로 잘못 센 것.",
+    "fast": "$B = 18$ → $I = 30 - 9 + 1 = 22$.",
+    "verify": {
+      "answer": "F(1,2)*10*6 - F(10+gcd(6,6)+gcd(4,6),2) + 1",
+      "methods": [
+        "pts=[(0, 0), (10, 0), (4, 6)]\nn=len(pts)\ndef cr(o,a,b): return (a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0])\ndef onseg(p,a,b): return cr(a,b,p)==0 and min(a[0],b[0])<=p[0]<=max(a[0],b[0]) and min(a[1],b[1])<=p[1]<=max(a[1],b[1])\ndef inside(p):\n    if any(onseg(p,pts[i],pts[(i+1)%n]) for i in range(n)): return False\n    c=False\n    for i in range(n):\n        a,b=pts[i],pts[(i+1)%n]\n        if (a[1]>p[1])!=(b[1]>p[1]) and F(p[1]-a[1],b[1]-a[1])*(b[0]-a[0])+a[0]>p[0]: c=not c\n    return c\nxs=[p[0] for p in pts]; ys=[p[1] for p in pts]\nI=sum(1 for x in range(min(xs),max(xs)+1) for y in range(min(ys),max(ys)+1) if inside((x,y)))\nB=sum(gcd(abs(pts[i][0]-pts[(i+1)%n][0]),abs(pts[i][1]-pts[(i+1)%n][1])) for i in range(n))\nresult=I",
+        "sum(1 for x in range(1,10) for y in range(1,6) if 3*x>2*y and x+y<10)"
+      ],
+      "note": "픽의 정리 거꾸로 vs 브루트포스 내부 판정 vs 부등식 2y<3x, x+y<10 세기"
+    }
+  },
+  {
+    "id": "5-t-15",
+    "lesson": "5-4",
+    "band": "21-25",
+    "target": 165,
+    "fields": [
+      "geometry"
+    ],
+    "figure": "<svg viewBox=\"0 0 236 164\" width=\"236\" height=\"164\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.18\"><line x1=\"34\" y1=\"130\" x2=\"34\" y2=\"34\"/><line x1=\"58\" y1=\"130\" x2=\"58\" y2=\"34\"/><line x1=\"82\" y1=\"130\" x2=\"82\" y2=\"34\"/><line x1=\"106\" y1=\"130\" x2=\"106\" y2=\"34\"/><line x1=\"130\" y1=\"130\" x2=\"130\" y2=\"34\"/><line x1=\"154\" y1=\"130\" x2=\"154\" y2=\"34\"/><line x1=\"178\" y1=\"130\" x2=\"178\" y2=\"34\"/><line x1=\"202\" y1=\"130\" x2=\"202\" y2=\"34\"/><line x1=\"34\" y1=\"130\" x2=\"202\" y2=\"130\"/><line x1=\"34\" y1=\"106\" x2=\"202\" y2=\"106\"/><line x1=\"34\" y1=\"82\" x2=\"202\" y2=\"82\"/><line x1=\"34\" y1=\"58\" x2=\"202\" y2=\"58\"/><line x1=\"34\" y1=\"34\" x2=\"202\" y2=\"34\"/></g><polygon points=\"34,130 202,130 106,34\" fill=\"#4F6BF0\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><line x1=\"202\" y1=\"130\" x2=\"94.5\" y2=\"49.4\" stroke=\"#E08A1E\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><polyline points=\"98.8,43.6 104.6,47.9 100.2,53.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><circle cx=\"34\" cy=\"130\" r=\"3\" fill=\"currentColor\"/><circle cx=\"202\" cy=\"130\" r=\"3\" fill=\"currentColor\"/><circle cx=\"106\" cy=\"34\" r=\"3\" fill=\"currentColor\"/><text x=\"32\" y=\"146\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(0, 0)</text><text x=\"206\" y=\"146\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(7, 0)</text><text x=\"106\" y=\"26\" font-size=\"11\" text-anchor=\"middle\" fill=\"currentColor\">(3, 4)</text><text x=\"160.2\" y=\"80.7\" font-size=\"12\" text-anchor=\"middle\" fill=\"#E08A1E\" font-weight=\"600\">?</text></svg>",
+    "question": "A triangle has vertices $(0, 0)$, $(7, 0)$, and $(3, 4)$. What is the distance from the vertex $(7, 0)$ to the line through $(0, 0)$ and $(3, 4)$?",
+    "questionKo": "꼭짓점이 $(0, 0)$, $(7, 0)$, $(3, 4)$인 삼각형이 있다. 꼭짓점 $(7, 0)$에서 $(0, 0)$과 $(3, 4)$를 지나는 직선까지의 거리는?",
+    "choices": [
+      "4",
+      "$\\frac{24}{5}$",
+      "5",
+      "$\\frac{28}{5}$",
+      "7"
+    ],
+    "answer": "D",
+    "hints": [
+      "구하는 거리는 변 $(0,0)$–$(3,4)$를 밑변으로 봤을 때의 높이다. 넓이를 두 가지 방법으로 쓰자.",
+      "밑변 7(x축 위), 높이 4로 넓이 $= 14$. 변 $(0,0)$–$(3,4)$의 길이는 $\\sqrt{9 + 16} = 5$.",
+      "$\\frac{1}{2} \\cdot 5 \\cdot h = 14$"
+    ],
+    "solution": "넓이를 두 가지 방법으로 쓴다. 밑변을 x축 위의 변 7, 높이를 4로 잡으면 넓이 $= \\frac{1}{2} \\cdot 7 \\cdot 4 = 14$. 한편 변 $(0,0)$–$(3,4)$의 길이는 $\\sqrt{3^2 + 4^2} = 5$이고, 구하는 거리 $h$는 이 변을 밑변으로 한 높이이므로 $\\frac{1}{2} \\cdot 5 \\cdot h = 14$ → $h = \\frac{28}{5}$.\n\n**오답 짚기**: 4는 꼭짓점 $(3, 4)$의 높이를 그대로 답한 것(다른 변에 대한 높이). $\\frac{24}{5}$는 넓이를 12로 잘못 구한 것. 5는 변의 길이, 7은 밑변.",
+    "fast": "$h = \\frac{2 \\cdot 14}{5} = \\frac{28}{5}$.",
+    "verify": {
+      "answer": "F(2*14,5)",
+      "choices": [
+        "4",
+        "F(24,5)",
+        "5",
+        "F(28,5)",
+        "7"
+      ],
+      "methods": [
+        "F(abs(3*(0-0)-4*(7-0)),isqrt(3**2+4**2))",
+        "exec('''\nimport math as m\nt=(7*3+0*4)/25\nfx,fy=3*t,4*t\n''')\nresult=m.hypot(7-fx,0-fy)"
+      ],
+      "note": "넓이 두 번 쓰기 vs 외적/길이 점-직선 거리 공식 vs 수선의 발을 투영으로 구해 거리 계산"
+    }
+  }
+]
