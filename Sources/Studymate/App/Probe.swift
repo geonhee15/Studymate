@@ -21,6 +21,8 @@ enum Probe {
         }
         print("cheatsheet: \(library.cheatsheet.count) sections, \(library.cheatsheet.reduce(0) { $0 + $1.cards.count }) flashcards")
         print("problems total: \(problemCount)")
+        let mocks = library.mockSets.map { "\($0.number)회 \($0.problems.count)문제" }.joined(separator: ", ")
+        print("mock sets: \(library.mockSets.count)\(mocks.isEmpty ? "" : " (\(mocks))")")
 
         let katex = WebTemplate.baseURL.appendingPathComponent("KaTeX/katex.min.js")
         let css = WebTemplate.baseURL.appendingPathComponent("studymate.css")

@@ -94,6 +94,7 @@ def parse_choice(text):
     s = s.replace("\\pi", "*pi").replace("\\cdot", "*").replace("\\times", "*").replace("^", "**").replace("{", "(").replace("}", ")")
     s = re.sub(r"(\d)\s*\(", r"\1*(", s)
     s = re.sub(r"\)\s*(\d)", r")*\1", s)
+    s = re.sub(r"(\d|\))\s*sqrt", r"\1*sqrt", s)   # 3\sqrt{2}, \frac{3}{2}\sqrt{2}
     s = s.replace("(*pi", "(pi").replace("/*pi", "/pi").replace("-*pi", "-pi").replace("+*pi", "+pi").replace(" ", "")
     if s.startswith("*pi"):
         s = s[1:]
