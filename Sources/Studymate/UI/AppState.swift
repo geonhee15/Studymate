@@ -134,7 +134,14 @@ final class AppState {
 
     private func start(_ session: ProblemSession) {
         session.language = koreanFirst ? .ko : .en
-        session.onAttempt = { [weak self] attempt in self?.progress.record(attempt) }
+        session.onAttempt = { [weak self, weak session] attempt in
+            guard let self else { return }
+            self.progress.record(attempt)
+            // Review sessions move the notebook entry: correct without hints → next stage, otherwise back to 1 day.
+            if let session, session.kind == .review, let entryID = session.reviewEntryIDs[attempt.problemID] {
+                self.mistakes.recordReview(id: entryID, correct: attempt.correct && attempt.hintsUsed == 0)
+            }
+        }
         session.onFinish = { [weak self] result in
             guard let self, let result else { return }
             self.progress.record(result)

@@ -63,8 +63,9 @@ struct HomeView: View {
                     Text("오늘 \(todayCount)문제 풂").font(.system(size: 11)).foregroundStyle(.secondary)
                 }
             }
+            let dueLesson = due.filter { $0.problemID.flatMap { library.problem($0) } != nil }
             CardButton(prominent: !due.isEmpty, action: {
-                if due.isEmpty { appState.open(.mistakes) } else { appState.startReview(entries: due) }
+                if dueLesson.isEmpty { appState.open(.mistakes) } else { appState.startReview(entries: dueLesson) }
             }) {
                 HStack(spacing: 10) {
                     Image(systemName: "bookmark.fill").foregroundStyle(due.isEmpty ? Color.secondary : Theme.accent)
