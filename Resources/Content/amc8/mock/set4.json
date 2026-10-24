@@ -1,0 +1,854 @@
+[
+  {
+    "id": "m4-1",
+    "lesson": "9-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "algebra"
+    ],
+    "number": 1,
+    "question": "A clock now shows 10:45. What time did it show 100 minutes ago?",
+    "questionKo": "시계가 지금 10시 45분을 가리키고 있다. 100분 전에는 몇 시 몇 분이었는가?",
+    "choices": [
+      "8:45",
+      "9:05",
+      "9:15",
+      "9:25",
+      "9:45"
+    ],
+    "answer": "B",
+    "hints": [
+      "100분 = 1시간 40분.",
+      "먼저 1시간을 되돌리면 9:45.",
+      "거기서 40분을 더 되돌린다."
+    ],
+    "solution": "100분은 1시간 40분이다. 10:45에서 1시간 전은 9:45, 다시 40분 전은 9:05.\n\n**오답 짚기**: 9:45는 1시간만 되돌린 것. 8:45는 100분을 2시간으로 어림한 것. 9:25는 100분을 1시간 20분으로 잘못 바꾼 것. 분 단위를 시간·분으로 바꿀 때 60분 = 1시간을 정확히 쓰자.",
+    "verify": {
+      "answer": "10*60+45-100",
+      "choices": [
+        "8*60+45",
+        "9*60+5",
+        "9*60+15",
+        "9*60+25",
+        "9*60+45"
+      ],
+      "note": "자정 이후 분으로 비교"
+    }
+  },
+  {
+    "id": "m4-2",
+    "lesson": "3-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 2,
+    "question": "How many of the five numbers $51, 57, 61, 87, 91$ are prime?",
+    "questionKo": "다섯 수 $51, 57, 61, 87, 91$ 중 소수(prime)는 몇 개인가?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "A",
+    "hints": [
+      "각 수를 √(수) 이하의 소수 2, 3, 5, 7로 나눠 본다.",
+      "자리합이 3의 배수이면 3의 배수: 51, 57, 87.",
+      "91 = 7 × 13"
+    ],
+    "solution": "자리합을 보면 $51 (5+1=6)$, $57 (12)$, $87 (15)$는 모두 3의 배수다. $91 = 7 \\times 13$. 61은 $\\sqrt{61} < 8$이므로 2, 3, 5, 7로만 확인하면 되고 어느 것으로도 나누어떨어지지 않으므로 소수. 따라서 소수는 61 하나.\n\n**오답 짚기**: 91과 51은 소수처럼 보이는 대표적인 합성수다. 3은 51, 61, 91을 소수로 본 것. 2는 91만 걸러낸 것. 끝자리가 1이나 7이라고 소수인 것은 아니다.",
+    "verify": {
+      "answer": "sum(1 for n in (51,57,61,87,91) if isprime(n))"
+    }
+  },
+  {
+    "id": "m4-3",
+    "lesson": "1-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "number": 3,
+    "question": "How many three-digit positive integers have all three digits even?",
+    "questionKo": "세 자리 양의 정수 중 세 자리 숫자가 모두 짝수인 수는 몇 개인가?",
+    "choices": [
+      "80",
+      "90",
+      "100",
+      "120",
+      "125"
+    ],
+    "answer": "C",
+    "hints": [
+      "짝수 숫자는 0, 2, 4, 6, 8의 5개.",
+      "백의 자리는 0이 될 수 없다.",
+      "4 × 5 × 5"
+    ],
+    "solution": "백의 자리는 2, 4, 6, 8의 4가지, 십의 자리와 일의 자리는 0, 2, 4, 6, 8의 5가지씩. $4 \\times 5 \\times 5 = 100$.\n\n**오답 짚기**: 125는 백의 자리에 0을 허용한 $5^3$. 80은 십의 자리에서도 0을 뺀 $4 \\times 4 \\times 5$. 0은 짝수이지만 첫 자리에는 올 수 없다.",
+    "verify": {
+      "answer": "sum(1 for n in range(100,1000) if all(int(c)%2==0 for c in str(n)))",
+      "methods": [
+        "4*5*5"
+      ]
+    }
+  },
+  {
+    "id": "m4-4",
+    "lesson": "5-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "number": 4,
+    "figure": "<svg viewBox=\"0 0 220 220\" width=\"220\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,200 200,200 200,110 140,110 140,20 20,20\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"/><g stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 3\" fill=\"none\"><polyline points=\"140,20 200,20 200,110\"/></g><g fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\"><text x=\"110\" y=\"216\">6</text><text x=\"10\" y=\"114\">6</text><text x=\"170\" y=\"14\">2</text><text x=\"212\" y=\"70\">3</text></g></svg>",
+    "question": "The L-shaped figure is made by removing a $2 \\times 3$ rectangle from one corner of a $6 \\times 6$ square, as shown. What is the perimeter of the L-shaped figure?",
+    "questionKo": "그림처럼 $6 \\times 6$ 정사각형의 한 모서리에서 $2 \\times 3$ 직사각형을 잘라내어 L자 모양을 만들었다. 이 L자 모양의 둘레(perimeter)는?",
+    "choices": [
+      "18",
+      "20",
+      "22",
+      "24",
+      "26"
+    ],
+    "answer": "D",
+    "hints": [
+      "잘라낸 자리의 두 변(2와 3)을 바깥으로 밀어 보자.",
+      "오목한 두 변을 밀면 원래 정사각형의 변과 길이가 같아진다.",
+      "둘레는 정사각형과 같은 4 × 6"
+    ],
+    "solution": "L자의 변을 차례로 더하면 $6 + 6 + 3 + 2 + 3 + 4 = 24$. 더 빠르게는, 잘라낸 모서리의 두 변(가로 2, 세로 3)을 바깥쪽으로 밀어 붙이면 둘레가 변하지 않으면서 원래 $6 \\times 6$ 정사각형이 되므로 둘레는 $4 \\times 6 = 24$.\n\n**오답 짚기**: 18은 '잘라냈으니 둘레도 줄어든다'고 짐작해 $24 - 6$을 한 것. 넓이는 줄지만 둘레는 그대로다. 26은 잘라낸 직사각형의 변을 두 번 더한 것. 20과 22는 변 하나를 빼먹은 합.",
+    "fast": "직사각형 모서리를 직사각형 모양으로 잘라내면 둘레는 변하지 않는다. $4 \\times 6 = 24$.",
+    "verify": {
+      "answer": "4*6",
+      "methods": [
+        "exec('''\nimport math\npts=[(0,0),(6,0),(6,3),(4,3),(4,6),(0,6)]\n''')\nresult=round(sum(math.dist(pts[i],pts[(i+1)%6]) for i in range(6)))"
+      ],
+      "note": "방법 1: 밀어 붙이기. 방법 2: 꼭짓점 좌표로 변 길이를 모두 더함"
+    }
+  },
+  {
+    "id": "m4-5",
+    "lesson": "8-4",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "statistics"
+    ],
+    "number": 5,
+    "question": "The mean of the five numbers $3, 7, x, 11, 14$ is 9. What is $x$?",
+    "questionKo": "다섯 수 $3, 7, x, 11, 14$의 평균(mean)이 9이다. $x$의 값은?",
+    "choices": [
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "answer": "C",
+    "hints": [
+      "평균이 9이면 다섯 수의 합은 45.",
+      "나머지 네 수의 합은 3 + 7 + 11 + 14 = 35.",
+      "45 − 35"
+    ],
+    "solution": "평균이 9이므로 합은 $9 \\times 5 = 45$. 나머지 네 수의 합은 35이므로 $x = 45 - 35 = 10$.\n\n**오답 짚기**: 9는 'x도 평균과 같겠지'라고 넘겨짚은 것. 11은 중앙값(median)을 답한 것. 8은 합을 44로 잘못 계산한 것.",
+    "verify": {
+      "answer": "9*5-(3+7+11+14)"
+    }
+  },
+  {
+    "id": "m4-6",
+    "lesson": "8-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "number": 6,
+    "question": "A box contains 40 pens, each either red or blue. The number of red pens is 4 more than twice the number of blue pens. How many red pens are in the box?",
+    "questionKo": "상자에 빨간 펜과 파란 펜이 모두 40자루 있다. 빨간 펜의 수는 파란 펜 수의 두 배보다 4 많다. 빨간 펜은 몇 자루인가?",
+    "choices": [
+      "12",
+      "16",
+      "24",
+      "28",
+      "32"
+    ],
+    "answer": "D",
+    "hints": [
+      "파란 펜을 b라 하면 빨간 펜은 2b + 4.",
+      "b + (2b + 4) = 40",
+      "b = 12, 빨간 펜은 2 × 12 + 4"
+    ],
+    "solution": "파란 펜을 $b$라 하면 빨간 펜은 $2b + 4$. $b + 2b + 4 = 40$에서 $3b = 36$, $b = 12$. 빨간 펜은 $2 \\times 12 + 4 = 28$.\n\n**검산**: $28 + 12 = 40$이고 $28 = 2 \\times 12 + 4$. 맞다.\n\n**오답 짚기**: 12는 파란 펜의 수. 24는 '4 많다'를 빠뜨린 $2b$. 32는 '두 배보다 4 많다'를 $2(b + 4)$로 읽은 것. 작은 수로 문장을 검산하는 습관을 들이자.",
+    "verify": {
+      "answer": "[r for r in range(41) if r==2*(40-r)+4][0]"
+    }
+  },
+  {
+    "id": "m4-7",
+    "lesson": "1-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "probability"
+    ],
+    "number": 7,
+    "question": "A spinner has three equal sections colored red, blue, and green. The spinner is spun twice. What is the probability that it lands on red at least once?",
+    "questionKo": "돌림판이 빨강, 파랑, 초록의 같은 크기 세 칸으로 나뉘어 있다. 돌림판을 두 번 돌릴 때 적어도 한 번 빨강이 나올 확률은?",
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{4}{9}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{9}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answer": "D",
+    "hints": [
+      "'적어도 한 번'의 반대는 '한 번도 안 나옴'.",
+      "두 번 다 빨강이 아닐 확률: (2/3)² = 4/9",
+      "1 − 4/9"
+    ],
+    "solution": "두 번 모두 빨강이 아닐 확률은 $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$. 여사건(complement)을 쓰면 $1 - \\frac{4}{9} = \\frac{5}{9}$.\n\n**검산**: 9가지 결과 중 빨강이 들어간 것은 (빨,빨), (빨,파), (빨,초), (파,빨), (초,빨)의 5가지.\n\n**오답 짚기**: $\\frac{4}{9}$는 여사건 자체를 답한 것. $\\frac{2}{3}$은 $\\frac{1}{3} + \\frac{1}{3}$으로 두 번 다 빨강인 경우를 두 번 센 것. $\\frac{1}{3}$은 한 번만 돌린 확률.",
+    "verify": {
+      "answer": "1-F(2,3)**2",
+      "choices": [
+        "F(1,3)",
+        "F(4,9)",
+        "F(1,2)",
+        "F(5,9)",
+        "F(2,3)"
+      ],
+      "methods": [
+        "F(sum(1 for a in 'RBG' for b in 'RBG' if 'R' in a+b),9)"
+      ]
+    }
+  },
+  {
+    "id": "m4-8",
+    "lesson": "6-3",
+    "band": "1-10",
+    "target": 75,
+    "fields": [
+      "geometry"
+    ],
+    "number": 8,
+    "figure": "<svg viewBox=\"0 0 300 170\" width=\"300\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"30,140 200,140 150,30\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"/><line x1=\"200\" y1=\"140\" x2=\"280\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M222,140 A22,22 0 0,0 190,118\" stroke=\"#E08A1E\" stroke-width=\"1.5\" fill=\"none\"/><g fill=\"currentColor\" font-size=\"12\"><text x=\"148\" y=\"22\">A</text><text x=\"18\" y=\"154\">B</text><text x=\"196\" y=\"158\">C</text><text x=\"222\" y=\"124\">120°</text><text x=\"282\" y=\"144\">D</text></g></svg>",
+    "question": "In triangle $ABC$, side $\\overline{BC}$ is extended to point $D$ so that the exterior angle $\\angle ACD$ measures $120^\\circ$. If $\\angle BAC$ is twice $\\angle ABC$, what is the measure of $\\angle ABC$?",
+    "questionKo": "삼각형 $ABC$에서 변 $\\overline{BC}$를 점 $D$까지 연장했더니 외각 $\\angle ACD$가 $120^\\circ$였다. $\\angle BAC$가 $\\angle ABC$의 두 배일 때, $\\angle ABC$의 크기는?",
+    "choices": [
+      "$30^\\circ$",
+      "$40^\\circ$",
+      "$50^\\circ$",
+      "$60^\\circ$",
+      "$80^\\circ$"
+    ],
+    "answer": "B",
+    "hints": [
+      "외각은 이웃하지 않는 두 내각의 합: ∠A + ∠B = 120°.",
+      "∠A = 2∠B이므로 3∠B = 120°.",
+      "∠B = 40°"
+    ],
+    "solution": "삼각형의 외각(exterior angle)은 이웃하지 않는 두 내각의 합이므로 $\\angle A + \\angle B = 120^\\circ$. $\\angle A = 2\\angle B$를 넣으면 $3\\angle B = 120^\\circ$, $\\angle B = 40^\\circ$.\n\n**검산**: $\\angle C = 180^\\circ - 120^\\circ = 60^\\circ$이고 $40 + 80 + 60 = 180$. 맞다.\n\n**오답 짚기**: 60°는 ∠C(내각)를 답한 것. 80°는 ∠A. 30°는 120°를 4로 나눈 것(∠C까지 끼워 넣어 네 몫으로 착각). 50°는 ∠B + ∠C = 120°로 잘못 짝지은 뒤 어림한 값. 외각이 어느 두 내각의 합인지 그림에서 확인하자.",
+    "verify": {
+      "answer": "120//3",
+      "methods": [
+        "[b for b in range(1,180) if 2*b+b+(180-120)==180][0]"
+      ],
+      "note": "방법 1: 외각 정리. 방법 2: 내각의 합 180°로 탐색"
+    }
+  },
+  {
+    "id": "m4-9",
+    "lesson": "4-5",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 9,
+    "question": "In base $b$, the number $35_b$ equals the base-ten number 23. What is $b$?",
+    "questionKo": "$b$진법의 수 $35_b$가 십진법으로 23과 같다. $b$의 값은?",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": "B",
+    "hints": [
+      "35_b = 3 × b + 5.",
+      "3b + 5 = 23",
+      "숫자 5가 쓰였으니 b는 6 이상이어야 한다."
+    ],
+    "solution": "$35_b = 3b + 5 = 23$이므로 $3b = 18$, $b = 6$. 자리 숫자 5가 쓰였으므로 $b \\geq 6$이어야 하는데 조건에 맞는다.\n\n**오답 짚기**: 5는 자리 숫자 5가 나올 수 없는 진법이다($b$진법의 숫자는 $0 \\sim b-1$). 8은 $3 \\times 8 + 5 = 29$로 맞지 않는다. 7은 $26$. 식을 세우고 나서 '숫자가 밑보다 작은지'까지 확인하자.",
+    "verify": {
+      "answer": "[b for b in range(6,20) if 3*b+5==23][0]"
+    }
+  },
+  {
+    "id": "m4-10",
+    "lesson": "2-3",
+    "band": "1-10",
+    "target": 75,
+    "fields": [
+      "counting"
+    ],
+    "number": 10,
+    "figure": "<svg viewBox=\"0 0 300 120\" width=\"300\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><line x1=\"30\" y1=\"20\" x2=\"270\" y2=\"20\"/><line x1=\"30\" y1=\"60\" x2=\"270\" y2=\"60\"/><line x1=\"30\" y1=\"100\" x2=\"270\" y2=\"100\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"100\"/><line x1=\"70\" y1=\"20\" x2=\"70\" y2=\"100\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"100\"/><line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"100\"/><line x1=\"190\" y1=\"20\" x2=\"190\" y2=\"100\"/><line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"100\"/><line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"100\"/></g><g fill=\"currentColor\"><circle cx=\"30\" cy=\"100\" r=\"4\"/><circle cx=\"270\" cy=\"20\" r=\"4\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"12\" y=\"114\">A</text><text x=\"278\" y=\"16\">B</text></g></svg>",
+    "question": "The figure shows a grid of streets with 6 blocks east-west and 2 blocks north-south. How many different shortest paths are there from $A$ to $B$ along the streets? (Each path moves only east or north.)",
+    "questionKo": "그림은 동서 방향으로 6블록, 남북 방향으로 2블록인 격자 도로를 나타낸다. 도로를 따라 $A$에서 $B$까지 가는 서로 다른 최단 경로는 몇 가지인가? (동쪽 또는 북쪽으로만 움직인다.)",
+    "choices": [
+      "12",
+      "16",
+      "28",
+      "56",
+      "64"
+    ],
+    "answer": "C",
+    "hints": [
+      "동쪽 6번, 북쪽 2번, 모두 8번 움직인다.",
+      "8번 중 북쪽으로 갈 2번을 고른다.",
+      "C(8,2) = 28"
+    ],
+    "solution": "동쪽(E) 6번과 북쪽(N) 2번을 어떤 순서로 늘어놓는지와 같다. 8칸 중 N 2개의 자리를 고르면 $\\binom{8}{2} = 28$.\n\n**오답 짚기**: 12는 $6 \\times 2$로 곱한 것. 56은 $\\binom{8}{3}$으로 칸 수가 아니라 선 개수(7개)를 세어 밀린 꼴. 64는 $2^6$처럼 매번 두 갈래로 본 것. 격자 그림에서는 '칸 수 = 움직이는 횟수'임을 확인하자.",
+    "verify": {
+      "answer": "comb(8,2)",
+      "methods": [
+        "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef ways(x,y):\n    if x==0 or y==0: return 1\n    return ways(x-1,y)+ways(x,y-1)\n''')\nresult=ways(6,2)"
+      ]
+    }
+  },
+  {
+    "id": "m4-11",
+    "lesson": "8-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "algebra"
+    ],
+    "number": 11,
+    "question": "Two towns are 36 km apart. At 9:00 AM Ana leaves one town walking toward the other at 4 km/h. At 10:00 AM Ben leaves the other town walking toward Ana at 6 km/h. At what time do they meet?",
+    "questionKo": "두 마을은 36 km 떨어져 있다. 오전 9시에 아나가 한 마을을 출발해 다른 마을을 향해 시속 4 km로 걷는다. 오전 10시에 벤이 다른 마을을 출발해 아나를 향해 시속 6 km로 걷는다. 두 사람은 몇 시에 만나는가?",
+    "choices": [
+      "12:36 PM",
+      "1:00 PM",
+      "1:12 PM",
+      "1:36 PM",
+      "2:00 PM"
+    ],
+    "answer": "C",
+    "hints": [
+      "10시까지 아나 혼자 1시간 걸어 4 km 줄었다. 남은 거리 32 km.",
+      "마주 보고 걸으면 가까워지는 속력은 4 + 6 = 10 km/h.",
+      "32 ÷ 10 = 3.2시간 = 3시간 12분 → 10시 + 3시간 12분"
+    ],
+    "solution": "벤이 출발하는 10시까지 아나는 4 km를 걸어 두 사람 사이는 $36 - 4 = 32$ km. 그다음부터는 시속 $4 + 6 = 10$ km로 가까워지므로 $32 \\div 10 = 3.2$시간 = 3시간 12분 뒤인 오후 1시 12분에 만난다.\n\n**검산**: 아나는 4.2시간 동안 16.8 km, 벤은 3.2시간 동안 19.2 km. 합 36 km. 맞다.\n\n**오답 짚기**: 12:36은 아나의 먼저 걸은 1시간을 빼먹고 $36 \\div 10 = 3.6$시간을 9시에 더한 것. 1:36은 3.6시간을 10시에 더한 것. 2:00은 0.2시간을 20분으로 잘못 바꿔 어림한 꼴. 0.2시간은 12분이다.",
+    "verify": {
+      "answer": "10*60+int(F(36-4,10)*60)",
+      "choices": [
+        "12*60+36",
+        "13*60",
+        "13*60+12",
+        "13*60+36",
+        "14*60"
+      ],
+      "note": "자정 이후 분으로 비교"
+    }
+  },
+  {
+    "id": "m4-12",
+    "lesson": "7-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "number": 12,
+    "figure": "<svg viewBox=\"0 0 300 160\" width=\"300\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"61\" y=\"66\" width=\"148\" height=\"72\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><polyline points=\"60,30 60,138 210,138 210,30\"/></g><rect x=\"105\" y=\"78\" width=\"60\" height=\"60\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#E08A1E\" fill-opacity=\"0.4\" stroke-dasharray=\"4 3\"/><g stroke=\"currentColor\" stroke-width=\"1\"><line x1=\"232\" y1=\"66\" x2=\"232\" y2=\"138\"/><line x1=\"226\" y1=\"66\" x2=\"238\" y2=\"66\"/><line x1=\"226\" y1=\"138\" x2=\"238\" y2=\"138\"/></g><g fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\"><text x=\"135\" y=\"154\">25</text><text x=\"262\" y=\"106\">처음 12</text><text x=\"135\" y=\"112\">10</text><text x=\"82\" y=\"60\">물</text></g></svg>",
+    "question": "A rectangular tank has a base measuring 25 cm by 20 cm and contains water to a depth of 12 cm. A solid metal cube with edge 10 cm is placed in the tank and becomes completely submerged. What is the new depth of the water, in centimeters?",
+    "questionKo": "밑면이 25 cm × 20 cm인 직육면체 수조에 물이 12 cm 깊이로 담겨 있다. 한 모서리가 10 cm인 금속 정육면체를 넣었더니 완전히 잠겼다. 물의 새 깊이는 몇 cm인가?",
+    "choices": [
+      "13",
+      "14",
+      "15",
+      "16",
+      "22"
+    ],
+    "answer": "B",
+    "hints": [
+      "정육면체의 부피 10³ = 1000 cm³만큼 물이 밀려 올라간다.",
+      "올라간 높이 = 1000 ÷ (25 × 20)",
+      "12 + 2"
+    ],
+    "solution": "잠긴 정육면체의 부피 $10^3 = 1000$ cm³만큼 물의 부피가 늘어난 셈이다. 밑넓이는 $25 \\times 20 = 500$ cm²이므로 높이는 $1000 \\div 500 = 2$ cm 올라가 $12 + 2 = 14$ cm. 새 깊이 14 cm는 정육면체 높이 10 cm보다 크므로 '완전히 잠긴다'는 조건과 맞는다.\n\n**오답 짚기**: 22는 정육면체 높이 10을 그대로 더한 것. 16은 밑넓이를 250으로 잘못 계산한 것. 13은 1000 ÷ 1000처럼 단위를 섞은 것. 부피 변화는 밑넓이로 나눠야 높이 변화가 된다.",
+    "verify": {
+      "answer": "F(25*20*12+10**3,25*20)",
+      "methods": [
+        "12+F(10**3,25*20)"
+      ],
+      "note": "방법 1: 전체 부피 ÷ 밑넓이. 방법 2: 올라간 높이만 더하기"
+    }
+  },
+  {
+    "id": "m4-13",
+    "lesson": "4-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 13,
+    "question": "For how many digits $d$ is the five-digit number $\\overline{5d2d4}$ divisible by 12?",
+    "questionKo": "다섯 자리 수 $\\overline{5d2d4}$가 12로 나누어떨어지게 하는 숫자 $d$는 몇 개인가?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "B",
+    "hints": [
+      "12 = 4 × 3. 두 조건을 따로 확인한다.",
+      "4의 배수: 끝 두 자리 d4가 4의 배수 → d는 짝수(04, 24, 44, 64, 84).",
+      "3의 배수: 자리합 11 + 2d가 3의 배수 → d = 2, 5, 8. 둘 다 만족하는 d는?"
+    ],
+    "solution": "12의 배수이려면 4의 배수이면서 3의 배수여야 한다. 4의 배수 판정은 끝 두 자리 $\\overline{d4}$: 04, 24, 44, 64, 84가 4의 배수이므로 $d$는 짝수. 3의 배수 판정은 자리합 $5 + d + 2 + d + 4 = 11 + 2d$가 3의 배수: $d = 2, 5, 8$. 둘 다 만족하는 것은 $d = 2, 8$의 2개 (52224 = 12 × 4352, 58284 = 12 × 4857).\n\n**오답 짚기**: 5는 4의 배수 조건만 본 것. 3은 3의 배수 조건만 본 것. 4는 4의 배수 판정을 끝 한 자리(4)로만 보고 자리합 조건에서 d = 2, 5, 8에 하나를 더 센 꼴. 두 판정을 모두 통과하는 숫자만 센다.",
+    "verify": {
+      "answer": "sum(1 for d in range(10) if int('5%d2%d4'%(d,d))%12==0)",
+      "methods": [
+        "sum(1 for d in range(10) if (10*d+4)%4==0 and (11+2*d)%3==0)"
+      ]
+    }
+  },
+  {
+    "id": "m4-14",
+    "lesson": "2-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "probability"
+    ],
+    "number": 14,
+    "question": "Two fair six-sided dice are rolled. What is the probability that the larger of the two numbers rolled is exactly 4? (If both show the same number, that number is the larger.)",
+    "questionKo": "공정한 정육면체 주사위 두 개를 던진다. 두 눈 중 큰 쪽이 정확히 4일 확률은? (두 눈이 같으면 그 수를 큰 쪽으로 본다.)",
+    "choices": [
+      "$\\frac{1}{6}$",
+      "$\\frac{7}{36}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{5}{18}$",
+      "$\\frac{1}{3}$"
+    ],
+    "answer": "B",
+    "hints": [
+      "6 × 6 표에서 큰 쪽이 4인 칸을 센다.",
+      "둘 다 4 이하인 칸 4² = 16에서 둘 다 3 이하인 칸 3² = 9를 뺀다.",
+      "7/36"
+    ],
+    "solution": "두 눈이 모두 4 이하인 경우는 $4^2 = 16$가지, 모두 3 이하인 경우는 $3^2 = 9$가지. 차 $16 - 9 = 7$가지가 '큰 쪽이 정확히 4'인 경우다. 확률은 $\\frac{7}{36}$.\n\n**검산**: (4,1), (4,2), (4,3), (4,4), (1,4), (2,4), (3,4)의 7가지.\n\n**오답 짚기**: $\\frac{1}{6}$은 (4,4)를 빼고 6가지로 센 것. $\\frac{1}{4}$은 '한쪽이 4'인 경우를 $\\frac{1}{6} + \\frac{1}{6}$처럼 더한 뒤 반올림한 값이거나 $\\frac{9}{36}$으로 잘못 센 것. $\\frac{5}{18} = \\frac{10}{36}$은 '4 이상이 나올' 칸을 섞어 센 것. 주사위 두 개는 36칸 표를 그리자.",
+    "fast": "큰 쪽이 k일 확률은 $\\frac{k^2 - (k-1)^2}{36} = \\frac{2k - 1}{36}$. $k = 4$이면 $\\frac{7}{36}$.",
+    "verify": {
+      "answer": "F(sum(1 for a in range(1,7) for b in range(1,7) if max(a,b)==4),36)",
+      "choices": [
+        "F(1,6)",
+        "F(7,36)",
+        "F(1,4)",
+        "F(5,18)",
+        "F(1,3)"
+      ],
+      "methods": [
+        "F(4*4-3*3,36)"
+      ]
+    }
+  },
+  {
+    "id": "m4-15",
+    "lesson": "8-6",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "statistics"
+    ],
+    "number": 15,
+    "figure": "<svg viewBox=\"0 0 300 200\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\"><path d=\"M100,100 L100,20 A80,80 0 0,1 180,100 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><path d=\"M100,100 L180,100 A80,80 0 0,1 60,169.3 Z\" fill=\"#29A066\" fill-opacity=\"0.35\"/><path d=\"M100,100 L60,169.3 A80,80 0 0,1 20,100 Z\" fill=\"#E08A1E\" fill-opacity=\"0.35\"/><path d=\"M100,100 L20,100 A80,80 0 0,1 100,20 Z\" fill=\"#DB433D\" fill-opacity=\"0.25\"/></g><g fill=\"currentColor\" font-size=\"11\" text-anchor=\"middle\"><text x=\"136\" y=\"70\">수학</text><text x=\"136\" y=\"84\">90°</text><text x=\"118\" y=\"150\">과학</text><text x=\"118\" y=\"164\">120°</text><text x=\"58\" y=\"134\">미술</text><text x=\"58\" y=\"148\">60°</text><text x=\"64\" y=\"66\">음악</text><text x=\"64\" y=\"80\">?</text></g><text x=\"200\" y=\"110\" fill=\"currentColor\" font-size=\"11\">학생 240명</text></svg>",
+    "question": "The circle graph shows the favorite subjects of 240 students. The central angles for Math, Science, and Art are $90^\\circ$, $120^\\circ$, and $60^\\circ$; the rest chose Music. How many more students chose Science than Music?",
+    "questionKo": "원그래프는 학생 240명이 가장 좋아하는 과목을 나타낸다. 수학, 과학, 미술의 중심각은 각각 $90^\\circ$, $120^\\circ$, $60^\\circ$이고 나머지는 음악을 골랐다. 과학을 고른 학생은 음악을 고른 학생보다 몇 명 더 많은가?",
+    "choices": [
+      "10",
+      "20",
+      "30",
+      "40",
+      "60"
+    ],
+    "answer": "B",
+    "hints": [
+      "음악의 중심각은 360 − (90 + 120 + 60) = 90°.",
+      "360°가 240명이므로 1°는 2/3명. 과학 120° → 80명, 음악 90° → 60명.",
+      "80 − 60"
+    ],
+    "solution": "음악의 중심각은 $360^\\circ - (90^\\circ + 120^\\circ + 60^\\circ) = 90^\\circ$. 전체 $360^\\circ$가 240명이므로 과학은 $240 \\times \\frac{120}{360} = 80$명, 음악은 $240 \\times \\frac{90}{360} = 60$명. 차는 $80 - 60 = 20$명.\n\n**오답 짚기**: 30은 사람 수가 아니라 중심각의 차 $120 - 90$을 답한 것. 40은 과학과 미술의 차. 60은 음악을 고른 학생 수. 10은 각도 차 30을 3으로 나눈 어림. 각도를 사람 수로 바꾸는 비율($360^\\circ = 240$명)을 먼저 세우자.",
+    "fast": "$240 \\div 360 = \\frac{2}{3}$명/도. 각도 차 $120 - 90 = 30^\\circ$에 $\\frac{2}{3}$을 곱하면 20명.",
+    "verify": {
+      "answer": "240*F(120,360)-240*F(360-90-120-60,360)",
+      "methods": [
+        "(120-(360-90-120-60))*F(240,360)"
+      ]
+    }
+  },
+  {
+    "id": "m4-16",
+    "lesson": "7-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "number": 16,
+    "figure": "<svg viewBox=\"0 0 260 260\" width=\"260\" height=\"260\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M130,130 L210,130 A80,80 0 1,1 130,50 Z\" fill=\"#29A066\" fill-opacity=\"0.3\"/><path d=\"M190,130 L210,130 A20,20 0 0,0 190,110 Z\" fill=\"#29A066\" fill-opacity=\"0.3\"/><path d=\"M130,70 L130,50 A20,20 0 0,1 150,70 Z\" fill=\"#29A066\" fill-opacity=\"0.3\"/><rect x=\"130\" y=\"70\" width=\"60\" height=\"60\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#E08A1E\" fill-opacity=\"0.45\"/><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><path d=\"M210,130 A80,80 0 1,1 130,50\"/><path d=\"M210,130 A20,20 0 0,0 190,110\"/><path d=\"M130,50 A20,20 0 0,1 150,70\"/></g><line x1=\"130\" y1=\"130\" x2=\"73.4\" y2=\"186.6\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><g fill=\"currentColor\" font-size=\"12\"><text x=\"156\" y=\"104\">3</text><text x=\"78\" y=\"160\">4</text><text x=\"198\" y=\"112\">1</text><circle cx=\"130\" cy=\"130\" r=\"3\"/></g></svg>",
+    "question": "A goat is tied by a 4-meter rope to the outside corner of a square shed whose sides are 3 meters. The shed is on flat ground and the goat cannot enter it. What is the area, in square meters, of the region the goat can reach?",
+    "questionKo": "한 변이 3 m인 정사각형 창고의 바깥쪽 모퉁이에 염소가 4 m 길이의 줄로 묶여 있다. 창고는 평지에 있고 염소는 창고 안으로 들어갈 수 없다. 염소가 갈 수 있는 땅의 넓이는 몇 m²인가?",
+    "choices": [
+      "$12\\pi$",
+      "$\\frac{25\\pi}{2}$",
+      "$13\\pi$",
+      "$14\\pi$",
+      "$16\\pi$"
+    ],
+    "answer": "B",
+    "hints": [
+      "모퉁이에서 창고가 90°를 막으므로 반지름 4인 원의 3/4을 돌 수 있다.",
+      "창고 변(3 m)을 따라 돌아가면 이웃 모퉁이에서 줄이 1 m 남아 사분원이 두 개 더 생긴다.",
+      "¾ × 16π + 2 × ¼ × π × 1²"
+    ],
+    "solution": "묶인 모퉁이에서 창고가 $90^\\circ$를 가리므로 염소는 반지름 4인 원의 $\\frac{3}{4}$인 $\\frac{3}{4} \\times 16\\pi = 12\\pi$를 돈다. 창고의 한 변 3 m를 따라가면 이웃 모퉁이에서 줄이 $4 - 3 = 1$ m 남아, 그 모퉁이를 중심으로 반지름 1인 사분원을 더 돌 수 있다. 양쪽 변에서 하나씩 생기므로 $2 \\times \\frac{1}{4}\\pi \\times 1^2 = \\frac{\\pi}{2}$. 합은 $12\\pi + \\frac{\\pi}{2} = \\frac{25\\pi}{2}$.\n\n**오답 짚기**: $12\\pi$는 모퉁이를 돌아가는 사분원 두 개를 빠뜨린 것. $16\\pi$는 창고가 없는 것처럼 원 전체를 센 것. $13\\pi$는 남은 줄 1 m로 반원 두 개($2 \\times \\frac{\\pi}{2}$)를 더한 것. 두 사분원이 서로 겹치지 않는지($1 + 1 < 3$)도 확인하자.",
+    "verify": {
+      "answer": "F(3,4)*16*pi+2*F(1,4)*pi",
+      "choices": [
+        "12*pi",
+        "F(25,2)*pi",
+        "13*pi",
+        "14*pi",
+        "16*pi"
+      ],
+      "methods": [
+        "exec('''\nimport math\n# 창고 [0,3]x[0,3], 염소는 (0,0)에 묶임. 1/4 평면(x>0,y>0)은 창고 모퉁이를 돌아서만 닿는다.\nN=1600\ncnt=0\nfor i in range(N):\n    for j in range(N):\n        x=-4+8*(i+0.5)/N; y=-4+8*(j+0.5)/N\n        if x>0 and y>0:\n            ok=(x>=3 and y>=0 and (x-3)**2+y**2<=1) or (y>=3 and x>=0 and x**2+(y-3)**2<=1)\n        else:\n            ok=x*x+y*y<=16\n        if ok: cnt+=1\nnum=cnt*(64/N/N)\n''')\nresult=F(25,2)*pi if abs(num-25*pi/2)<0.05 else num"
+      ],
+      "note": "방법 1: 부채꼴 합. 방법 2: 격자 샘플링으로 닿을 수 있는 점의 넓이를 재고 0.05 이내면 통과"
+    }
+  },
+  {
+    "id": "m4-17",
+    "lesson": "8-5",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "algebra"
+    ],
+    "number": 17,
+    "question": "The pages of a book are numbered $1, 2, 3, \\ldots$ in order, and a total of 642 digits are used. How many pages does the book have?",
+    "questionKo": "어떤 책의 쪽수가 $1, 2, 3, \\ldots$ 순서로 매겨져 있고, 쪽 번호를 적는 데 모두 642개의 숫자가 쓰였다. 이 책은 몇 쪽인가?",
+    "choices": [
+      "214",
+      "230",
+      "250",
+      "251",
+      "263"
+    ],
+    "answer": "C",
+    "hints": [
+      "1~9는 숫자 9개, 10~99는 두 자리씩 90쪽 → 180개.",
+      "9 + 180 = 189. 남은 642 − 189 = 453개는 세 자리 쪽 번호.",
+      "453 ÷ 3 = 151쪽이 100부터 → 99 + 151"
+    ],
+    "solution": "한 자리 쪽(1~9)은 숫자 9개, 두 자리 쪽(10~99)은 90쪽 × 2 = 180개. 여기까지 189개. 남은 $642 - 189 = 453$개는 세 자리 쪽 번호이므로 $453 \\div 3 = 151$쪽. 세 자리 쪽은 100부터 시작하므로 마지막 쪽은 $99 + 151 = 250$.\n\n**검산**: 100~250은 151쪽. $9 + 180 + 453 = 642$. 맞다.\n\n**오답 짚기**: 251은 '100부터 151쪽'을 $100 + 151$로 계산한 off-by-one. 214는 $642 \\div 3$으로 전부 세 자리로 본 것. 230은 두 자리 쪽을 99쪽으로 잘못 센 꼴. 구간마다 쪽 수를 셀 때 끝 − 시작 + 1을 쓰자.",
+    "verify": {
+      "answer": "[N for N in range(100,1000) if sum(len(str(k)) for k in range(1,N+1))==642][0]",
+      "methods": [
+        "99+(642-9-180)//3"
+      ]
+    }
+  },
+  {
+    "id": "m4-18",
+    "lesson": "3-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 18,
+    "question": "How many positive divisors of 1800 are multiples of 15?",
+    "questionKo": "1800의 양의 약수 중 15의 배수는 몇 개인가?",
+    "choices": [
+      "12",
+      "16",
+      "18",
+      "24",
+      "36"
+    ],
+    "answer": "B",
+    "hints": [
+      "1800 = 2³ × 3² × 5².",
+      "15의 배수인 약수는 3과 5를 적어도 한 번씩 포함: 2^a 3^b 5^c, a = 0~3, b = 1~2, c = 1~2.",
+      "4 × 2 × 2"
+    ],
+    "solution": "$1800 = 2^3 \\cdot 3^2 \\cdot 5^2$. 약수 $2^a 3^b 5^c$가 15의 배수이려면 $b \\geq 1$, $c \\geq 1$이어야 한다. $a$는 0~3의 4가지, $b$는 1~2의 2가지, $c$는 1~2의 2가지이므로 $4 \\times 2 \\times 2 = 16$개.\n\n**검산**: 15의 배수인 약수는 $15 \\times d$ 꼴이고 $d$는 $1800 \\div 15 = 120 = 2^3 \\cdot 3 \\cdot 5$의 약수. 약수 개수 $4 \\times 2 \\times 2 = 16$. 일치.\n\n**오답 짚기**: 36은 1800의 약수 전체 개수($4 \\times 3 \\times 3$). 24는 3 또는 5 한쪽만 조건을 건 것($4 \\times 2 \\times 3$). 12는 $a$의 범위를 1~3으로 잘못 잡은 것($3 \\times 2 \\times 2$). 18은 $2 \\times 3 \\times 3$처럼 조건을 2에 건 실수.",
+    "fast": "15의 배수인 약수 ↔ $1800 \\div 15 = 120$의 약수. $120 = 2^3 \\cdot 3 \\cdot 5$의 약수는 16개.",
+    "verify": {
+      "answer": "sum(1 for d in divisors(1800) if d%15==0)",
+      "methods": [
+        "len(divisors(1800//15))"
+      ]
+    }
+  },
+  {
+    "id": "m4-19",
+    "lesson": "8-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "algebra"
+    ],
+    "number": 19,
+    "question": "A chemist has 200 grams of a 30% salt solution. How many grams of a 10% salt solution must be added to obtain a 15% salt solution?",
+    "questionKo": "화학자가 30% 소금물 200 g을 가지고 있다. 여기에 10% 소금물을 몇 g 넣어야 15% 소금물이 되는가?",
+    "choices": [
+      "300",
+      "400",
+      "500",
+      "600",
+      "800"
+    ],
+    "answer": "D",
+    "hints": [
+      "소금의 양을 따라간다. 처음 소금은 200 × 0.3 = 60 g.",
+      "x g을 넣으면 소금은 60 + 0.1x, 전체는 200 + x.",
+      "(60 + 0.1x) = 0.15(200 + x)"
+    ],
+    "solution": "처음 소금은 $200 \\times 0.3 = 60$ g. 10% 소금물 $x$ g을 넣으면 소금은 $60 + 0.1x$ g, 전체는 $200 + x$ g. 농도 15%이므로 $60 + 0.1x = 0.15(200 + x) = 30 + 0.15x$, $30 = 0.05x$, $x = 600$.\n\n**검산**: 소금 $60 + 60 = 120$ g, 전체 800 g, $120 \\div 800 = 15\\%$. 맞다.\n\n**오답 짚기**: 800은 최종 전체 무게를 답한 것. 400은 '30%와 10%의 가운데 20%'처럼 비율을 1 : 2로 잘못 잡은 값. 300은 농도 차 15 : 5를 거꾸로 쓴 것. 섞기 문제는 농도가 아니라 소금의 양이 더해진다.",
+    "fast": "농도 차의 비: 30%는 15%에서 15 떨어지고 10%는 5 떨어진다. 무게는 거꾸로 1 : 3이므로 10% 소금물은 $200 \\times 3 = 600$ g.",
+    "verify": {
+      "answer": "[x for x in range(0,2000) if F(60)+F(1,10)*x==F(15,100)*(200+x)][0]",
+      "methods": [
+        "200*F(30-15,15-10)"
+      ]
+    }
+  },
+  {
+    "id": "m4-20",
+    "lesson": "7-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "number": 20,
+    "figure": "<svg viewBox=\"0 0 260 220\" width=\"260\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"><polygon points=\"40,70 160,70 160,190 40,190\"/><polygon points=\"40,70 100,30 220,30 160,70\" fill-opacity=\"0.45\"/><polygon points=\"160,70 220,30 220,150 160,190\" fill-opacity=\"0.2\"/></g><g stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\" stroke-opacity=\"0.8\"><line x1=\"70\" y1=\"70\" x2=\"70\" y2=\"190\"/><line x1=\"100\" y1=\"70\" x2=\"100\" y2=\"190\"/><line x1=\"130\" y1=\"70\" x2=\"130\" y2=\"190\"/><line x1=\"40\" y1=\"100\" x2=\"160\" y2=\"100\"/><line x1=\"40\" y1=\"130\" x2=\"160\" y2=\"130\"/><line x1=\"40\" y1=\"160\" x2=\"160\" y2=\"160\"/><line x1=\"55\" y1=\"60\" x2=\"175\" y2=\"60\"/><line x1=\"70\" y1=\"50\" x2=\"190\" y2=\"50\"/><line x1=\"85\" y1=\"40\" x2=\"205\" y2=\"40\"/><line x1=\"70\" y1=\"70\" x2=\"130\" y2=\"30\"/><line x1=\"100\" y1=\"70\" x2=\"160\" y2=\"30\"/><line x1=\"130\" y1=\"70\" x2=\"190\" y2=\"30\"/><line x1=\"175\" y1=\"60\" x2=\"175\" y2=\"180\"/><line x1=\"190\" y1=\"50\" x2=\"190\" y2=\"170\"/><line x1=\"205\" y1=\"40\" x2=\"205\" y2=\"160\"/><line x1=\"160\" y1=\"100\" x2=\"220\" y2=\"60\"/><line x1=\"160\" y1=\"130\" x2=\"220\" y2=\"90\"/><line x1=\"160\" y1=\"160\" x2=\"220\" y2=\"120\"/></g><line x1=\"10\" y1=\"190\" x2=\"250\" y2=\"190\" stroke=\"currentColor\" stroke-width=\"2\"/><g fill=\"currentColor\" font-size=\"11\"><text x=\"10\" y=\"208\">탁자 (바닥면은 칠하지 않음)</text><text x=\"96\" y=\"20\">4 × 4 × 4</text></g></svg>",
+    "question": "A $4 \\times 4 \\times 4$ cube is built from 64 unit cubes and placed on a table. Every face of the large cube that is not touching the table is painted. How many of the unit cubes have exactly two painted faces?",
+    "questionKo": "단위 정육면체 64개로 $4 \\times 4 \\times 4$ 정육면체를 만들어 탁자 위에 놓았다. 큰 정육면체의 면 중 탁자에 닿지 않은 면을 모두 칠한다. 정확히 두 면이 칠해진 단위 정육면체는 몇 개인가?",
+    "choices": [
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "answer": "B",
+    "hints": [
+      "칠한 면은 윗면 1개와 옆면 4개. 바닥면은 안 칠한다.",
+      "윗면의 모서리(꼭짓점 제외): 4 × 2 = 8개가 윗면 + 옆면 한 개로 두 면.",
+      "세로 모서리: 윗층을 뺀 3층 × 4개 = 12개가 옆면 두 개로 두 면. 8 + 12"
+    ],
+    "solution": "칠해지는 면은 윗면과 옆면 4개다. 두 면이 칠해진 단위 정육면체는 두 종류다. (1) 윗면의 네 모서리에서 꼭짓점을 뺀 칸: 모서리마다 2개씩 $4 \\times 2 = 8$개(윗면 + 옆면 하나). (2) 네 세로 모서리 중 윗층을 뺀 칸: 세로 모서리마다 3개씩 $4 \\times 3 = 12$개(옆면 둘). 바닥층의 꼭짓점 칸도 바닥은 안 칠하므로 두 면이다. 합 $8 + 12 = 20$개.\n\n**오답 짚기**: 24는 여섯 면을 모두 칠했을 때의 답($12 \\times 2$). 16은 바닥층의 세로 모서리 칸 4개(두 옆면만 칠해짐)를 빼먹은 것. 28은 바닥 모서리의 칸까지 두 면으로 센 것(실제로는 옆면 하나뿐). 32는 윗면 둘레 12개에 세로 모서리까지 중복해 더한 값. '바닥에 놓여 있다'는 조건이 무엇을 바꾸는지 먼저 정리하자.",
+    "verify": {
+      "answer": "sum(1 for x in range(4) for y in range(4) for z in range(4) if (x==0)+(x==3)+(y==0)+(y==3)+(z==3)==2)",
+      "methods": [
+        "4*2+4*3"
+      ],
+      "note": "방법 1: 좌표 완전 탐색(칠한 면 = 네 옆면 + 윗면). 방법 2: 경우 나누기"
+    }
+  },
+  {
+    "id": "m4-21",
+    "lesson": "2-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "counting"
+    ],
+    "number": 21,
+    "figure": "<svg viewBox=\"0 0 180 180\" width=\"180\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"50\" y=\"50\" width=\"40\" height=\"40\" fill=\"#E08A1E\" fill-opacity=\"0.45\"/><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><rect x=\"10\" y=\"10\" width=\"160\" height=\"160\"/><line x1=\"50\" y1=\"10\" x2=\"50\" y2=\"170\"/><line x1=\"90\" y1=\"10\" x2=\"90\" y2=\"170\"/><line x1=\"130\" y1=\"10\" x2=\"130\" y2=\"170\"/><line x1=\"10\" y1=\"50\" x2=\"170\" y2=\"50\"/><line x1=\"10\" y1=\"90\" x2=\"170\" y2=\"90\"/><line x1=\"10\" y1=\"130\" x2=\"170\" y2=\"130\"/></g></svg>",
+    "question": "The figure shows a $4 \\times 4$ grid of unit squares with one square shaded. How many rectangles, formed by the grid lines, contain the shaded square?",
+    "questionKo": "그림은 단위 정사각형 $4 \\times 4$ 격자이고 그중 한 칸에 색이 칠해져 있다. 격자선으로 만들어지는 직사각형 중 색칠한 칸을 포함하는 것은 몇 개인가?",
+    "choices": [
+      "16",
+      "24",
+      "36",
+      "48",
+      "100"
+    ],
+    "answer": "C",
+    "hints": [
+      "직사각형은 세로선 2개와 가로선 2개로 정해진다. 세로선은 0~4번, 가로선도 0~4번.",
+      "색칠한 칸은 세로선 1번과 2번 사이, 가로선 1번과 2번 사이에 있다. 왼쪽 선은 0 또는 1, 오른쪽 선은 2, 3, 4 중 하나.",
+      "(2 × 3) × (2 × 3)"
+    ],
+    "solution": "격자선에 왼쪽부터 0, 1, 2, 3, 4번을 매기면 색칠한 칸은 세로선 1번과 2번 사이, 가로선 1번과 2번 사이에 있다. 직사각형이 이 칸을 포함하려면 왼쪽 변은 0번 또는 1번(2가지), 오른쪽 변은 2, 3, 4번(3가지)이어야 하고, 위·아래 변도 마찬가지로 2가지와 3가지. 따라서 $(2 \\times 3) \\times (2 \\times 3) = 36$개.\n\n**오답 짚기**: 100은 격자 안 직사각형 전체 개수 $\\binom{5}{2}^2$. 16은 칸이 꼭짓점 구석에 있을 때의 답($4 \\times 4$). 24는 가로·세로 한쪽을 $2 \\times 2$로 잘못 센 것. 48은 오른쪽 변 선택을 4가지로 센 것. '어느 선을 고르면 그 칸이 안에 들어가는가'로 바꿔 세자.",
+    "verify": {
+      "answer": "sum(1 for l in range(5) for r in range(l+1,5) for t in range(5) for b in range(t+1,5) if l<=1 and r>=2 and t<=1 and b>=2)",
+      "methods": [
+        "(2*3)*(2*3)"
+      ]
+    }
+  },
+  {
+    "id": "m4-22",
+    "lesson": "4-5",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 22,
+    "question": "For how many positive integers $b \\geq 2$ does the number 2026, when written in base $b$, have exactly three digits?",
+    "questionKo": "2026을 $b$진법으로 나타냈을 때 정확히 세 자리 수가 되는 양의 정수 $b \\geq 2$는 몇 개인가?",
+    "choices": [
+      "31",
+      "32",
+      "33",
+      "34",
+      "45"
+    ],
+    "answer": "C",
+    "hints": [
+      "b진법에서 세 자리 수의 범위는 b² 이상 b³ 미만.",
+      "b² ≤ 2026 → b ≤ 45 (45² = 2025). b³ > 2026 → b ≥ 13 (12³ = 1728, 13³ = 2197).",
+      "13부터 45까지: 45 − 13 + 1"
+    ],
+    "solution": "$b$진법에서 세 자리 수는 $b^2 \\leq N < b^3$을 만족한다. $b^2 \\leq 2026$에서 $b \\leq 45$ ($45^2 = 2025 \\leq 2026 < 46^2 = 2116$). $b^3 > 2026$에서 $b \\geq 13$ ($12^3 = 1728 \\leq 2026 < 13^3 = 2197$). 따라서 $13 \\leq b \\leq 45$이고 개수는 $45 - 13 + 1 = 33$.\n\n**검산**: $b = 13$: $2026 = 11 \\cdot 169 + 167$, $167 = 12 \\cdot 13 + 11$ → 세 자리. $b = 45$: $2026 = 1 \\cdot 2025 + 0 \\cdot 45 + 1$ → $101_{45}$, 세 자리. $b = 46$이면 $2026 < 46^2$이라 두 자리.\n\n**오답 짚기**: 32는 $45 - 13$으로 +1을 빠뜨린 것. 34는 12 또는 46을 포함한 것(12³ = 1728 < 2026이라 12진법에서는 네 자리, 46진법에서는 두 자리). 45는 위쪽 경계만 답한 것. 경계값은 직접 넣어 확인하자.",
+    "verify": {
+      "answer": "sum(1 for b in range(2,3000) if b**2<=2026<b**3)",
+      "methods": [
+        "exec('''\ndef ndig(n,b):\n    c=0\n    while n: n//=b; c+=1\n    return c\n''')\nresult=sum(1 for b in range(2,3000) if ndig(2026,b)==3)"
+      ],
+      "note": "방법 1: 부등식. 방법 2: 실제로 진법 변환해 자리 수를 셈"
+    }
+  },
+  {
+    "id": "m4-23",
+    "lesson": "6-1",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "number": 23,
+    "figure": "<svg viewBox=\"0 0 260 150\" width=\"260\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20,130 A110,110 0 0,1 240,130 Z\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#4F6BF0\" fill-opacity=\"0.25\"/><rect x=\"80.8\" y=\"31.6\" width=\"98.4\" height=\"98.4\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#E08A1E\" fill-opacity=\"0.4\"/><g stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 3\"><line x1=\"130\" y1=\"130\" x2=\"179.2\" y2=\"31.6\"/></g><g fill=\"currentColor\"><circle cx=\"130\" cy=\"130\" r=\"2.5\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"12\" y=\"146\">A</text><text x=\"240\" y=\"146\">B</text><text x=\"126\" y=\"146\">O</text><text x=\"162\" y=\"90\">5</text></g></svg>",
+    "question": "A square is inscribed in a semicircle of radius 5 so that one side of the square lies along the diameter $\\overline{AB}$ and the other two vertices lie on the arc, as shown. What is the area of the square?",
+    "questionKo": "그림처럼 반지름이 5인 반원에 정사각형이 내접해 있다. 정사각형의 한 변은 지름 $\\overline{AB}$ 위에 있고 나머지 두 꼭짓점은 호 위에 있다. 이 정사각형의 넓이는?",
+    "choices": [
+      "16",
+      "20",
+      "25",
+      "32",
+      "50"
+    ],
+    "answer": "B",
+    "hints": [
+      "대칭이므로 정사각형의 아래 변의 중점이 원의 중심 O다.",
+      "한 변을 s라 하면 O에서 호 위 꼭짓점까지가 반지름: (s/2)² + s² = 5².",
+      "5s²/4 = 25"
+    ],
+    "solution": "정사각형은 반원과 대칭축을 공유하므로 아래 변의 중점이 원의 중심 $O$다. 한 변을 $s$라 하면 $O$에서 위쪽 꼭짓점까지 가로 $\\frac{s}{2}$, 세로 $s$인 직각삼각형의 빗변이 반지름 5다. 피타고라스 정리(Pythagorean theorem)로 $\\left(\\frac{s}{2}\\right)^2 + s^2 = 25$, $\\frac{5s^2}{4} = 25$, $s^2 = 20$. 넓이는 $s^2$이므로 20.\n\n**검산**: $s = 2\\sqrt{5} \\approx 4.47$. 그림에서 정사각형 높이가 반지름 5보다 조금 작다. 그럴듯하다.\n\n**오답 짚기**: 25는 한 변이 반지름 5라고 본 것. 50은 지름 10을 변으로 한 정사각형의 절반. 32는 반지름 4인 원에 내접하는 정사각형 넓이 $2r^2$를 섞어 쓴 혼동. 16은 $s = 4$로 어림한 것. 넓이를 물으면 $s^2$까지만 구하면 되고 $s$를 구할 필요가 없다.",
+    "fast": "넓이 $s^2$만 필요하다. $\\frac{s^2}{4} + s^2 = 25$에서 바로 $s^2 = 20$.",
+    "verify": {
+      "answer": "F(4*25,5)",
+      "methods": [
+        "exec('''\nimport math\nlo,hi=0.0,5.0\nfor _ in range(200):\n    s=(lo+hi)/2\n    if math.hypot(s/2,s)<5: lo=s\n    else: hi=s\n''')\nresult=20 if abs(s*s-20)<1e-9 else s*s"
+      ],
+      "note": "방법 1: 피타고라스 식. 방법 2: 좌표에서 꼭짓점 (s/2, s)가 원 위에 오는 s를 이분 탐색"
+    }
+  },
+  {
+    "id": "m4-24",
+    "lesson": "9-2",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "logic"
+    ],
+    "number": 24,
+    "question": "The numbers $1, 2, 3, \\ldots, 20$ are written on a board. In one move, you erase any two numbers $a$ and $b$ and write the single number $a + b - 1$ in their place. After 19 moves exactly one number remains. What is that number?",
+    "questionKo": "칠판에 $1, 2, 3, \\ldots, 20$이 적혀 있다. 한 번의 조작에서 두 수 $a$, $b$를 지우고 그 자리에 수 $a + b - 1$ 하나를 적는다. 19번 조작한 뒤에는 수가 정확히 하나 남는다. 그 수는 무엇인가?",
+    "choices": [
+      "190",
+      "191",
+      "200",
+      "209",
+      "210"
+    ],
+    "answer": "B",
+    "hints": [
+      "조작 한 번에 칠판의 합은 어떻게 변하나? a + b가 a + b − 1로 바뀌니 정확히 1 줄어든다.",
+      "수의 개수는 한 번에 1씩 줄어 20개에서 1개가 되므로 조작은 19번.",
+      "처음 합 210에서 19를 뺀다."
+    ],
+    "solution": "조작 한 번마다 칠판에 있는 수들의 합은 $a + b$에서 $a + b - 1$로 바뀌어 정확히 1 줄어든다. 수의 개수도 1씩 줄므로 '합 − 개수'는 변하지 않는 불변량(invariant)이다. 처음 합은 $1 + 2 + \\cdots + 20 = 210$, 개수 20. 19번 조작하면 수가 하나 남고 합은 $210 - 19 = 191$. 어떤 순서로 지워도 결과는 같다.\n\n**검산**: 작은 경우 1, 2, 3으로 해 보면 (1+2−1)=2, (2+3−1)=4. 처음 합 6에서 2번 조작 → 4. 일치.\n\n**오답 짚기**: 210은 조작마다 1씩 줄어드는 것을 빠뜨린 처음 합. 190은 20번 조작했다고 센 것(개수가 20에서 1이 되는 데는 19번). 209는 한 번만 뺀 것. 200은 어림. 불변량이 조작 한 번에 정말 그대로인지 확인하는 습관이 핵심.",
+    "fast": "'합 − 개수'가 불변이다: 처음 $210 - 20 = 190$, 끝에는 $x - 1$. 따라서 $x = 191$.",
+    "verify": {
+      "answer": "sum(range(1,21))-19",
+      "methods": [
+        "exec('''\nimport random\nrandom.seed(7)\nres=set()\nfor _ in range(50):\n    L=list(range(1,21))\n    while len(L)>1:\n        a=L.pop(random.randrange(len(L))); b=L.pop(random.randrange(len(L)))\n        L.append(a+b-1)\n    res.add(L[0])\nassert len(res)==1\n''')\nresult=res.pop()"
+      ],
+      "note": "방법 1: 불변량. 방법 2: 무작위 순서로 50번 시뮬레이션해 항상 같은 값이 나오는지 확인"
+    }
+  },
+  {
+    "id": "m4-25",
+    "lesson": "2-5",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "probability"
+    ],
+    "number": 25,
+    "question": "A bag contains 3 red chips and 2 blue chips. Chips are drawn one at a time at random without replacement until a blue chip is drawn. What is the expected number of chips drawn?",
+    "questionKo": "주머니에 빨간 칩 3개와 파란 칩 2개가 있다. 파란 칩이 나올 때까지 칩을 한 개씩 무작위로 꺼낸다(다시 넣지 않음). 꺼내는 칩 수의 기댓값(expected value)은?",
+    "choices": [
+      "$\\frac{3}{2}$",
+      "$\\frac{9}{5}$",
+      "2",
+      "$\\frac{11}{5}$",
+      "$\\frac{5}{2}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "첫 파랑이 k번째에 나올 확률을 k = 1, 2, 3, 4에 대해 구한다.",
+      "P(1) = 2/5, P(2) = 3/5 · 2/4 = 3/10, P(3) = 3/5 · 2/4 · 2/3 = 1/5, P(4) = 1/10.",
+      "1 · 2/5 + 2 · 3/10 + 3 · 1/5 + 4 · 1/10"
+    ],
+    "solution": "첫 파란 칩이 $k$번째에 나올 확률은 $P(1) = \\frac{2}{5}$, $P(2) = \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{3}{10}$, $P(3) = \\frac{3}{5} \\cdot \\frac{2}{4} \\cdot \\frac{2}{3} = \\frac{1}{5}$, $P(4) = \\frac{3}{5} \\cdot \\frac{2}{4} \\cdot \\frac{1}{3} \\cdot 1 = \\frac{1}{10}$ (빨강 3개가 모두 먼저 나오면 4번째는 반드시 파랑). 합이 1인지 확인: $\\frac{4 + 3 + 2 + 1}{10} = 1$. 기댓값은 $1 \\cdot \\frac{2}{5} + 2 \\cdot \\frac{3}{10} + 3 \\cdot \\frac{1}{5} + 4 \\cdot \\frac{1}{10} = \\frac{4 + 6 + 6 + 4}{10} = 2$.\n\n**다른 풀이(선형성)**: 파란 칩 2개가 5자리를 무작위로 나누면, 각 빨간 칩이 첫 파랑보다 앞에 올 확률은 $\\frac{1}{3}$(파랑 2개와 자기 자신 중 맨 앞일 확률). 첫 파랑 앞의 빨강 개수 기댓값은 $3 \\times \\frac{1}{3} = 1$이므로 꺼내는 칩 수의 기댓값은 $1 + 1 = 2$.\n\n**오답 짚기**: $\\frac{5}{2}$는 5개를 두 파랑이 세 구간으로 나눈다는 것을 빼고 '절반쯤'으로 어림한 것. $\\frac{3}{2}$는 복원 추출로 보고 기하분포 $\\frac{1}{p} = \\frac{5}{2}$를 잘못 계산한 꼴. $\\frac{9}{5}$와 $\\frac{11}{5}$는 확률 하나를 빠뜨리거나 잘못 곱한 값. 확률의 합이 1인지 먼저 확인하면 실수를 잡을 수 있다.",
+    "fast": "빨간 칩 3개는 파란 칩 2개가 만든 세 구간에 고르게 나뉘므로 첫 파랑 앞에는 평균 1개. 답은 $1 + 1 = 2$.",
+    "verify": {
+      "answer": "exec('''\nfrom itertools import permutations\nseqs=set(permutations('RRRBB'))\n''')\nresult=F(sum(s.index('B')+1 for s in seqs),len(seqs))",
+      "choices": [
+        "F(3,2)",
+        "F(9,5)",
+        "2",
+        "F(11,5)",
+        "F(5,2)"
+      ],
+      "methods": [
+        "1*F(2,5)+2*F(3,5)*F(2,4)+3*F(3,5)*F(2,4)*F(2,3)+4*F(3,5)*F(2,4)*F(1,3)",
+        "1+3*F(1,3)"
+      ]
+    }
+  }
+]

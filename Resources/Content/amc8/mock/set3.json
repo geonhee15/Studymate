@@ -1,0 +1,853 @@
+[
+  {
+    "id": "m3-1",
+    "lesson": "8-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "algebra"
+    ],
+    "number": 1,
+    "question": "Mia buys 3 notebooks at $\\$2.40$ each and pays with a $\\$10$ bill. How much change does she receive?",
+    "questionKo": "미아는 한 권에 $\\$2.40$인 공책 3권을 사고 $\\$10$ 지폐를 냈다. 거스름돈은 얼마인가?",
+    "choices": [
+      "$\\$2.60$",
+      "$\\$2.80$",
+      "$\\$3.20$",
+      "$\\$7.20$",
+      "$\\$7.60$"
+    ],
+    "answer": "B",
+    "hints": [
+      "먼저 공책 3권의 값을 구한다.",
+      "2.40 × 3 = 7.20",
+      "10 − 7.20"
+    ],
+    "solution": "공책 3권은 $2.40 \\times 3 = 7.20$달러. 거스름돈은 $10 - 7.20 = 2.80$달러.\n\n**오답 짚기**: 7.20은 거스름돈이 아니라 지불한 금액. 2.60은 7.40을 뺀 계산 실수, 3.20은 공책 값을 6.80으로 잘못 곱한 것.",
+    "verify": {
+      "answer": "F(1000,100)-3*F(240,100)",
+      "choices": [
+        "F(260,100)",
+        "F(280,100)",
+        "F(320,100)",
+        "F(720,100)",
+        "F(760,100)"
+      ]
+    }
+  },
+  {
+    "id": "m3-2",
+    "lesson": "8-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "statistics"
+    ],
+    "number": 2,
+    "question": "The ages of five cousins are 6, 9, 10, 14, and 16. What is the mean of their ages minus the median of their ages?",
+    "questionKo": "다섯 사촌의 나이는 6, 9, 10, 14, 16이다. 나이의 평균(mean)에서 중앙값(median)을 뺀 값은?",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "B",
+    "hints": [
+      "평균은 합을 5로 나눈 것.",
+      "합 55, 평균 11. 중앙값은 크기순 가운데 값.",
+      "11 − 10"
+    ],
+    "solution": "합은 $6 + 9 + 10 + 14 + 16 = 55$이므로 평균은 $55 \\div 5 = 11$. 이미 크기순이므로 중앙값은 세 번째 값 10. 따라서 $11 - 10 = 1$.\n\n**오답 짚기**: 0은 평균과 중앙값이 같다고 넘겨짚은 것. 4는 평균 대신 14(네 번째 값)를 쓴 것. 2는 중앙값을 9로 잘못 고른 것.",
+    "verify": {
+      "answer": "F(6+9+10+14+16,5)-10"
+    }
+  },
+  {
+    "id": "m3-3",
+    "lesson": "5-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "number": 3,
+    "figure": "<svg viewBox=\"0 0 300 120\" width=\"300\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"><rect x=\"15\" y=\"35\" width=\"135\" height=\"75\"/></g><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#E08A1E\" fill-opacity=\"0.3\"><rect x=\"190\" y=\"20\" width=\"90\" height=\"90\"/></g><g fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\"><text x=\"82\" y=\"27\">9</text><text x=\"160\" y=\"77\">5</text><text x=\"235\" y=\"12\">?</text></g></svg>",
+    "question": "A rectangle is 9 cm long and 5 cm wide. A square has the same perimeter as the rectangle. What is the area of the square, in square centimeters?",
+    "questionKo": "가로 9 cm, 세로 5 cm인 직사각형이 있다. 어떤 정사각형의 둘레(perimeter)가 이 직사각형의 둘레와 같다. 이 정사각형의 넓이는 몇 cm²인가?",
+    "choices": [
+      "28",
+      "45",
+      "49",
+      "56",
+      "64"
+    ],
+    "answer": "C",
+    "hints": [
+      "직사각형의 둘레를 먼저 구한다.",
+      "둘레 2 × (9 + 5) = 28. 정사각형 한 변은 28 ÷ 4.",
+      "7 × 7"
+    ],
+    "solution": "직사각형의 둘레는 $2(9 + 5) = 28$. 정사각형의 한 변은 $28 \\div 4 = 7$이므로 넓이는 $7^2 = 49$.\n\n**오답 짚기**: 45는 직사각형의 넓이를 그대로 답한 것. 28은 둘레. 56은 둘레를 2로만 나눈 14를 변으로 착각해 $14 \\times 4$를 한 값.",
+    "verify": {
+      "answer": "(2*(9+5)//4)**2",
+      "methods": [
+        "sum(1 for x in range(2*(9+5)//4) for y in range(2*(9+5)//4))"
+      ],
+      "note": "방법 1: 공식. 방법 2: 한 변 7인 정사각형 안의 단위 정사각형 개수를 격자로 셈"
+    }
+  },
+  {
+    "id": "m3-4",
+    "lesson": "3-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 4,
+    "question": "How many positive divisors does 48 have?",
+    "questionKo": "48의 양의 약수(divisor)는 모두 몇 개인가?",
+    "choices": [
+      "6",
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "answer": "D",
+    "hints": [
+      "소인수분해부터.",
+      "48 = 2⁴ × 3",
+      "(4 + 1)(1 + 1)"
+    ],
+    "solution": "$48 = 2^4 \\cdot 3$이므로 약수의 개수는 $(4 + 1)(1 + 1) = 10$. 직접 나열하면 1, 2, 3, 4, 6, 8, 12, 16, 24, 48.\n\n**오답 짚기**: 8은 지수에 1을 더하지 않고 $4 \\times 2$를 한 것. 9는 1 또는 48을 빼먹고 센 것. 12는 $2^4 \\cdot 3$의 지수를 잘못 읽은 것.",
+    "verify": {
+      "answer": "len(divisors(48))",
+      "methods": [
+        "(4+1)*(1+1)"
+      ]
+    }
+  },
+  {
+    "id": "m3-5",
+    "lesson": "1-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "counting"
+    ],
+    "number": 5,
+    "question": "Jin has 4 shirts, 3 pairs of pants, and 2 hats. An outfit consists of one shirt, one pair of pants, and either one hat or no hat. How many different outfits can Jin make?",
+    "questionKo": "진은 셔츠 4벌, 바지 3벌, 모자 2개를 가지고 있다. 한 벌의 차림은 셔츠 하나, 바지 하나, 그리고 모자 하나를 쓰거나 안 쓰는 것으로 이루어진다. 진이 만들 수 있는 서로 다른 차림은 몇 가지인가?",
+    "choices": [
+      "9",
+      "14",
+      "24",
+      "36",
+      "48"
+    ],
+    "answer": "D",
+    "hints": [
+      "셔츠, 바지, 모자 칸을 따로 센다.",
+      "모자 칸은 '모자 1', '모자 2', '안 씀'의 3가지.",
+      "4 × 3 × 3"
+    ],
+    "solution": "셔츠 4가지, 바지 3가지, 모자 칸은 두 모자 중 하나 또는 안 쓰는 것까지 3가지. 곱의 법칙(multiplication principle)으로 $4 \\times 3 \\times 3 = 36$.\n\n**오답 짚기**: 24는 '모자를 안 쓴다'는 선택을 빠뜨린 $4 \\times 3 \\times 2$. 9는 4 + 3 + 2처럼 동시에 하는 선택을 더한 것. 48은 모자 칸을 4가지로 센 것.",
+    "verify": {
+      "answer": "4*3*3",
+      "methods": [
+        "4*3*2+4*3"
+      ]
+    }
+  },
+  {
+    "id": "m3-6",
+    "lesson": "8-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "number": 6,
+    "question": "Noah is 4 years older than his sister Lily. In 6 years, the sum of their ages will be 30. How old is Noah now?",
+    "questionKo": "노아는 여동생 릴리보다 4살 많다. 6년 뒤 두 사람 나이의 합은 30이 된다. 지금 노아는 몇 살인가?",
+    "choices": [
+      "7",
+      "9",
+      "11",
+      "13",
+      "17"
+    ],
+    "answer": "C",
+    "hints": [
+      "릴리의 지금 나이를 L로 놓으면 노아는 L + 4.",
+      "6년 뒤: (L + 6) + (L + 10) = 30",
+      "L = 7이므로 노아는 11"
+    ],
+    "solution": "릴리의 지금 나이를 $L$이라 하면 노아는 $L + 4$. 6년 뒤에는 각각 $L + 6$, $L + 10$이고 합이 30이므로 $2L + 16 = 30$, $L = 7$. 노아는 $7 + 4 = 11$살.\n\n**오답 짚기**: 7은 릴리의 나이. 17은 6년 뒤 노아의 나이. 13은 '4살 많다'를 거꾸로 써서 릴리를 11로 둔 뒤 더한 값. 변수 하나로 두 사람을 모두 표현하고, 물은 사람이 누구인지 마지막에 확인하자.",
+    "verify": {
+      "answer": "[n for n in range(1,60) if (n-4+6)+(n+6)==30][0]"
+    }
+  },
+  {
+    "id": "m3-7",
+    "lesson": "6-3",
+    "band": "1-10",
+    "target": 75,
+    "fields": [
+      "geometry"
+    ],
+    "number": 7,
+    "figure": "<svg viewBox=\"0 0 220 250\" width=\"220\" height=\"250\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\"><rect x=\"50\" y=\"124\" width=\"120\" height=\"120\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"/><polygon points=\"50,124 170,124 110,20\" fill=\"#E08A1E\" fill-opacity=\"0.3\"/><line x1=\"50\" y1=\"244\" x2=\"110\" y2=\"20\" stroke-dasharray=\"4 3\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"34\" y=\"246\">A</text><text x=\"176\" y=\"246\">B</text><text x=\"176\" y=\"122\">C</text><text x=\"34\" y=\"122\">D</text><text x=\"118\" y=\"16\">E</text></g></svg>",
+    "question": "In the figure, $ABCD$ is a square and $CDE$ is an equilateral triangle drawn outside the square. What is the measure of $\\angle AED$?",
+    "questionKo": "그림에서 $ABCD$는 정사각형이고, $CDE$는 정사각형 바깥쪽에 그린 정삼각형이다. $\\angle AED$의 크기는?",
+    "choices": [
+      "$10^\\circ$",
+      "$15^\\circ$",
+      "$20^\\circ$",
+      "$30^\\circ$",
+      "$45^\\circ$"
+    ],
+    "answer": "B",
+    "hints": [
+      "삼각형 ADE의 두 변 AD와 DE는 길이가 같다. 왜?",
+      "∠ADE = 90° + 60° = 150°",
+      "이등변삼각형이므로 (180 − 150) ÷ 2"
+    ],
+    "solution": "정사각형의 변과 정삼각형의 변은 모두 $CD$와 같으므로 $AD = DE$. 따라서 삼각형 $ADE$는 이등변삼각형(isosceles triangle)이다. $\\angle ADE = \\angle ADC + \\angle CDE = 90^\\circ + 60^\\circ = 150^\\circ$이므로 밑각은 $\\frac{180^\\circ - 150^\\circ}{2} = 15^\\circ$. 즉 $\\angle AED = 15^\\circ$.\n\n**오답 짚기**: 30°는 정삼각형의 각 60°를 반으로 나눈 것. 45°는 정사각형의 대각선 각으로 착각한 것. 20°는 150을 빼지 않고 (180 − 90 − 60)을 쓴 값. 그림이 축척대로가 아닐 수 있으니 각도는 조건에서 끌어낸다.",
+    "fast": "AD = DE를 알아보면 끝. 꼭지각 150°인 이등변삼각형의 밑각은 15°.",
+    "verify": {
+      "answer": "(180-(90+60))//2",
+      "methods": [
+        "exec('''\nimport math\nA=(0,0); D=(0,1); E=(0.5,1+math.sqrt(3)/2)\nv1=(A[0]-E[0],A[1]-E[1]); v2=(D[0]-E[0],D[1]-E[1])\nc=(v1[0]*v2[0]+v1[1]*v2[1])/(math.hypot(*v1)*math.hypot(*v2))\ndeg=math.degrees(math.acos(c))\n''')\nresult=round(deg,6)"
+      ],
+      "note": "방법 1: 이등변삼각형 각도. 방법 2: 좌표로 벡터 사이 각 계산"
+    }
+  },
+  {
+    "id": "m3-8",
+    "lesson": "2-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "probability"
+    ],
+    "number": 8,
+    "question": "A card is drawn at random from 12 cards numbered 1 through 12. What is the probability that the number drawn is a multiple of 3 or a multiple of 4?",
+    "questionKo": "1부터 12까지 번호가 적힌 카드 12장 중 한 장을 무작위로 뽑는다. 뽑은 번호가 3의 배수이거나 4의 배수일 확률은?",
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{5}{12}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{7}{12}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "3의 배수와 4의 배수를 각각 나열한다.",
+      "3, 6, 9, 12와 4, 8, 12. 12가 두 번 나온다.",
+      "4 + 3 − 1 = 6장"
+    ],
+    "solution": "3의 배수는 3, 6, 9, 12의 4장, 4의 배수는 4, 8, 12의 3장. 12는 양쪽에 다 들어 있으므로 포함배제(inclusion-exclusion)로 $4 + 3 - 1 = 6$장. 확률은 $\\frac{6}{12} = \\frac{1}{2}$.\n\n**오답 짚기**: $\\frac{7}{12}$는 12를 두 번 센 것. $\\frac{5}{12}$는 12를 아예 빼 버린 것. $\\frac{1}{3}$은 3의 배수만 센 것.",
+    "verify": {
+      "answer": "F(sum(1 for n in range(1,13) if n%3==0 or n%4==0),12)",
+      "choices": [
+        "F(1,3)",
+        "F(5,12)",
+        "F(1,2)",
+        "F(7,12)",
+        "F(2,3)"
+      ]
+    }
+  },
+  {
+    "id": "m3-9",
+    "lesson": "4-1",
+    "band": "1-10",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 9,
+    "question": "What is the smallest positive integer that leaves a remainder of 2 when divided by 5 and a remainder of 4 when divided by 6?",
+    "questionKo": "5로 나누면 나머지가 2이고 6으로 나누면 나머지가 4인 가장 작은 양의 정수는?",
+    "choices": [
+      "10",
+      "16",
+      "22",
+      "28",
+      "34"
+    ],
+    "answer": "C",
+    "hints": [
+      "조건이 더 센 쪽(6으로 나눈 나머지 4)부터 나열한다: 4, 10, 16, 22, …",
+      "이 중 5로 나눈 나머지가 2인 수를 찾는다.",
+      "22 = 5 × 4 + 2"
+    ],
+    "solution": "6으로 나누어 4가 남는 수는 4, 10, 16, 22, 28, …. 이 중 5로 나누어 2가 남는 첫 수는 22 ($22 = 5 \\times 4 + 2$). 다음 해는 $\\text{lcm}(5, 6) = 30$을 더한 52.\n\n**오답 짚기**: 10과 16, 28, 34는 한쪽 조건만 만족하는 수. 10은 5로 나누면 0이 남고, 16은 1이 남는다. 두 조건을 모두 확인하자.",
+    "fast": "6으로 나눈 나머지 4인 수를 나열하며 일의 자리가 2 또는 7인 수(5로 나눈 나머지 2)를 찾으면 22가 바로 보인다.",
+    "verify": {
+      "answer": "[n for n in range(1,200) if n%5==2 and n%6==4][0]"
+    }
+  },
+  {
+    "id": "m3-10",
+    "lesson": "8-5",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "number": 10,
+    "question": "The first term of a sequence is 8, and each term after the first is 5 more than the previous term. What is the 25th term?",
+    "questionKo": "어떤 수열의 첫째 항은 8이고, 둘째 항부터는 각 항이 바로 앞 항보다 5만큼 크다. 25번째 항은?",
+    "choices": [
+      "120",
+      "123",
+      "125",
+      "128",
+      "133"
+    ],
+    "answer": "D",
+    "hints": [
+      "25번째 항까지 5를 몇 번 더하나?",
+      "첫째 항에서 24번 더한다.",
+      "8 + 24 × 5"
+    ],
+    "solution": "첫째 항 8에서 25번째 항까지는 간격이 24개이므로 $8 + 24 \\times 5 = 128$. 일반항은 $a_n = 8 + 5(n - 1)$.\n\n**오답 짚기**: 133은 $8 + 25 \\times 5$로 한 번 더 더한 것(off-by-one). 123은 23번만 더한 것. 125는 $25 \\times 5$만 계산한 값.",
+    "verify": {
+      "answer": "8+24*5",
+      "methods": [
+        "[8+5*k for k in range(25)][-1]"
+      ]
+    }
+  },
+  {
+    "id": "m3-11",
+    "lesson": "8-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "algebra"
+    ],
+    "number": 11,
+    "question": "Ari can paint a fence alone in 6 hours, and Ben can paint the same fence alone in 3 hours. They paint together for 1 hour, and then Ari finishes the job alone. How many more hours does Ari work alone?",
+    "questionKo": "아리는 혼자서 울타리를 6시간에 칠하고, 벤은 같은 울타리를 혼자서 3시간에 칠한다. 둘이 함께 1시간 칠한 뒤 아리가 혼자 나머지를 끝냈다. 아리가 혼자 일한 시간은 몇 시간인가?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "C",
+    "hints": [
+      "1시간에 하는 일의 양: 아리 1/6, 벤 1/3.",
+      "함께 1시간이면 1/6 + 1/3 = 1/2가 끝난다.",
+      "남은 1/2을 아리가 1/6씩 하면 3시간"
+    ],
+    "solution": "일 전체를 1로 두면 아리는 1시간에 $\\frac{1}{6}$, 벤은 $\\frac{1}{3}$을 한다. 함께 1시간 하면 $\\frac{1}{6} + \\frac{1}{3} = \\frac{1}{2}$가 끝나고 $\\frac{1}{2}$이 남는다. 아리 혼자 $\\frac{1}{2} \\div \\frac{1}{6} = 3$시간.\n\n**오답 짚기**: 2는 함께 걸리는 2시간 전체로 착각한 것. 5는 아리 혼자 6시간에서 1만 뺀 것. 1시간에 하는 일의 양을 더하는 것이지 시간을 더하는 게 아니다.",
+    "verify": {
+      "answer": "(1-(F(1,6)+F(1,3)))/F(1,6)"
+    }
+  },
+  {
+    "id": "m3-12",
+    "lesson": "5-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "number": 12,
+    "figure": "<svg viewBox=\"0 0 300 220\" width=\"300\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><rect x=\"30\" y=\"30\" width=\"240\" height=\"160\"/><polygon points=\"30,190 270,110 150,30\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/></g><g fill=\"currentColor\"><circle cx=\"270\" cy=\"110\" r=\"3\"/><circle cx=\"150\" cy=\"30\" r=\"3\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"14\" y=\"202\">A</text><text x=\"276\" y=\"202\">B</text><text x=\"276\" y=\"28\">C</text><text x=\"14\" y=\"28\">D</text><text x=\"278\" y=\"114\">M</text><text x=\"144\" y=\"20\">N</text><text x=\"144\" y=\"212\">12</text><text x=\"12\" y=\"114\">8</text></g></svg>",
+    "question": "Rectangle $ABCD$ has $AB = 12$ and $BC = 8$. Point $M$ is the midpoint of $\\overline{BC}$ and point $N$ is the midpoint of $\\overline{CD}$. What is the area of triangle $AMN$?",
+    "questionKo": "직사각형 $ABCD$에서 $AB = 12$, $BC = 8$이다. 점 $M$은 $\\overline{BC}$의 중점, 점 $N$은 $\\overline{CD}$의 중점이다. 삼각형 $AMN$의 넓이는?",
+    "choices": [
+      "24",
+      "30",
+      "36",
+      "40",
+      "48"
+    ],
+    "answer": "C",
+    "hints": [
+      "직사각형 전체에서 바깥 직각삼각형 세 개를 뺀다.",
+      "ABM = ½·12·4 = 24, MCN = ½·4·6 = 12, ADN = ½·8·6 = 24",
+      "96 − 60"
+    ],
+    "solution": "직사각형 넓이는 $12 \\times 8 = 96$. 삼각형 $AMN$ 바깥의 직각삼각형 세 개는 $ABM = \\frac{1}{2} \\cdot 12 \\cdot 4 = 24$, $MCN = \\frac{1}{2} \\cdot 4 \\cdot 6 = 12$, $ADN = \\frac{1}{2} \\cdot 8 \\cdot 6 = 24$. 따라서 $96 - (24 + 12 + 24) = 36$.\n\n**검산**: 좌표 $A(0,0)$, $M(12,4)$, $N(6,8)$에 신발끈 공식(shoelace)을 쓰면 $\\frac{1}{2}|0 + 96 - 24 + 0| = 36$. 일치.\n\n**오답 짚기**: 48은 직사각형의 절반이라고 넘겨짚은 것. 24는 바깥 삼각형 하나를 빼먹고 $96 - 72$를 한 값. 30은 MCN을 $\\frac{1}{2} \\cdot 4 \\cdot 3$으로 잘못 잡은 것.",
+    "verify": {
+      "answer": "12*8-(F(1,2)*12*4+F(1,2)*4*6+F(1,2)*8*6)",
+      "methods": [
+        "exec('''\npts=[(0,0),(12,4),(6,8)]\ns=0\nfor i in range(3):\n    x1,y1=pts[i]; x2,y2=pts[(i+1)%3]\n    s+=x1*y2-x2*y1\n''')\nresult=F(abs(s),2)"
+      ],
+      "note": "방법 1: 직사각형에서 빼기. 방법 2: 신발끈 공식"
+    }
+  },
+  {
+    "id": "m3-13",
+    "lesson": "3-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 13,
+    "question": "Two gears are meshed together. The smaller gear has 18 teeth and the larger gear has 30 teeth. One tooth on each gear is marked, and the two marked teeth are touching now. How many full rotations will the smaller gear make before the two marked teeth touch again for the first time?",
+    "questionKo": "두 톱니바퀴가 맞물려 있다. 작은 톱니바퀴는 톱니가 18개, 큰 톱니바퀴는 30개다. 각 톱니바퀴에 톱니 하나씩 표시를 했고, 지금 두 표시한 톱니가 맞닿아 있다. 두 표시한 톱니가 처음으로 다시 맞닿을 때까지 작은 톱니바퀴는 몇 바퀴 도는가?",
+    "choices": [
+      "3",
+      "5",
+      "6",
+      "9",
+      "15"
+    ],
+    "answer": "B",
+    "hints": [
+      "두 표시가 다시 만나려면 지나간 톱니 수가 18의 배수이면서 30의 배수여야 한다.",
+      "lcm(18, 30) = 90",
+      "90 ÷ 18"
+    ],
+    "solution": "맞물려 돌면 두 톱니바퀴는 같은 수의 톱니를 지나간다. 표시가 다시 맞닿으려면 그 수가 18과 30의 공배수여야 하므로 처음은 $\\text{lcm}(18, 30) = 90$. 작은 톱니바퀴는 $90 \\div 18 = 5$바퀴.\n\n**오답 짚기**: 3은 큰 톱니바퀴의 회전 수($90 \\div 30$). 15는 $18 \\times 30 = 540$을 공배수로 쓰고 $540 \\div 36$처럼 계산한 것. 6은 gcd(18, 30)을 답한 것. 최소공배수(lcm)와 최대공약수(gcd)를 구분하자.",
+    "verify": {
+      "answer": "lcm(18,30)//18",
+      "methods": [
+        "[k for k in range(1,100) if (18*k)%30==0][0]"
+      ]
+    }
+  },
+  {
+    "id": "m3-14",
+    "lesson": "2-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "probability"
+    ],
+    "number": 14,
+    "question": "A drawer contains 5 black socks and 3 white socks. Two socks are drawn at random without replacement. What is the probability that the two socks are different colors?",
+    "questionKo": "서랍에 검은 양말 5짝과 흰 양말 3짝이 있다. 양말 2짝을 무작위로 꺼낸다(다시 넣지 않음). 두 양말의 색이 서로 다를 확률은?",
+    "choices": [
+      "$\\frac{15}{56}$",
+      "$\\frac{15}{32}$",
+      "$\\frac{15}{28}$",
+      "$\\frac{4}{7}$",
+      "$\\frac{5}{8}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "검-흰 순서와 흰-검 순서가 둘 다 있다.",
+      "검-흰: 5/8 × 3/7 = 15/56",
+      "두 배 하면 30/56"
+    ],
+    "solution": "첫 번째가 검정이고 두 번째가 흰색일 확률은 $\\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56}$. 흰색 다음 검정도 $\\frac{3}{8} \\times \\frac{5}{7} = \\frac{15}{56}$. 합은 $\\frac{30}{56} = \\frac{15}{28}$.\n\n**검산**: 조합으로 $\\frac{5 \\times 3}{\\binom{8}{2}} = \\frac{15}{28}$. 일치.\n\n**오답 짚기**: $\\frac{15}{56}$은 순서 하나만 센 것. $\\frac{15}{32}$는 다시 넣고 뽑는 것(복원)으로 계산한 $2 \\times \\frac{5}{8} \\times \\frac{3}{8}$. 비복원인지 꼭 확인하자.",
+    "fast": "조합 한 방: 서로 다른 색 한 쌍은 5 × 3 = 15가지, 전체 쌍은 C(8,2) = 28가지.",
+    "verify": {
+      "answer": "F(2*5*3,8*7)",
+      "choices": [
+        "F(15,56)",
+        "F(15,32)",
+        "F(15,28)",
+        "F(4,7)",
+        "F(5,8)"
+      ],
+      "methods": [
+        "F(5*3,comb(8,2))"
+      ]
+    }
+  },
+  {
+    "id": "m3-15",
+    "lesson": "8-6",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "statistics"
+    ],
+    "number": 15,
+    "figure": "<svg viewBox=\"0 0 300 210\" width=\"300\" height=\"210\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"170\"/><line x1=\"50\" y1=\"170\" x2=\"280\" y2=\"170\"/></g><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.35\"><line x1=\"50\" y1=\"130\" x2=\"280\" y2=\"130\"/><line x1=\"50\" y1=\"90\" x2=\"280\" y2=\"90\"/><line x1=\"50\" y1=\"50\" x2=\"280\" y2=\"50\"/></g><g fill=\"#4F6BF0\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"1\"><rect x=\"62\" y=\"110\" width=\"30\" height=\"60\"/><rect x=\"107\" y=\"70\" width=\"30\" height=\"100\"/><rect x=\"152\" y=\"30\" width=\"30\" height=\"140\"/><rect x=\"197\" y=\"90\" width=\"30\" height=\"80\"/><rect x=\"242\" y=\"150\" width=\"30\" height=\"20\"/></g><g fill=\"currentColor\" font-size=\"11\" text-anchor=\"middle\"><text x=\"77\" y=\"185\">0</text><text x=\"122\" y=\"185\">1</text><text x=\"167\" y=\"185\">2</text><text x=\"212\" y=\"185\">3</text><text x=\"257\" y=\"185\">4</text><text x=\"165\" y=\"203\">읽은 책 수</text></g><g fill=\"currentColor\" font-size=\"11\" text-anchor=\"end\"><text x=\"44\" y=\"174\">0</text><text x=\"44\" y=\"134\">2</text><text x=\"44\" y=\"94\">4</text><text x=\"44\" y=\"54\">6</text></g><text x=\"14\" y=\"14\" fill=\"currentColor\" font-size=\"11\">학생 수</text></svg>",
+    "question": "The bar graph shows how many books each of the 20 students in a class read last month. What is the median number of books read minus the mean number of books read?",
+    "questionKo": "막대그래프는 한 반 학생 20명이 지난달에 읽은 책의 수를 나타낸다. 읽은 책 수의 중앙값(median)에서 평균(mean)을 뺀 값은?",
+    "choices": [
+      "0",
+      "0.25",
+      "0.5",
+      "0.75",
+      "1.25"
+    ],
+    "answer": "B",
+    "hints": [
+      "눈금 한 칸이 2명이다. 막대 높이: 3, 5, 7, 4, 1명.",
+      "20명 중 10번째와 11번째는 둘 다 2권 → 중앙값 2.",
+      "총 권수 0 + 5 + 14 + 12 + 4 = 35, 평균 1.75"
+    ],
+    "solution": "세로 눈금 한 칸은 2명이므로 0권 3명, 1권 5명, 2권 7명, 3권 4명, 4권 1명. 20명을 크기순으로 놓으면 10번째와 11번째는 둘 다 2권이므로 중앙값은 2. 총 권수는 $0 \\cdot 3 + 1 \\cdot 5 + 2 \\cdot 7 + 3 \\cdot 4 + 4 \\cdot 1 = 35$, 평균은 $35 \\div 20 = 1.75$. 따라서 $2 - 1.75 = 0.25$.\n\n**오답 짚기**: 0은 평균과 중앙값이 같다고 넘겨짚은 것. 0.5는 평균을 1.5로 잘못 계산한 것. 0.75는 중앙값을 2.5로 잡은 것(짝수 개일 때 10번째와 11번째를 평균 내야 하는데 11번째와 12번째를 쓴 실수). 1.25는 중앙값 자리에 3을 쓴 것. 눈금 한 칸이 2명이라는 것을 먼저 확인하자.",
+    "verify": {
+      "answer": "exec('''\ncnt={0:3,1:5,2:7,3:4,4:1}\ndata=sorted(k for k,v in cnt.items() for _ in range(v))\nmed=F(data[9]+data[10],2)\nmean=F(sum(data),len(data))\n''')\nresult=med-mean",
+      "choices": [
+        "0",
+        "F(1,4)",
+        "F(1,2)",
+        "F(3,4)",
+        "F(5,4)"
+      ]
+    }
+  },
+  {
+    "id": "m3-16",
+    "lesson": "7-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "number": 16,
+    "figure": "<svg viewBox=\"0 0 200 200\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M185,100 A85,85 0 1,0 15,100 A85,85 0 1,0 185,100 Z M100,15 L185,100 L100,185 L15,100 Z\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" fill-rule=\"evenodd\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><circle cx=\"100\" cy=\"100\" r=\"85\"/><polygon points=\"100,15 185,100 100,185 15,100\"/></g><g stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 3\"><line x1=\"100\" y1=\"100\" x2=\"160.1\" y2=\"39.9\"/></g><circle cx=\"100\" cy=\"100\" r=\"2.5\" fill=\"currentColor\"/><text x=\"140\" y=\"82\" font-size=\"12\" fill=\"currentColor\">4</text></svg>",
+    "question": "A square is inscribed in a circle of radius 4. What is the area of the region inside the circle but outside the square?",
+    "questionKo": "반지름이 4인 원에 정사각형이 내접(inscribed)해 있다. 원의 안쪽이면서 정사각형의 바깥쪽인 부분의 넓이는?",
+    "choices": [
+      "$4\\pi - 8$",
+      "$8\\pi - 16$",
+      "$16\\pi - 16$",
+      "$16\\pi - 32$",
+      "$16\\pi - 64$"
+    ],
+    "answer": "D",
+    "hints": [
+      "정사각형의 대각선은 원의 지름 8이다.",
+      "대각선이 8인 정사각형의 넓이는 ½ × 8 × 8 = 32.",
+      "16π − 32"
+    ],
+    "solution": "원의 넓이는 $\\pi \\cdot 4^2 = 16\\pi$. 내접 정사각형의 대각선은 지름 8이므로 넓이는 $\\frac{1}{2} \\cdot 8 \\cdot 8 = 32$ (마름모 공식) 또는 한 변 $4\\sqrt{2}$의 제곱. 구하는 넓이는 $16\\pi - 32$.\n\n**오답 짚기**: $16\\pi - 64$는 정사각형 한 변을 8(지름)로 본 것. $16\\pi - 16$은 한 변을 4(반지름)로 본 것. $8\\pi - 16$은 반지름 대신 지름을 원 넓이에 넣는 식으로 절반을 잘못 잡은 값.",
+    "fast": "내접 정사각형 넓이는 $2r^2$. 원 $\\pi r^2$에서 빼면 $(\\pi - 2)r^2 = 16\\pi - 32$.",
+    "verify": {
+      "answer": "16*pi-F(1,2)*8*8",
+      "choices": [
+        "4*pi-8",
+        "8*pi-16",
+        "16*pi-16",
+        "16*pi-32",
+        "16*pi-64"
+      ],
+      "methods": [
+        "exec('''\nimport math\nN=200000\nnum=0.0\nfor i in range(N):\n    x=-4+8*(i+0.5)/N\n    num+=(2*math.sqrt(16-x*x)-2*max(0.0,4-abs(x)))*(8/N)\n''')\nresult=16*pi-32 if abs(num-(16*pi-32))<1e-3 else num"
+      ],
+      "note": "방법 1: 원 − 마름모 공식. 방법 2: 세로 조각으로 수치적분(원의 세로 길이 − 정사각형 |x|+|y|≤4의 세로 길이)하여 0.001 이내면 통과"
+    }
+  },
+  {
+    "id": "m3-17",
+    "lesson": "2-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "number": 17,
+    "question": "In how many ways can 8 identical candies be given to 3 children so that each child gets at least 1 candy and no child gets more than 4 candies?",
+    "questionKo": "똑같은 사탕 8개를 세 아이에게 나누어 주려고 한다. 각 아이가 적어도 1개를 받고, 어떤 아이도 4개보다 많이 받지 않는 방법은 몇 가지인가?",
+    "choices": [
+      "9",
+      "12",
+      "15",
+      "18",
+      "21"
+    ],
+    "answer": "B",
+    "hints": [
+      "먼저 '적어도 1개' 조건만으로 센다: 별 8개 사이 틈 7곳에 칸막이 2개.",
+      "C(7,2) = 21. 여기서 누군가 5개 이상 받는 경우를 뺀다.",
+      "한 아이가 5개 이상: 그 아이에게 5개를 미리 주고 남은 3개를 '그 아이 0개 이상, 나머지 둘 1개 이상'으로 나누면 3가지. 세 아이 → 9. 21 − 9"
+    ],
+    "solution": "각자 적어도 1개이므로 칸막이(stars and bars)로 $\\binom{7}{2} = 21$가지. 이 중 어떤 아이가 5개 이상 받는 경우를 뺀다. 첫째가 5개 이상이면 5개를 먼저 주고 남은 3개를 '첫째 0개 이상, 나머지 둘 1개 이상'으로 나눈다. 둘째와 셋째에게 1개씩 주면 남은 1개를 세 명 중 한 명에게 → 3가지. 두 아이가 동시에 5개 이상 받을 수는 없으므로(10 > 8) 빼는 수는 $3 \\times 3 = 9$. 답은 $21 - 9 = 12$.\n\n**검산**: 각자 1~4개이고 합이 8인 순서쌍을 나열하면 (4,3,1)의 배열 6가지, (4,2,2)의 배열 3가지, (3,3,2)의 배열 3가지로 12. 일치.\n\n**오답 짚기**: 21은 '4개 이하' 조건을 빼먹은 것. 15는 넘치는 경우를 한 아이만 뺀 것($21 - 6$) 같은 계산 실수. 9는 빼야 할 수를 답한 것. 18은 $21 - 3$으로 세 아이 각각의 경우를 하나로만 센 것.",
+    "fast": "합이 8이고 각각 1~4인 세 수의 분할은 {4,3,1}, {4,2,2}, {3,3,2} 뿐. 배열 수 6 + 3 + 3 = 12.",
+    "verify": {
+      "answer": "sum(1 for a in range(1,5) for b in range(1,5) for c in range(1,5) if a+b+c==8)",
+      "methods": [
+        "comb(7,2)-3*comb(3,2)"
+      ]
+    }
+  },
+  {
+    "id": "m3-18",
+    "lesson": "4-2",
+    "band": "16-20",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 18,
+    "question": "What is the units digit of $2^{2026} + 3^{2026} + 4^{2026}$?",
+    "questionKo": "$2^{2026} + 3^{2026} + 4^{2026}$의 일의 자리 숫자는?",
+    "choices": [
+      "1",
+      "3",
+      "5",
+      "7",
+      "9"
+    ],
+    "answer": "E",
+    "hints": [
+      "일의 자리는 주기로 돈다: 2 → 2, 4, 8, 6 / 3 → 3, 9, 7, 1 / 4 → 4, 6.",
+      "2026 ÷ 4의 나머지는 2 → 2와 3은 각각 두 번째인 4와 9.",
+      "4의 짝수 제곱은 6. 4 + 9 + 6 = 19"
+    ],
+    "solution": "2의 거듭제곱 일의 자리는 2, 4, 8, 6이 반복되고 3은 3, 9, 7, 1, 4는 4, 6이 반복된다. $2026 = 4 \\times 506 + 2$이므로 $2^{2026}$은 두 번째인 4, $3^{2026}$은 두 번째인 9. 4의 주기는 2이고 2026은 짝수이므로 $4^{2026}$은 6. 합의 일의 자리는 $4 + 9 + 6 = 19$에서 9.\n\n**오답 짚기**: 1은 2026을 4로 나눈 나머지 2를 보고도 각각 '첫 번째'로 세거나 4의 일의 자리를 4로 둔 혼동. 7은 2의 일의 자리를 8(세 번째)로 밀어 센 것. 3은 $3^{2026}$을 7로 본 것. 나머지가 0일 때만 네 번째라는 점에 주의.",
+    "fast": "각 밑을 2026제곱한 일의 자리만 더하면 된다. 2026 mod 4 = 2이므로 $2^2 = 4$, $3^2 = 9$, $4^2 = 16 \\to 6$. 합 19 → 9.",
+    "verify": {
+      "answer": "(2**2026+3**2026+4**2026)%10",
+      "methods": [
+        "(pow(2,2026,10)+pow(3,2026,10)+pow(4,2026,10))%10"
+      ]
+    }
+  },
+  {
+    "id": "m3-19",
+    "lesson": "8-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "algebra"
+    ],
+    "number": 19,
+    "question": "A store raised the price of a jacket by 20%. Later it offered a 25% discount off the new price, and the jacket then sold for $\\$72$. What was the original price of the jacket?",
+    "questionKo": "어느 가게가 재킷 가격을 20% 올렸다. 그 뒤 올린 가격에서 25%를 할인했더니 재킷은 $\\$72$에 팔렸다. 재킷의 원래 가격은 얼마인가?",
+    "choices": [
+      "$\\$68$",
+      "$\\$75$",
+      "$\\$80$",
+      "$\\$84$",
+      "$\\$90$"
+    ],
+    "answer": "C",
+    "hints": [
+      "원래 가격을 x로 놓으면 올린 뒤 1.2x, 할인 뒤 0.75 × 1.2x.",
+      "0.75 × 1.2 = 0.9",
+      "0.9x = 72"
+    ],
+    "solution": "원래 가격을 $x$라 하면 20% 인상 뒤 $1.2x$, 25% 할인 뒤 $0.75 \\times 1.2x = 0.9x$. $0.9x = 72$이므로 $x = 80$.\n\n**검산**: 80 → 96 → 72. 맞다.\n\n**오답 짚기**: 75는 '+20% − 25% = −5%'로 보고 $72 \\div 0.96$을 어림한 값. 90은 할인만 되돌린 $72 \\div 0.8$. 68은 72에서 4를 뺀 어림. 연속 퍼센트 변화는 더하지 말고 곱한다.",
+    "fast": "20% 인상 뒤 25% 할인은 $\\frac{6}{5} \\times \\frac{3}{4} = \\frac{9}{10}$. 72가 원래 가격의 $\\frac{9}{10}$이므로 80.",
+    "verify": {
+      "answer": "F(72)/(F(12,10)*F(75,100))",
+      "choices": [
+        "68",
+        "75",
+        "80",
+        "84",
+        "90"
+      ]
+    }
+  },
+  {
+    "id": "m3-20",
+    "lesson": "6-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "number": 20,
+    "figure": "<svg viewBox=\"0 0 260 200\" width=\"260\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\"><polygon points=\"30,180 240,180 110,20\" fill=\"#4F6BF0\" fill-opacity=\"0.3\"/><polygon points=\"62,116 162,116 110,20\" fill=\"#E08A1E\" fill-opacity=\"0.4\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"104\" y=\"14\">A</text><text x=\"14\" y=\"190\">B</text><text x=\"246\" y=\"190\">C</text><text x=\"44\" y=\"120\">D</text><text x=\"168\" y=\"120\">E</text><text x=\"58\" y=\"68\">4</text><text x=\"30\" y=\"150\">6</text><text x=\"104\" y=\"88\">8</text></g></svg>",
+    "question": "In triangle $ABC$, points $D$ and $E$ lie on $\\overline{AB}$ and $\\overline{AC}$ respectively, with $\\overline{DE}$ parallel to $\\overline{BC}$. If $AD = 4$, $DB = 6$, and the area of triangle $ADE$ is 8, what is the area of trapezoid $DBCE$?",
+    "questionKo": "삼각형 $ABC$에서 점 $D$와 $E$는 각각 $\\overline{AB}$와 $\\overline{AC}$ 위에 있고 $\\overline{DE}$는 $\\overline{BC}$와 평행하다. $AD = 4$, $DB = 6$이고 삼각형 $ADE$의 넓이가 8일 때, 사다리꼴 $DBCE$의 넓이는?",
+    "choices": [
+      "12",
+      "20",
+      "42",
+      "50",
+      "72"
+    ],
+    "answer": "C",
+    "hints": [
+      "DE ∥ BC이므로 삼각형 ADE와 ABC는 닮음.",
+      "닮음비는 AD : AB = 4 : 10. 넓이비는 그 제곱 16 : 100.",
+      "ABC = 8 × 100/16 = 50. 사다리꼴은 50 − 8"
+    ],
+    "solution": "$DE \\parallel BC$이므로 삼각형 $ADE$와 $ABC$는 닮음(similar)이고 닮음비는 $AD : AB = 4 : 10 = 2 : 5$. 넓이비는 제곱인 $4 : 25$이므로 삼각형 $ABC$의 넓이는 $8 \\times \\frac{25}{4} = 50$. 사다리꼴 $DBCE$는 $50 - 8 = 42$.\n\n**검산**: 좌표로 $A(0,0)$, $B(10,0)$, $C(0,10)$이라 하면 $ABC = 50$, $D(4,0)$, $E(0,4)$로 $ADE = 8$. 일치.\n\n**오답 짚기**: 12는 넓이비를 길이비 그대로 $4 : 10$으로 써서 $ABC = 20$으로 둔 뒤 뺀 값. 20은 그 잘못된 $ABC$ 자체. 50은 전체 삼각형. 72는 닮음비를 $4 : 6$으로 잘못 잡아 $8 \\times \\frac{9}{4} \\cdot 4$처럼 꼬인 값. 닮음비는 $AD : DB$가 아니라 $AD : AB$.",
+    "verify": {
+      "answer": "8*F(10,4)**2-8",
+      "methods": [
+        "exec('''\ndef area(p,q,r):\n    return F(abs(p[0]*(q[1]-r[1])+q[0]*(r[1]-p[1])+r[0]*(p[1]-q[1])),2)\nA=(0,0); B=(10,0); C=(0,10); D=(4,0); E=(0,4)\nassert area(A,D,E)==8\n''')\nresult=area(A,B,C)-area(A,D,E)"
+      ],
+      "note": "방법 1: 닮음비 제곱. 방법 2: 조건을 만족하는 좌표를 잡고 넓이 빼기"
+    }
+  },
+  {
+    "id": "m3-21",
+    "lesson": "1-5",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "counting"
+    ],
+    "number": 21,
+    "figure": "<svg viewBox=\"0 0 320 152\" width=\"320\" height=\"152\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><rect x=\"10\" y=\"30\" width=\"180\" height=\"60\"/><line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"90\"/><line x1=\"70\" y1=\"30\" x2=\"70\" y2=\"90\"/><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"90\"/><line x1=\"130\" y1=\"30\" x2=\"130\" y2=\"90\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"90\"/><line x1=\"10\" y1=\"60\" x2=\"190\" y2=\"60\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"205\" y=\"30\" width=\"30\" height=\"60\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"245\" y=\"30\" width=\"60\" height=\"30\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><rect x=\"245\" y=\"70\" width=\"60\" height=\"60\" fill=\"#E08A1E\" fill-opacity=\"0.35\"/></g><g fill=\"currentColor\" font-size=\"11\" text-anchor=\"middle\"><text x=\"100\" y=\"112\">2 × 6 판</text><text x=\"240\" y=\"20\">1 × 2 도미노</text><text x=\"275\" y=\"146\" font-size=\"10\">2 × 2 타일</text></g></svg>",
+    "question": "A $2 \\times 6$ board is to be completely covered, without overlap, using any number of $1 \\times 2$ dominoes and $2 \\times 2$ square tiles. Dominoes may be placed horizontally or vertically. In how many ways can this be done?",
+    "questionKo": "$2 \\times 6$ 판을 $1 \\times 2$ 도미노와 $2 \\times 2$ 정사각형 타일을 원하는 개수만큼 써서 겹치지 않게 빈틈없이 덮으려고 한다. 도미노는 가로나 세로로 놓을 수 있다. 덮는 방법은 몇 가지인가?",
+    "choices": [
+      "13",
+      "21",
+      "34",
+      "43",
+      "64"
+    ],
+    "answer": "D",
+    "hints": [
+      "맨 왼쪽 열을 보자. 세로 도미노 하나이거나, 가로 도미노 두 개이거나, 2×2 타일이다.",
+      "f(n) = f(n−1) + 2f(n−2), f(0) = 1, f(1) = 1",
+      "1, 1, 3, 5, 11, 21, 43"
+    ],
+    "solution": "$2 \\times n$ 판을 덮는 방법 수를 $f(n)$이라 하자. 맨 왼쪽 열이 세로 도미노 하나로 덮이면 나머지는 $2 \\times (n-1)$, 가로 도미노 두 개 또는 $2 \\times 2$ 타일 하나로 덮이면 나머지는 $2 \\times (n-2)$. 따라서 $f(n) = f(n-1) + 2f(n-2)$. $f(0) = 1$, $f(1) = 1$에서 $f(2) = 3$, $f(3) = 5$, $f(4) = 11$, $f(5) = 21$, $f(6) = 43$.\n\n**검산**: $f(2) = 3$은 세로 둘, 가로 둘, 정사각형 하나로 직접 확인된다.\n\n**오답 짚기**: 13은 $2 \\times 2$ 타일을 빼고 도미노만 쓴 피보나치 값. 21은 $f(5)$(한 칸 밀림). 64는 $2^6$으로 넘겨짚은 것. 34는 피보나치 다음 항을 고른 것.",
+    "fast": "가로 도미노 두 개 묶음과 2×2 타일이 둘 다 '폭 2'이므로 폭 2짜리 선택이 2가지라는 것만 알아채면 점화식 $f(n) = f(n-1) + 2f(n-2)$가 바로 나온다.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(n):\n    if n<0: return 0\n    if n==0: return 1\n    return f(n-1)+2*f(n-2)\n''')\nresult=f(6)",
+      "methods": [
+        "exec('''\ncols=6\nfilled=set()\ndef rec():\n    for c in range(cols):\n        for r in range(2):\n            if (r,c) not in filled:\n                cnt=0\n                if r==0 and (1,c) not in filled:\n                    s={(0,c),(1,c)}; filled.update(s); cnt+=rec(); filled.difference_update(s)\n                if c+1<cols and (r,c+1) not in filled:\n                    s={(r,c),(r,c+1)}; filled.update(s); cnt+=rec(); filled.difference_update(s)\n                if r==0 and c+1<cols and all(x not in filled for x in [(0,c),(1,c),(0,c+1),(1,c+1)]):\n                    s={(0,c),(1,c),(0,c+1),(1,c+1)}; filled.update(s); cnt+=rec(); filled.difference_update(s)\n                return cnt\n    return 1\n''')\nresult=rec()"
+      ],
+      "note": "방법 1: 점화식. 방법 2: 칸을 하나씩 채우는 완전 탐색"
+    }
+  },
+  {
+    "id": "m3-22",
+    "lesson": "3-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory"
+    ],
+    "number": 22,
+    "question": "How many zeros are at the end of the product $2 \\times 4 \\times 6 \\times \\cdots \\times 60$ of the first 30 positive even integers?",
+    "questionKo": "처음 30개의 양의 짝수의 곱 $2 \\times 4 \\times 6 \\times \\cdots \\times 60$의 끝에는 0이 몇 개 연달아 붙어 있는가?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "12",
+      "14"
+    ],
+    "answer": "B",
+    "hints": [
+      "각 짝수에서 2를 하나씩 빼내면 2³⁰ × (1 × 2 × ⋯ × 30) = 2³⁰ × 30!.",
+      "끝자리 0의 개수는 소인수 2와 5 중 적은 쪽. 2는 넘치니 5의 개수만 세면 된다.",
+      "30!의 5의 지수: ⌊30/5⌋ + ⌊30/25⌋ = 6 + 1"
+    ],
+    "solution": "$2 \\times 4 \\times \\cdots \\times 60 = 2^{30} \\times 30!$. 끝자리 0 하나는 $2 \\times 5$ 한 쌍에서 나오고 2는 충분히 많으므로 5의 지수만 세면 된다. $30!$에 들어 있는 5의 개수는 르장드르 공식(Legendre's formula)으로 $\\lfloor 30/5 \\rfloor + \\lfloor 30/25 \\rfloor = 6 + 1 = 7$. 앞의 $2^{30}$에는 5가 없다. 따라서 0은 7개.\n\n**오답 짚기**: 6은 25의 배수(25에 5가 두 번)를 빠뜨린 것. 12는 2~60 안의 5의 배수 12개를 그대로 센 것인데, 홀수인 5, 15, 25, …는 곱에 들어 있지 않다. 14는 $60!$의 끝자리 0 개수($12 + 2$). 8은 5의 배수를 한 번 더 센 실수.",
+    "fast": "짝수만 곱한 것은 $2^{30} \\cdot 30!$이므로 $30!$의 끝자리 0 개수와 같다: $6 + 1 = 7$.",
+    "verify": {
+      "answer": "exec('''\np=1\nfor k in range(2,61,2): p*=k\ns=str(p)\n''')\nresult=len(s)-len(s.rstrip('0'))",
+      "methods": [
+        "30//5+30//25"
+      ]
+    }
+  },
+  {
+    "id": "m3-23",
+    "lesson": "6-4",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "number": 23,
+    "figure": "<svg viewBox=\"0 0 220 220\" width=\"220\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><rect x=\"20\" y=\"20\" width=\"180\" height=\"180\"/><circle cx=\"110\" cy=\"110\" r=\"90\"/></g><circle cx=\"35.44\" cy=\"35.44\" r=\"15.44\" stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"#E08A1E\" fill-opacity=\"0.4\"/><g stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 3\"><line x1=\"20\" y1=\"20\" x2=\"110\" y2=\"110\"/></g><g fill=\"currentColor\"><circle cx=\"110\" cy=\"110\" r=\"2.5\"/><circle cx=\"35.44\" cy=\"35.44\" r=\"2\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"100\" y=\"214\">8</text><text x=\"118\" y=\"106\">O</text><text x=\"140\" y=\"160\">4</text></g><line x1=\"110\" y1=\"110\" x2=\"173.6\" y2=\"173.6\" stroke=\"currentColor\" stroke-width=\"1\"/></svg>",
+    "question": "A circle is inscribed in a square of side length 8. A smaller circle is tangent to two adjacent sides of the square and to the large circle, as shown. What is the radius of the smaller circle?",
+    "questionKo": "한 변의 길이가 8인 정사각형에 원이 내접해 있다. 그림처럼 작은 원이 정사각형의 이웃한 두 변과 큰 원에 동시에 접한다. 작은 원의 반지름은?",
+    "choices": [
+      "$3 - 2\\sqrt{2}$",
+      "$\\sqrt{2} - 1$",
+      "$2 - \\sqrt{2}$",
+      "$12 - 8\\sqrt{2}$",
+      "$4 - 2\\sqrt{2}$"
+    ],
+    "answer": "D",
+    "hints": [
+      "정사각형의 꼭짓점에서 중심 O까지 대각선을 긋는다. 길이는 4√2.",
+      "작은 원의 반지름을 r라 하면 그 중심은 꼭짓점에서 r√2 떨어져 있고, 두 원이 접하므로 중심 사이 거리는 4 + r.",
+      "r√2 + r + 4 = 4√2"
+    ],
+    "solution": "큰 원의 반지름은 4, 중심 $O$는 정사각형의 중심이다. 보조선으로 꼭짓점 $P$에서 $O$까지 대각선을 그으면 $PO = 4\\sqrt{2}$이고, 작은 원의 중심 $Q$는 두 변에서 같은 거리 $r$에 있으므로 이 대각선 위에 있고 $PQ = r\\sqrt{2}$. 두 원이 외접하므로 $QO = 4 + r$. 따라서 $r\\sqrt{2} + r + 4 = 4\\sqrt{2}$, $r(\\sqrt{2} + 1) = 4(\\sqrt{2} - 1)$, $r = \\frac{4(\\sqrt{2} - 1)}{\\sqrt{2} + 1} = 4(\\sqrt{2} - 1)^2 = 4(3 - 2\\sqrt{2}) = 12 - 8\\sqrt{2} \\approx 0.69$.\n\n**검산**: 그림에서 작은 원은 구석 틈($4\\sqrt{2} - 4 \\approx 1.66$)의 절반보다 조금 작아 보인다. 0.69는 그럴듯하다.\n\n**오답 짚기**: $4 - 2\\sqrt{2} \\approx 1.17$은 구석 틈 $4\\sqrt{2} - 4$를 $\\sqrt{2} + 1$ 대신 $\\sqrt{2}$로만 나눈 것. $\\sqrt{2} - 1$과 $2 - \\sqrt{2}$는 그 틈을 각각 $4$와 $2\\sqrt{2}$로 나눈 값으로, 접점 조건(중심 거리 $= 4 + r$)을 세우지 않고 어림한 것. $3 - 2\\sqrt{2}$는 유리화 뒤 4를 곱하지 않은 것. 접하는 두 원은 중심을 이어라.",
+    "fast": "구석 틈의 길이 $4\\sqrt{2} - 4$가 작은 원의 지름이 아니라 $r\\sqrt{2} + r$이라는 점만 보면 $r = \\frac{4(\\sqrt{2}-1)}{\\sqrt{2}+1}$ 한 줄.",
+    "verify": {
+      "answer": "12-8*sqrt(2)",
+      "choices": [
+        "3-2*sqrt(2)",
+        "sqrt(2)-1",
+        "2-sqrt(2)",
+        "12-8*sqrt(2)",
+        "4-2*sqrt(2)"
+      ],
+      "methods": [
+        "exec('''\nimport math\nlo,hi=0.0,4.0\nfor _ in range(200):\n    r=(lo+hi)/2\n    d=math.hypot(4-r,4-r)\n    if d>4+r: lo=r\n    else: hi=r\n''')\nresult=12-8*sqrt(2) if abs(r-(12-8*sqrt(2)))<1e-9 else r"
+      ],
+      "note": "방법 1: 대각선 보조선으로 식 세우기. 방법 2: 좌표에서 중심 (r,r)와 (4,4) 사이 거리가 4+r가 되는 r를 이분 탐색"
+    }
+  },
+  {
+    "id": "m3-24",
+    "lesson": "9-3",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "logic"
+    ],
+    "number": 24,
+    "question": "A box contains 30 balls numbered 1 through 30. What is the smallest number of balls that must be drawn, without looking, to guarantee that two of the drawn balls have numbers whose sum is a multiple of 10?",
+    "questionKo": "상자에 1부터 30까지 번호가 적힌 공 30개가 있다. 보지 않고 공을 꺼낼 때, 꺼낸 공 중에 번호의 합이 10의 배수인 두 공이 반드시 있으려면 적어도 몇 개를 꺼내야 하는가?",
+    "choices": [
+      "11",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": "D",
+    "hints": [
+      "10으로 나눈 나머지로 분류한다. 합이 10의 배수가 되는 나머지 쌍은 (1,9), (2,8), (3,7), (4,6), 그리고 0끼리, 5끼리.",
+      "최악의 경우: 각 쌍에서 한쪽 나머지만 전부(3개씩) 고르고, 0과 5는 하나씩만.",
+      "3 × 4 + 1 + 1 = 14개까지는 피할 수 있다. 그다음 한 개"
+    ],
+    "solution": "번호를 10으로 나눈 나머지로 나누면 각 나머지 0~9가 정확히 3개씩이다. 두 수의 합이 10의 배수가 되는 경우는 나머지가 (1, 9), (2, 8), (3, 7), (4, 6)으로 짝이거나, 둘 다 0이거나, 둘 다 5일 때다. 이를 피하려면 네 쌍에서 한쪽 나머지만 골라 3개씩 12개, 나머지 0에서 1개, 나머지 5에서 1개까지 뽑을 수 있다. 즉 14개까지는 합이 10의 배수인 두 공이 없을 수 있다. 15번째 공은 반드시 어느 '집'을 완성하므로 비둘기집 원리(pigeonhole principle)로 답은 15.\n\n**오답 짚기**: 14는 최악의 경우 개수에 1을 더하지 않은 것. 11은 비둘기집을 나머지 쌍 6개로 보고 '7개면 된다'처럼 각 나머지가 3개씩이라는 점을 빠뜨린 계산 근처 값. 16은 0과 5를 각각 2개씩 뽑아도 된다고 착각한 것이지만 0 둘의 합, 5 둘의 합은 모두 10의 배수다. 13은 한 쌍을 덜 센 것.",
+    "verify": {
+      "answer": "exec('''\nfrom collections import Counter\ncnt=Counter(n%10 for n in range(1,31))\nworst=sum(max(cnt[a],cnt[10-a]) for a in (1,2,3,4))+min(1,cnt[0])+min(1,cnt[5])\n''')\nresult=worst+1",
+      "methods": [
+        "exec('''\nimport itertools\n# 작은 모델로 확인: 번호 1~10 각 나머지 1개씩이면 최악 6개 → 답 7. 30개에선 나머지마다 3개\nbest=0\nnums=list(range(1,31))\n# 나머지별 선택 개수(0~3)를 모두 시도해 합이 10의 배수인 쌍이 없는 최대 크기를 찾는다\nfor pick in itertools.product(range(4),repeat=10):\n    ok=True\n    if pick[0]>=2 or pick[5]>=2: ok=False\n    for a in (1,2,3,4):\n        if pick[a]>0 and pick[10-a]>0: ok=False\n    if ok: best=max(best,sum(pick))\n''')\nresult=best+1"
+      ],
+      "note": "방법 1: 최악의 경우 직접 구성. 방법 2: 나머지별 선택 개수를 전부 탐색해 피할 수 있는 최대 개수 확인"
+    }
+  },
+  {
+    "id": "m3-25",
+    "lesson": "1-3",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "counting"
+    ],
+    "number": 25,
+    "question": "Three married couples are to be seated in a row of 6 chairs. In how many ways can they be seated so that no person sits next to his or her spouse?",
+    "questionKo": "세 쌍의 부부가 의자 6개가 한 줄로 놓인 자리에 앉으려고 한다. 누구도 자기 배우자 옆에 앉지 않도록 앉는 방법은 몇 가지인가?",
+    "choices": [
+      "120",
+      "144",
+      "240",
+      "288",
+      "480"
+    ],
+    "answer": "C",
+    "hints": [
+      "전체 6!에서 '적어도 한 쌍이 이웃'인 경우를 포함배제로 뺀다.",
+      "한 쌍을 묶으면 5! × 2, 두 쌍을 묶으면 4! × 2², 세 쌍 모두 묶으면 3! × 2³.",
+      "720 − 3·240 + 3·96 − 48"
+    ],
+    "solution": "전체 배열은 $6! = 720$. 특정 한 쌍이 이웃하는 배열은 그 둘을 한 덩어리로 묶어 $5! \\times 2 = 240$. 특정 두 쌍이 모두 이웃하면 $4! \\times 2^2 = 96$, 세 쌍 모두 이웃하면 $3! \\times 2^3 = 48$. 포함배제(inclusion-exclusion)로 적어도 한 쌍이 이웃하는 배열은 $3 \\cdot 240 - 3 \\cdot 96 + 48 = 480$. 따라서 아무도 배우자 옆에 앉지 않는 배열은 $720 - 480 = 240$.\n\n**오답 짚기**: 480은 빼야 할 수를 답한 것. 288은 두 쌍 항을 안 더한 $720 - 720 + 288$. 144는 묶음 안의 자리 바꿈 $\\times 2$를 빠뜨리는 식으로 계산한 값. 120은 $720 - 3 \\cdot 240 + 3 \\cdot 48$처럼 세 쌍 항의 부호나 값을 잘못 넣은 것.",
+    "verify": {
+      "answer": "exec('''\nfrom itertools import permutations\ncouples=[(0,1),(2,3),(4,5)]\n''')\nresult=sum(1 for p in permutations(range(6)) if all(abs(p.index(a)-p.index(b))!=1 for a,b in couples))",
+      "methods": [
+        "factorial(6)-3*factorial(5)*2+3*factorial(4)*4-factorial(3)*8"
+      ]
+    }
+  }
+]

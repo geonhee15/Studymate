@@ -1,0 +1,857 @@
+[
+  {
+    "id": "m1-1",
+    "number": 1,
+    "lesson": "8-2",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "algebra"
+    ],
+    "question": "A bag of 8 apples costs $\\$6$. At the same price per apple, how much do 12 apples cost?",
+    "questionKo": "사과 8개가 든 봉지가 6달러이다. 사과 한 개의 가격이 같을 때, 사과 12개의 가격은 얼마인가?",
+    "choices": [
+      "$\\$8$",
+      "$\\$9$",
+      "$\\$10$",
+      "$\\$12$",
+      "$\\$18$"
+    ],
+    "answer": "B",
+    "hints": [
+      "사과 한 개의 가격부터 구한다.",
+      "6 ÷ 8 = 0.75달러.",
+      "0.75 × 12"
+    ],
+    "solution": "사과 한 개는 $6 \\div 8 = 0.75$달러. 12개는 $0.75 \\times 12 = 9$달러.\n\n비례(proportion)로 보면 $8 : 6 = 12 : x$에서 $x = 9$.\n\n**오답 짚기**: 10은 '4개 늘었으니 4달러 더'로 개수와 가격을 1:1로 본 것. 18은 가격을 그대로 3배 한 것(12개는 8개의 1.5배이지 3배가 아니다).",
+    "fast": "12개는 8개의 $\\frac{3}{2}$배 → $6 \\times \\frac{3}{2} = 9$.",
+    "verify": {
+      "answer": "F(6,8)*12",
+      "choices": [
+        "8",
+        "9",
+        "10",
+        "12",
+        "18"
+      ]
+    }
+  },
+  {
+    "id": "m1-2",
+    "number": 2,
+    "lesson": "1-1",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "counting"
+    ],
+    "question": "An ice cream shop offers 5 flavors and 2 kinds of cone. A customer picks one flavor and one cone, and then decides whether or not to add sprinkles. How many different orders are possible?",
+    "questionKo": "어느 아이스크림 가게에는 맛 5가지와 콘 2종류가 있다. 손님은 맛 하나와 콘 하나를 고른 뒤, 스프링클을 뿌릴지 말지 정한다. 가능한 주문은 모두 몇 가지인가?",
+    "choices": [
+      "9",
+      "10",
+      "12",
+      "20",
+      "40"
+    ],
+    "answer": "D",
+    "hints": [
+      "맛, 콘, 스프링클 여부의 세 단계가 연달아 있다.",
+      "스프링클은 '뿌린다 / 안 뿌린다'의 2가지 선택이다.",
+      "5 × 2 × 2"
+    ],
+    "solution": "세 단계가 이어지므로 곱의 법칙(multiplication principle). 맛 5가지, 콘 2가지, 스프링클 여부 2가지 → $5 \\times 2 \\times 2 = 20$.\n\n**오답 짚기**: 10은 스프링클 선택을 빠뜨린 것. '뿌리지 않는다'도 하나의 선택이다. 9는 세 수를 더한 것(합의 법칙을 잘못 씀). 40은 스프링클을 4가지로 본 것.",
+    "verify": {
+      "answer": "5*2*2"
+    }
+  },
+  {
+    "id": "m1-3",
+    "number": 3,
+    "lesson": "8-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "statistics"
+    ],
+    "question": "The mean weight of five boxes is 12 kg. Four of the boxes weigh 8 kg, 11 kg, 15 kg, and 17 kg. What is the weight of the fifth box, in kilograms?",
+    "questionKo": "상자 다섯 개의 평균 무게는 12 kg이다. 그중 네 개의 무게가 8 kg, 11 kg, 15 kg, 17 kg일 때, 다섯째 상자의 무게는 몇 kg인가?",
+    "choices": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "answer": "C",
+    "hints": [
+      "평균이 주어지면 합부터 구한다.",
+      "다섯 상자의 합 = 12 × 5 = 60.",
+      "60 − (8 + 11 + 15 + 17)"
+    ],
+    "solution": "평균(mean) 12, 개수 5이므로 합은 $12 \\times 5 = 60$. 네 상자의 합은 $8 + 11 + 15 + 17 = 51$. 다섯째 상자는 $60 - 51 = 9$ kg.\n\n**오답 짚기**: 12는 '평균이니까 나머지 하나도 12'라고 짐작한 것. 네 상자의 평균이 12.75라 다섯째는 12보다 가벼워야 한다. 7은 덧셈 실수(합을 53으로 계산).",
+    "fast": "12를 기준으로 차이만 더한다: −4, −1, +3, +5 → 합 +3. 다섯째는 12 − 3 = 9.",
+    "verify": {
+      "answer": "12*5-(8+11+15+17)"
+    }
+  },
+  {
+    "id": "m1-4",
+    "number": 4,
+    "lesson": "4-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "In a certain year, January 1 falls on a Tuesday. On what day of the week does February 1 of the same year fall?",
+    "questionKo": "어느 해 1월 1일이 화요일이다. 같은 해 2월 1일은 무슨 요일인가?",
+    "choices": [
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "choicesKo": [
+      "수요일",
+      "목요일",
+      "금요일",
+      "토요일",
+      "일요일"
+    ],
+    "answer": "C",
+    "hints": [
+      "1월은 31일까지 있다. 1월 1일에서 2월 1일까지는 며칠 뒤인가?",
+      "31일 뒤. 요일은 7일마다 반복된다.",
+      "31 = 7 × 4 + 3 → 화요일에서 3일 뒤"
+    ],
+    "solution": "1월 1일에서 2월 1일까지는 31일 뒤이다. 요일은 7일 주기이므로 $31 = 7 \\times 4 + 3$, 즉 화요일에서 3일 뒤인 **금요일**이다. 나머지 연산(modular arithmetic)으로 쓰면 $31 \\equiv 3 \\pmod 7$.\n\n**오답 짚기**: 목요일은 30일 뒤로 계산한 것(1월을 30일로 착각). 토요일은 '1월 1일을 1일째로 세어' 32일로 센 것. 날짜 차이는 뺄셈 그대로 31이다.",
+    "verify": {
+      "answer": "['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][(1+31)%7]",
+      "choices": [
+        "'Wed'",
+        "'Thu'",
+        "'Fri'",
+        "'Sat'",
+        "'Sun'"
+      ]
+    }
+  },
+  {
+    "id": "m1-5",
+    "number": 5,
+    "lesson": "7-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A closed box has inside dimensions $6 \\times 8 \\times 10$ centimeters. How many solid cubes with edge 2 cm can be packed into the box with no space left over?",
+    "questionKo": "안쪽 치수가 $6 \\times 8 \\times 10$ cm인 상자가 있다. 한 모서리가 2 cm인 정육면체를 빈틈없이 채우면 모두 몇 개가 들어가는가?",
+    "figure": "<svg viewBox=\"0 0 240 150\" width=\"240\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><rect x=\"30\" y=\"50\" width=\"120\" height=\"72\"/><polygon points=\"30,50 70,22 190,22 150,50\"/><polygon points=\"150,50 190,22 190,94 150,122\"/><g stroke-opacity=\"0.35\"><line x1=\"70\" y1=\"22\" x2=\"70\" y2=\"94\"/><line x1=\"70\" y1=\"94\" x2=\"30\" y2=\"122\"/><line x1=\"70\" y1=\"94\" x2=\"190\" y2=\"94\"/></g></g><polygon points=\"30,98 54,98 54,122 30,122\" fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"30,98 38,92 62,92 54,98\" fill=\"#4F6BF0\" fill-opacity=\"0.5\" stroke=\"currentColor\" stroke-width=\"1\"/><polygon points=\"54,98 62,92 62,116 54,122\" fill=\"#4F6BF0\" fill-opacity=\"0.2\" stroke=\"currentColor\" stroke-width=\"1\"/><g fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\"><text x=\"90\" y=\"140\">10</text><text x=\"18\" y=\"90\">6</text><text x=\"178\" y=\"14\">8</text><text x=\"42\" y=\"113\" font-size=\"9\" fill=\"#4F6BF0\">2</text></g></svg>",
+    "choices": [
+      "30",
+      "60",
+      "120",
+      "240",
+      "480"
+    ],
+    "answer": "B",
+    "hints": [
+      "각 방향으로 2 cm 정육면체가 몇 개씩 들어가는지 센다.",
+      "6 ÷ 2 = 3, 8 ÷ 2 = 4, 10 ÷ 2 = 5.",
+      "3 × 4 × 5"
+    ],
+    "solution": "각 모서리 방향으로 $6 \\div 2 = 3$개, $8 \\div 2 = 4$개, $10 \\div 2 = 5$개가 들어간다. 모두 $3 \\times 4 \\times 5 = 60$개.\n\n**검산**: 부피(volume)로 보면 상자 $6 \\times 8 \\times 10 = 480$, 정육면체 하나 $2^3 = 8$ → $480 \\div 8 = 60$. 일치.\n\n**오답 짚기**: 240은 정육면체 부피를 $2$로 나눈 것(한 변이 2면 부피는 8). 480은 상자의 부피 자체. 120은 한 방향만 2로 나눈 것.",
+    "fast": "$\\frac{480}{8} = 60$. 각 치수가 2로 나누어떨어지니 부피비로 바로 계산해도 된다.",
+    "verify": {
+      "answer": "(6//2)*(8//2)*(10//2)",
+      "methods": [
+        "6*8*10//(2**3)"
+      ]
+    }
+  },
+  {
+    "id": "m1-6",
+    "number": 6,
+    "lesson": "9-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "question": "Mina thinks of a number. She doubles it, adds 7, and then divides the result by 3, getting 9. What number did Mina think of?",
+    "questionKo": "미나가 어떤 수를 생각했다. 그 수를 2배 하고 7을 더한 뒤 3으로 나누었더니 9가 되었다. 미나가 생각한 수는?",
+    "choices": [
+      "8",
+      "10",
+      "11",
+      "13",
+      "20"
+    ],
+    "answer": "B",
+    "hints": [
+      "마지막 결과 9에서 출발해 연산을 거꾸로 되돌린다.",
+      "÷3의 반대는 ×3, +7의 반대는 −7, ×2의 반대는 ÷2.",
+      "9 × 3 = 27, 27 − 7 = 20, 20 ÷ 2 = 10"
+    ],
+    "solution": "거꾸로 풀기(working backwards). 마지막 결과 9에서 연산을 반대 순서로 되돌린다: $9 \\times 3 = 27$, $27 - 7 = 20$, $20 \\div 2 = 10$.\n\n식으로 쓰면 $\\frac{2x + 7}{3} = 9$ → $2x + 7 = 27$ → $x = 10$.\n\n**오답 짚기**: 20은 마지막 ÷2를 빠뜨린 것. 13은 되돌리는 순서를 바꿔 $(9 + 7) \\times 3 \\div 2$처럼 계산하다 나온 값. 거꾸로 풀 때는 연산 순서도 거꾸로다.",
+    "fast": "선택지 대입: 10 → $(20 + 7) \\div 3 = 9$. 끝.",
+    "verify": {
+      "answer": "(9*3-7)//2",
+      "methods": [
+        "[x for x in range(1,100) if F(2*x+7,3)==9][0]"
+      ]
+    }
+  },
+  {
+    "id": "m1-7",
+    "number": 7,
+    "lesson": "8-5",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "algebra"
+    ],
+    "question": "The first four terms of an arithmetic sequence are $4, 11, 18, 25, \\ldots$. What is the 30th term?",
+    "questionKo": "등차수열의 처음 네 항이 $4, 11, 18, 25, \\ldots$이다. 이 수열의 30번째 항은?",
+    "choices": [
+      "200",
+      "207",
+      "210",
+      "214",
+      "217"
+    ],
+    "answer": "B",
+    "hints": [
+      "이웃한 항의 차(공차)는 7이다.",
+      "첫째 항에서 30번째 항까지 공차를 몇 번 더하나?",
+      "4 + 29 × 7"
+    ],
+    "solution": "공차(common difference)는 $11 - 4 = 7$. 첫째 항에서 30번째 항까지는 공차를 $30 - 1 = 29$번 더한다. $4 + 29 \\times 7 = 4 + 203 = 207$.\n\n**오답 짚기**: 214는 $4 + 30 \\times 7$로 공차를 30번 더한 것(하나 밀림, off-by-one). 200은 28번 더한 것. $n$번째 항은 $a + (n-1)d$이다.",
+    "verify": {
+      "answer": "4+29*7",
+      "methods": [
+        "[4+7*k for k in range(30)][-1]"
+      ]
+    }
+  },
+  {
+    "id": "m1-8",
+    "number": 8,
+    "lesson": "6-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "geometry"
+    ],
+    "question": "In triangle $ABC$, $AB = AC$ and $\\angle BAC = 52^\\circ$. Side $BC$ is extended past $C$ to point $D$. What is the measure of $\\angle ACD$?",
+    "questionKo": "삼각형 $ABC$에서 $AB = AC$이고 $\\angle BAC = 52^\\circ$이다. 변 $BC$를 $C$ 쪽으로 연장한 직선 위에 점 $D$가 있다. $\\angle ACD$의 크기는?",
+    "figure": "<svg viewBox=\"0 0 260 170\" width=\"260\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><polygon points=\"110,22 40,140 180,140\"/><line x1=\"180\" y1=\"140\" x2=\"245\" y2=\"140\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.6\"/></g><path d=\"M 100,39 A 20,20 0 0 1 120,39\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><path d=\"M 198,140 A 18,18 0 0 0 189,125\" fill=\"#E08A1E\" fill-opacity=\"0.35\" stroke=\"#E08A1E\" stroke-width=\"1.5\"/><g fill=\"currentColor\" font-size=\"12\"><text x=\"104\" y=\"16\">A</text><text x=\"24\" y=\"150\">B</text><text x=\"176\" y=\"156\">C</text><text x=\"240\" y=\"156\">D</text><text x=\"110\" y=\"64\" font-size=\"11\" text-anchor=\"middle\">52°</text><text x=\"206\" y=\"124\" font-size=\"11\" fill=\"#E08A1E\">x°</text></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"72\" y1=\"78\" x2=\"80\" y2=\"86\"/><line x1=\"148\" y1=\"78\" x2=\"140\" y2=\"86\"/></g></svg>",
+    "choices": [
+      "$52^\\circ$",
+      "$64^\\circ$",
+      "$104^\\circ$",
+      "$116^\\circ$",
+      "$128^\\circ$"
+    ],
+    "answer": "D",
+    "hints": [
+      "이등변삼각형이므로 두 밑각이 같다.",
+      "밑각 = (180 − 52) ÷ 2 = 64°.",
+      "∠ACD는 ∠ACB와 합쳐 180°인 외각이다."
+    ],
+    "solution": "$AB = AC$인 이등변삼각형(isosceles triangle)이므로 밑각 $\\angle B = \\angle ACB = \\frac{180^\\circ - 52^\\circ}{2} = 64^\\circ$. $\\angle ACD$는 $\\angle ACB$와 일직선을 이루므로 $180^\\circ - 64^\\circ = 116^\\circ$.\n\n**다른 방법**: 외각(exterior angle)은 이웃하지 않은 두 내각의 합 → $\\angle ACD = \\angle A + \\angle B = 52^\\circ + 64^\\circ = 116^\\circ$.\n\n**오답 짚기**: 64°는 밑각 자체(외각이 아니라 내각을 답함). 128°는 $180 - 52$로 꼭지각의 보각을 구한 것. 104°는 $2 \\times 52$.",
+    "fast": "외각 = 나머지 두 내각의 합: 52 + 64 = 116.",
+    "verify": {
+      "answer": "180-(180-52)//2",
+      "methods": [
+        "52+(180-52)//2"
+      ]
+    }
+  },
+  {
+    "id": "m1-9",
+    "number": 9,
+    "lesson": "3-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "How many positive divisors of 72 are even?",
+    "questionKo": "72의 양의 약수 중 짝수는 몇 개인가?",
+    "choices": [
+      "6",
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "answer": "C",
+    "hints": [
+      "$72 = 2^3 \\cdot 3^2$. 약수의 개수는 (지수+1)끼리의 곱.",
+      "짝수 약수는 2의 지수가 1 이상이어야 한다: 2의 지수 1, 2, 3의 3가지.",
+      "3 × (2 + 1)"
+    ],
+    "solution": "$72 = 2^3 \\cdot 3^2$. 약수(divisor)는 $2^a 3^b$ ($0 \\le a \\le 3$, $0 \\le b \\le 2$) 꼴이고, 짝수이려면 $a \\ge 1$. $a$는 1, 2, 3의 3가지, $b$는 0, 1, 2의 3가지 → $3 \\times 3 = 9$개.\n\n**검산**: 전체 약수 $4 \\times 3 = 12$개에서 홀수 약수($a = 0$) $1 \\times 3 = 3$개를 빼도 9.\n\n**오답 짚기**: 12는 전체 약수 개수. 6은 $3 \\times 2$로 3의 지수에 1을 더하지 않은 것. 8은 $2^3$을 보고 지수만 곱한 것.",
+    "fast": "전체 12개 − 홀수 약수 3개(1, 3, 9) = 9.",
+    "verify": {
+      "answer": "sum(1 for d in divisors(72) if d%2==0)",
+      "methods": [
+        "3*3",
+        "(3+1)*(2+1)-(2+1)"
+      ]
+    }
+  },
+  {
+    "id": "m1-10",
+    "number": 10,
+    "lesson": "8-6",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "statistics"
+    ],
+    "question": "The bar graph shows the number of books each of five students read in March. What is the mean number of books read per student?",
+    "questionKo": "막대그래프는 학생 다섯 명이 3월에 읽은 책의 수를 나타낸다. 한 학생이 읽은 책 수의 평균은 얼마인가?",
+    "figure": "<svg viewBox=\"0 0 280 190\" width=\"280\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.25\"><line x1=\"50\" y1=\"140\" x2=\"260\" y2=\"140\"/><line x1=\"50\" y1=\"116\" x2=\"260\" y2=\"116\"/><line x1=\"50\" y1=\"92\" x2=\"260\" y2=\"92\"/><line x1=\"50\" y1=\"68\" x2=\"260\" y2=\"68\"/><line x1=\"50\" y1=\"44\" x2=\"260\" y2=\"44\"/><line x1=\"50\" y1=\"20\" x2=\"260\" y2=\"20\"/></g><g stroke=\"currentColor\" stroke-width=\"1.5\"><line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"140\"/><line x1=\"50\" y1=\"140\" x2=\"260\" y2=\"140\"/></g><g fill=\"currentColor\" font-size=\"11\" text-anchor=\"end\"><text x=\"44\" y=\"144\">0</text><text x=\"44\" y=\"120\">2</text><text x=\"44\" y=\"96\">4</text><text x=\"44\" y=\"72\">6</text><text x=\"44\" y=\"48\">8</text><text x=\"44\" y=\"24\">10</text></g><g fill=\"#4F6BF0\" fill-opacity=\"0.4\" stroke=\"currentColor\" stroke-width=\"1\"><rect x=\"64\" y=\"56\" width=\"26\" height=\"84\"/><rect x=\"104\" y=\"116\" width=\"26\" height=\"24\"/><rect x=\"144\" y=\"32\" width=\"26\" height=\"108\"/><rect x=\"184\" y=\"92\" width=\"26\" height=\"48\"/><rect x=\"224\" y=\"104\" width=\"26\" height=\"36\"/></g><g fill=\"currentColor\" font-size=\"11\" text-anchor=\"middle\"><text x=\"77\" y=\"158\">Ana</text><text x=\"117\" y=\"158\">Ben</text><text x=\"157\" y=\"158\">Cal</text><text x=\"197\" y=\"158\">Dee</text><text x=\"237\" y=\"158\">Eli</text><text x=\"155\" y=\"180\" font-size=\"11\" opacity=\"0.7\">Books read in March</text></g></svg>",
+    "choices": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": "C",
+    "hints": [
+      "세로축 눈금 한 칸이 1이 아니라 2다.",
+      "Ana 7, Ben 2, Cal 9, Dee 4, Eli 3.",
+      "(7 + 2 + 9 + 4 + 3) ÷ 5"
+    ],
+    "solution": "세로축 눈금 한 칸은 2이다. 막대를 읽으면 Ana 7, Ben 2, Cal 9, Dee 4, Eli 3. 합은 $7 + 2 + 9 + 4 + 3 = 25$, 평균(mean)은 $25 \\div 5 = 5$.\n\n**오답 짚기**: 4는 중앙값(median)이다(크기순 2, 3, 4, 7, 9의 가운데). 7은 범위(range) $9 - 2$. 눈금 한 칸을 1로 읽으면 값이 전부 절반이 되어 선택지에 없는 2.5가 나온다. 눈금 간격부터 확인하자.",
+    "verify": {
+      "answer": "sum([7,2,9,4,3])/5",
+      "methods": [
+        "F(25,5)"
+      ]
+    }
+  },
+  {
+    "id": "m1-11",
+    "number": 11,
+    "lesson": "1-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "counting"
+    ],
+    "question": "A club has 6 girls and 4 boys. In how many ways can a committee of 3 members be chosen so that it includes at least one boy?",
+    "questionKo": "어느 동아리에 여학생 6명과 남학생 4명이 있다. 남학생이 적어도 한 명 포함되도록 3명의 위원을 뽑는 방법은 몇 가지인가?",
+    "choices": [
+      "96",
+      "100",
+      "120",
+      "144",
+      "220"
+    ],
+    "answer": "B",
+    "hints": [
+      "'적어도 한 명'은 여사건(반대 경우)을 빼는 게 빠르다.",
+      "전체 $\\binom{10}{3} = 120$, 남학생이 한 명도 없는 경우는 여학생만 3명.",
+      "$120 - \\binom{6}{3} = 120 - 20$"
+    ],
+    "solution": "전체 경우는 $\\binom{10}{3} = 120$. 남학생이 한 명도 없는 경우(여학생만 3명)는 $\\binom{6}{3} = 20$. 여사건(complementary counting)으로 $120 - 20 = 100$.\n\n**검산**: 직접 세면 남 1명 $\\binom{4}{1}\\binom{6}{2} = 60$, 남 2명 $\\binom{4}{2}\\binom{6}{1} = 36$, 남 3명 $\\binom{4}{3} = 4$ → 합 100. 일치.\n\n**오답 짚기**: 144는 '남학생 한 명을 먼저 뽑고(4) 나머지 9명 중 2명($\\binom{9}{2} = 36$)'으로 센 것. 남학생이 둘 이상인 위원회가 여러 번 세어진다. 96은 남학생만 3명인 경우까지 잘못 뺀 것. 120은 전체.",
+    "verify": {
+      "answer": "comb(10,3)-comb(6,3)",
+      "methods": [
+        "sum(1 for c in combinations(range(10),3) if any(x>=6 for x in c))"
+      ]
+    }
+  },
+  {
+    "id": "m1-12",
+    "number": 12,
+    "lesson": "8-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "algebra"
+    ],
+    "question": "Mia walks from home to school at 4 km/h and returns along the same route at 6 km/h. The round trip takes exactly 1 hour. How far, in kilometers, is the school from her home?",
+    "questionKo": "미아는 집에서 학교까지 시속 4 km로 걸어가고, 같은 길로 시속 6 km로 돌아온다. 왕복에 정확히 1시간이 걸렸다. 집에서 학교까지의 거리는 몇 km인가?",
+    "choices": [
+      "2",
+      "2.4",
+      "2.5",
+      "3",
+      "5"
+    ],
+    "answer": "B",
+    "hints": [
+      "거리를 d로 놓고 가는 시간과 오는 시간을 각각 쓴다.",
+      "$\\frac{d}{4} + \\frac{d}{6} = 1$.",
+      "$\\frac{3d + 2d}{12} = 1$"
+    ],
+    "solution": "편도 거리를 $d$ km라 하면 갈 때 $\\frac{d}{4}$시간, 올 때 $\\frac{d}{6}$시간. $\\frac{d}{4} + \\frac{d}{6} = 1$ → $\\frac{5d}{12} = 1$ → $d = \\frac{12}{5} = 2.4$ km.\n\n**검산**: 갈 때 $2.4 \\div 4 = 0.6$시간, 올 때 $2.4 \\div 6 = 0.4$시간. 합 1시간. 일치.\n\n**오답 짚기**: 2.5는 '평균 속력 5 km/h로 1시간이면 5 km, 편도는 2.5'로 산술평균을 쓴 것. 평균 속력은 총 거리 ÷ 총 시간 $= 4.8 \\div 1 = 4.8$이지 5가 아니다. 5는 왕복 거리 4.8을 어림해 편도로 착각한 것.",
+    "fast": "왕복 평균 속력 $\\frac{2 \\cdot 4 \\cdot 6}{4 + 6} = 4.8$ km/h → 1시간에 4.8 km 왕복 → 편도 2.4.",
+    "verify": {
+      "answer": "F(1)/(F(1,4)+F(1,6))",
+      "methods": [
+        "F(2*4*6,4+6)/2"
+      ]
+    }
+  },
+  {
+    "id": "m1-13",
+    "number": 13,
+    "lesson": "5-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "geometry"
+    ],
+    "question": "Rectangle $ABCD$ has $AB = 10$ and $BC = 6$. Point $N$ is on $\\overline{BC}$ with $BN = 2$, and $M$ is the midpoint of $\\overline{CD}$. What is the area of triangle $AMN$?",
+    "questionKo": "직사각형 $ABCD$에서 $AB = 10$, $BC = 6$이다. 점 $N$은 변 $BC$ 위에 있고 $BN = 2$, 점 $M$은 변 $CD$의 중점이다. 삼각형 $AMN$의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 280 190\" width=\"280\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"30,150 230,110 130,30\" fill=\"#4F6BF0\" fill-opacity=\"0.35\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><rect x=\"30\" y=\"30\" width=\"200\" height=\"120\"/><polygon points=\"30,150 230,110 130,30\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"18\" y=\"164\">A</text><text x=\"234\" y=\"164\">B</text><text x=\"234\" y=\"26\">C</text><text x=\"18\" y=\"26\">D</text><text x=\"236\" y=\"114\">N</text><text x=\"125\" y=\"22\">M</text><text x=\"130\" y=\"170\" text-anchor=\"middle\">10</text><text x=\"242\" y=\"136\">2</text><text x=\"12\" y=\"95\">6</text></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><line x1=\"76\" y1=\"26\" x2=\"84\" y2=\"34\"/><line x1=\"176\" y1=\"26\" x2=\"184\" y2=\"34\"/></g></svg>",
+    "choices": [
+      "20",
+      "24",
+      "25",
+      "30",
+      "35"
+    ],
+    "answer": "C",
+    "hints": [
+      "기울어진 삼각형은 직사각형 전체에서 바깥의 직각삼각형들을 뺀다.",
+      "바깥 삼각형 셋: $ABN$, $NCM$, $MDA$.",
+      "$60 - 10 - 10 - 15$"
+    ],
+    "solution": "직사각형의 넓이는 $10 \\times 6 = 60$. 삼각형 $AMN$ 바깥에 직각삼각형 세 개가 있다.\n- $ABN$: $\\frac{1}{2} \\cdot 10 \\cdot 2 = 10$\n- $NCM$: $NC = 4$, $CM = 5$ → $\\frac{1}{2} \\cdot 4 \\cdot 5 = 10$\n- $MDA$: $DM = 5$, $DA = 6$ → $\\frac{1}{2} \\cdot 5 \\cdot 6 = 15$\n\n따라서 $60 - 10 - 10 - 15 = 25$.\n\n**검산**: 좌표 $A(0,0)$, $N(10,2)$, $M(5,6)$에 신발끈 공식(shoelace) → $\\frac{1}{2}|0 + 60 - 10| = 25$. 일치.\n\n**오답 짚기**: 35는 삼각형 $MDA$를 빼지 않은 것. 30은 $NCM$에서 $NC$를 6으로 쓴 것($BN = 2$를 빼야 4). 20은 $MDA$를 두 번 뺀 것.",
+    "verify": {
+      "answer": "10*6 - F(1,2)*10*2 - F(1,2)*4*5 - F(1,2)*5*6",
+      "methods": [
+        "exec('''\npts=[(0,0),(10,2),(5,6)]\ns=sum(pts[i][0]*pts[(i+1)%3][1]-pts[(i+1)%3][0]*pts[i][1] for i in range(3))\n''')\nresult=F(abs(s),2)"
+      ]
+    }
+  },
+  {
+    "id": "m1-14",
+    "number": 14,
+    "lesson": "4-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the units digit of $2^{2026} + 9^{2026}$?",
+    "questionKo": "$2^{2026} + 9^{2026}$의 일의 자리 숫자는?",
+    "choices": [
+      "1",
+      "3",
+      "5",
+      "7",
+      "9"
+    ],
+    "answer": "C",
+    "hints": [
+      "2의 거듭제곱 일의 자리는 2, 4, 8, 6으로 주기 4. 9는 9, 1로 주기 2.",
+      "2026 ÷ 4의 나머지는 2 → 2의 주기에서 두 번째.",
+      "4 + 1"
+    ],
+    "solution": "$2^n$의 일의 자리는 2, 4, 8, 6이 반복된다(주기 4). $2026 = 4 \\times 506 + 2$이므로 두 번째인 **4**. $9^n$의 일의 자리는 9, 1이 반복되고(주기 2) 2026은 짝수이므로 **1**. 합의 일의 자리는 $4 + 1 = 5$.\n\n**오답 짚기**: 7은 2의 주기에서 세 번째(8)를 고르고 $8 + 9 = 17$로 9의 지수도 홀수로 본 것. 9는 $8 + 1$, 3은 $2 + 1$로 주기에서 위치를 잘못 짚은 것. 지수를 주기로 나눈 나머지가 위치이고, 나머지 0이면 마지막이다.",
+    "verify": {
+      "answer": "(pow(2,2026,10)+pow(9,2026,10))%10",
+      "methods": [
+        "([2,4,8,6][(2026-1)%4] + [9,1][(2026-1)%2]) % 10"
+      ]
+    }
+  },
+  {
+    "id": "m1-15",
+    "number": 15,
+    "lesson": "2-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "probability"
+    ],
+    "question": "Two fair six-sided dice are rolled. What is the probability that the sum of the two numbers rolled is a multiple of 4?",
+    "questionKo": "공정한 주사위 두 개를 던진다. 나온 두 눈의 합이 4의 배수일 확률은?",
+    "choices": [
+      "$\\frac{1}{6}$",
+      "$\\frac{2}{9}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{3}{11}$",
+      "$\\frac{1}{3}$"
+    ],
+    "answer": "C",
+    "hints": [
+      "전체 경우는 6 × 6 = 36가지. 합이 4, 8, 12인 경우를 센다.",
+      "합 4: 3가지, 합 8: 5가지, 합 12: 1가지.",
+      "9/36"
+    ],
+    "solution": "주사위 두 개는 $6 \\times 6 = 36$가지가 모두 같은 확률이다. 합이 4의 배수인 경우는\n- 합 4: (1,3), (2,2), (3,1) → 3가지\n- 합 8: (2,6), (3,5), (4,4), (5,3), (6,2) → 5가지\n- 합 12: (6,6) → 1가지\n\n합 9가지 → $\\frac{9}{36} = \\frac{1}{4}$.\n\n**오답 짚기**: $\\frac{3}{11}$은 합 2~12의 11가지를 같은 확률로 보고 '4, 8, 12의 3가지'로 센 것. 합마다 확률이 다르므로 반드시 36칸 표로 센다. $\\frac{2}{9}$는 (4,4)나 (2,2)를 빠뜨려 8가지로 센 것.",
+    "verify": {
+      "answer": "F(sum(1 for a in range(1,7) for b in range(1,7) if (a+b)%4==0),36)",
+      "choices": [
+        "F(1,6)",
+        "F(2,9)",
+        "F(1,4)",
+        "F(3,11)",
+        "F(1,3)"
+      ]
+    }
+  },
+  {
+    "id": "m1-16",
+    "number": 16,
+    "lesson": "7-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A square is inscribed in a circle of radius 6. What is the area of the shaded region inside the circle but outside the square?",
+    "questionKo": "반지름이 6인 원에 정사각형이 내접해 있다. 원의 안쪽이면서 정사각형의 바깥쪽인 색칠된 부분의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 200 200\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"#4F6BF0\" fill-opacity=\"0.35\" stroke=\"none\"><path d=\"M100,20 A80,80 0 0 1 180,100 Z\"/><path d=\"M180,100 A80,80 0 0 1 100,180 Z\"/><path d=\"M100,180 A80,80 0 0 1 20,100 Z\"/><path d=\"M20,100 A80,80 0 0 1 100,20 Z\"/></g><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\"><circle cx=\"100\" cy=\"100\" r=\"80\"/><polygon points=\"100,20 180,100 100,180 20,100\"/><line x1=\"100\" y1=\"100\" x2=\"180\" y2=\"100\" stroke-dasharray=\"4 3\"/></g><circle cx=\"100\" cy=\"100\" r=\"2.5\" fill=\"currentColor\"/><text x=\"136\" y=\"94\" font-size=\"12\" fill=\"currentColor\">6</text></svg>",
+    "choices": [
+      "$36\\pi - 36$",
+      "$36\\pi - 72$",
+      "$36\\pi - 144$",
+      "$144 - 36\\pi$",
+      "$72\\pi - 144$"
+    ],
+    "answer": "B",
+    "hints": [
+      "정사각형의 대각선이 원의 지름 12이다.",
+      "마름모 넓이 공식: 정사각형 넓이 $= \\frac{1}{2} \\times 12 \\times 12 = 72$.",
+      "$36\\pi - 72$"
+    ],
+    "solution": "원의 넓이는 $\\pi \\cdot 6^2 = 36\\pi$. 내접하는 정사각형의 대각선은 원의 지름 $12$이다. 정사각형도 마름모이므로 넓이는 $\\frac{1}{2} \\times 12 \\times 12 = 72$. 따라서 색칠된 넓이는 $36\\pi - 72$.\n\n**다른 방법**: 한 변을 $s$라 하면 $s^2 + s^2 = 12^2$ → $s^2 = 72$. 변을 구할 필요 없이 넓이 $s^2$이 바로 나온다.\n\n**오답 짚기**: $36\\pi - 144$는 대각선 12를 한 변으로 쓴 것. $36\\pi - 36$은 반지름 6을 한 변으로 쓴 것. $72\\pi - 144$는 지름을 반지름 자리에 넣어 원 넓이를 $\\pi \\cdot 12^2 \\div 2$ 식으로 계산한 것.",
+    "fast": "대각선 12인 정사각형 = 변 12인 정사각형의 절반 = 72. 답 $36\\pi - 72$.",
+    "verify": {
+      "answer": "36*pi - F(1,2)*12*12",
+      "choices": [
+        "36*pi-36",
+        "36*pi-72",
+        "36*pi-144",
+        "144-36*pi",
+        "72*pi-144"
+      ],
+      "methods": [
+        "pi*6**2 - (6*sqrt(2))**2",
+        "exec('''\npts=[(6,0),(0,6),(-6,0),(0,-6)]\ns=sum(pts[i][0]*pts[(i+1)%4][1]-pts[(i+1)%4][0]*pts[i][1] for i in range(4))\n''')\nresult=pi*36-abs(s)/2"
+      ]
+    }
+  },
+  {
+    "id": "m1-17",
+    "number": 17,
+    "lesson": "2-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "counting"
+    ],
+    "question": "On the grid shown, a path from $A$ to $B$ moves only right or up along the grid lines. The intersection marked $P$ is closed and may not be used. How many such paths are there?",
+    "questionKo": "그림의 격자에서 $A$에서 $B$까지 격자선을 따라 오른쪽 또는 위로만 간다. $P$로 표시된 교차점은 막혀 있어 지날 수 없다. 이런 경로는 모두 몇 가지인가?",
+    "figure": "<svg viewBox=\"0 0 240 200\" width=\"240\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.8\"><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"164\"/><line x1=\"66\" y1=\"20\" x2=\"66\" y2=\"164\"/><line x1=\"102\" y1=\"20\" x2=\"102\" y2=\"164\"/><line x1=\"138\" y1=\"20\" x2=\"138\" y2=\"164\"/><line x1=\"174\" y1=\"20\" x2=\"174\" y2=\"164\"/><line x1=\"210\" y1=\"20\" x2=\"210\" y2=\"164\"/><line x1=\"30\" y1=\"20\" x2=\"210\" y2=\"20\"/><line x1=\"30\" y1=\"56\" x2=\"210\" y2=\"56\"/><line x1=\"30\" y1=\"92\" x2=\"210\" y2=\"92\"/><line x1=\"30\" y1=\"128\" x2=\"210\" y2=\"128\"/><line x1=\"30\" y1=\"164\" x2=\"210\" y2=\"164\"/></g><circle cx=\"30\" cy=\"164\" r=\"4\" fill=\"currentColor\"/><circle cx=\"210\" cy=\"20\" r=\"4\" fill=\"currentColor\"/><g stroke=\"#DB433D\" stroke-width=\"2.5\"><line x1=\"96\" y1=\"86\" x2=\"108\" y2=\"98\"/><line x1=\"108\" y1=\"86\" x2=\"96\" y2=\"98\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"12\" y=\"180\">A</text><text x=\"216\" y=\"16\">B</text><text x=\"112\" y=\"82\" font-size=\"11\" fill=\"#DB433D\">P</text></g></svg>",
+    "choices": [
+      "60",
+      "66",
+      "70",
+      "84",
+      "126"
+    ],
+    "answer": "B",
+    "hints": [
+      "격자는 오른쪽 5칸, 위 4칸. 전체 경로는 $\\binom{9}{4}$.",
+      "$P$는 $A$에서 오른쪽 2, 위 2인 점. $P$를 지나는 경로 = (A→P) × (P→B).",
+      "$126 - \\binom{4}{2}\\binom{5}{2}$"
+    ],
+    "solution": "$A$에서 $B$까지는 오른쪽(R) 5번, 위(U) 4번이므로 전체 경로는 $\\binom{9}{4} = 126$. $P$는 $A$에서 오른쪽 2, 위 2인 점이다. $P$를 지나는 경로는 $A \\to P$가 $\\binom{4}{2} = 6$, $P \\to B$가 오른쪽 3, 위 2로 $\\binom{5}{2} = 10$ → $6 \\times 10 = 60$. 피하는 경로는 $126 - 60 = 66$.\n\n**검산**: 덧셈 표로 각 교차점에 '그 점까지 오는 경로 수'를 적고 $P$를 0으로 두면 $B$에서 66이 나온다.\n\n**오답 짚기**: 60은 $P$를 지나는 경로(빼야 할 쪽을 답함). 70은 격자 칸 수를 선분 수로 착각해 $\\binom{8}{4}$로 센 것. 126은 전체.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef f(x,y):\n    if (x,y)==(2,2): return 0\n    if x==0 and y==0: return 1\n    return (f(x-1,y) if x>0 else 0)+(f(x,y-1) if y>0 else 0)\n''')\nresult=f(5,4)",
+      "methods": [
+        "comb(9,4)-comb(4,2)*comb(5,2)"
+      ]
+    }
+  },
+  {
+    "id": "m1-18",
+    "number": 18,
+    "lesson": "8-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "algebra"
+    ],
+    "question": "A 300-gram solution is 8% salt by weight. How many grams of salt must be added so that the new solution is 20% salt?",
+    "questionKo": "300 g의 소금물이 무게 기준으로 소금 8%이다. 소금을 몇 g 더 넣어야 소금 20%의 소금물이 되는가?",
+    "choices": [
+      "36",
+      "40",
+      "45",
+      "50",
+      "60"
+    ],
+    "answer": "C",
+    "hints": [
+      "처음 소금의 양은 300 × 0.08 = 24 g. 소금을 x g 넣으면 소금도, 전체도 x만큼 는다.",
+      "$\\frac{24 + x}{300 + x} = \\frac{1}{5}$.",
+      "$120 + 5x = 300 + x$"
+    ],
+    "solution": "처음 소금은 $300 \\times 0.08 = 24$ g. 소금 $x$ g을 넣으면 소금은 $24 + x$, 전체는 $300 + x$. 농도 20%는 $\\frac{1}{5}$이므로\n$$\\frac{24 + x}{300 + x} = \\frac{1}{5} \\;\\Rightarrow\\; 120 + 5x = 300 + x \\;\\Rightarrow\\; x = 45.$$\n\n**검산**: 소금 69 g, 전체 345 g → $69 \\div 345 = 0.2$. 일치.\n\n**오답 짚기**: 36은 $300 \\times (0.20 - 0.08)$로 전체 무게가 그대로라고 본 것. 소금을 넣으면 전체도 늘어난다. 60은 300의 20%. 물을 넣는 문제(소금 불변)와 소금을 넣는 문제(물 불변)를 구별하자.",
+    "fast": "물은 그대로 $276$ g. 소금 20%면 물이 80% → 전체 $276 \\div 0.8 = 345$ → 소금 $345 - 300 = 45$ g 추가.",
+    "verify": {
+      "answer": "[x for x in range(1,300) if F(24+x,300+x)==F(1,5)][0]",
+      "methods": [
+        "F(300-24, F(4,5)) - 300"
+      ]
+    }
+  },
+  {
+    "id": "m1-19",
+    "number": 19,
+    "lesson": "3-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "The least common multiple of 12 and a positive integer $n$ is 180. What is the sum of all possible values of $n$?",
+    "questionKo": "12와 어떤 양의 정수 $n$의 최소공배수가 180이다. 가능한 $n$의 값을 모두 더하면?",
+    "choices": [
+      "45",
+      "135",
+      "225",
+      "315",
+      "360"
+    ],
+    "answer": "D",
+    "hints": [
+      "$180 = 2^2 \\cdot 3^2 \\cdot 5$, $12 = 2^2 \\cdot 3$. lcm은 소인수마다 큰 지수를 고른다.",
+      "3의 지수 2와 5의 지수 1은 12에 없으니 $n$이 반드시 가져야 한다. 2의 지수는 0, 1, 2 중 아무거나.",
+      "45 + 90 + 180"
+    ],
+    "solution": "$180 = 2^2 \\cdot 3^2 \\cdot 5$, $12 = 2^2 \\cdot 3$. 최소공배수(lcm)는 소인수별로 큰 지수를 택하므로, $n = 2^a 3^b 5^c$라 하면 $\\max(2, a) = 2$, $\\max(1, b) = 2$, $\\max(0, c) = 1$. 따라서 $b = 2$, $c = 1$은 고정이고 $a$는 0, 1, 2 중 아무거나 된다. $n = 45, 90, 180$ → 합 $315$.\n\n**오답 짚기**: 45는 $n$이 하나뿐이라고 본 것(2의 지수 자유를 놓침). 225는 180을 빠뜨린 것($n = 180$도 $\\text{lcm}(12, 180) = 180$이다). 360은 $\\gcd \\times \\text{lcm}$을 잘못 떠올린 값.",
+    "verify": {
+      "answer": "sum(n for n in range(1,181) if lcm(12,n)==180)",
+      "methods": [
+        "sum(2**a*9*5 for a in range(3))"
+      ]
+    }
+  },
+  {
+    "id": "m1-20",
+    "number": 20,
+    "lesson": "6-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "geometry"
+    ],
+    "question": "In triangle $ABC$, points $D$ and $E$ lie on $\\overline{AB}$ and $\\overline{AC}$ with $\\overline{DE} \\parallel \\overline{BC}$. If $AD = 4$, $DB = 2$, and the area of triangle $ADE$ is 8, what is the area of trapezoid $DBCE$?",
+    "questionKo": "삼각형 $ABC$에서 점 $D$, $E$는 각각 변 $AB$, $AC$ 위에 있고 $\\overline{DE} \\parallel \\overline{BC}$이다. $AD = 4$, $DB = 2$이고 삼각형 $ADE$의 넓이가 8일 때, 사다리꼴 $DBCE$의 넓이는?",
+    "figure": "<svg viewBox=\"0 0 240 180\" width=\"240\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"60,100 180,100 200,150 30,150\" fill=\"#29A066\" fill-opacity=\"0.3\"/><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><polygon points=\"100,20 30,150 200,150\"/><line x1=\"60\" y1=\"100\" x2=\"180\" y2=\"100\"/></g><g fill=\"currentColor\" font-size=\"12\"><text x=\"94\" y=\"14\">A</text><text x=\"14\" y=\"160\">B</text><text x=\"206\" y=\"160\">C</text><text x=\"42\" y=\"104\">D</text><text x=\"186\" y=\"104\">E</text><text x=\"66\" y=\"62\">4</text><text x=\"30\" y=\"132\">2</text><text x=\"114\" y=\"86\" font-size=\"11\" text-anchor=\"middle\" opacity=\"0.8\">넓이 8</text></g></svg>",
+    "choices": [
+      "4",
+      "8",
+      "10",
+      "12",
+      "18"
+    ],
+    "answer": "C",
+    "hints": [
+      "$DE \\parallel BC$이므로 삼각형 $ADE$와 $ABC$는 닮음. 닮음비는 $AD : AB = 4 : 6$.",
+      "넓이비는 닮음비의 제곱: $4^2 : 6^2 = 4 : 9$.",
+      "$ABC$의 넓이 $= 8 \\times \\frac{9}{4} = 18$"
+    ],
+    "solution": "$DE \\parallel BC$이므로 $\\triangle ADE \\sim \\triangle ABC$(닮음, similar). 닮음비는 $AD : AB = 4 : 6 = 2 : 3$, 넓이비는 제곱인 $4 : 9$. $\\triangle ABC$의 넓이는 $8 \\times \\frac{9}{4} = 18$, 사다리꼴 $DBCE$는 $18 - 8 = 10$.\n\n**검산**: $A(0,0)$, $B(6,0)$, $C(0,6)$으로 두면 $\\triangle ABC = 18$, $D(4,0)$, $E(0,4)$로 $\\triangle ADE = 8$. 사다리꼴 $D, B, C, E$에 신발끈 공식 → 10. 일치.\n\n**오답 짚기**: 4는 넓이비를 길이비 $2 : 3$ 그대로 써서 전체를 12로 본 것($12 - 8$). 12는 $8 \\times \\frac{3}{2}$로 사다리꼴을 길이비로 계산한 것. 18은 전체 넓이(사다리꼴이 아니라 삼각형 $ABC$).",
+    "verify": {
+      "answer": "8*F(6,4)**2 - 8",
+      "methods": [
+        "exec('''\npts=[(4,0),(6,0),(0,6),(0,4)]\ns=sum(pts[i][0]*pts[(i+1)%4][1]-pts[(i+1)%4][0]*pts[i][1] for i in range(4))\n''')\nresult=F(abs(s),2)"
+      ]
+    }
+  },
+  {
+    "id": "m1-21",
+    "number": 21,
+    "lesson": "1-5",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "counting"
+    ],
+    "question": "A $2 \\times 6$ board is to be completely covered, without overlap, using any number of $1 \\times 2$ tiles (placed horizontally or vertically) and $2 \\times 2$ tiles. In how many ways can this be done?",
+    "questionKo": "$2 \\times 6$ 판을 $1 \\times 2$ 타일(가로 또는 세로로 놓음)과 $2 \\times 2$ 타일을 몇 개든 써서 겹치지 않게 빈틈없이 덮으려 한다. 방법은 모두 몇 가지인가?",
+    "figure": "<svg viewBox=\"0 0 300 120\" width=\"300\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"><rect x=\"16\" y=\"30\" width=\"24\" height=\"24\"/><rect x=\"16\" y=\"54\" width=\"24\" height=\"24\"/><rect x=\"40\" y=\"30\" width=\"24\" height=\"24\"/><rect x=\"40\" y=\"54\" width=\"24\" height=\"24\"/><rect x=\"64\" y=\"30\" width=\"24\" height=\"24\"/><rect x=\"64\" y=\"54\" width=\"24\" height=\"24\"/><rect x=\"88\" y=\"30\" width=\"24\" height=\"24\"/><rect x=\"88\" y=\"54\" width=\"24\" height=\"24\"/><rect x=\"112\" y=\"30\" width=\"24\" height=\"24\"/><rect x=\"112\" y=\"54\" width=\"24\" height=\"24\"/><rect x=\"136\" y=\"30\" width=\"24\" height=\"24\"/><rect x=\"136\" y=\"54\" width=\"24\" height=\"24\"/></g><g stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"190\" y=\"24\" width=\"20\" height=\"40\" fill=\"#4F6BF0\" fill-opacity=\"0.4\"/><rect x=\"220\" y=\"24\" width=\"40\" height=\"20\" fill=\"#4F6BF0\" fill-opacity=\"0.4\"/><rect x=\"220\" y=\"54\" width=\"40\" height=\"40\" fill=\"#E08A1E\" fill-opacity=\"0.4\"/></g><g fill=\"currentColor\" font-size=\"10\" opacity=\"0.75\" text-anchor=\"middle\"><text x=\"88\" y=\"96\">2 × 6 판</text><text x=\"225\" y=\"112\">1×2 타일과 2×2 타일</text></g></svg>",
+    "choices": [
+      "21",
+      "32",
+      "34",
+      "43",
+      "64"
+    ],
+    "answer": "D",
+    "hints": [
+      "작은 경우부터: 길이 1은 1가지, 길이 2는 3가지(세로 2개, 가로 2개, 2×2 하나).",
+      "맨 왼쪽 끝이 세로 타일이면 f(n−1), 가로 타일 2개 또는 2×2 타일이면 f(n−2) → f(n) = f(n−1) + 2f(n−2).",
+      "1, 3, 5, 11, 21, 43"
+    ],
+    "solution": "길이 $n$인 $2 \\times n$ 판을 덮는 방법 수를 $f(n)$이라 하자. 맨 왼쪽 열을 어떻게 덮는지로 나눈다.\n- 세로 $1 \\times 2$ 타일 하나 → 남은 $2 \\times (n-1)$: $f(n-1)$\n- 가로 $1 \\times 2$ 타일 두 개를 위아래로 → 남은 $2 \\times (n-2)$: $f(n-2)$\n- $2 \\times 2$ 타일 하나 → $f(n-2)$\n\n따라서 $f(n) = f(n-1) + 2f(n-2)$, $f(1) = 1$, $f(2) = 3$. 이어서 $f(3) = 5$, $f(4) = 11$, $f(5) = 21$, $f(6) = 43$.\n\n**오답 짚기**: 34는 $2 \\times 2$ 타일을 빼먹고 피보나치($f(n) = f(n-1) + f(n-2)$)로 센 것. 21은 $f(5)$(한 칸 밀림). 64는 $2^6$으로 '열마다 2가지'라고 단정한 것.",
+    "verify": {
+      "answer": "exec('''\nfrom functools import lru_cache\n@lru_cache(None)\ndef g(col, occ):\n    if col==6: return 1 if occ==(0,0) else 0\n    if occ==(1,1): return g(col+1,(0,0))\n    if occ==(1,0): return g(col+1,(0,1))\n    if occ==(0,1): return g(col+1,(1,0))\n    return g(col+1,(0,0)) + 2*g(col+1,(1,1))\n''')\nresult=g(0,(0,0))",
+      "methods": [
+        "exec('''\na,b=1,3\nfor n in range(3,7): a,b=b,b+2*a\n''')\nresult=b"
+      ]
+    }
+  },
+  {
+    "id": "m1-22",
+    "number": 22,
+    "lesson": "4-1",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the remainder when $1 + 11 + 111 + 1111 + \\cdots + \\underbrace{111\\ldots1}_{20\\text{ ones}}$ is divided by 9?",
+    "questionKo": "$1 + 11 + 111 + 1111 + \\cdots + \\underbrace{111\\ldots1}_{1\\text{이 }20\\text{개}}$를 9로 나눈 나머지는?",
+    "choices": [
+      "0",
+      "1",
+      "3",
+      "6",
+      "8"
+    ],
+    "answer": "C",
+    "hints": [
+      "9로 나눈 나머지는 자리합으로 알 수 있다. 1이 k개인 수의 자리합은 k.",
+      "따라서 전체 합 ≡ 1 + 2 + 3 + ⋯ + 20 (mod 9).",
+      "210을 9로 나눈 나머지"
+    ],
+    "solution": "어떤 수를 9로 나눈 나머지는 자리합을 9로 나눈 나머지와 같다. 1이 $k$개인 수(repunit)의 자리합은 $k$이므로, 전체 합은 $1 + 2 + \\cdots + 20 = 210$과 나머지가 같다. $210 = 9 \\times 23 + 3$ → 나머지 **3**.\n\n**다른 방법**: 20개 수 전체의 자리합이 210이라고 봐도 같다(덧셈은 나머지끼리 해도 된다).\n\n**오답 짚기**: 6은 $1 + 2 + \\cdots + 20$을 190이나 200으로 잘못 더한 값에서 나온다($200 \\equiv 2$, $190 \\equiv 1$ 등). 0은 '1이 9개인 수는 9의 배수'만 보고 전체도 배수라고 넘겨짚은 것. 8은 $20 \\times 21 = 420$에서 2로 나누기를 빠뜨린 $420 \\equiv 6$ 류의 계산 실수.",
+    "fast": "자리합 생각: $\\frac{20 \\cdot 21}{2} = 210 \\equiv 2 + 1 + 0 = 3 \\pmod 9$.",
+    "verify": {
+      "answer": "sum(int('1'*k) for k in range(1,21)) % 9",
+      "methods": [
+        "(20*21//2) % 9"
+      ]
+    }
+  },
+  {
+    "id": "m1-23",
+    "number": 23,
+    "lesson": "6-1",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "geometry"
+    ],
+    "question": "A rectangular sheet of paper $ABCD$ has $AB = 8$ and $BC = 6$. The sheet is folded so that vertex $A$ lands exactly on vertex $C$. What is the length of the crease?",
+    "questionKo": "직사각형 종이 $ABCD$에서 $AB = 8$, $BC = 6$이다. 꼭짓점 $A$가 꼭짓점 $C$에 정확히 겹치도록 종이를 접었다. 접힌 자국(crease)의 길이는?",
+    "figure": "<svg viewBox=\"0 0 220 170\" width=\"220\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><g stroke=\"currentColor\" stroke-width=\"1.5\" fill=\"none\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"20\" width=\"160\" height=\"120\"/><line x1=\"20\" y1=\"140\" x2=\"180\" y2=\"20\" stroke-dasharray=\"4 3\" stroke-opacity=\"0.5\"/></g><line x1=\"145\" y1=\"140\" x2=\"55\" y2=\"20\" stroke=\"#DB433D\" stroke-width=\"2.5\"/><path d=\"M 20,140 C 60,110 90,100 100,80\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.6\" marker-end=\"none\"/><polygon points=\"100,80 92,80 98,88\" fill=\"currentColor\" fill-opacity=\"0.6\"/><g fill=\"currentColor\" font-size=\"12\"><text x=\"8\" y=\"154\">A</text><text x=\"184\" y=\"154\">B</text><text x=\"184\" y=\"18\">C</text><text x=\"8\" y=\"18\">D</text><text x=\"100\" y=\"160\" text-anchor=\"middle\">8</text><text x=\"190\" y=\"84\">6</text></g></svg>",
+    "choices": [
+      "6",
+      "$\\frac{13}{2}$",
+      "7",
+      "$\\frac{15}{2}$",
+      "8"
+    ],
+    "answer": "D",
+    "hints": [
+      "접힌 자국 위의 점은 $A$와 $C$에서 같은 거리에 있다. 자국이 변 $AB$와 만나는 점을 $P$, $AP = x$로 놓자.",
+      "$PA = PC$: $x^2 = (8 - x)^2 + 6^2$ → $x = \\frac{25}{4}$. 변 $CD$ 쪽도 대칭으로 $DQ = \\frac{25}{4}$.",
+      "두 끝점의 가로 거리는 $\\frac{25}{4} - \\frac{7}{4} = \\frac{9}{2}$, 세로 거리는 6 → 피타고라스."
+    ],
+    "solution": "$A$를 $C$에 겹치게 접으면 접힌 자국은 대각선 $AC$의 수직이등분선이다. 자국 위의 점은 $A$와 $C$에서 거리가 같다.\n\n좌표 $A(0,0)$, $B(8,0)$, $C(8,6)$, $D(0,6)$. 자국이 $AB$와 만나는 점 $P(x, 0)$은 $PA = PC$이므로 $x^2 = (8-x)^2 + 36$ → $16x = 100$ → $x = \\frac{25}{4}$. 자국이 $CD$와 만나는 점 $Q(y, 6)$은 $QA = QC$이므로 $y^2 + 36 = (8-y)^2$ → $y = \\frac{7}{4}$.\n\n자국 $PQ$의 길이는 $\\sqrt{\\left(\\frac{25}{4} - \\frac{7}{4}\\right)^2 + 6^2} = \\sqrt{\\left(\\frac{9}{2}\\right)^2 + 36} = \\sqrt{\\frac{81 + 144}{4}} = \\frac{15}{2}$.\n\n**다른 방법**: 자국은 대각선(길이 10)과 중심에서 수직으로 만난다. 대각선과 자국이 이루는 두 직각삼각형은 변 $8, 6$인 삼각형과 닮음이고, 자국 길이 $= 10 \\times \\frac{6}{8} = \\frac{15}{2}$.\n\n**오답 짚기**: 6은 자국이 세로 변과 평행하다고 본 것. 8은 가로 변 길이. $\\frac{13}{2}$은 $x = \\frac{25}{4}$를 자국 길이의 절반으로 착각하는 등 중간값을 답한 것. 7은 어림.",
+    "verify": {
+      "answer": "sqrt(float((F(25,4)-F(7,4))**2 + 36))",
+      "methods": [
+        "10*F(6,8)"
+      ],
+      "choices": [
+        "6",
+        "F(13,2)",
+        "7",
+        "F(15,2)",
+        "8"
+      ]
+    }
+  },
+  {
+    "id": "m1-24",
+    "number": 24,
+    "lesson": "2-5",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "probability"
+    ],
+    "question": "A fair coin is flipped 10 times. What is the expected number of pairs of consecutive flips that show the same face? (For example, in HHTHH there are two such pairs.)",
+    "questionKo": "공정한 동전을 10번 던진다. 연이은 두 번의 결과가 같은 면인 '쌍'의 개수의 기댓값은? (예: HHTHH에는 그런 쌍이 2개 있다.)",
+    "choices": [
+      "4",
+      "$\\frac{9}{2}$",
+      "5",
+      "$\\frac{11}{2}$",
+      "9"
+    ],
+    "answer": "B",
+    "hints": [
+      "연이은 쌍은 (1,2), (2,3), …, (9,10)의 9개. 각 쌍이 같은 면일 확률은?",
+      "한 쌍이 같은 면일 확률은 $\\frac{1}{2}$. 기댓값의 선형성으로 쌍마다 더한다.",
+      "$9 \\times \\frac{1}{2}$"
+    ],
+    "solution": "연이은 두 번의 쌍은 $(1,2), (2,3), \\ldots, (9,10)$의 9개이다. 각 쌍에 대해 '같은 면이면 1, 아니면 0'인 값을 생각하면, 두 번의 결과가 같을 확률은 $\\frac{1}{2}$이므로 그 기댓값은 $\\frac{1}{2}$. 기댓값의 선형성(linearity of expectation)에 따라 쌍들이 서로 독립이 아니어도 그냥 더하면 된다: $9 \\times \\frac{1}{2} = \\frac{9}{2}$.\n\n**검산**: $2^{10}$가지를 전부 나열해 쌍의 개수를 평균 내도 $\\frac{9}{2}$.\n\n**오답 짚기**: 5는 쌍을 10개로 센 것(10번 던지면 이웃한 쌍은 9개). 9는 확률 $\\frac{1}{2}$을 곱하지 않은 것. 4는 '첫 번째 결과는 비교 대상이 없으니 빼고 8쌍'으로 센 것.",
+    "verify": {
+      "answer": "exec('''\ntot=0\nfor s in product((0,1),repeat=10):\n    tot+=sum(1 for i in range(9) if s[i]==s[i+1])\n''')\nresult=F(tot,2**10)",
+      "choices": [
+        "4",
+        "F(9,2)",
+        "5",
+        "F(11,2)",
+        "9"
+      ],
+      "methods": [
+        "9*F(1,2)"
+      ]
+    }
+  },
+  {
+    "id": "m1-25",
+    "number": 25,
+    "lesson": "9-4",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "statistics"
+    ],
+    "question": "Seven distinct positive integers have a mean of 10 and a median of 9. What is the largest possible value of the largest of these integers?",
+    "questionKo": "서로 다른 양의 정수 7개의 평균이 10이고 중앙값이 9이다. 이 중 가장 큰 수가 될 수 있는 최댓값은?",
+    "choices": [
+      "31",
+      "32",
+      "33",
+      "34",
+      "35"
+    ],
+    "answer": "D",
+    "hints": [
+      "합은 70. 크기순으로 a < b < c < 9 < e < f < g.",
+      "g를 크게 하려면 나머지 여섯을 가능한 한 작게. 서로 달라야 한다.",
+      "a, b, c = 1, 2, 3, 중앙값 9, e, f = 10, 11"
+    ],
+    "solution": "평균 10이므로 합은 $70$. 크기순으로 $a < b < c < 9 < e < f < g$라 하자(중앙값은 네 번째 수). 가장 큰 $g$를 최대로 하려면 나머지 여섯 수를 조건 안에서 최소로 한다(극단 원리). 서로 다른 양의 정수이므로 $a, b, c$는 $1, 2, 3$, $e, f$는 9보다 큰 서로 다른 수로 $10, 11$. 그러면\n$$g = 70 - (1 + 2 + 3 + 9 + 10 + 11) = 70 - 36 = 34.$$\n확인: $1, 2, 3, 9, 10, 11, 34$ → 합 70, 중앙값 9, 모두 다름.\n\n**오답 짚기**: 35는 $e = f = 10$처럼 같은 수를 반복한 것('서로 다른' 조건 위반). 33은 $a, b, c$를 $1, 2, 4$처럼 최소로 하지 않은 것. 32는 $e, f$를 $11, 12$로 잡아 중앙값 바로 다음 수 10을 건너뛴 것.",
+    "verify": {
+      "answer": "exec('''\nbest=0\nfor abc in combinations(range(1,9),3):\n    s=sum(abc)\n    for e in range(10,60):\n        for f_ in range(e+1,60):\n            g=70-s-9-e-f_\n            if g>f_: best=max(best,g)\n''')\nresult=best",
+      "methods": [
+        "70-(1+2+3+9+10+11)"
+      ]
+    }
+  }
+]
