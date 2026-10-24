@@ -220,6 +220,10 @@ final class AppState {
         case "test": if let unit = library.unit(Int(arg) ?? 1) { route = .unit(unit.number); startTest(unit: unit) }
         case "cheatsheet": route = .cheatsheet
         case "mistakes": route = .mistakes
+        case "review":
+            route = .mistakes
+            let entries = mistakes.active.filter { $0.problemID.flatMap { library.problem($0) } != nil }
+            startReview(entries: entries)
         case "pastpapers": route = .pastpapers
         case "mock":
             route = .mock
