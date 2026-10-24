@@ -662,8 +662,8 @@
   {
     "id": "1-3-3",
     "lesson": "1-3",
-    "band": "11-15",
-    "target": 90,
+    "band": "1-10",
+    "target": 75,
     "fields": [
       "counting",
       "numberTheory"
@@ -776,8 +776,8 @@
   {
     "id": "1-3-7",
     "lesson": "1-3",
-    "band": "21-25",
-    "target": 150,
+    "band": "16-20",
+    "target": 120,
     "fields": [
       "counting",
       "numberTheory"
@@ -1227,8 +1227,8 @@
   {
     "id": "1-5-2",
     "lesson": "1-5",
-    "band": "11-15",
-    "target": 90,
+    "band": "1-10",
+    "target": 75,
     "fields": [
       "counting"
     ],
@@ -1256,8 +1256,8 @@
   {
     "id": "1-5-3",
     "lesson": "1-5",
-    "band": "11-15",
-    "target": 90,
+    "band": "1-10",
+    "target": 75,
     "fields": [
       "counting"
     ],
@@ -1346,7 +1346,7 @@
   {
     "id": "1-5-6",
     "lesson": "1-5",
-    "band": "16-20",
+    "band": "11-15",
     "target": 90,
     "fields": [
       "counting"
@@ -1377,8 +1377,8 @@
   {
     "id": "1-5-7",
     "lesson": "1-5",
-    "band": "21-25",
-    "target": 90,
+    "band": "11-15",
+    "target": 75,
     "fields": [
       "algebra",
       "counting"

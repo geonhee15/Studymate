@@ -30,6 +30,24 @@ from math import comb, factorial, gcd, isqrt, perm, pi, sqrt, floor, ceil, lcm
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, "Resources", "Content", "amc8")
 VERBOSE = "--verbose" in sys.argv
+UNIT_FILTER = None
+MOCK_ONLY = "--mock" in sys.argv
+for i, a in enumerate(sys.argv):
+    if a == "--unit" and i + 1 < len(sys.argv):
+        UNIT_FILTER = int(sys.argv[i + 1])
+BANDS = {"1-10": 0, "11-15": 1, "16-20": 2, "21-25": 3}
+
+
+def band_for_number(n):
+    return "1-10" if n <= 10 else "11-15" if n <= 15 else "16-20" if n <= 20 else "21-25"
+
+
+def lesson_ids(unit_dir):
+    """### N-M. headings of lessons.md."""
+    path = os.path.join(unit_dir, "lessons.md")
+    if not os.path.exists(path):
+        return []
+    return re.findall(r"(?m)^### (\d+-\d+)\.", open(path, encoding="utf-8").read())
 
 ENV = {
     "itertools": itertools, "product": itertools.product, "permutations": itertools.permutations,
@@ -117,16 +135,76 @@ def fail(pid, msg):
     failures.append(f"{pid}: {msg}")
 
 
-for path in sorted(glob.glob(os.path.join(CONTENT, "unit*", "*.json"))):
+paths = sorted(glob.glob(os.path.join(CONTENT, "unit*", "*.json"))) + sorted(glob.glob(os.path.join(CONTENT, "mock", "*.json")))
+if UNIT_FILTER is not None:
+    paths = [p for p in paths if os.path.basename(os.path.dirname(p)) == f"unit{UNIT_FILTER}"]
+if MOCK_ONLY:
+    paths = [p for p in paths if os.path.basename(os.path.dirname(p)) == "mock"]
+seen_ids = set()
+for path in paths:
     rel = os.path.relpath(path, ROOT)
+    unit_dir = os.path.dirname(path)
+    kind = os.path.basename(path).split(".")[0]      # problems / quiz / test / setN
+    is_mock = os.path.basename(unit_dir) == "mock"
     try:
         problems = json.load(open(path, encoding="utf-8"))
     except Exception as e:
         failures.append(f"{rel}: JSON 오류 {e}")
         continue
+    if not isinstance(problems, list):
+        failures.append(f"{rel}: 최상위가 배열이 아님")
+        continue
+    known_lessons = None if is_mock else lesson_ids(unit_dir)
+    if kind == "quiz" and len(problems) != 8:
+        failures.append(f"{rel}: 퀴즈는 8문제여야 함 ({len(problems)}개)")
+    if kind == "test" and len(problems) != 15:
+        failures.append(f"{rel}: 테스트는 15문제여야 함 ({len(problems)}개)")
+    if is_mock:
+        if len(problems) != 25:
+            failures.append(f"{rel}: 모의고사는 25문제여야 함 ({len(problems)}개)")
+        numbers = sorted(p.get("number", 0) for p in problems)
+        if numbers != list(range(1, 26)):
+            failures.append(f"{rel}: number가 1~25를 한 번씩 덮지 않음")
+        for p in problems:
+            n = p.get("number", 0)
+            if p.get("band") != band_for_number(n):
+                failures.append(f"{p.get('id')}: {n}번인데 band가 {p.get('band')} (기대 {band_for_number(n)})")
+    if kind == "problems":
+        per_lesson = {}
+        for p in problems:
+            per_lesson.setdefault(p.get("lesson"), []).append(p.get("band"))
+        for lesson in (known_lessons or []):
+            bands = per_lesson.get(lesson)
+            if not bands:
+                failures.append(f"{rel}: 레슨 {lesson}의 연습문제 없음")
+                continue
+            c = Counter(bands)
+            if len(bands) < 10:
+                failures.append(f"{rel}: 레슨 {lesson} 연습문제 {len(bands)}개 (최소 10)")
+            if c["1-10"] < 3 or c["21-25"] < 3 or c["11-15"] + c["16-20"] < 4:
+                failures.append(f"{rel}: 레슨 {lesson} 난이도 분포 {dict(c)} (1-10 ≥3, 11-20 ≥4, 21-25 ≥3)")
     for p in problems:
         total += 1
         pid = p.get("id", "?")
+        if pid in seen_ids:
+            failures.append(f"{pid}: id 중복")
+        seen_ids.add(pid)
+        if p.get("band") not in BANDS:
+            fail(pid, f"band {p.get('band')!r} 잘못됨")
+        if known_lessons is not None and p.get("lesson") not in known_lessons:
+            fail(pid, f"lesson {p.get('lesson')!r}가 lessons.md에 없음")
+        for key in ("question", "questionKo", "solution"):
+            if not p.get(key):
+                fail(pid, f"{key} 없음")
+        if not p.get("fields"):
+            fail(pid, "fields 없음")
+        for f_ in p.get("fields", []):
+            if f_ not in ("counting", "probability", "numberTheory", "algebra", "geometry", "statistics", "logic"):
+                fail(pid, f"알 수 없는 분야 {f_!r}")
+        if p.get("choicesKo") is not None and len(p["choicesKo"]) != 5:
+            fail(pid, "choicesKo가 5개가 아님")
+        if p.get("figure") and not p["figure"].lstrip().startswith("<svg"):
+            fail(pid, "figure는 <svg로 시작해야 함")
         choices = p.get("choices", [])
         letters = "ABCDE"
         if len(choices) != 5:
@@ -179,8 +257,8 @@ for path in sorted(glob.glob(os.path.join(CONTENT, "unit*", "*.json"))):
             if same(values[i], values[j]):
                 fail(pid, f"선택지 {letters[i]}와 {letters[j]} 값이 같음 ({values[i]})")
         methods = v.get("methods") or []
-        if "geometry" in p.get("fields", []) and len(methods) < 2:
-            fail(pid, "기하 문제는 verify.methods 에 서로 다른 두 풀이가 필요")
+        if "geometry" in p.get("fields", []) and len(methods) < 1:
+            fail(pid, "기하 문제는 verify.answer(방법 1) 외에 verify.methods에 다른 접근(방법 2)이 필요")
         for k, m in enumerate(methods):
             try:
                 got = evaluate(m)
