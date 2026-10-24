@@ -64,10 +64,17 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
         guard let window else { return }
         let image: CGImage?
         if DebugEnv.snapshotIncludesSheets, let screen = window.screen ?? NSScreen.main {
-            // Everything on screen inside the window's frame: the window plus its sheets and popovers (all ours).
+            // Composite only this app's visible windows (main window, sheets, popovers) over the window's frame,
+            // front to back, so nothing from other apps ends up in the capture.
             let f = window.frame
             let rect = CGRect(x: f.minX - screen.frame.minX, y: screen.frame.maxY - f.maxY, width: f.width, height: f.height)
-            image = CGWindowListCreateImage(rect, .optionOnScreenOnly, kCGNullWindowID, [.bestResolution])
+            let ids = NSApp.windows.filter { $0.isVisible }.sorted { $0.orderedIndex < $1.orderedIndex }.map { CGWindowID($0.windowNumber) }
+            // The CFArray must hold the raw window IDs as its elements (not boxed numbers).
+            let buffer = UnsafeMutablePointer<UnsafeRawPointer?>.allocate(capacity: max(1, ids.count))
+            defer { buffer.deallocate() }
+            for (i, id) in ids.enumerated() { buffer[i] = UnsafeRawPointer(bitPattern: UInt(id)) }
+            let array = CFArrayCreate(nil, buffer, ids.count, nil)!
+            image = CGImage(windowListFromArrayScreenBounds: rect, windowArray: array, imageOption: [.bestResolution])
         } else {
             let windowID = CGWindowID(window.windowNumber)
             image = CGWindowListCreateImage(.null, .optionIncludingWindow, windowID, [.boundsIgnoreFraming, .bestResolution])
