@@ -1,0 +1,1226 @@
+[
+  {
+    "id": "3-1-1",
+    "lesson": "3-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "How many of the ten numbers $1, 11, 21, 31, 41, 51, 61, 71, 81, 91$ are prime?",
+    "questionKo": "$1, 11, 21, 31, 41, 51, 61, 71, 81, 91$의 열 개 수 가운데 소수(prime)는 몇 개인가?",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "10"
+    ],
+    "answer": "A",
+    "hints": [
+      "1은 소수가 아니다. 소수는 2 이상이어야 한다.",
+      "끝자리가 1이라고 소수인 것은 아니다. 각 수를 3과 7로 나눠 보자.",
+      "21 = 3 × 7, 51 = 3 × 17, 81 = 3⁴, 91 = 7 × 13."
+    ],
+    "solution": "하나씩 확인한다. 1은 약수가 하나뿐이라 소수(prime)가 아니다. $21 = 3 \\cdot 7$, $51 = 3 \\cdot 17$, $81 = 3^4$, $91 = 7 \\cdot 13$은 합성수다. 남는 11, 31, 41, 61, 71은 $\\sqrt{n} < 10$ 이하의 소수 2, 3, 5, 7로 나누어떨어지지 않으므로 소수다. 모두 **5**개.\n\n**오답 짚기**: 6은 1을 소수로 센 것. 7은 51과 91을 소수로 착각한 것. 8은 둘 다 한 것. 10은 끝자리가 1이면 모두 소수라고 생각한 것(21, 81까지 넣음).",
+    "fast": "끝자리 1인 수는 2와 5로는 안 나뉜다. 각 자리 숫자의 합(21 → 3, 51 → 6, 81 → 9)으로 3의 배수를 먼저 걸러내고, 남은 것 중 7의 배수(91 = 7 × 13)만 더 확인하면 된다.",
+    "verify": {
+      "answer": "sum(1 for n in (1,11,21,31,41,51,61,71,81,91) if isprime(n))"
+    }
+  },
+  {
+    "id": "3-1-2",
+    "lesson": "3-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the sum of the distinct prime factors of $1386$?",
+    "questionKo": "$1386$의 서로 다른 소인수(prime factor)를 모두 더하면 얼마인가?",
+    "choices": [
+      "12",
+      "20",
+      "21",
+      "23",
+      "26"
+    ],
+    "answer": "D",
+    "hints": [
+      "짝수이니 2부터 나눈다. 1386 = 2 × 693.",
+      "693의 각 자리 숫자의 합은 18이므로 9로 나누어떨어진다. 693 = 9 × 77.",
+      "1386 = 2 × 3² × 7 × 11. 서로 다른 소인수만 더한다."
+    ],
+    "solution": "$1386 = 2 \\cdot 693$, $693 = 3^2 \\cdot 77 = 3^2 \\cdot 7 \\cdot 11$. 따라서 $1386 = 2 \\cdot 3^2 \\cdot 7 \\cdot 11$. 서로 다른 소인수는 2, 3, 7, 11이고 합은 $2 + 3 + 7 + 11 = 23$.\n\n**오답 짚기**: 26은 3을 두 번 더한 것(서로 다른 소인수만 센다). 21은 짝수인데 2를 빠뜨린 것. 20은 693의 $3^2$을 놓쳐 3을 빠뜨린 것. 12는 77을 소수로 보고 끝낸 것(77 = 7 × 11).",
+    "verify": {
+      "answer": "sum(p for p in range(2, 1387) if isprime(p) and 1386 % p == 0)"
+    }
+  },
+  {
+    "id": "3-1-3",
+    "lesson": "3-1",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the largest prime factor of $2^8 - 1$?",
+    "questionKo": "$2^8 - 1$의 가장 큰 소인수(prime factor)는 무엇인가?",
+    "choices": [
+      "15",
+      "17",
+      "51",
+      "85",
+      "255"
+    ],
+    "answer": "B",
+    "hints": [
+      "2⁸ − 1 = 255. 끝자리가 5이니 5로 나누어떨어진다.",
+      "255 = 5 × 51. 51은 소수일까? 각 자리 숫자의 합이 6이다.",
+      "51 = 3 × 17."
+    ],
+    "solution": "$2^8 - 1 = 255 = 5 \\cdot 51 = 5 \\cdot 3 \\cdot 17$. 가장 큰 소인수는 **17**.\n\n**오답 짚기**: 51은 51을 소수로 착각한 것(51 = 3 × 17). 255는 $2^8 - 1$ 자체를 소수로 본 것. 85와 15는 약수이지만 소수가 아니다.",
+    "fast": "차의 제곱 공식: $2^8 - 1 = (2^4 - 1)(2^4 + 1) = 15 \\cdot 17$. 17이 바로 보인다.",
+    "verify": {
+      "answer": "max(p for p in range(2, 256) if isprime(p) and 255 % p == 0)",
+      "methods": [
+        "max(p for p in range(2, 2**8) if isprime(p) and (2**8 - 1) % p == 0)"
+      ]
+    }
+  },
+  {
+    "id": "3-1-4",
+    "lesson": "3-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest positive integer $k$ such that $756k$ is a perfect square?",
+    "questionKo": "$756k$가 완전제곱수(perfect square)가 되게 하는 가장 작은 양의 정수 $k$는 무엇인가?",
+    "choices": [
+      "3",
+      "7",
+      "21",
+      "42",
+      "63"
+    ],
+    "answer": "C",
+    "hints": [
+      "먼저 소인수분해: 756 = 4 × 189 = 4 × 27 × 7.",
+      "완전제곱수는 모든 소인수의 지수가 짝수여야 한다. 756 = 2² × 3³ × 7에서 지수가 홀수인 소인수는?",
+      "3과 7을 하나씩 더 곱하면 된다."
+    ],
+    "solution": "$756 = 2^2 \\cdot 3^3 \\cdot 7$. 완전제곱수(perfect square)는 모든 지수가 짝수여야 한다. 2의 지수 2는 이미 짝수, 3의 지수 3과 7의 지수 1은 홀수이므로 3과 7을 하나씩 더 곱한다. $k = 3 \\cdot 7 = 21$이고 $756 \\cdot 21 = 15876 = 126^2$.\n\n**오답 짚기**: 3과 7은 둘 중 하나만 고친 것. 63 = 3² × 7은 3을 두 개 곱해 지수를 5로 만든 것(홀수 그대로). 42 = 2 × 3 × 7은 이미 짝수인 2의 지수를 건드린 것.",
+    "verify": {
+      "answer": "next(k for k in range(1, 10**5) if isqrt(756*k)**2 == 756*k)"
+    }
+  },
+  {
+    "id": "3-1-5",
+    "lesson": "3-1",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest positive integer $n$ such that $150n$ is a perfect cube?",
+    "questionKo": "$150n$이 완전세제곱수(perfect cube)가 되게 하는 가장 작은 양의 정수 $n$은 무엇인가?",
+    "choices": [
+      "6",
+      "20",
+      "45",
+      "90",
+      "180"
+    ],
+    "answer": "E",
+    "hints": [
+      "150 = 2 × 3 × 5².",
+      "세제곱수는 모든 지수가 3의 배수여야 한다. 지수 1은 3까지 두 개, 지수 2는 3까지 한 개 모자란다.",
+      "2² × 3² × 5"
+    ],
+    "solution": "$150 = 2 \\cdot 3 \\cdot 5^2$. 완전세제곱수(perfect cube)는 모든 소인수의 지수가 3의 배수여야 한다. 2와 3은 지수를 1에서 3으로 올리려면 각각 $2^2$, $3^2$이 더 필요하고, 5는 지수를 2에서 3으로 올리려면 5 하나가 더 필요하다. $n = 2^2 \\cdot 3^2 \\cdot 5 = 180$. 확인: $150 \\cdot 180 = 27000 = 30^3$.\n\n**오답 짚기**: 6은 제곱수를 만드는 k(지수를 짝수로). 20 = 2² × 5는 3을 빠뜨린 것. 45 = 3² × 5는 2를 빠뜨린 것. 90 = 2 × 3² × 5는 2의 지수를 2까지만 올린 것(합 2는 3의 배수가 아니다).",
+    "verify": {
+      "answer": "next(n for n in range(1, 10**6) if round((150*n) ** (1/3)) ** 3 == 150*n)"
+    }
+  },
+  {
+    "id": "3-1-6",
+    "lesson": "3-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive integers less than or equal to $60$ can be written as the product of two different primes?",
+    "questionKo": "$60$ 이하의 양의 정수 가운데 서로 다른 두 소수(prime)의 곱으로 쓸 수 있는 수는 몇 개인가?",
+    "choices": [
+      "14",
+      "15",
+      "16",
+      "17",
+      "19"
+    ],
+    "answer": "D",
+    "hints": [
+      "작은 소수부터 짝을 지어 센다. 2 × (3, 5, 7, …, 29)까지가 60 이하.",
+      "3 × (5, 7, 11, 13, 17, 19), 5 × (7, 11), 7 × (11)은 77이라 넘는다.",
+      "2와 짝: 9개, 3과 짝: 6개, 5와 짝: 2개."
+    ],
+    "solution": "작은 소수 $p$를 고정하고 $p < q$, $pq \\le 60$인 소수 $q$를 센다.\n\n- $p = 2$: $q \\le 30$인 홀수 소수 3, 5, 7, 11, 13, 17, 19, 23, 29 → 9개\n- $p = 3$: $q \\le 20$인 소수 5, 7, 11, 13, 17, 19 → 6개\n- $p = 5$: $q \\le 12$인 소수 7, 11 → 2개\n- $p = 7$: $7 \\cdot 11 = 77 > 60$ → 0개\n\n합 $9 + 6 + 2 = 17$.\n\n**오답 짚기**: 15는 51 = 3 × 17과 57 = 3 × 19를 소수로 보고 빠뜨린 것. 14는 39 = 3 × 13, 55 = 5 × 11, 58 = 2 × 29처럼 큰 소수가 든 것을 놓친 것. 19는 $2 \\cdot 31 = 62$, $3 \\cdot 23 = 69$처럼 60을 넘는 것을 넣은 것.",
+    "fast": "'서로 다른 두 소수의 곱'은 작은 소수를 기준으로 표를 만들면 10초면 끝난다. 2 × ( ), 3 × ( ), 5 × ( ) 세 줄이면 된다.",
+    "verify": {
+      "answer": "sum(1 for p in range(2, 61) for q in range(p + 1, 61) if isprime(p) and isprime(q) and p * q <= 60)",
+      "methods": [
+        "sum(1 for n in range(1, 61) if len([p for p in range(2, n + 1) if isprime(p) and n % p == 0]) == 2 and all(n % (p*p) for p in range(2, n + 1) if isprime(p)))"
+      ]
+    }
+  },
+  {
+    "id": "3-1-7",
+    "lesson": "3-1",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the largest prime factor of $4095$?",
+    "questionKo": "$4095$의 가장 큰 소인수(prime factor)는 무엇인가?",
+    "choices": [
+      "7",
+      "13",
+      "35",
+      "65",
+      "91"
+    ],
+    "answer": "B",
+    "hints": [
+      "각 자리 숫자의 합이 18이니 9로 나누어떨어진다. 4095 = 9 × 455.",
+      "455 = 5 × 91. 91은 소수처럼 보이지만?",
+      "91 = 7 × 13."
+    ],
+    "solution": "$4095 = 9 \\cdot 455 = 3^2 \\cdot 5 \\cdot 91 = 3^2 \\cdot 5 \\cdot 7 \\cdot 13$. 가장 큰 소인수는 **13**.\n\n**오답 짚기**: 91은 91을 소수로 착각한 것(91 = 7 × 13). 7은 91을 쪼개다 13을 놓친 것. 35와 65는 약수이지만 합성수다.",
+    "fast": "$4095 = 2^{12} - 1 = (2^6 - 1)(2^6 + 1) = 63 \\cdot 65 = 7 \\cdot 9 \\cdot 5 \\cdot 13$. 거듭제곱 빼기 1은 차의 제곱으로 쪼갠다.",
+    "verify": {
+      "answer": "max(p for p in range(2, 4096) if isprime(p) and 4095 % p == 0)"
+    }
+  },
+  {
+    "id": "3-1-8",
+    "lesson": "3-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest positive integer $n$ such that $2n$ is a perfect square and $3n$ is a perfect cube?",
+    "questionKo": "$2n$은 완전제곱수(perfect square)이고 $3n$은 완전세제곱수(perfect cube)가 되게 하는 가장 작은 양의 정수 $n$은 무엇인가?",
+    "choices": [
+      "18",
+      "36",
+      "48",
+      "72",
+      "108"
+    ],
+    "answer": "D",
+    "hints": [
+      "n = 2^a × 3^b 꼴로 두고 지수 조건을 적는다.",
+      "2n = 2^(a+1) × 3^b가 제곱수 → a+1 짝수, b 짝수. 3n = 2^a × 3^(b+1)이 세제곱수 → a는 3의 배수, b+1은 3의 배수.",
+      "a는 홀수이면서 3의 배수인 가장 작은 수, b는 짝수이면서 3으로 나눈 나머지가 2인 가장 작은 수."
+    ],
+    "solution": "다른 소인수가 있으면 n만 커지므로 $n = 2^a \\cdot 3^b$로 둔다.\n\n- $2n = 2^{a+1} \\cdot 3^b$가 완전제곱수: $a + 1$ 짝수, $b$ 짝수\n- $3n = 2^a \\cdot 3^{b+1}$이 완전세제곱수: $a$는 3의 배수, $b + 1$은 3의 배수\n\n$a$: 홀수이면서 3의 배수 → 3. $b$: 짝수이면서 3으로 나눈 나머지가 2 → 2. 따라서 $n = 2^3 \\cdot 3^2 = 72$. 확인: $2n = 144 = 12^2$, $3n = 216 = 6^3$.\n\n**오답 짚기**: 18은 2n = 36이 제곱수인 것만 확인한 것(3n = 54는 세제곱수가 아니다). 36은 3n = 108을 세제곱수로 착각한 것. 48, 108은 지수 조건을 하나씩 빠뜨린 것.",
+    "verify": {
+      "answer": "next(n for n in range(1, 10**5) if isqrt(2*n)**2 == 2*n and round((3*n) ** (1/3)) ** 3 == 3*n)"
+    }
+  },
+  {
+    "id": "3-1-9",
+    "lesson": "3-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive divisors of $2^5 \\cdot 3^4 \\cdot 5^3$ are perfect squares?",
+    "questionKo": "$2^5 \\cdot 3^4 \\cdot 5^3$의 양의 약수 가운데 완전제곱수(perfect square)는 몇 개인가?",
+    "choices": [
+      "8",
+      "12",
+      "18",
+      "27",
+      "120"
+    ],
+    "answer": "C",
+    "hints": [
+      "약수는 2^a × 3^b × 5^c (0 ≤ a ≤ 5, 0 ≤ b ≤ 4, 0 ≤ c ≤ 3) 꼴.",
+      "제곱수가 되려면 a, b, c가 모두 짝수. 0도 짝수다.",
+      "a ∈ {0, 2, 4}, b ∈ {0, 2, 4}, c ∈ {0, 2} → 3 × 3 × 2."
+    ],
+    "solution": "약수는 $2^a \\cdot 3^b \\cdot 5^c$ ($0 \\le a \\le 5$, $0 \\le b \\le 4$, $0 \\le c \\le 3$) 꼴이다. 완전제곱수(perfect square)가 되려면 세 지수가 모두 짝수여야 한다. $a \\in \\{0, 2, 4\\}$ 3가지, $b \\in \\{0, 2, 4\\}$ 3가지, $c \\in \\{0, 2\\}$ 2가지. 곱의 법칙으로 $3 \\times 3 \\times 2 = 18$.\n\n**오답 짚기**: 120은 모든 약수의 개수 $6 \\times 5 \\times 4$. 8은 지수 0을 빼고 센 것($2 \\times 2 \\times 1$에 1을 더한 식). 12는 5의 지수로 $\\{0, 2\\}$ 대신 $\\{2\\}$만 센 것 등 한 소인수를 잘못 센 것. 27은 $3^3$, 세 소인수 모두 3가지로 착각한 것.",
+    "fast": "'제곱수 약수 개수' = 소인수마다 (지수 ÷ 2의 몫 + 1)을 곱한다. (5÷2 → 2)+1, (4÷2 → 2)+1, (3÷2 → 1)+1 → 3 × 3 × 2.",
+    "verify": {
+      "answer": "sum(1 for d in divisors(2**5 * 3**4 * 5**3) if isqrt(d)**2 == d)",
+      "methods": [
+        "(5//2 + 1) * (4//2 + 1) * (3//2 + 1)"
+      ]
+    }
+  },
+  {
+    "id": "3-1-10",
+    "lesson": "3-1",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many three-digit positive integers have digits whose product is $126$?",
+    "questionKo": "세 자리 양의 정수 가운데 각 자리 숫자의 곱이 $126$인 수는 몇 개인가?",
+    "choices": [
+      "3",
+      "6",
+      "9",
+      "12",
+      "18"
+    ],
+    "answer": "D",
+    "hints": [
+      "126 = 2 × 3² × 7. 이 소인수들을 한 자리 숫자(1~9) 세 개로 나눠 담아야 한다.",
+      "7은 다른 소인수와 합치면 14 이상이 되어 한 자리를 넘는다. 그러니 한 자리는 반드시 7이고, 나머지 두 자리의 곱은 18.",
+      "곱이 18인 두 숫자 쌍은 (2, 9)와 (3, 6). 각 묶음을 배열하는 방법은 3! = 6가지."
+    ],
+    "solution": "$126 = 2 \\cdot 3^2 \\cdot 7$. 숫자는 1~9이므로 7은 다른 소인수와 합칠 수 없다(14, 21, …은 두 자리). 따라서 한 자리는 7이고 나머지 두 자리의 곱은 18이다. 곱이 18인 한 자리 숫자 쌍은 $(2, 9)$, $(3, 6)$뿐이다($1 \\cdot 18$은 불가). 숫자 묶음 $\\{2, 7, 9\\}$와 $\\{3, 6, 7\\}$은 모두 서로 다른 숫자이므로 각각 $3! = 6$가지로 배열된다. 0이 없으니 모두 세 자리 수다. $6 + 6 = 12$.\n\n**오답 짚기**: 6은 묶음을 하나만 찾은 것. 3은 배열(순서)을 세지 않은 것. 18은 (1, 2, 63)처럼 한 자리를 넘는 묶음을 넣은 것.",
+    "verify": {
+      "answer": "sum(1 for n in range(100, 1000) if digits(n)[0] * digits(n)[1] * digits(n)[2] == 126)"
+    }
+  },
+  {
+    "id": "3-2-1",
+    "lesson": "3-2",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "How many positive divisors does $72$ have?",
+    "questionKo": "$72$의 양의 약수(divisor)는 몇 개인가?",
+    "choices": [
+      "6",
+      "8",
+      "9",
+      "11",
+      "12"
+    ],
+    "answer": "E",
+    "hints": [
+      "72 = 2³ × 3².",
+      "약수 개수 = (지수 + 1)들의 곱.",
+      "(3 + 1)(2 + 1)"
+    ],
+    "solution": "$72 = 2^3 \\cdot 3^2$. 약수는 $2^a \\cdot 3^b$ ($a = 0, 1, 2, 3$, $b = 0, 1, 2$) 꼴이므로 개수는 $(3 + 1)(2 + 1) = 12$. 직접 나열하면 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72.\n\n**오답 짚기**: 6은 지수에 1을 더하지 않고 $3 \\times 2$를 한 것. 8은 3의 지수에만 1을 더하지 않은 $4 \\times 2$. 9는 $72 = 2^2 \\cdot 3^2$으로 잘못 분해한 것(그건 36). 11은 자기 자신 72를 뺀 진약수(proper divisor)의 개수. 문제는 모든 양의 약수를 물었다.",
+    "verify": {
+      "answer": "len(divisors(72))",
+      "methods": [
+        "(3 + 1) * (2 + 1)"
+      ]
+    }
+  },
+  {
+    "id": "3-2-2",
+    "lesson": "3-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the sum of all positive divisors of $45$?",
+    "questionKo": "$45$의 모든 양의 약수(divisor)의 합은 얼마인가?",
+    "choices": [
+      "33",
+      "48",
+      "63",
+      "72",
+      "78"
+    ],
+    "answer": "E",
+    "hints": [
+      "45 = 3² × 5.",
+      "약수의 합 = (1 + 3 + 9)(1 + 5).",
+      "13 × 6"
+    ],
+    "solution": "$45 = 3^2 \\cdot 5$. 약수의 합은 $(1 + 3 + 9)(1 + 5) = 13 \\times 6 = 78$. 나열해서 더해도 $1 + 3 + 5 + 9 + 15 + 45 = 78$.\n\n**오답 짚기**: 33은 45 자신을 뺀 진약수(proper divisor)의 합. 72는 1을 빼먹고 더한 것(또는 (3 + 9)(1 + 5)). 63은 약수를 나열하다 15를 빠뜨린 것. 48은 소인수 3과 5만 넣어 (1 + 3)(1 + 5)로 계산한 것(3²을 빠뜨림).",
+    "verify": {
+      "answer": "sum(divisors(45))",
+      "methods": [
+        "(1 + 3 + 9) * (1 + 5)"
+      ]
+    }
+  },
+  {
+    "id": "3-2-3",
+    "lesson": "3-2",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "How many positive divisors of $200$ are even?",
+    "questionKo": "$200$의 양의 약수(divisor) 가운데 짝수는 몇 개인가?",
+    "choices": [
+      "3",
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "answer": "D",
+    "hints": [
+      "200 = 2³ × 5².",
+      "짝수 약수는 2의 지수가 1 이상. 2의 지수는 1, 2, 3의 3가지, 5의 지수는 0, 1, 2의 3가지.",
+      "3 × 3. 또는 전체 12개에서 홀수 약수 3개를 뺀다."
+    ],
+    "solution": "$200 = 2^3 \\cdot 5^2$. 짝수 약수는 2의 지수가 1, 2, 3 중 하나(3가지)이고 5의 지수는 0, 1, 2(3가지)이므로 $3 \\times 3 = 9$. 다른 방법: 전체 약수 $(3 + 1)(2 + 1) = 12$개에서 홀수 약수(2의 지수 0) $1 \\times 3 = 3$개를 빼면 9.\n\n**오답 짚기**: 3은 홀수 약수의 개수. 12는 전체 약수 개수. 6은 5의 지수에서 0을 빼고 {1, 2}의 2가지로만 센 $3 \\times 2$. 5의 지수가 0이어도(8, 4, 2) 짝수 약수다. 8은 전체 12에서 홀수 약수를 4개로 잘못 빼거나 2의 지수 0을 섞어 센 값.",
+    "verify": {
+      "answer": "sum(1 for d in divisors(200) if d % 2 == 0)",
+      "methods": [
+        "3 * 3",
+        "(3 + 1) * (2 + 1) - 1 * (2 + 1)"
+      ]
+    }
+  },
+  {
+    "id": "3-2-4",
+    "lesson": "3-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive divisors of $144$ are multiples of $6$?",
+    "questionKo": "$144$의 양의 약수(divisor) 가운데 $6$의 배수는 몇 개인가?",
+    "choices": [
+      "4",
+      "6",
+      "7",
+      "8",
+      "15"
+    ],
+    "answer": "D",
+    "hints": [
+      "144 = 2⁴ × 3².",
+      "6의 배수인 약수는 2의 지수가 1 이상, 3의 지수가 1 이상.",
+      "2의 지수 {1, 2, 3, 4} 4가지 × 3의 지수 {1, 2} 2가지."
+    ],
+    "solution": "$144 = 2^4 \\cdot 3^2$. 6의 배수가 되려면 2와 3을 적어도 하나씩 가져야 하므로 2의 지수는 1~4(4가지), 3의 지수는 1~2(2가지). $4 \\times 2 = 8$. 나열하면 6, 12, 18, 24, 36, 48, 72, 144.\n\n다른 방법: 144의 약수 중 6의 배수는 $6 \\times (144 \\div 6 = 24$의 약수$)$와 일대일 대응이고 $24 = 2^3 \\cdot 3$의 약수는 $4 \\times 2 = 8$개.\n\n**오답 짚기**: 15는 144의 모든 약수의 개수. 4는 3의 지수를 1로 고정하고 2의 지수 4가지만 센 것(18, 36, 72, 144를 놓침). 6은 2의 지수에서 4를 빠뜨리고 $3 \\times 2$로 센 것. 7은 144 자신을 빼야 한다고 착각한 것.",
+    "fast": "'n의 약수 중 m의 배수' = n/m의 약수 개수. 144 ÷ 6 = 24 = 2³ × 3 → 4 × 2 = 8.",
+    "verify": {
+      "answer": "sum(1 for d in divisors(144) if d % 6 == 0)",
+      "methods": [
+        "len(divisors(24))"
+      ]
+    }
+  },
+  {
+    "id": "3-2-5",
+    "lesson": "3-2",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "A proper divisor of a positive integer $n$ is a positive divisor of $n$ other than $n$ itself. What is the sum of the proper divisors of $48$?",
+    "questionKo": "양의 정수 $n$의 진약수(proper divisor)란 $n$ 자신을 제외한 양의 약수를 말한다. $48$의 진약수의 합은 얼마인가?",
+    "choices": [
+      "60",
+      "75",
+      "76",
+      "123",
+      "124"
+    ],
+    "answer": "C",
+    "hints": [
+      "48 = 2⁴ × 3.",
+      "모든 약수의 합 = (1 + 2 + 4 + 8 + 16)(1 + 3) = 31 × 4.",
+      "마지막에 48 자신을 뺀다."
+    ],
+    "solution": "$48 = 2^4 \\cdot 3$. 모든 양의 약수의 합은 $(1 + 2 + 4 + 8 + 16)(1 + 3) = 31 \\times 4 = 124$. 진약수(proper divisor)의 합은 자기 자신을 뺀 $124 - 48 = 76$.\n\n**오답 짚기**: 124는 48을 빼지 않은 모든 약수의 합. 123은 48이 아니라 1을 뺀 것. 75는 48과 1을 둘 다 뺀 것(1은 진약수다). 60은 $(1 + 2 + 4 + 8)(1 + 3)$, 즉 $2^4 = 16$을 빠뜨린 것.",
+    "verify": {
+      "answer": "sum(divisors(48)) - 48",
+      "methods": [
+        "(1 + 2 + 4 + 8 + 16) * (1 + 3) - 48"
+      ]
+    }
+  },
+  {
+    "id": "3-2-6",
+    "lesson": "3-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "A hallway has $80$ light bulbs numbered $1$ to $80$, all off. Then $80$ people walk through one at a time. Person $k$ flips the switch of every bulb whose number is a multiple of $k$ (on becomes off, off becomes on). After all $80$ people have passed, how many bulbs are on?",
+    "questionKo": "복도에 $1$번부터 $80$번까지 전구 $80$개가 모두 꺼져 있다. $80$명이 한 명씩 지나가는데, $k$번째 사람은 번호가 $k$의 배수인 전구의 스위치를 모두 한 번씩 누른다(켜져 있으면 끄고, 꺼져 있으면 켠다). $80$명이 모두 지나간 뒤 켜져 있는 전구는 몇 개인가?",
+    "choices": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "40"
+    ],
+    "answer": "B",
+    "hints": [
+      "n번 전구의 스위치는 n의 약수 개수만큼 눌린다.",
+      "홀수 번 눌려야 켜진 채로 남는다. 약수가 홀수 개인 수는?",
+      "80 이하의 완전제곱수를 센다."
+    ],
+    "solution": "$n$번 전구는 $n$의 약수 $k$마다 한 번씩 눌리므로, 눌린 횟수는 $n$의 약수(divisor) 개수와 같다. 마지막에 켜져 있으려면 홀수 번 눌려야 한다. 약수는 $(d, n/d)$로 짝을 이루므로 개수가 홀수인 것은 $d = n/d$인 짝이 있을 때, 즉 $n$이 완전제곱수(perfect square)일 때뿐이다. 80 이하의 완전제곱수는 $1, 4, 9, 16, 25, 36, 49, 64$의 **8**개.\n\n**오답 짚기**: 9는 $81 > 80$을 넣은 것. 7은 1을 빠뜨린 것($1^2 = 1$번 전구는 1번째 사람만 눌러 켜진다). 40은 짝수 번호 전구가 모두 켜진다고 착각한 것. 10은 100 이하의 제곱수 개수를 외워서 답한 것.",
+    "fast": "'켜고 끄기'는 곧 '약수 개수의 홀짝'이고, 약수 개수가 홀수인 수는 완전제곱수뿐. $\\lfloor\\sqrt{80}\\rfloor = 8$이 답이다.",
+    "verify": {
+      "answer": "sum(1 for n in range(1, 81) if len(divisors(n)) % 2 == 1)",
+      "methods": [
+        "isqrt(80)"
+      ]
+    }
+  },
+  {
+    "id": "3-2-7",
+    "lesson": "3-2",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest odd positive integer that has exactly $6$ positive divisors?",
+    "questionKo": "양의 약수(divisor)가 정확히 $6$개인 가장 작은 홀수 양의 정수는 무엇인가?",
+    "choices": [
+      "27",
+      "45",
+      "75",
+      "135",
+      "243"
+    ],
+    "answer": "B",
+    "hints": [
+      "약수 6개 → 지수+1의 곱이 6. 6 = 6 또는 6 = 3 × 2.",
+      "p⁵ 꼴 또는 p² × q 꼴. 홀수여야 하니 2는 쓸 수 없다.",
+      "가장 작은 홀수 소수 3에 큰 지수를 준다: 3² × 5."
+    ],
+    "solution": "약수의 개수가 6이려면 $(a + 1)(b + 1)\\cdots = 6$. $6 = 6$이면 $p^5$, $6 = 3 \\times 2$이면 $p^2 q$ 꼴이다. 홀수여야 하므로 소수는 3, 5, 7, …만 쓴다. $p^5$ 꼴의 최소는 $3^5 = 243$, $p^2 q$ 꼴의 최소는 큰 지수를 작은 소수에 준 $3^2 \\cdot 5 = 45$. 따라서 답은 **45**. 확인: 45의 약수는 1, 3, 5, 9, 15, 45로 6개.\n\n**오답 짚기**: 27 = 3³은 약수가 4개다(지수 3에 1을 더해야 하는데 '3 × 2 = 6'으로 착각). 75 = 3 × 5²는 약수가 6개이지만 큰 지수를 큰 소수에 주어 45보다 크다. 135 = 3³ × 5는 약수가 $(3 + 1)(1 + 1) = 8$개. 243 = 3⁵은 $p^5$ 꼴만 생각한 것.",
+    "verify": {
+      "answer": "next(n for n in range(1, 10**4, 2) if len(divisors(n)) == 6)"
+    }
+  },
+  {
+    "id": "3-2-8",
+    "lesson": "3-2",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest positive integer that has exactly $12$ positive divisors?",
+    "questionKo": "양의 약수(divisor)가 정확히 $12$개인 가장 작은 양의 정수는 무엇인가?",
+    "choices": [
+      "60",
+      "72",
+      "96",
+      "120",
+      "2048"
+    ],
+    "answer": "A",
+    "hints": [
+      "12를 2 이상의 수의 곱으로 쪼개는 모든 방법: 12, 6 × 2, 4 × 3, 3 × 2 × 2.",
+      "각 꼴의 최소: 2¹¹, 2⁵ × 3, 2³ × 3², 2² × 3 × 5. 큰 지수를 작은 소수에 준다.",
+      "2048, 96, 72, 60 가운데 가장 작은 것."
+    ],
+    "solution": "약수 개수가 12가 되려면 지수에 1씩 더한 수들의 곱이 12여야 한다. 12를 쪼개는 방법별로 가장 작은 수를 찾는다(큰 지수를 작은 소수에 준다).\n\n- $12$: $p^{11}$ → $2^{11} = 2048$\n- $6 \\times 2$: $p^5 q$ → $2^5 \\cdot 3 = 96$\n- $4 \\times 3$: $p^3 q^2$ → $2^3 \\cdot 3^2 = 72$\n- $3 \\times 2 \\times 2$: $p^2 q r$ → $2^2 \\cdot 3 \\cdot 5 = 60$\n\n가장 작은 것은 **60**. 확인: 60의 약수는 $(2 + 1)(1 + 1)(1 + 1) = 12$개.\n\n**오답 짚기**: 72, 96, 2048은 각각 $4 \\times 3$, $6 \\times 2$, $12$로 쪼갠 꼴의 최솟값으로, 쪼개는 방법을 끝까지 비교하지 않은 것. 120 = 2³ × 3 × 5는 약수가 16개로, 12개짜리 가운데 작은 수와 혼동한 것.",
+    "verify": {
+      "answer": "next(n for n in range(1, 10**4) if len(divisors(n)) == 12)",
+      "methods": [
+        "min(2**11, 2**5 * 3, 2**3 * 3**2, 2**2 * 3 * 5)"
+      ]
+    }
+  },
+  {
+    "id": "3-2-9",
+    "lesson": "3-2",
+    "band": "21-25",
+    "target": 180,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive integers less than or equal to $100$ have exactly $4$ positive divisors?",
+    "questionKo": "$100$ 이하의 양의 정수 가운데 양의 약수(divisor)가 정확히 $4$개인 수는 몇 개인가?",
+    "choices": [
+      "26",
+      "28",
+      "30",
+      "31",
+      "32"
+    ],
+    "answer": "E",
+    "hints": [
+      "약수 4개 → 4 = 4 또는 4 = 2 × 2. 즉 p³ 꼴 또는 서로 다른 두 소수의 곱 pq 꼴.",
+      "p³ 꼴: 8, 27 (125는 넘는다). pq 꼴은 작은 소수부터 표로 센다.",
+      "2 × (3~47) 14개, 3 × (5~31) 9개, 5 × (7~19) 5개, 7 × (11, 13) 2개."
+    ],
+    "solution": "약수가 4개이려면 $(a + 1)(b + 1)\\cdots = 4$이므로 $p^3$ 꼴이거나 서로 다른 두 소수의 곱 $pq$ 꼴이다.\n\n- $p^3$: $8, 27$ ($5^3 = 125 > 100$) → 2개\n- $pq$ ($p < q$, $pq \\le 100$): $p = 2$이면 $q \\le 50$인 홀수 소수 14개, $p = 3$이면 $q \\le 33$인 소수 5~31 중 9개, $p = 5$이면 $q \\le 20$인 소수 7, 11, 13, 17, 19의 5개, $p = 7$이면 $q \\le 14$인 소수 11, 13의 2개, $p = 11$이면 $11 \\cdot 13 = 143 > 100$ → 합 30개\n\n모두 $2 + 30 = 32$.\n\n**오답 짚기**: 31은 8 또는 27 하나를 빠뜨린 것. 30은 $p^3$ 꼴(8, 27)을 둘 다 빠뜨린 것. 28은 51, 57, 87, 91을 소수로 보고 $pq$ 목록에서 뺀 것. 26은 두 실수를 다 한 것.",
+    "verify": {
+      "answer": "sum(1 for n in range(1, 101) if len(divisors(n)) == 4)",
+      "methods": [
+        "2 + sum(1 for p in range(2, 51) for q in range(p + 1, 51) if isprime(p) and isprime(q) and p * q <= 100)"
+      ]
+    }
+  },
+  {
+    "id": "3-2-10",
+    "lesson": "3-2",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many positive divisors of $6^4$ are not divisors of $6^3$?",
+    "questionKo": "$6^4$의 양의 약수(divisor) 가운데 $6^3$의 약수가 아닌 것은 몇 개인가?",
+    "choices": [
+      "9",
+      "10",
+      "16",
+      "25",
+      "41"
+    ],
+    "answer": "A",
+    "hints": [
+      "6⁴ = 2⁴ × 3⁴의 약수는 (4 + 1)(4 + 1) = 25개.",
+      "6³ = 2³ × 3³의 약수 16개는 모두 6⁴의 약수이기도 하다.",
+      "25 − 16. 또는 2의 지수나 3의 지수가 4인 약수를 직접 센다."
+    ],
+    "solution": "$6^4 = 2^4 \\cdot 3^4$의 약수는 $(4 + 1)(4 + 1) = 25$개. $6^3 = 2^3 \\cdot 3^3$의 약수는 $(3 + 1)(3 + 1) = 16$개이고, $6^3$이 $6^4$를 나누므로 이 16개는 모두 $6^4$의 약수다. 따라서 $25 - 16 = 9$.\n\n직접 세면: $6^3$의 약수가 아니려면 2의 지수가 4이거나 3의 지수가 4여야 한다. 2의 지수가 4인 것 5개, 3의 지수가 4인 것 5개, 둘 다인 $6^4$ 하나가 겹치니 $5 + 5 - 1 = 9$.\n\n**오답 짚기**: 10은 겹치는 $6^4$를 두 번 센 것. 16은 $6^3$의 약수 개수를, 25는 $6^4$의 약수 개수를 그대로 답한 것. 41은 두 개수를 빼지 않고 더한 것.",
+    "fast": "작은 수의 약수는 큰 수의 약수에 전부 포함되니 개수 차 25 − 16이면 끝. 포함 관계를 보면 나열이 필요 없다.",
+    "verify": {
+      "answer": "sum(1 for d in divisors(6**4) if 6**3 % d != 0)",
+      "methods": [
+        "len(divisors(6**4)) - len(divisors(6**3))",
+        "5 + 5 - 1"
+      ]
+    }
+  },
+  {
+    "id": "3-3-1",
+    "lesson": "3-3",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the greatest common divisor of $84$ and $126$?",
+    "questionKo": "$84$와 $126$의 최대공약수(greatest common divisor, gcd)는 무엇인가?",
+    "choices": [
+      "6",
+      "14",
+      "21",
+      "42",
+      "252"
+    ],
+    "answer": "D",
+    "hints": [
+      "84 = 2² × 3 × 7, 126 = 2 × 3² × 7.",
+      "공통 소인수마다 작은 지수를 고른다.",
+      "2¹ × 3¹ × 7"
+    ],
+    "solution": "$84 = 2^2 \\cdot 3 \\cdot 7$, $126 = 2 \\cdot 3^2 \\cdot 7$. 최대공약수(gcd)는 공통 소인수의 작은 지수를 모아 $2 \\cdot 3 \\cdot 7 = 42$.\n\n**오답 짚기**: 252는 큰 지수를 모은 최소공배수(lcm). 6, 14, 21은 공약수이지만 7, 3, 2를 각각 빠뜨려 최대가 아니다.",
+    "fast": "126 − 84 = 42이고 42가 84를 나누므로 gcd = 42. 두 수의 차는 항상 gcd의 배수라는 점을 쓰면 한 줄.",
+    "verify": {
+      "answer": "gcd(84, 126)"
+    }
+  },
+  {
+    "id": "3-3-2",
+    "lesson": "3-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "Two buses leave a terminal together at 8:00 AM. Bus A leaves every $15$ minutes and bus B leaves every $24$ minutes. How many minutes after 8:00 AM do the two buses next leave together?",
+    "questionKo": "두 버스가 오전 8시에 터미널에서 동시에 출발한다. A 버스는 $15$분마다, B 버스는 $24$분마다 출발한다. 두 버스가 다음에 동시에 출발하는 때는 8시로부터 몇 분 뒤인가?",
+    "choices": [
+      "3",
+      "40",
+      "60",
+      "120",
+      "360"
+    ],
+    "answer": "D",
+    "hints": [
+      "동시에 출발하는 시각은 15의 배수이면서 24의 배수인 분.",
+      "가장 작은 공배수, 즉 lcm(15, 24).",
+      "15 = 3 × 5, 24 = 2³ × 3 → 2³ × 3 × 5."
+    ],
+    "solution": "A는 15의 배수 분마다, B는 24의 배수 분마다 출발하므로 다시 같이 출발하는 때는 두 수의 최소공배수(least common multiple, lcm)다. $15 = 3 \\cdot 5$, $24 = 2^3 \\cdot 3$ → $\\text{lcm} = 2^3 \\cdot 3 \\cdot 5 = 120$. 즉 120분 뒤인 10시.\n\n**오답 짚기**: 360은 두 수를 그냥 곱한 것(공통 소인수 3을 두 번 셈). 3은 최대공약수(gcd). 60은 24의 배수가 아니다(60 ÷ 24는 정수가 아님). 40도 15의 배수가 아니다.",
+    "fast": "lcm = 곱 ÷ gcd = 15 × 24 ÷ 3 = 120.",
+    "verify": {
+      "answer": "lcm(15, 24)",
+      "methods": [
+        "15 * 24 // gcd(15, 24)"
+      ]
+    }
+  },
+  {
+    "id": "3-3-3",
+    "lesson": "3-3",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "The greatest common divisor of two positive integers is $4$ and their product is $480$. What is their least common multiple?",
+    "questionKo": "두 양의 정수의 최대공약수(gcd)는 $4$이고 두 수의 곱은 $480$이다. 두 수의 최소공배수(lcm)는 무엇인가?",
+    "choices": [
+      "120",
+      "240",
+      "480",
+      "960",
+      "1920"
+    ],
+    "answer": "A",
+    "hints": [
+      "두 수일 때 gcd × lcm = 두 수의 곱.",
+      "4 × lcm = 480.",
+      "480 ÷ 4"
+    ],
+    "solution": "두 수 $a, b$에 대해 $\\gcd(a, b) \\times \\text{lcm}(a, b) = ab$가 성립한다. $4 \\times \\text{lcm} = 480$이므로 $\\text{lcm} = 120$. 예를 들어 $a = 4$, $b = 120$ 또는 $a = 20$, $b = 24$가 조건에 맞는다.\n\n**오답 짚기**: 480은 두 수의 곱을 그대로 답한 것(gcd로 나누어야 한다). 1920은 480에 4를 나누지 않고 곱한 것. 240과 960은 480을 2로 나누거나 2를 곱한 것.",
+    "verify": {
+      "answer": "480 // 4",
+      "methods": [
+        "sorted(set(lcm(a, 480 // a) for a in range(1, 481) if 480 % a == 0 and gcd(a, 480 // a) == 4))[0]"
+      ]
+    }
+  },
+  {
+    "id": "3-3-4",
+    "lesson": "3-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "Three ribbons have lengths $90$ cm, $126$ cm, and $198$ cm. Each ribbon is cut into pieces of the same length, as long as possible, with nothing left over. How many pieces are there in all?",
+    "questionKo": "길이가 $90$ cm, $126$ cm, $198$ cm인 리본 세 개가 있다. 세 리본을 남는 부분 없이 모두 같은 길이로, 가능한 한 길게 자른다. 조각은 모두 몇 개가 되는가?",
+    "choices": [
+      "11",
+      "18",
+      "23",
+      "46",
+      "69"
+    ],
+    "answer": "C",
+    "hints": [
+      "조각 길이는 세 길이의 공약수여야 하고, 가장 길어야 하니 최대공약수.",
+      "90 = 2 × 3² × 5, 126 = 2 × 3² × 7, 198 = 2 × 3² × 11 → gcd = 2 × 3² = 18.",
+      "90 ÷ 18 + 126 ÷ 18 + 198 ÷ 18"
+    ],
+    "solution": "조각 길이는 90, 126, 198의 공약수이고 가능한 한 길어야 하므로 최대공약수(gcd)다. $90 = 2 \\cdot 3^2 \\cdot 5$, $126 = 2 \\cdot 3^2 \\cdot 7$, $198 = 2 \\cdot 3^2 \\cdot 11$ → $\\gcd = 2 \\cdot 3^2 = 18$. 조각 수는 $90 \\div 18 + 126 \\div 18 + 198 \\div 18 = 5 + 7 + 11 = 23$.\n\n**오답 짚기**: 18은 조각 길이를 답한 것. 69는 gcd를 6으로 잡은 것(3²을 놓쳐 15 + 21 + 33). 46은 gcd를 9로 잡은 것(2를 놓쳐 10 + 14 + 22). 11은 가장 긴 리본의 조각 수만 센 것.",
+    "verify": {
+      "answer": "sum(x // gcd(90, 126, 198) for x in (90, 126, 198))"
+    }
+  },
+  {
+    "id": "3-3-5",
+    "lesson": "3-3",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "For a positive integer $n$, $\\gcd(36, n) = 12$ and $\\text{lcm}(36, n) = 252$. What is $n$?",
+    "questionKo": "양의 정수 $n$에 대해 $\\gcd(36, n) = 12$이고 $\\text{lcm}(36, n) = 252$이다. $n$은 무엇인가?",
+    "choices": [
+      "7",
+      "21",
+      "63",
+      "84",
+      "756"
+    ],
+    "answer": "D",
+    "hints": [
+      "두 수일 때 gcd × lcm = 두 수의 곱.",
+      "36 × n = 12 × 252.",
+      "n = 3024 ÷ 36"
+    ],
+    "solution": "$\\gcd(36, n) \\times \\text{lcm}(36, n) = 36n$이므로 $36n = 12 \\times 252 = 3024$, $n = 84$. 확인: $\\gcd(36, 84) = 12$, $\\text{lcm}(36, 84) = 252$.\n\n**오답 짚기**: 756은 $36 \\times 252 \\div 12$, 즉 gcd와 n의 자리를 바꾼 것. 21은 252 ÷ 12만 한 것. 7은 252 ÷ 36을 답한 것. 63 = 3² × 7은 gcd(36, 63) = 9라 조건에 맞지 않는다(소인수 2를 빠뜨림).",
+    "fast": "소인수로: 36 = 2² × 3², lcm = 2² × 3² × 7이므로 n은 7을 가져야 하고, gcd = 2² × 3이므로 n의 3의 지수는 정확히 1, 2의 지수는 2 → n = 2² × 3 × 7 = 84.",
+    "verify": {
+      "answer": "12 * 252 // 36",
+      "methods": [
+        "[n for n in range(1, 1000) if gcd(36, n) == 12 and lcm(36, n) == 252][0]"
+      ]
+    }
+  },
+  {
+    "id": "3-3-6",
+    "lesson": "3-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the greatest common divisor of $527$ and $341$?",
+    "questionKo": "$527$과 $341$의 최대공약수(gcd)는 무엇인가?",
+    "choices": [
+      "1",
+      "11",
+      "17",
+      "31",
+      "93"
+    ],
+    "answer": "D",
+    "hints": [
+      "소인수분해가 바로 안 보이면 유클리드 호제법: gcd(a, b) = gcd(b, a − b).",
+      "527 − 341 = 186, 341 − 186 = 155, 186 − 155 = 31.",
+      "155 = 5 × 31이므로 gcd = 31."
+    ],
+    "solution": "유클리드 호제법(Euclidean algorithm)을 쓴다. $\\gcd(527, 341) = \\gcd(341, 186) = \\gcd(186, 155) = \\gcd(155, 31)$. $155 = 5 \\times 31$이므로 답은 **31**. 확인: $527 = 17 \\times 31$, $341 = 11 \\times 31$.\n\n**오답 짚기**: 1은 두 수가 모두 홀수이고 3, 5, 7로 안 나뉘어 서로소라고 단정한 것. 17과 11은 각 수의 다른 소인수, 즉 gcd가 아닌 쪽을 고른 것. 93 = 3 × 31은 두 수를 나누지 못한다.",
+    "fast": "차 186 = 2 × 3 × 31의 소인수 중 341을 나누는 것을 찾으면 된다. 341은 홀수이고 3의 배수가 아니니 31만 남는다.",
+    "verify": {
+      "answer": "gcd(527, 341)"
+    }
+  },
+  {
+    "id": "3-3-7",
+    "lesson": "3-3",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "Three runners start together at the start line of a circular track. They take $40$, $48$, and $60$ seconds, respectively, to complete one lap, and each runs at a constant speed. Not counting the start, how many times during the first $30$ minutes are all three runners at the start line at the same time?",
+    "questionKo": "세 사람이 원형 트랙의 출발선에서 동시에 출발한다. 한 바퀴를 도는 데 각각 $40$초, $48$초, $60$초가 걸리며 일정한 속력으로 달린다. 출발 순간은 세지 않을 때, 처음 $30$분 동안 세 사람이 동시에 출발선에 있는 때는 몇 번인가?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "15",
+      "45"
+    ],
+    "answer": "B",
+    "hints": [
+      "세 사람이 동시에 출발선에 오는 때는 lcm(40, 48, 60)초마다.",
+      "40 = 2³ × 5, 48 = 2⁴ × 3, 60 = 2² × 3 × 5 → lcm = 2⁴ × 3 × 5 = 240초 = 4분.",
+      "30분 ÷ 4분 = 7.5 → 7번. 출발 순간은 세지 않는다."
+    ],
+    "solution": "세 사람이 모두 출발선에 있으려면 지난 시간이 40, 48, 60의 공배수여야 한다. $40 = 2^3 \\cdot 5$, $48 = 2^4 \\cdot 3$, $60 = 2^2 \\cdot 3 \\cdot 5$ → $\\text{lcm} = 2^4 \\cdot 3 \\cdot 5 = 240$초 = 4분. 30분 동안 4분, 8분, …, 28분의 **7**번 만난다(32분은 넘는다).\n\n**오답 짚기**: 8은 출발 순간(0분)까지 센 것. 15는 lcm을 120초로 잘못 구한 것(2의 지수를 3으로). 6은 28분을 빠뜨린 것. 45는 40초 주자가 혼자 출발선을 지나는 횟수($1800 \\div 40$).",
+    "verify": {
+      "answer": "sum(1 for t in range(1, 1801) if t % 40 == 0 and t % 48 == 0 and t % 60 == 0)",
+      "methods": [
+        "1800 // lcm(40, 48, 60)"
+      ]
+    }
+  },
+  {
+    "id": "3-3-8",
+    "lesson": "3-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "How many ordered pairs $(a, b)$ of positive integers satisfy $\\gcd(a, b) = 10$ and $\\text{lcm}(a, b) = 600$?",
+    "questionKo": "$\\gcd(a, b) = 10$이고 $\\text{lcm}(a, b) = 600$인 양의 정수의 순서쌍 $(a, b)$는 몇 개인가?",
+    "choices": [
+      "4",
+      "8",
+      "12",
+      "16",
+      "24"
+    ],
+    "answer": "B",
+    "hints": [
+      "a = 10x, b = 10y로 놓으면 x와 y는 서로소.",
+      "lcm = 10xy = 600 → xy = 60 = 2² × 3 × 5.",
+      "서로소이려면 소인수 2², 3, 5를 통째로 x 또는 y에 준다. 소인수 종류마다 2가지."
+    ],
+    "solution": "$a = 10x$, $b = 10y$ ($x, y$는 서로소)로 두면 $\\text{lcm}(a, b) = 10xy = 600$이므로 $xy = 60 = 2^2 \\cdot 3 \\cdot 5$. $x$와 $y$가 서로소이려면 같은 소수가 양쪽에 나뉘면 안 되므로 $2^2$, $3$, $5$ 각각을 통째로 $x$ 또는 $y$에 준다. 소인수 종류가 3개이니 $2^3 = 8$가지. 나열하면 $(x, y) = (1, 60), (4, 15), (3, 20), (5, 12)$와 그 역순, 즉 $(a, b) = (10, 600), (40, 150), (30, 200), (50, 120)$과 역순으로 8쌍.\n\n**오답 짚기**: 4는 $a < b$인 쌍만 센 것(문제는 순서쌍). 12는 60의 약수 쌍을 서로소 조건 없이 모두 센 것($(2, 30)$, $(6, 10)$은 gcd가 10이 아니다). 16은 $2^2$을 2와 2로 갈라 소인수가 4개인 것처럼 센 것. 24는 600의 약수 개수.",
+    "fast": "gcd가 g, lcm이 L이면 순서쌍 개수는 $2^{(L/g$의 서로 다른 소인수 개수$)}$. $600/10 = 60$의 소인수는 2, 3, 5의 3개 → $2^3 = 8$.",
+    "verify": {
+      "answer": "sum(1 for a in range(1, 601) for b in range(1, 601) if gcd(a, b) == 10 and lcm(a, b) == 600)",
+      "methods": [
+        "2 ** len([p for p in range(2, 61) if isprime(p) and 60 % p == 0])"
+      ]
+    }
+  },
+  {
+    "id": "3-3-9",
+    "lesson": "3-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "Positive integers $a$ and $b$ with $a < b$ satisfy $a + b = 120$ and $\\gcd(a, b) = 8$. How many such pairs $(a, b)$ are there?",
+    "questionKo": "$a < b$인 양의 정수 $a, b$가 $a + b = 120$, $\\gcd(a, b) = 8$을 만족한다. 이런 쌍 $(a, b)$는 몇 개인가?",
+    "choices": [
+      "4",
+      "6",
+      "7",
+      "8",
+      "14"
+    ],
+    "answer": "A",
+    "hints": [
+      "a = 8x, b = 8y로 놓으면 x + y = 15이고 x, y는 서로소.",
+      "gcd(x, 15 − x) = gcd(x, 15). 즉 x가 3의 배수도 5의 배수도 아니면 된다.",
+      "x < y이므로 x는 1~7. 그중 3, 5, 6을 뺀다."
+    ],
+    "solution": "$\\gcd(a, b) = 8$이므로 $a = 8x$, $b = 8y$ ($x, y$ 서로소)로 두면 $x + y = 15$. $\\gcd(x, y) = \\gcd(x, 15 - x) = \\gcd(x, 15)$이므로 $x$가 3의 배수도 5의 배수도 아니면 된다. $a < b$에서 $x < y$, 즉 $x \\le 7$. $x = 1, 2, 4, 7$의 **4**개 → $(a, b) = (8, 112), (16, 104), (32, 88), (56, 64)$.\n\n**오답 짚기**: 7은 서로소 조건을 빠뜨리고 $x = 1$~$7$을 모두 센 것($(24, 96)$은 gcd가 24). 14는 거기에 순서까지 두 배로 센 것. 8은 15와 서로소인 1~14를 모두 센 것으로, $a < b$ 조건을 빠뜨려 두 배가 됐다. 6은 $x = 3, 5$를 넣은 것($\\gcd(3, 12) = 3$, $\\gcd(5, 10) = 5$).",
+    "fast": "$x + y = 15$에서 $\\gcd(x, y) = \\gcd(x, 15)$. 15와 서로소인 1~14는 8개이고 대칭이니 $x < y$는 4개.",
+    "verify": {
+      "answer": "sum(1 for a in range(1, 120) if a < 120 - a and gcd(a, 120 - a) == 8)"
+    }
+  },
+  {
+    "id": "3-3-10",
+    "lesson": "3-3",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "For how many positive integers $n$ with $1 \\le n \\le 100$ is $\\gcd(n, 20) = 4$?",
+    "questionKo": "$1 \\le n \\le 100$인 양의 정수 $n$ 가운데 $\\gcd(n, 20) = 4$인 $n$은 몇 개인가?",
+    "choices": [
+      "5",
+      "10",
+      "13",
+      "20",
+      "25"
+    ],
+    "answer": "D",
+    "hints": [
+      "gcd가 4이려면 n은 4의 배수여야 하고, 20의 다른 소인수 5는 n에 없어야 한다.",
+      "n = 4m (m = 1~25)로 두면 gcd(4m, 20) = 4 × gcd(m, 5).",
+      "m이 5의 배수가 아니면 된다. 25개 중 5의 배수 5개를 뺀다."
+    ],
+    "solution": "$\\gcd(n, 20) = 4$이려면 $4 \\mid n$이고, $20 = 2^2 \\cdot 5$에서 남은 소인수 5가 $n$에 없어야 한다. $n = 4m$ ($1 \\le m \\le 25$)로 두면 $\\gcd(4m, 20) = 4\\gcd(m, 5)$이므로 $m$이 5의 배수가 아니면 된다. $m = 1$~$25$ 중 5의 배수 5개를 빼면 $25 - 5 = 20$.\n\n주의: $n = 8$처럼 8의 배수여도 된다. $\\gcd(8, 20) = 4$이다. 20에 2가 두 개뿐이라 $n$에 2가 몇 개 있든 gcd의 2 지수는 2를 넘지 않는다.\n\n**오답 짚기**: 25는 5의 배수인 20, 40, 60, 80, 100을 빼지 않은 것. 10은 8의 배수도 빼야 한다고 착각한 것($\\gcd(8, 20) = 8$이 아니다). 13은 4의 배수 중 홀수 몫만 센 것. 5는 빼야 할 개수를 답한 것.",
+    "verify": {
+      "answer": "sum(1 for n in range(1, 101) if gcd(n, 20) == 4)",
+      "methods": [
+        "25 - 25 // 5"
+      ]
+    }
+  },
+  {
+    "id": "3-4-1",
+    "lesson": "3-4",
+    "band": "1-10",
+    "target": 45,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "How many zeros are at the end of $40!$?",
+    "questionKo": "$40!$의 끝에는 $0$이 몇 개 있는가?",
+    "choices": [
+      "4",
+      "8",
+      "9",
+      "10",
+      "38"
+    ],
+    "answer": "C",
+    "hints": [
+      "끝자리 0 하나 = 2 × 5 한 쌍. 2는 넘치니 5의 개수만 세면 된다.",
+      "1~40 중 5의 배수는 8개. 그런데 25 = 5²은 5를 두 개 가진다.",
+      "⌊40/5⌋ + ⌊40/25⌋ = 8 + 1"
+    ],
+    "solution": "끝자리 0의 개수는 $40!$에 들어 있는 소인수 5의 개수와 같다(2는 5보다 훨씬 많다). $\\lfloor 40/5 \\rfloor + \\lfloor 40/25 \\rfloor = 8 + 1 = 9$.\n\n**오답 짚기**: 8은 25가 5를 두 개 가진다는 것을 빠뜨린 것. 10은 $40/5$에 25를 더하고도 50까지 센 것처럼 하나를 더 센 것. 38은 2의 개수($20 + 10 + 5 + 2 + 1$). 4는 10의 배수(10, 20, 30, 40)만 센 것.",
+    "verify": {
+      "answer": "len(str(factorial(40))) - len(str(factorial(40)).rstrip('0'))",
+      "methods": [
+        "40 // 5 + 40 // 25"
+      ]
+    }
+  },
+  {
+    "id": "3-4-2",
+    "lesson": "3-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the largest integer $k$ such that $3^k$ divides $20!$?",
+    "questionKo": "$3^k$이 $20!$을 나누게 하는 가장 큰 정수 $k$는 무엇인가?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "answer": "C",
+    "hints": [
+      "1~20 중 3의 배수는 6개.",
+      "9와 18은 3을 두 개씩 가진다. ⌊20/9⌋ = 2를 더한다.",
+      "6 + 2"
+    ],
+    "solution": "$20!$에 들어 있는 3의 지수는 $\\lfloor 20/3 \\rfloor + \\lfloor 20/9 \\rfloor = 6 + 2 = 8$. 3의 배수 3, 6, 9, 12, 15, 18 여섯 개가 3을 하나씩, 그중 9와 18이 하나씩 더 준다.\n\n**오답 짚기**: 6은 9와 18이 주는 두 번째 3을 빠뜨린 것. 7은 9만 세고 18 = 2 × 9를 놓친 것. 9와 10은 27을 넘지 않는데 $\\lfloor 20/27 \\rfloor$ 자리에 1을 더한 것.",
+    "verify": {
+      "answer": "max(k for k in range(0, 30) if factorial(20) % 3**k == 0)",
+      "methods": [
+        "20 // 3 + 20 // 9"
+      ]
+    }
+  },
+  {
+    "id": "3-4-3",
+    "lesson": "3-4",
+    "band": "1-10",
+    "target": 60,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "The product $1 \\times 2 \\times 3 \\times \\cdots \\times 25$ is written out in full. How many zeros does it end with?",
+    "questionKo": "$1 \\times 2 \\times 3 \\times \\cdots \\times 25$를 끝까지 계산해 쓰면 끝에 $0$이 몇 개 붙는가?",
+    "choices": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "22"
+    ],
+    "answer": "C",
+    "hints": [
+      "0 하나는 10 = 2 × 5 한 쌍. 5의 개수를 센다.",
+      "5, 10, 15, 20, 25가 5의 배수. 마지막 25는 5 × 5.",
+      "5 + 1"
+    ],
+    "solution": "$25!$의 끝자리 0 개수는 소인수 5의 개수다. $\\lfloor 25/5 \\rfloor + \\lfloor 25/25 \\rfloor = 5 + 1 = 6$.\n\n**오답 짚기**: 5는 25가 5를 두 개 가진 것을 놓친 것. 22는 2의 개수를 센 것(0은 2와 5 중 적은 쪽을 따른다). 4는 25를 5의 배수에서 빼거나 10의 배수만 센 것. 7은 125의 몫 자리에 1을 더한 것.",
+    "verify": {
+      "answer": "len(str(factorial(25))) - len(str(factorial(25)).rstrip('0'))",
+      "methods": [
+        "25 // 5 + 25 // 25"
+      ]
+    }
+  },
+  {
+    "id": "3-4-4",
+    "lesson": "3-4",
+    "band": "11-15",
+    "target": 75,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "How many zeros are at the end of $130!$?",
+    "questionKo": "$130!$의 끝에는 $0$이 몇 개 있는가?",
+    "choices": [
+      "26",
+      "30",
+      "31",
+      "32",
+      "33"
+    ],
+    "answer": "D",
+    "hints": [
+      "5, 25, 125의 배수를 차례로 센다.",
+      "⌊130/5⌋ = 26, ⌊130/25⌋ = 5, ⌊130/125⌋ = 1.",
+      "26 + 5 + 1"
+    ],
+    "solution": "$\\lfloor 130/5 \\rfloor + \\lfloor 130/25 \\rfloor + \\lfloor 130/125 \\rfloor = 26 + 5 + 1 = 32$. 125 = 5³이 처음 등장하므로 세 번째 항을 잊지 말아야 한다.\n\n**오답 짚기**: 26은 5의 배수만 센 것. 31은 125의 배수(125 자신)를 빠뜨린 것. 30은 $\\lfloor 130/25 \\rfloor$를 4로 잘못 계산한 것. 33은 625 자리에 1을 더한 것.",
+    "verify": {
+      "answer": "len(str(factorial(130))) - len(str(factorial(130)).rstrip('0'))",
+      "methods": [
+        "130 // 5 + 130 // 25 + 130 // 125"
+      ]
+    }
+  },
+  {
+    "id": "3-4-5",
+    "lesson": "3-4",
+    "band": "11-15",
+    "target": 90,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the largest integer $k$ such that $6^k$ divides $40!$?",
+    "questionKo": "$6^k$이 $40!$을 나누게 하는 가장 큰 정수 $k$는 무엇인가?",
+    "choices": [
+      "13",
+      "14",
+      "17",
+      "18",
+      "38"
+    ],
+    "answer": "D",
+    "hints": [
+      "6 = 2 × 3. 6^k을 만들려면 2와 3이 k개씩 필요하다.",
+      "2의 개수: 20 + 10 + 5 + 2 + 1 = 38. 3의 개수: 13 + 4 + 1 = 18.",
+      "적은 쪽이 답."
+    ],
+    "solution": "$6^k = 2^k \\cdot 3^k$이므로 $40!$에 든 2의 개수와 3의 개수 중 적은 쪽이 $k$다. 2의 개수는 $20 + 10 + 5 + 2 + 1 = 38$, 3의 개수는 $\\lfloor 40/3 \\rfloor + \\lfloor 40/9 \\rfloor + \\lfloor 40/27 \\rfloor = 13 + 4 + 1 = 18$. 따라서 $k = 18$.\n\n**오답 짚기**: 38은 2의 개수를 답한 것(적은 쪽이 아니라 많은 쪽). 13은 3의 배수만 세고 9, 27을 빠뜨린 것. 14는 9를 빠뜨리고 27만 더한 것. 17은 27을 빠뜨린 것.",
+    "verify": {
+      "answer": "max(k for k in range(0, 60) if factorial(40) % 6**k == 0)",
+      "methods": [
+        "min(40//2 + 40//4 + 40//8 + 40//16 + 40//32, 40//3 + 40//9 + 40//27)"
+      ]
+    }
+  },
+  {
+    "id": "3-4-6",
+    "lesson": "3-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "Let $N = 2 \\times 4 \\times 6 \\times \\cdots \\times 100$ be the product of all even integers from $2$ to $100$. How many zeros are at the end of $N$?",
+    "questionKo": "$N = 2 \\times 4 \\times 6 \\times \\cdots \\times 100$을 $2$부터 $100$까지 모든 짝수의 곱이라 하자. $N$의 끝에는 $0$이 몇 개 있는가?",
+    "choices": [
+      "10",
+      "12",
+      "20",
+      "24",
+      "50"
+    ],
+    "answer": "B",
+    "hints": [
+      "각 짝수에서 2를 하나씩 빼내면 N = 2⁵⁰ × (1 × 2 × ⋯ × 50) = 2⁵⁰ × 50!.",
+      "2는 넘치니 5의 개수가 0의 개수. 50!에 든 5의 개수는?",
+      "⌊50/5⌋ + ⌊50/25⌋"
+    ],
+    "solution": "$2k$ 꼴의 짝수 50개에서 2를 하나씩 빼내면 $N = 2^{50} \\times 50!$. 2는 충분히 많으므로 끝자리 0의 개수는 $N$에 든 5의 개수, 즉 $50!$에 든 5의 개수와 같다. $\\lfloor 50/5 \\rfloor + \\lfloor 50/25 \\rfloor = 10 + 2 = 12$.\n\n**오답 짚기**: 24는 $100!$의 끝자리 0 개수(홀수까지 곱한 것). 10은 25, 50이 5를 두 개씩 가진 것을 놓친 것. 20은 1~100에서 5의 배수 개수를 그대로 쓴 것. 50은 2의 개수가 많다고 그쪽을 답한 것.",
+    "fast": "짝수의 곱은 $2^{50} \\cdot 50!$. '5를 세라'는 원칙은 그대로이고 범위만 절반이 된다.",
+    "verify": {
+      "answer": "exec('''\nN = 1\nfor k in range(2, 101, 2):\n    N *= k\n''')\nresult = len(str(N)) - len(str(N).rstrip('0'))",
+      "methods": [
+        "50 // 5 + 50 // 25"
+      ]
+    }
+  },
+  {
+    "id": "3-4-7",
+    "lesson": "3-4",
+    "band": "16-20",
+    "target": 120,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the smallest positive integer $n$ such that $n!$ ends in at least $20$ zeros?",
+    "questionKo": "$n!$의 끝에 $0$이 적어도 $20$개 있게 하는 가장 작은 양의 정수 $n$은 무엇인가?",
+    "choices": [
+      "70",
+      "75",
+      "80",
+      "84",
+      "85"
+    ],
+    "answer": "E",
+    "hints": [
+      "0의 개수 Z(n) = ⌊n/5⌋ + ⌊n/25⌋ + ⋯. 어림으로 n/4 ≈ 20이니 n은 80 근처.",
+      "Z(80) = 16 + 3 = 19. 아직 모자란다.",
+      "다음 5의 배수인 85에서 Z(85) = 17 + 3 = 20."
+    ],
+    "solution": "$n!$의 끝자리 0 개수 $Z(n) = \\lfloor n/5 \\rfloor + \\lfloor n/25 \\rfloor + \\cdots$는 $n$이 5의 배수를 지날 때만 늘어난다. $Z(80) = 16 + 3 = 19$, $Z(85) = 17 + 3 = 20$. 따라서 가장 작은 $n$은 **85**.\n\n**오답 짚기**: 80은 $\\lfloor 80/5 \\rfloor = 16$에 25의 배수를 더하지 않고 어림한 뒤 '20에 가깝다'고 고른 것. 84는 $Z(84) = Z(80) = 19$인데 85 바로 앞이라 고른 것(5의 배수를 지나야 0이 는다). 75와 70은 $Z(75) = 18$, $Z(70) = 16$으로 모자란다.",
+    "verify": {
+      "answer": "exec('''\ndef Z(n):\n    s = 0\n    p = 5\n    while p <= n:\n        s += n // p\n        p *= 5\n    return s\n''')\nresult = next(n for n in range(1, 500) if Z(n) >= 20)"
+    }
+  },
+  {
+    "id": "3-4-8",
+    "lesson": "3-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "For a positive integer $n$, let $Z(n)$ be the number of zeros at the end of $n!$. Which of the following values is never equal to $Z(n)$ for any $n$?",
+    "questionKo": "양의 정수 $n$에 대해 $Z(n)$을 $n!$의 끝에 있는 $0$의 개수라 하자. 다음 중 어떤 $n$에 대해서도 $Z(n)$이 될 수 없는 값은 무엇인가?",
+    "choices": [
+      "22",
+      "23",
+      "24",
+      "26",
+      "28"
+    ],
+    "answer": "B",
+    "hints": [
+      "Z(n)은 n이 5의 배수를 지날 때 1씩, 25의 배수를 지날 때는 한 번에 2씩 는다.",
+      "Z(95) = 19 + 3 = 22, Z(99) = 22. 그다음 Z(100) = 20 + 4 = 24.",
+      "23은 건너뛴다."
+    ],
+    "solution": "$Z(n) = \\lfloor n/5 \\rfloor + \\lfloor n/25 \\rfloor + \\lfloor n/125 \\rfloor + \\cdots$. $n$이 5의 배수를 지나면 1 늘고, 25의 배수를 지나면 $\\lfloor n/25 \\rfloor$도 함께 늘어 한 번에 2 는다. $Z(95) = 19 + 3 = 22$, $Z(96) = \\cdots = Z(99) = 22$, $Z(100) = 20 + 4 = 24$. 그래서 **23**은 어떤 $n!$의 끝자리 0 개수도 될 수 없다. 나머지는 가능하다: $Z(95) = 22$, $Z(100) = 24$, $Z(105) = 21 + 4 = 25$, $Z(110) = 26$, $Z(120) = 24 + 4 = 28$.\n\n**오답 짚기**: 24와 28은 100!, 120!의 0 개수로 가능하다. 22는 95!~99!의 값. 26은 110!~114!의 값. 건너뛰는 값은 25의 배수 바로 앞뒤에서만 생기니 그 근처만 보면 된다.",
+    "fast": "건너뛰는 값은 $Z(25k - 1) + 1$ 꼴: $Z(24) + 1 = 5$, $Z(49) + 1 = 11$, $Z(74) + 1 = 17$, $Z(99) + 1 = 23$, $Z(124) + 1 = 29$(125는 3씩 뛰어 30도). 5, 11, 17, 23, 29, 30, …",
+    "verify": {
+      "answer": "exec('''\ndef Z(n):\n    s = 0\n    p = 5\n    while p <= n:\n        s += n // p\n        p *= 5\n    return s\n''')\nzs = set(Z(n) for n in range(1, 400))\nresult = [z for z in (22, 23, 24, 26, 28) if z not in zs][0]"
+    }
+  },
+  {
+    "id": "3-4-9",
+    "lesson": "3-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory",
+      "counting"
+    ],
+    "question": "For how many positive integers $n$ does $n!$ end in exactly $12$ zeros?",
+    "questionKo": "$n!$의 끝에 $0$이 정확히 $12$개 있는 양의 정수 $n$은 몇 개인가?",
+    "choices": [
+      "0",
+      "1",
+      "4",
+      "5",
+      "10"
+    ],
+    "answer": "D",
+    "hints": [
+      "Z(n) = ⌊n/5⌋ + ⌊n/25⌋ + ⋯. Z(45) = 9 + 1 = 10, Z(50) = 10 + 2 = 12.",
+      "Z는 5의 배수를 지날 때만 변한다. 50, 51, 52, 53, 54에서는 12로 같다.",
+      "55에서 13이 된다."
+    ],
+    "solution": "$Z(n) = \\lfloor n/5 \\rfloor + \\lfloor n/25 \\rfloor + \\cdots$는 $n$이 5의 배수를 지날 때만 변한다. $Z(49) = 9 + 1 = 10$, $Z(50) = 10 + 2 = 12$(50은 25의 배수라 한 번에 2 뛴다), $Z(55) = 11 + 2 = 13$. 따라서 $Z(n) = 12$인 $n$은 $50, 51, 52, 53, 54$의 **5**개.\n\n**오답 짚기**: 0은 11이 건너뛰는 값인 것을 12로 착각한 것(건너뛰는 값은 $Z(49) + 1 = 11$). 4는 50을 빼고 51~54만 센 것. 1은 n = 50 하나뿐이라고 생각한 것. 10은 5의 배수 사이 간격을 10으로 본 것.",
+    "fast": "$Z(n) = 12$가 가능하기만 하면 답은 항상 5개(5의 배수 하나와 그 뒤 네 수). 불가능하면 0개. $Z(50) = 12$이므로 5.",
+    "verify": {
+      "answer": "exec('''\ndef Z(n):\n    s = 0\n    p = 5\n    while p <= n:\n        s += n // p\n        p *= 5\n    return s\n''')\nresult = sum(1 for n in range(1, 400) if Z(n) == 12)"
+    }
+  },
+  {
+    "id": "3-4-10",
+    "lesson": "3-4",
+    "band": "21-25",
+    "target": 150,
+    "fields": [
+      "numberTheory"
+    ],
+    "question": "What is the largest integer $k$ such that $12^k$ divides $45!$?",
+    "questionKo": "$12^k$이 $45!$을 나누게 하는 가장 큰 정수 $k$는 무엇인가?",
+    "choices": [
+      "10",
+      "15",
+      "20",
+      "21",
+      "41"
+    ],
+    "answer": "C",
+    "hints": [
+      "12 = 2² × 3. 12^k = 2^(2k) × 3^k이므로 2는 2k개, 3은 k개 필요하다.",
+      "45!에 든 2의 개수: 22 + 11 + 5 + 2 + 1 = 41. 3의 개수: 15 + 5 + 1 = 21.",
+      "2k ≤ 41 → k ≤ 20. k ≤ 21. 둘 중 작은 쪽."
+    ],
+    "solution": "$12^k = 2^{2k} \\cdot 3^k$. $45!$에 든 2의 개수는 $\\lfloor 45/2 \\rfloor + \\lfloor 45/4 \\rfloor + \\lfloor 45/8 \\rfloor + \\lfloor 45/16 \\rfloor + \\lfloor 45/32 \\rfloor = 22 + 11 + 5 + 2 + 1 = 41$, 3의 개수는 $15 + 5 + 1 = 21$. 조건은 $2k \\le 41$과 $k \\le 21$이므로 $k \\le 20$. 답은 **20**. 여기서는 2가 한 쌍씩 필요해서, 흔한 경우와 달리 2가 더 빡빡한 쪽이다.\n\n**오답 짚기**: 21은 3의 개수만 보고 답한 것(12에 2가 두 개 필요하다는 것을 놓침). 41은 2의 개수를 그대로 쓴 것. 10은 3의 개수 21을 2로 나눈 것(나눠야 할 것은 2의 개수). 15는 3의 배수만 센 것.",
+    "verify": {
+      "answer": "max(k for k in range(0, 60) if factorial(45) % 12**k == 0)",
+      "methods": [
+        "min((45//2 + 45//4 + 45//8 + 45//16 + 45//32) // 2, 45//3 + 45//9 + 45//27)"
+      ]
+    }
+  }
+]
