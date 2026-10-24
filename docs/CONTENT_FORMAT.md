@@ -56,7 +56,7 @@ Resources/Content/amc8/
 - 개념서 예제와 숫자·상황이 겹치면 안 된다. 오답 선택지는 개념서 "함정"에 나온 실수에서 만든다.
 - 실제 AMC 문제 본문은 절대 넣지 않는다 (저작권). 기출은 연도-번호와 링크로만.
 - 영어 문장은 실제 시험처럼 간결하게. 한국어 설명은 용어를 한국어(영어)로 병기.
-- 그림: `<svg viewBox="0 0 W H" width="W" height="H" xmlns="http://www.w3.org/2000/svg">`. 선과 글자는 `stroke="currentColor"`, `fill="currentColor"`로 다크 모드에서도 보이게. 강조색은 `#4F6BF0`(파랑), `#E08A1E`(주황), `#29A066`(초록), `#DB433D`(빨강)에 `fill-opacity` 0.3~0.4. 글자는 `font-size` 11~13. 폰트는 지정하지 않는다 (시스템 폰트가 적용됨). 폭은 320 이하가 보기 좋다.
+- 그림: `<svg viewBox="0 0 W H" width="W" height="H" xmlns="http://www.w3.org/2000/svg">`. 선과 글자는 `stroke="currentColor"`, `fill="currentColor"`로 다크 모드에서도 보이게. 강조색은 `#4F6BF0`(파랑), `#E08A1E`(주황), `#29A066`(초록), `#DB433D`(빨강)에 `fill-opacity` 0.3~0.4. 글자는 `font-size` 11~13. 폰트는 지정하지 않는다 (시스템 폰트가 적용됨). 폭은 320 이하가 보기 좋다. 모든 좌표와 글자(라벨 폭까지)는 viewBox 안에 있어야 한다. 밖으로 나가면 렌더링에서 잘리고 `verify_content.py`가 실패로 잡는다.
 
 ## 검증
 

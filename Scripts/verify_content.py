@@ -13,6 +13,7 @@ Checks (any failure → exit 1):
     * five choices, all different; exactly one matches the computed answer and it is the lettered one
     * every "methods" expression agrees with the answer (geometry: at least two methods)
     * hints 1–3, solution present, geometry problems carry a figure
+    * every figure (inline SVG and unitN/figures/*.svg) stays inside its viewBox, so nothing renders clipped
 Run: python3 -I Scripts/verify_content.py [--verbose]
 """
 import glob
@@ -126,6 +127,92 @@ def same(a, b):
         return a == b
 
 
+import xml.etree.ElementTree as ET
+
+def svg_bounds_issues(svg):
+    """Every drawn coordinate (and the box a text label occupies) must lie inside the viewBox; otherwise the
+    figure renders clipped. Elements under a transform are skipped (two lesson figures use rotate)."""
+    try:
+        root = ET.fromstring(svg)
+    except ET.ParseError as e:
+        return [f"SVG 파싱 실패: {e}"]
+    vb = root.get("viewBox")
+    if not vb:
+        return ["viewBox 없음"]
+    try:
+        x0, y0, w, h = (float(v) for v in vb.replace(",", " ").split())
+    except ValueError:
+        return [f"viewBox 형식 오류 {vb!r}"]
+    x1, y1 = x0 + w, y0 + h
+    issues = []
+
+    def check(what, x, y):
+        if x < x0 - 0.01 or x > x1 + 0.01 or y < y0 - 0.01 or y > y1 + 0.01:
+            issues.append(f"{what} ({x:g}, {y:g})가 viewBox {vb} 밖")
+
+    def walk(el, transformed, inherited):
+        tag = el.tag.split("}")[-1]
+        transformed = transformed or el.get("transform") is not None
+        inherited = {**inherited, **{k: el.get(k) for k in ("font-size", "text-anchor") if el.get(k)}}
+        if tag in ("defs", "clipPath", "mask", "marker", "pattern", "symbol", "style", "title"):
+            return
+        if not transformed:
+            def g(k, d="0"):
+                try:
+                    return float(el.get(k, d))
+                except ValueError:
+                    return 0.0
+            if tag in ("polygon", "polyline"):
+                nums = [float(v) for v in re.split(r"[\s,]+", el.get("points", "").strip()) if v]
+                for i in range(0, len(nums) - 1, 2):
+                    check(tag, nums[i], nums[i + 1])
+            elif tag == "line":
+                check(tag, g("x1"), g("y1")); check(tag, g("x2"), g("y2"))
+            elif tag == "rect":
+                check(tag, g("x"), g("y")); check(tag, g("x") + g("width"), g("y") + g("height"))
+            elif tag == "circle":
+                cx, cy, r = g("cx"), g("cy"), g("r")
+                check(tag, cx - r, cy - r); check(tag, cx + r, cy + r)
+            elif tag == "ellipse":
+                cx, cy, rx, ry = g("cx"), g("cy"), g("rx"), g("ry")
+                check(tag, cx - rx, cy - ry); check(tag, cx + rx, cy + ry)
+            elif tag == "text":
+                fs = float(re.sub(r"[^0-9.]", "", inherited.get("font-size", "12")) or 12)
+                text = "".join(el.itertext()).strip()
+                def char_w(ch):   # rough system-font advances, in em
+                    if ord(ch) > 0x2E80: return 0.95
+                    if ch == " ": return 0.28
+                    if ch.isalnum(): return 0.56
+                    return 0.33
+                width = fs * sum(char_w(ch) for ch in text)
+                anchor = inherited.get("text-anchor", "start")
+                x, y = g("x"), g("y")
+                left = x - (width / 2 if anchor == "middle" else width if anchor == "end" else 0)
+                what = f"text {text!r}"
+                slack = 3   # estimate tolerance
+                check(what, left + slack, y - 0.7 * fs + slack); check(what, left + width - slack, y + 0.1 * fs - slack)
+            elif tag == "path":
+                for cmd, args in re.findall(r"([MLHVCSQTAZmlhvcsqtaz])([^MLHVCSQTAZmlhvcsqtaz]*)", el.get("d", "")):
+                    nums = [float(v) for v in re.findall(r"-?\d*\.?\d+(?:e-?\d+)?", args)]
+                    if cmd in "MLCSQT":
+                        for i in range(0, len(nums) - 1, 2):
+                            check("path", nums[i], nums[i + 1])
+                    elif cmd == "A":
+                        for i in range(0, len(nums) - 6, 7):
+                            check("path", nums[i + 5], nums[i + 6])
+                    elif cmd == "H":
+                        for v in nums:
+                            check("path", v, y0)
+                    elif cmd == "V":
+                        for v in nums:
+                            check("path", x0, v)
+        for child in el:
+            walk(child, transformed, inherited)
+
+    walk(root, False, {})
+    return issues
+
+
 failures = []
 total = 0
 verified = 0
@@ -206,6 +293,9 @@ for path in paths:
             fail(pid, "choicesKo가 5개가 아님")
         if p.get("figure") and not p["figure"].lstrip().startswith("<svg"):
             fail(pid, "figure는 <svg로 시작해야 함")
+        elif p.get("figure"):
+            for msg in svg_bounds_issues(p["figure"]):
+                fail(pid, f"figure {msg}")
         choices = p.get("choices", [])
         letters = "ABCDE"
         if len(choices) != 5:
@@ -274,7 +364,16 @@ for path in paths:
         if VERBOSE:
             print(f"  {pid}: answer {p['answer']} = {ans}  ok")
 
-print(f"{total} problems, {verified} answers verified, {len(failures)} failures")
+# Lesson figures (unitN/figures/*.svg) get the same clipping check.
+lesson_figures = 0
+for path in sorted(glob.glob(os.path.join(CONTENT, "unit*", "figures", "*.svg"))):
+    if MOCK_ONLY or (UNIT_FILTER and f"unit{UNIT_FILTER}{os.sep}" not in path):
+        continue
+    lesson_figures += 1
+    for msg in svg_bounds_issues(open(path, encoding="utf-8").read()):
+        failures.append(f"{os.path.relpath(path, ROOT)}: {msg}")
+
+print(f"{total} problems, {verified} answers verified, {lesson_figures} lesson figures checked, {len(failures)} failures")
 for f in failures:
     print("FAIL", f)
 sys.exit(1 if failures or total == 0 else 0)
