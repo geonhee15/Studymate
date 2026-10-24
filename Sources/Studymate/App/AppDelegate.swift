@@ -7,6 +7,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var progress: ProgressStore!
     private var mistakes: MistakeStore!
     private var papers: PastPaperStore!
+    private var mocks: MockStore!
     private var appState: AppState!
     private var windowController: MainWindowController?
 
@@ -17,14 +18,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let progress = ProgressStore()
         let mistakes = MistakeStore()
         let papers = PastPaperStore()
+        let mocks = MockStore()
         if DebugEnv.seedSample, DataDirectory.isDebugOverride {
-            SampleData.seed(library: library, progress: progress, mistakes: mistakes, papers: papers)
+            SampleData.seed(library: library, progress: progress, mistakes: mistakes, papers: papers, mocks: mocks)
         }
-        let appState = AppState(library: library, progress: progress, mistakes: mistakes, papers: papers)
+        let appState = AppState(library: library, progress: progress, mistakes: mistakes, papers: papers, mocks: mocks)
         self.library = library
         self.progress = progress
         self.mistakes = mistakes
         self.papers = papers
+        self.mocks = mocks
         self.appState = appState
         for issue in library.issues { NSLog("Studymate content: %@", issue) }
 
@@ -57,6 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         progress?.flush()
         mistakes?.flush()
         papers?.flush()
+        mocks?.flush()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {

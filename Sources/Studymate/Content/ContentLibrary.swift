@@ -12,6 +12,7 @@ import Observation
 @Observable
 final class ContentLibrary {
     private(set) var units: [Unit] = []
+    private(set) var mockSets: [MockSet] = []
     private(set) var cheatsheet: [CheatsheetSection] = []
     private(set) var commonMarkdown = ""
     /// Problems with validation errors, duplicate ids, etc. Shown by `--probe content`.
@@ -76,6 +77,7 @@ final class ContentLibrary {
         for unit in units {
             for lesson in unit.lessons { lessonIndex[lesson.id] = lesson }
         }
+        loadMockSets()
         if let common = try? String(contentsOf: root.appendingPathComponent("common.md"), encoding: .utf8) {
             commonMarkdown = common
         }
@@ -123,6 +125,23 @@ final class ContentLibrary {
             issues.append("\(p.id): 존재하지 않는 레슨 \(p.lesson)")
         }
         return Unit(number: parsed.number, title: parsed.title, titleEn: parsed.titleEn, lessons: lessons, quiz: quiz, test: test)
+    }
+
+    private func loadMockSets() {
+        let dir = root.appendingPathComponent("mock", isDirectory: true)
+        guard let files = try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil) else { return }
+        var sets: [MockSet] = []
+        for file in files where file.pathExtension == "json" && file.lastPathComponent.hasPrefix("set") {
+            let name = file.deletingPathExtension().lastPathComponent
+            let number = Int(name.dropFirst("set".count)) ?? 0
+            let problems = loadProblems(file, required: true).sorted { ($0.number ?? 0) < ($1.number ?? 0) }
+            if problems.count != 25 { issues.append("\(file.lastPathComponent): 25문제가 아님 (\(problems.count))") }
+            let numbers = problems.compactMap(\.number).sorted()
+            if numbers != Array(1...25) { issues.append("\(file.lastPathComponent): number가 1~25를 덮지 않음") }
+            for p in problems where p.band != Band.forNumber(p.number ?? 0) { issues.append("\(p.id): band가 번호대와 다름") }
+            sets.append(MockSet(id: name, number: number, problems: problems))
+        }
+        mockSets = sets.sorted { $0.number < $1.number }
     }
 
     private func loadFigures(_ dir: URL) -> [String: String] {

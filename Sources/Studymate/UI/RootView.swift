@@ -77,6 +77,17 @@ struct AMC8View: View {
                     ProblemSessionView(appState: appState, session: session)
                         .id(ObjectIdentifier(session))
                         .transition(.opacity)
+                } else if let mock = appState.mockSession {
+                    MockSessionView(appState: appState, session: mock)
+                        .id(ObjectIdentifier(mock))
+                        .transition(.opacity)
+                } else if let paper = appState.paperSession {
+                    PaperSessionView(appState: appState, session: paper)
+                        .id(ObjectIdentifier(paper))
+                        .transition(.opacity)
+                } else if let review = appState.mockResultReview {
+                    MockResultView(appState: appState, result: review.result, set: review.set) { appState.endMock() }
+                        .transition(.opacity)
                 } else {
                     detail
                         .transition(.opacity)

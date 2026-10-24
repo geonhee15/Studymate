@@ -98,6 +98,7 @@ button.sm.primary:hover { filter: brightness(1.08); }
 
 /* ---------- Problem ---------- */
 .problem { padding-top: 18px; }
+.problem .qnum { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
 .problem .q { font-size: 16px; line-height: 1.7; }
 .problem .q.ko { color: var(--text); }
 .problem .q[hidden] { display: none; }

@@ -3,7 +3,7 @@ import Foundation
 /// Fills a scratch data folder with believable progress for screenshots (STUDYMATE_DEBUG_SAMPLE=1 + STUDYMATE_DEBUG_DATA_DIR).
 @MainActor
 enum SampleData {
-    static func seed(library: ContentLibrary, progress: ProgressStore, mistakes: MistakeStore, papers: PastPaperStore) {
+    static func seed(library: ContentLibrary, progress: ProgressStore, mistakes: MistakeStore, papers: PastPaperStore, mocks: MockStore) {
         guard progress.attempts.isEmpty else { return }
         let cal = Calendar.current
         func daysAgo(_ d: Int, hour: Int = 20) -> Date {
@@ -28,7 +28,28 @@ enum SampleData {
                                         date: daysAgo(dayOffset + (count - i) / 4), reason: correct ? nil : .idea, fields: p?.fields ?? [.counting]))
             }
         }
+        // Older history so the weekly charts have something to show.
+        for week in 1...5 {
+            for i in 0..<(4 + week) {
+                let correct = (i + week) % 3 != 0
+                progress.record(Attempt(problemID: "1-1-\(i % 10 + 1)", lesson: "1-1", unit: 1, kind: .practice, chosen: correct ? "A" : "B", correct: correct,
+                                        seconds: Double(50 + (i * 23) % 70), targetSeconds: 60, hintsUsed: 0, guessed: false,
+                                        date: daysAgo(week * 7 + i % 5), reason: correct ? nil : StuckReason.allCases[i % 4], fields: [i % 2 == 0 ? .counting : .probability]))
+            }
+        }
         progress.record(SetResult(unit: 1, kind: .quiz, score: 6, total: 8, date: daysAgo(1), seconds: 540))
+        if let set = library.mockSets.first {
+            let answers = set.problems.map { p -> MockAnswer in
+                let n = p.number ?? 0
+                let correct = n % 5 != 0 && n != 23
+                return MockAnswer(number: n, chosen: correct ? p.answer : (p.answer == "A" ? "B" : "A"), correct: correct,
+                                  seconds: Double(n <= 10 ? 55 : n <= 20 ? 95 : 170), fields: p.fields, lesson: p.lesson)
+            }
+            mocks.record(MockResult(kind: .app, source: set.id, title: set.title, date: daysAgo(3), score: answers.filter { $0.correct == true }.count,
+                                    total: 25, seconds: 2310, answers: answers))
+        }
+        mocks.record(MockResult(kind: .paper, source: "2020", title: "2020 AMC 8 (종이)", date: daysAgo(9), score: 17, total: 25, seconds: 2400,
+                                answers: (1...25).map { MockAnswer(number: $0, chosen: "C", correct: $0 <= 17, seconds: 0) }))
         progress.markOpened(lesson: "1-4")
 
         let p13 = library.lesson("1-3")?.problems.first

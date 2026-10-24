@@ -249,6 +249,8 @@ struct Problem: Identifiable, Codable, Equatable {
     let solution: String
     var fast: String?
     var verify: VerifySpec?
+    /// Mock exams only: 1...25.
+    var number: Int?
 
     var targetSeconds: Int { target ?? band.defaultTargetSeconds }
     var answerIndex: Int { Problem.letters.firstIndex(of: answer) ?? 0 }
@@ -269,6 +271,16 @@ enum ProblemSetKind: String, Codable {
         case .mock: return "모의고사"
         }
     }
+}
+
+/// One 25-problem mock exam from Resources/Content/amc8/mock/setN.json.
+struct MockSet: Identifiable {
+    let id: String
+    let number: Int
+    let problems: [Problem]
+
+    var title: String { "모의고사 \(number)회" }
+    func problem(number n: Int) -> Problem? { problems.first { $0.number == n } }
 }
 
 struct CheatsheetSection: Identifiable {

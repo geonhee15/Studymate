@@ -1,11 +1,14 @@
+import AppKit
 import SwiftUI
 
-/// 오답노트 list with filters and review start. (Editing and the past-paper import land with stage 3.)
+/// 오답노트: filters, spaced-repetition status, review start, editing, and self-checked review for past-paper entries.
 struct MistakeNotebookView: View {
     @Bindable var appState: AppState
     @State private var field: Field?
     @State private var reason: StuckReason?
     @State private var showGraduated = false
+    @State private var editing: MistakeEntry?
+    @State private var confirmDelete: MistakeEntry?
     @Environment(\.colorScheme) private var scheme
 
     private var store: MistakeStore { appState.mistakes }
@@ -14,26 +17,26 @@ struct MistakeNotebookView: View {
         (showGraduated ? store.graduated : store.active).filter { e in
             (field == nil || e.fields.contains(field!)) && (reason == nil || e.reason == reason)
         }
-        .sorted { $0.nextReview < $1.nextReview }
+        .sorted { ($0.isDue ? 0 : 1, $0.nextReview) < ($1.isDue ? 0 : 1, $1.nextReview) }
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(alignment: .top) {
-                    PageTitle(title: "오답노트", subtitle: "1일 → 3일 → 7일 → 14일 간격으로 다시 풀고, 해설 안 보고 맞히면 다음 단계")
+                    PageTitle(title: "오답노트", subtitle: "1일 → 3일 → 7일 → 14일 간격으로 다시 풀고, 해설 안 보고 맞히면 다음 단계. 14일 단계를 통과하면 졸업")
                     Spacer()
-                    let due = store.due
+                    let dueLesson = store.due.filter { $0.problemID != nil && appState.library.problem($0.problemID!) != nil }
                     Button {
-                        appState.startReview(entries: due)
+                        appState.startReview(entries: dueLesson)
                     } label: {
                         HStack(spacing: 6) {
                             Image(systemName: "play.fill").font(.system(size: 10, weight: .bold))
-                            Text(due.isEmpty ? "오늘 복습할 것 없음" : "오늘 복습 \(due.count)개 시작")
+                            Text(dueLesson.isEmpty ? "오늘 복습할 레슨 문제 없음" : "오늘 복습 \(dueLesson.count)개 시작")
                         }
                     }
-                    .buttonStyle(PillButtonStyle(prominent: !due.isEmpty))
-                    .disabled(due.compactMap(\.problemID).isEmpty)
+                    .buttonStyle(PillButtonStyle(prominent: !dueLesson.isEmpty))
+                    .disabled(dueLesson.isEmpty)
                 }
                 HStack(spacing: 8) {
                     let weak = store.weakFields()
@@ -54,13 +57,14 @@ struct MistakeNotebookView: View {
                     .frame(width: 170)
                     Toggle("졸업한 것", isOn: $showGraduated).toggleStyle(.checkbox)
                 }
+                summaryRow
                 if filtered.isEmpty {
                     EmptyStateView(icon: "bookmark", title: showGraduated ? "졸업한 항목이 없어요" : "오답노트가 비어 있어요",
-                                   message: "틀리거나, 목표 시간을 넘기거나, 찍은 문제가 자동으로 들어와요.")
-                        .frame(height: 300)
+                                   message: "틀리거나, 목표 시간을 넘기거나, 찍은 문제가 자동으로 들어와요. 기출 트래커에서 보낼 수도 있어요.")
+                        .frame(height: 280)
                 } else {
                     VStack(spacing: 4) {
-                        ForEach(filtered) { entry in row(entry) }
+                        ForEach(filtered) { entry in MistakeRow(appState: appState, entry: entry, onEdit: { editing = entry }, onDelete: { confirmDelete = entry }) }
                     }
                     .padding(6)
                     .card()
@@ -68,9 +72,59 @@ struct MistakeNotebookView: View {
             }
             .padding(24)
         }
+        .sheet(item: $editing) { entry in
+            MistakeEditSheet(appState: appState, entry: entry) { editing = nil }
+        }
+        .confirmationDialog("이 항목을 지울까요?", isPresented: Binding(get: { confirmDelete != nil }, set: { if !$0 { confirmDelete = nil } }), presenting: confirmDelete) { entry in
+            Button("지우기", role: .destructive) { store.remove(id: entry.id) }
+            Button("취소", role: .cancel) {}
+        } message: { entry in
+            Text(entry.source.title)
+        }
     }
 
-    private func row(_ entry: MistakeEntry) -> some View {
+    private var summaryRow: some View {
+        let active = store.active
+        let stages = (0..<4).map { s in active.filter { $0.stage == s }.count }
+        return HStack(spacing: 14) {
+            StatPill(title: "복습 대기", value: "\(store.due.count)", color: Theme.accent)
+            StatPill(title: "진행 중", value: "\(active.count)", color: .secondary)
+            StatPill(title: "졸업", value: "\(store.graduated.count)", color: Theme.correct)
+            Spacer()
+            HStack(spacing: 6) {
+                Text("단계별").font(.system(size: 11)).foregroundStyle(.secondary)
+                ForEach(0..<4, id: \.self) { s in
+                    Chip(text: "\(MistakeEntry.intervals[s])일 \(stages[s])")
+                }
+            }
+        }
+    }
+}
+
+struct StatPill: View {
+    var title: String
+    var value: String
+    var color: Color
+    var body: some View {
+        HStack(spacing: 6) {
+            Text(value).font(.system(size: 16, weight: .bold, design: .rounded)).monospacedDigit().foregroundStyle(color)
+            Text(title).font(.system(size: 11.5)).foregroundStyle(.secondary)
+        }
+    }
+}
+
+struct MistakeRow: View {
+    @Bindable var appState: AppState
+    let entry: MistakeEntry
+    var onEdit: () -> Void
+    var onDelete: () -> Void
+    @State private var showSelfCheck = false
+    @State private var hovering = false
+    @Environment(\.colorScheme) private var scheme
+
+    private var hasProblem: Bool { entry.problemID.flatMap { appState.library.problem($0) } != nil }
+
+    var body: some View {
         HStack(alignment: .top, spacing: 12) {
             VStack(spacing: 3) {
                 Image(systemName: entry.graduated ? "checkmark.seal.fill" : (entry.isDue ? "bell.fill" : "clock"))
@@ -84,6 +138,15 @@ struct MistakeNotebookView: View {
                     Text(entry.source.title).font(.system(size: 13, weight: .semibold))
                     if let lesson = entry.lessonID {
                         Text(appState.library.lessonTitle(lesson)).font(.system(size: 12)).foregroundStyle(.secondary)
+                    }
+                    if case .pastPaper(let year, let number) = entry.source {
+                        Button {
+                            NSWorkspace.shared.open(PastPaperStore.aopsURL(year: year, number: number))
+                        } label: {
+                            Image(systemName: "safari").font(.system(size: 11)).foregroundStyle(Theme.accent)
+                        }
+                        .buttonStyle(.plain)
+                        .help("AoPS Wiki에서 열기")
                     }
                     Spacer()
                     ForEach(entry.fields) { f in Chip(text: f.title, icon: f.icon) }
@@ -104,48 +167,99 @@ struct MistakeNotebookView: View {
                     Text("단계 \(min(entry.stage + 1, 4))/4 · 복습 \(entry.reviews.count)회 · 등록 \(Format.shortDate(entry.createdAt))")
                         .font(.system(size: 11)).foregroundStyle(.tertiary)
                     Spacer()
-                    if let pid = entry.problemID, appState.library.problem(pid) != nil, !entry.graduated {
-                        Button("지금 풀기") { appState.startReview(entries: [entry]) }.buttonStyle(PillButtonStyle()).controlSize(.small)
+                    if hovering || showSelfCheck {
+                        Button("편집") { onEdit() }.buttonStyle(PillButtonStyle()).controlSize(.small)
+                        Button("지우기") { onDelete() }.buttonStyle(PillButtonStyle(destructive: true)).controlSize(.small)
+                    }
+                    if !entry.graduated {
+                        if hasProblem {
+                            Button("지금 풀기") { appState.startReview(entries: [entry]) }.buttonStyle(PillButtonStyle(prominent: entry.isDue)).controlSize(.small)
+                        } else {
+                            Button("다시 풀었어요") { showSelfCheck = true }
+                                .buttonStyle(PillButtonStyle(prominent: entry.isDue)).controlSize(.small)
+                                .popover(isPresented: $showSelfCheck, arrowEdge: .bottom) {
+                                    VStack(alignment: .leading, spacing: 10) {
+                                        Text("해설 안 보고 맞혔나요?").font(.system(size: 13, weight: .semibold))
+                                        Text("맞혔으면 다음 단계로, 틀렸으면 1일로 돌아가요.").font(.system(size: 11.5)).foregroundStyle(.secondary)
+                                        HStack {
+                                            Button("틀렸어요") { appState.mistakes.recordReview(id: entry.id, correct: false); showSelfCheck = false }
+                                                .buttonStyle(PillButtonStyle(destructive: true))
+                                            Spacer()
+                                            Button("맞혔어요") { appState.mistakes.recordReview(id: entry.id, correct: true); showSelfCheck = false }
+                                                .buttonStyle(PillButtonStyle(prominent: true))
+                                        }
+                                    }
+                                    .padding(14)
+                                    .frame(width: 280)
+                                }
+                        }
                     }
                 }
             }
         }
         .padding(.horizontal, 10).padding(.vertical, 8)
+        .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(hovering ? Theme.hoverFill(scheme) : Color.clear))
+        .onHover { hovering = $0 }
     }
 }
 
-// MARK: - Stage 3 placeholders
-
-struct PastPaperView: View {
+struct MistakeEditSheet: View {
     @Bindable var appState: AppState
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            PageTitle(title: "기출 트래커", subtitle: "연도 × 1~25번 · AoPS Wiki 링크 · 오답노트로 보내기")
-            EmptyStateView(icon: "tablecells", title: "다음 단계에서 열려요",
-                           message: "2000~2023년(2021년은 시행되지 않았어요) 그리드와 2024~2026년 잠금 토글이 들어옵니다. 지금까지 기록된 칸: \(appState.papers.solvedCount)개")
-        }
-        .padding(24)
-    }
-}
+    let entry: MistakeEntry
+    var dismiss: () -> Void
+    @State private var reason: StuckReason = .idea
+    @State private var keyIdea = ""
+    @State private var note = ""
+    @State private var fields: Set<Field> = []
 
-struct MockExamView: View {
-    @Bindable var appState: AppState
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            PageTitle(title: "실전 모의고사", subtitle: "25문항 40분 · OMR · 구간별 시간 분석 · 종이 기출 모드")
-            EmptyStateView(icon: "timer", title: "다음 단계에서 열려요", message: "유닛 1 피드백을 반영한 뒤 오리지널 25문항 세트 4개와 종이 기출 모드가 들어옵니다.")
+        VStack(alignment: .leading, spacing: 14) {
+            Text(entry.source.title).font(.system(size: 16, weight: .bold))
+            VStack(alignment: .leading, spacing: 6) {
+                SectionLabel(text: "막힌 이유")
+                HStack(spacing: 6) {
+                    ForEach(StuckReason.allCases) { r in
+                        Button { reason = r } label: {
+                            HStack(spacing: 5) { Image(systemName: r.icon).font(.system(size: 11, weight: .semibold)); Text(r.title) }
+                        }
+                        .buttonStyle(PillButtonStyle(prominent: reason == r))
+                    }
+                }
+            }
+            VStack(alignment: .leading, spacing: 6) {
+                SectionLabel(text: "분야")
+                HStack(spacing: 4) {
+                    ForEach(Field.allCases) { f in
+                        Button { if fields.contains(f) { fields.remove(f) } else { fields.insert(f) } } label: { Text(f.title).font(.system(size: 11)) }
+                            .buttonStyle(PillButtonStyle(prominent: fields.contains(f))).controlSize(.small)
+                    }
+                }
+            }
+            VStack(alignment: .leading, spacing: 6) {
+                SectionLabel(text: "핵심 아이디어 한 줄")
+                TextField("", text: $keyIdea).textFieldStyle(.roundedBorder)
+            }
+            VStack(alignment: .leading, spacing: 6) {
+                SectionLabel(text: "내 풀이 메모")
+                TextField("", text: $note, axis: .vertical).lineLimit(2...5).textFieldStyle(.roundedBorder)
+            }
+            HStack {
+                Button("취소") { dismiss() }.buttonStyle(PillButtonStyle()).keyboardShortcut(.cancelAction)
+                Spacer()
+                Button("저장") {
+                    appState.mistakes.update(id: entry.id, keyIdea: keyIdea, myNote: note, reason: reason, fields: Array(fields).sorted { $0.rawValue < $1.rawValue })
+                    dismiss()
+                }
+                .buttonStyle(PillButtonStyle(prominent: true)).keyboardShortcut(.defaultAction)
+            }
         }
-        .padding(24)
-    }
-}
-
-struct StatsView: View {
-    @Bindable var appState: AppState
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            PageTitle(title: "통계", subtitle: "분야별 정답률과 평균 시간 추이 · 막힌 이유 분포 · 숙련도 변화")
-            EmptyStateView(icon: "chart.bar", title: "다음 단계에서 열려요", message: "지금까지 기록된 시도: \(appState.progress.attempts.count)개")
+        .padding(20)
+        .frame(width: 520)
+        .onAppear {
+            reason = entry.reason
+            keyIdea = entry.keyIdea
+            note = entry.myNote
+            fields = Set(entry.fields)
         }
-        .padding(24)
     }
 }

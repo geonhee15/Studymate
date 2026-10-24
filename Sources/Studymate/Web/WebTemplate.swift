@@ -84,8 +84,9 @@ enum WebTemplate {
 
     enum Lang: String { case en, ko }
 
-    static func problem(_ p: Problem, lang: Lang) -> String {
+    static func problem(_ p: Problem, lang: Lang, exam: Bool = false) -> String {
         var html = "<div class=\"problem\">"
+        if exam, let n = p.number { html += "<div class=\"qnum\">\(n).</div>" }
         html += "<div class=\"q en\"\(lang == .en ? "" : " hidden")>\(MarkdownHTML.render(p.question))</div>"
         html += "<div class=\"q ko\"\(lang == .ko ? "" : " hidden")>\(MarkdownHTML.render(p.questionKo))</div>"
         if let fig = p.figure { html += "<figure>\(fig)</figure>" }
@@ -98,6 +99,7 @@ enum WebTemplate {
             html += "<li class=\"choice\" data-letter=\"\(letter)\"><span class=\"letter\">\(letter)</span><span class=\"body\"\(koAttr)>\(MarkdownHTML.renderInline(body))</span></li>"
         }
         html += "</ol>"
+        if exam { return html + "</div>" }
         html += "<div class=\"hints\">"
         for (i, hint) in p.hints.enumerated() {
             html += "<div class=\"hint\" id=\"hint\(i + 1)\"><span class=\"tag\">힌트 \(i + 1)</span>\(MarkdownHTML.renderInline(hint))</div>"
