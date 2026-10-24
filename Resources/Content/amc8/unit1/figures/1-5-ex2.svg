@@ -1,0 +1,12 @@
+<svg viewBox="0 0 560 120" width="560" height="120" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="currentColor">
+  <g fill="none" stroke="currentColor" stroke-width="1.3">
+    <circle cx="50" cy="50" r="38"/>
+    <circle cx="150" cy="50" r="38"/><line x1="150" y1="12" x2="150" y2="88"/>
+    <circle cx="250" cy="50" r="38"/><polygon points="250,12 217.1,69 282.9,69"/>
+    <circle cx="350" cy="50" r="38"/><g><line x1="350" y1="12" x2="350" y2="88"/><line x1="312" y1="50" x2="388" y2="50"/><line x1="323.1" y1="23.1" x2="376.9" y2="76.9"/><line x1="376.9" y1="23.1" x2="323.1" y2="76.9"/></g>
+    <circle cx="450" cy="50" r="38"/><g><polygon points="450,12 486.1,38.3 472.3,80.7 427.7,80.7 413.9,38.3"/><line x1="450" y1="12" x2="472.3" y2="80.7"/><line x1="450" y1="12" x2="427.7" y2="80.7"/><line x1="486.1" y1="38.3" x2="413.9" y2="38.3"/><line x1="486.1" y1="38.3" x2="427.7" y2="80.7"/><line x1="413.9" y1="38.3" x2="472.3" y2="80.7"/></g>
+  </g>
+  <g text-anchor="middle" font-weight="600"><text x="50" y="108">n=1: 1</text><text x="150" y="108">n=2: 2</text><text x="250" y="108">n=3: 4</text><text x="350" y="108">n=4: 8</text><text x="450" y="108">n=5: 16</text></g>
+  <text x="500" y="50" font-weight="600">n=6?</text>
+  <text x="500" y="66">31!</text>
+</svg>

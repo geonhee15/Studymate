@@ -1,0 +1,18 @@
+<svg viewBox="0 0 420 180" width="420" height="180" xmlns="http://www.w3.org/2000/svg" font-size="12" fill="currentColor">
+  <circle cx="90" cy="90" r="55" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+  <g font-weight="600" text-anchor="middle">
+    <circle cx="90" cy="25" r="12" fill="#4F6BF0" fill-opacity="0.25" stroke="#4F6BF0"/><text x="90" y="29">A</text>
+    <circle cx="146" cy="57" r="12" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.5"/><text x="146" y="61">B</text>
+    <circle cx="146" cy="123" r="12" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.5"/><text x="146" y="127">C</text>
+    <circle cx="90" cy="155" r="12" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.5"/><text x="90" y="159">D</text>
+    <circle cx="34" cy="123" r="12" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.5"/><text x="34" y="127">E</text>
+    <circle cx="34" cy="57" r="12" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.5"/><text x="34" y="61">F</text>
+  </g>
+  <path d="M150 20 A70 70 0 0 1 160 90" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor" opacity="0.5"/></marker></defs>
+  <text x="200" y="50">한 칸 돌려도 같은 배치</text>
+  <text x="200" y="70">→ 배치 하나가 6번씩 세어짐</text>
+  <text x="200" y="100" font-weight="600">6! ÷ 6 = 120 = 5!</text>
+  <text x="200" y="130">또는 A를 고정하고</text>
+  <text x="200" y="150">나머지 5명을 일렬로: 5!</text>
+</svg>

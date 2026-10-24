@@ -1,0 +1,10 @@
+<svg viewBox="0 0 420 130" width="420" height="130" xmlns="http://www.w3.org/2000/svg" font-size="12" fill="currentColor">
+  <g stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"><path d="M10 115 H40 V97 H70 V79 H100 V61 H130 V43 H160 V25 H190 V7 H215"/></g>
+  <g stroke="#4F6BF0" stroke-width="1.5" fill="none" opacity="0.8"><path d="M150 36 Q165 10 180 18"/></g>
+  <text x="120" y="100" fill="#4F6BF0" font-weight="600">마지막 한 걸음이 1칸</text>
+  <g stroke="#E08A1E" stroke-width="1.5" fill="none" opacity="0.8"><path d="M120 54 Q150 0 180 18"/></g>
+  <text x="230" y="40">1칸이면 → f(n−1)</text>
+  <text x="230" y="60">2칸이면 → f(n−2)</text>
+  <text x="230" y="90" font-weight="600">f(n) = f(n−1) + f(n−2)</text>
+  <text x="230" y="110">도미노와 같은 수열</text>
+</svg>
