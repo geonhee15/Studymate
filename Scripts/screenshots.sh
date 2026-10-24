@@ -20,7 +20,8 @@ shot() {  # shot <name> <tab> <delay> [extra env...]
 shot home home 3
 shot unit unit:1 3
 shot lesson lesson:1-1 4
-shot lesson-figure lesson:5-2 4
+shot lesson-figure lesson:5-2 5 STUDYMATE_DEBUG_SCROLL=examples
+shot practice-geometry practice:5-3 5
 shot practice practice:1-2 5 STUDYMATE_DEBUG_PROBLEM="select:C,hint:1"
 shot practice-solved practice:1-4 5 STUDYMATE_DEBUG_PROBLEM="submit:B"
 shot stuck-sheet practice:1-4 5 STUDYMATE_DEBUG_PROBLEM="submit:E" STUDYMATE_SNAPSHOT_SCREEN=1

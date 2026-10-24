@@ -33,6 +33,11 @@ Xcode 없이 빌드합니다.
     <td align="center"><img src="docs/screenshots/practice-jarvis-ko.png" width="300"><br><b>JARVIS 테마 · 한국어 번역</b></td>
     <td align="center"><img src="docs/screenshots/flashcards.png" width="300"><br><b>치트시트 플래시카드</b></td>
   </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/practice-geometry.png" width="300"><br><b>기하 연습문제</b><br><sub>문제마다 붙는 인라인 SVG 그림</sub></td>
+    <td align="center"><img src="docs/screenshots/paper-grading.png" width="300"><br><b>종이 기출 모드</b><br><sub>40분 타이머 + 답안지 · 직접 채점 → 기출 트래커</sub></td>
+    <td align="center"><img src="docs/screenshots/quiz-summary.png" width="300"><br><b>유닛 퀴즈 결과</b><br><sub>통과 기준 6/8 · 문제별 정오와 걸린 시간</sub></td>
+  </tr>
 </table>
 
 ## 지금 되는 것
@@ -110,6 +115,7 @@ Xcode 없이 Command Line Tools만 있으면 됩니다 (macOS 14+, Swift 5.9+).
 | `STUDYMATE_DEBUG_LANG=ko` | 문제 화면을 한국어로 시작 |
 | `STUDYMATE_DEBUG_THEME=jarvis` · `STUDYMATE_DEBUG_APPEARANCE=dark` | 이번 실행만 테마·외관 지정 |
 | `STUDYMATE_DEBUG_FLASHCARDS=1` | 치트시트를 플래시카드 모드로 |
+| `STUDYMATE_DEBUG_SCROLL=examples` | 레슨 화면을 해당 섹션으로 스크롤 (`why` · `basics` · `intuition` · `examples` · `tips` · `pitfalls`) |
 | `STUDYMATE_CONTENT_DIR=<dir>` · `STUDYMATE_WEB_DIR=<dir>` | 번들 대신 지정 폴더의 콘텐츠 / 웹 리소스 사용 |
 
 `Scripts/dev-run.sh lesson:1-1`처럼 화면 이름을 주면 위 조합으로 실행하고 `build/snap-<화면>.png`를 남깁니다

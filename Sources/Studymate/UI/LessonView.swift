@@ -18,6 +18,10 @@ struct LessonView: View {
                 .onAppear {
                     bridge.setContent(WebTemplate.lesson(lesson, unit: unit))
                     bridge.run("sm.initExamples();")
+                    if let anchor = DebugEnv.lessonScroll {   // snapshots: land on a section once KaTeX has laid out
+                        currentAnchor = anchor
+                        bridge.run("setTimeout(function () { sm.scrollToAnchor(\(WebTemplate.jsString(anchor))); }, 600);")
+                    }
                 }
         }
     }

@@ -11,6 +11,7 @@ import Foundation
 ///     mock: answer:B|go:12|next|fill:C|finish   paper: fill:C|grade|mark
 ///   STUDYMATE_DEBUG_LANG=ko            start the problem screen in Korean
 ///   STUDYMATE_DEBUG_FLASHCARDS=1       cheatsheet in flashcard mode
+///   STUDYMATE_DEBUG_SCROLL=examples    lesson screen scrolls to a section (why|basics|intuition|examples|tips|pitfalls)
 ///   STUDYMATE_DEBUG_THEME=jarvis       STUDYMATE_DEBUG_APPEARANCE=dark   skin / appearance for this run only
 enum DebugEnv {
     static let env = ProcessInfo.processInfo.environment
@@ -25,6 +26,7 @@ enum DebugEnv {
     static var problemScript: String? { env["STUDYMATE_DEBUG_PROBLEM"] }
     static var startLanguage: String? { env["STUDYMATE_DEBUG_LANG"] }
     static var flashcards: Bool { env["STUDYMATE_DEBUG_FLASHCARDS"] == "1" }
+    static var lessonScroll: String? { env["STUDYMATE_DEBUG_SCROLL"] }
 
     static var windowSize: CGSize? {
         guard let spec = env["STUDYMATE_WINDOW"] else { return nil }
