@@ -42,7 +42,8 @@ Xcode 없이 빌드합니다.
 - **레슨** (9개 유닛, 43개 레슨): `docs/AMC8_concepts.md`의 내용을 한 글자도 줄이지 않고 그대로 보여줍니다.
   모든 레슨이 같은 순서(왜 배우나 → 기초 설명 → 직관 예시 → 예제 풀이 → 고급 팁 → 자주 하는 실수와 함정)이고,
   예제는 한 단계씩 펼쳐 봅니다. 수식은 번들에 넣은 KaTeX로 오프라인 렌더링하고, 기하는 인라인 SVG 그림이 붙습니다.
-- **연습문제**: 레슨마다 10문제 이상(1~10번 3, 11~20번 4, 21~25번 3 비율), 유닛 퀴즈 8문제, 유닛 테스트 15문제.
+- **연습문제**: 레슨마다 10문제(1~10번 3, 11~20번 4, 21~25번 3 비율), 유닛 퀴즈 8문제, 유닛 테스트 15문제.
+  연습 430 + 퀴즈 72 + 테스트 135 + 모의고사 100 = 737문제가 전부 이 앱을 위해 새로 만든 문제이고, 모두 검증 스크립트를 통과했습니다.
   문제는 영어 원문이 기본이고 T 키로 한국어 번역을 토글합니다. 목표 시간과 경과 타이머, 힌트 3단계(연 기록이 남음),
   제출 후 정답·전체 해설·더 빠른 풀이. 키보드: 1~5 또는 A~E 선택, Enter 제출, H 힌트, Space 다음, G 찍었음, Esc 나가기.
   집중 모드에서는 과목 탭과 사이드바가 숨겨집니다.
@@ -100,10 +101,10 @@ Xcode 없이 Command Line Tools만 있으면 됩니다 (macOS 14+, Swift 5.9+).
 
 | 변수 | 동작 |
 |---|---|
-| `STUDYMATE_TAB=lesson:1-1` | 시작 화면. `home` · `unit:1` · `lesson:1-1` · `practice:1-1` · `quiz:1` · `test:1` · `mistakes` · `pastpapers` · `mock` · `mock:1` · `paper:2019` · `stats` · `cheatsheet` · `settings` |
+| `STUDYMATE_TAB=lesson:1-1` | 시작 화면. `home` · `unit:1` · `lesson:1-1` · `practice:1-1` · `quiz:1` · `test:1` · `mistakes` · `review`(오답 복습 세션) · `pastpapers` · `mock` · `mock:1` · `paper:2019` · `stats` · `cheatsheet` · `settings` |
 | `STUDYMATE_SNAPSHOT=/path/out.png` | 잠시 뒤 창을 PNG로 저장 (화면 기록 권한 불필요). `STUDYMATE_SNAPSHOT_DELAY=3`, `STUDYMATE_SNAPSHOT_QUIT=1`(저장 후 종료), `STUDYMATE_SNAPSHOT_SCREEN=1`(시트·팝오버 포함) |
 | `STUDYMATE_WINDOW=1180x760` | 이번 실행의 창 크기 (저장 안 함) |
-| `STUDYMATE_DEBUG_DATA_DIR=<dir>` | 모든 저장소를 지정 폴더에서 읽고 씀 (`Scripts/screenshots.sh`가 사용) |
+| `STUDYMATE_DEBUG_DATA_DIR=<dir>` | 모든 저장소를 지정 폴더에서 읽고 씀 (`Scripts/dev-run.sh`, `Scripts/screenshots.sh`가 사용) |
 | `STUDYMATE_DEBUG_SAMPLE=1` | 위 폴더에 스크린샷용 샘플 기록을 채움 |
 | `STUDYMATE_DEBUG_PROBLEM="select:C,hint:2"` | 문제 화면을 조작: `select:C` · `hint:N` · `guess` · `submit:B` · `next` · `stuck`. 모의고사: `answer:B` · `go:12` · `fill:C` · `finish`. 종이 기출: `fill:C` · `grade` · `mark` |
 | `STUDYMATE_DEBUG_LANG=ko` | 문제 화면을 한국어로 시작 |
@@ -111,7 +112,8 @@ Xcode 없이 Command Line Tools만 있으면 됩니다 (macOS 14+, Swift 5.9+).
 | `STUDYMATE_DEBUG_FLASHCARDS=1` | 치트시트를 플래시카드 모드로 |
 | `STUDYMATE_CONTENT_DIR=<dir>` · `STUDYMATE_WEB_DIR=<dir>` | 번들 대신 지정 폴더의 콘텐츠 / 웹 리소스 사용 |
 
-`Scripts/dev-run.sh lesson:1-1`처럼 화면 이름을 주면 위 조합으로 실행하고 `build/snap-<화면>.png`를 남깁니다.
+`Scripts/dev-run.sh lesson:1-1`처럼 화면 이름을 주면 위 조합으로 실행하고 `build/snap-<화면>.png`를 남깁니다
+(기록은 `build/devdata`에 쓰므로 실제 학습 데이터는 건드리지 않습니다).
 `Scripts/screenshots.sh`는 README 스크린샷 전부를 샘플 데이터로 다시 만듭니다.
 
 ## 구조
