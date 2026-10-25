@@ -12,6 +12,9 @@ import Foundation
 ///   STUDYMATE_DEBUG_LANG=ko            start the problem screen in Korean
 ///   STUDYMATE_DEBUG_FLASHCARDS=1       cheatsheet in flashcard mode
 ///   STUDYMATE_DEBUG_SCROLL=examples    lesson screen scrolls to a section (why|basics|intuition|examples|tips|pitfalls)
+///   STUDYMATE_DEBUG_SCRATCH=open,sample,figure,text,viewer   open the 연습장 panel (sample strokes + text, figure underlay,
+///     text mode); viewer = open the saved-pad viewer from the first thumbnail (오답노트, 결과); pane = 모의고사 결과의 내 연습장 pane
+///   STUDYMATE_DEBUG_KEYS=n,focus,c,esc,c,cmd+z   post key events (and focus/draw/line/erase/stress steps) one by one, log the state after each
 ///   STUDYMATE_DEBUG_THEME=jarvis       STUDYMATE_DEBUG_APPEARANCE=dark   skin / appearance for this run only
 enum DebugEnv {
     static let env = ProcessInfo.processInfo.environment
@@ -27,6 +30,9 @@ enum DebugEnv {
     static var startLanguage: String? { env["STUDYMATE_DEBUG_LANG"] }
     static var flashcards: Bool { env["STUDYMATE_DEBUG_FLASHCARDS"] == "1" }
     static var lessonScroll: String? { env["STUDYMATE_DEBUG_SCROLL"] }
+    static var scratch: String? { env["STUDYMATE_DEBUG_SCRATCH"] }
+    static var scratchFlags: Set<String> { Set((scratch ?? "").split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }) }
+    static var keys: String? { env["STUDYMATE_DEBUG_KEYS"] }
 
     static var windowSize: CGSize? {
         guard let spec = env["STUDYMATE_WINDOW"] else { return nil }

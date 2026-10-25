@@ -196,6 +196,10 @@ struct MistakeRow: View {
                     }
                 }
             }
+            // The scratch pad of the attempt that landed here: click to see where the solution went wrong.
+            if let pid = entry.problemID {
+                ScratchThumbnail(appState: appState, problemID: pid, id: entry.scratchID)
+            }
         }
         .padding(.horizontal, 10).padding(.vertical, 8)
         .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(hovering ? Theme.hoverFill(scheme) : Color.clear))

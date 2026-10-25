@@ -1,8 +1,9 @@
 import AppKit
 import SwiftUI
 
-/// The problem screen: native header (progress, band, timer) + web body (question, choices, hints, solution) + native footer.
-/// Keys: 1–5 / A–E select, Enter submit, H hint, Space next, T translation, Esc leave.
+/// The problem screen: native header (progress, band, timer) + web body (question, choices, hints, solution) + native footer,
+/// with the 연습장 (scratch pad) panel on the right when open.
+/// Keys: 1–5 / A–E select, Enter submit, H hint, Space next, T translation, N scratch pad, Esc leave.
 struct ProblemSessionView: View {
     @Bindable var appState: AppState
     @Bindable var session: ProblemSession
@@ -10,18 +11,22 @@ struct ProblemSessionView: View {
     @State private var keyMonitor: Any?
     @State private var showStuck = false
     @State private var showSummary = false
+    @State private var headerWidth: CGFloat = 2000
+    @State private var footerWidth: CGFloat = 2000
     @Environment(\.colorScheme) private var scheme
 
     var body: some View {
-        VStack(spacing: 0) {
-            header
-            Divider().opacity(0.5)
-            if session.finished {
-                SessionSummaryView(appState: appState, session: session)
-            } else {
-                MathWebView(bridge: bridge)
+        ScratchSplit(appState: appState, document: session.finished ? nil : session.scratch) {
+            VStack(spacing: 0) {
+                header
                 Divider().opacity(0.5)
-                footer
+                if session.finished {
+                    SessionSummaryView(appState: appState, session: session)
+                } else {
+                    MathWebView(bridge: bridge)
+                    Divider().opacity(0.5)
+                    footer
+                }
             }
         }
         .onAppear {
@@ -29,7 +34,10 @@ struct ProblemSessionView: View {
             loadProblem()
             installKeys()
         }
-        .onDisappear { removeKeys() }
+        .onDisappear {
+            removeKeys()
+            appState.scratch.focused = false
+        }
         .onChange(of: session.index) { _, _ in loadProblem() }
         .onChange(of: session.selected) { _, letter in
             bridge.run("sm.setSelected(\(WebTemplate.jsString(letter ?? "")));")
@@ -63,6 +71,11 @@ struct ProblemSessionView: View {
     // MARK: Header
 
     private var header: some View {
+        headerRow(compact: headerWidth < 820).readWidth($headerWidth)
+    }
+
+    /// `compact` drops the progress bar and tags when the scratch pad leaves little room.
+    private func headerRow(compact: Bool) -> some View {
         HStack(spacing: 12) {
             Button {
                 appState.endSession()
@@ -75,16 +88,18 @@ struct ProblemSessionView: View {
             }
             .buttonStyle(.plain)
             .help("Esc")
-            Text(session.title).font(.system(size: 13, weight: .semibold))
+            Text(session.title).font(.system(size: 13, weight: .semibold)).lineLimit(1)
             Text("\(session.index + 1) / \(session.total)")
                 .font(.system(size: 12.5, weight: .medium, design: .rounded)).monospacedDigit()
                 .foregroundStyle(.secondary)
-            ProgressBar(fraction: Double(session.index + (session.submitted ? 1 : 0)) / Double(max(1, session.total)), height: 4)
-                .frame(width: 120)
-            Chip(text: session.current.band.title, icon: "chart.bar", color: bandColor(session.current.band))
-            ForEach(session.current.fields) { f in Chip(text: f.title, icon: f.icon) }
+            if !compact {
+                ProgressBar(fraction: Double(session.index + (session.submitted ? 1 : 0)) / Double(max(1, session.total)), height: 4)
+                    .frame(width: 120)
+                Chip(text: session.current.band.title, icon: "chart.bar", color: bandColor(session.current.band))
+                ForEach(session.current.fields) { f in Chip(text: f.title, icon: f.icon) }
+            }
             Spacer()
-            timerView
+            timerView.fixedSize()
             Button {
                 appState.focusMode.toggle()
             } label: {
@@ -128,26 +143,34 @@ struct ProblemSessionView: View {
     // MARK: Footer
 
     private var footer: some View {
+        footerRow(FooterDensity.forWidth(footerWidth, full: 870, medium: 730)).readWidth($footerWidth)
+    }
+
+    /// Labels go first, then the A–E buttons, as the scratch pad takes room (the choices and the 1–5 keys still work).
+    private func footerRow(_ level: FooterDensity) -> some View {
         HStack(spacing: 10) {
             Button {
                 session.language = session.language == .en ? .ko : .en
             } label: {
                 HStack(spacing: 5) {
                     Image(systemName: "character.bubble").font(.system(size: 11, weight: .semibold))
-                    Text(session.language == .en ? "한국어로" : "English")
+                    if level.labels { Text(session.language == .en ? "한국어로" : "English") }
                     Keycap(text: "T")
                 }
             }
             .buttonStyle(PillButtonStyle())
+            .help(session.language == .en ? "한국어로 (T)" : "English (T)")
             Button {
                 appState.showStuckQuestions = true
             } label: {
                 HStack(spacing: 5) {
                     Image(systemName: "questionmark.circle").font(.system(size: 11, weight: .semibold))
-                    Text("막혔어")
+                    if level.labels { Text("막혔어") }
                 }
             }
             .buttonStyle(PillButtonStyle())
+            .help("막혔을 때 5가지 질문")
+            ScratchToggleButton(appState: appState, compact: !level.labels)
             if !session.submitted {
                 Button {
                     session.revealHint()
@@ -188,10 +211,12 @@ struct ProblemSessionView: View {
                 }
                 .buttonStyle(PillButtonStyle(prominent: true))
             } else {
-                HStack(spacing: 4) {
-                    ForEach(Problem.letters, id: \.self) { letter in
-                        Button(letter) { session.select(letter) }
-                            .buttonStyle(PillButtonStyle(prominent: session.selected == letter))
+                if level.letters {
+                    HStack(spacing: 4) {
+                        ForEach(Problem.letters, id: \.self) { letter in
+                            Button(letter) { session.select(letter) }
+                                .buttonStyle(PillButtonStyle(prominent: session.selected == letter))
+                        }
                     }
                 }
                 Button {
@@ -227,6 +252,13 @@ struct ProblemSessionView: View {
     private func installKeys() {
         removeKeys()
         keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+            // Keys typed or drawn into the 연습장 stay there; Esc hands focus back to the problem; ⌘Z undoes strokes.
+            let editing = NSApp.keyWindow?.firstResponder.map { $0 is NSTextView || $0 is NSTextField } ?? false
+            switch MainActor.assumeIsolated({ appState.scratch.intercept(event, document: session.scratch, textFieldActive: editing) }) {
+            case .consumed: return nil
+            case .passThrough: return event
+            case .unhandled: break
+            }
             // Let text fields (memo sheet, etc.) keep their keys.
             if let responder = NSApp.keyWindow?.firstResponder, responder is NSTextView || responder is NSTextField { return event }
             if session.pendingReview != nil || appState.showStuckQuestions { return event }
@@ -264,6 +296,8 @@ struct ProblemSessionView: View {
             session.language = session.language == .en ? .ko : .en; return true
         case "g":
             if !session.submitted { session.guessed.toggle() }; return true
+        case "n":
+            withAnimation(.snappy(duration: 0.2)) { appState.scratch.toggle() }; return true
         case "\u{1b}":
             appState.endSession(); return true
         default:
@@ -358,7 +392,8 @@ struct StuckReasonSheet: View {
             // In a review the pass/fail already moved the stage; just refresh the notes.
             appState.mistakes.update(id: entryID, keyIdea: keyIdea.isEmpty ? nil : keyIdea, myNote: note.isEmpty ? nil : note, reason: reason)
         } else {
-            appState.mistakes.add(source: source, fields: outcome.problem.fields, reason: reason, keyIdea: keyIdea, myNote: note)
+            let scratchID = session.scratch.isEmpty ? nil : outcome.attempt.scratchID
+            appState.mistakes.add(source: source, fields: outcome.problem.fields, reason: reason, keyIdea: keyIdea, myNote: note, scratchID: scratchID)
         }
     }
 }
@@ -400,6 +435,7 @@ struct SessionSummaryView: View {
                             Spacer()
                             if o.attempt.hintsUsed > 0 { Chip(text: "힌트 \(o.attempt.hintsUsed)", icon: "lightbulb", color: .orange) }
                             if o.attempt.guessed { Chip(text: "찍음", icon: "questionmark", color: .orange) }
+                            ScratchThumbnail(appState: appState, problemID: o.problem.id, id: o.attempt.scratchID, size: CGSize(width: 46, height: 32))
                             Text(Format.clock(o.attempt.seconds))
                                 .font(.system(size: 12, design: .rounded)).monospacedDigit()
                                 .foregroundStyle(o.attempt.overTarget ? Theme.wrong : Color.secondary)

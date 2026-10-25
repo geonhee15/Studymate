@@ -113,6 +113,8 @@ struct MockSessionView: View {
     @State private var keyMonitor: Any?
     @State private var confirmFinish = false
     @State private var confirmExit = false
+    @State private var headerWidth: CGFloat = 2000
+    @State private var footerWidth: CGFloat = 2000
     @Environment(\.colorScheme) private var scheme
 
     var body: some View {
@@ -121,12 +123,14 @@ struct MockSessionView: View {
                 MockResultView(appState: appState, result: result, set: session.exam) { appState.endMock() }
             } else {
                 HStack(spacing: 0) {
-                    VStack(spacing: 0) {
-                        header
-                        Divider().opacity(0.5)
-                        MathWebView(bridge: bridge)
-                        Divider().opacity(0.5)
-                        footer
+                    ScratchSplit(appState: appState, document: session.currentScratch, minContent: 440) {
+                        VStack(spacing: 0) {
+                            header
+                            Divider().opacity(0.5)
+                            MathWebView(bridge: bridge)
+                            Divider().opacity(0.5)
+                            footer
+                        }
                     }
                     Divider().opacity(0.5)
                     omr.frame(width: 232)
@@ -140,7 +144,10 @@ struct MockSessionView: View {
             load()
             installKeys()
         }
-        .onDisappear { removeKeys() }
+        .onDisappear {
+            removeKeys()
+            appState.scratch.focused = false
+        }
         .onChange(of: session.index) { _, _ in load() }
         .onChange(of: session.answers) { _, _ in
             bridge.run("sm.setSelected(\(WebTemplate.jsString(session.answers[session.currentNumber] ?? "")));")
@@ -158,6 +165,11 @@ struct MockSessionView: View {
     }
 
     private var header: some View {
+        headerRow(compact: headerWidth < 700).readWidth($headerWidth)
+    }
+
+    /// `compact` drops the segment guide when the scratch pad leaves little room.
+    private func headerRow(compact: Bool) -> some View {
         let remaining = session.remaining
         let warn = remaining < 300
         return HStack(spacing: 12) {
@@ -165,11 +177,11 @@ struct MockSessionView: View {
                 HStack(spacing: 4) { Image(systemName: "xmark").font(.system(size: 11, weight: .semibold)); Text("나가기").font(.system(size: 12.5, weight: .medium)) }.foregroundStyle(.secondary)
             }
             .buttonStyle(.plain)
-            Text(session.exam.title).font(.system(size: 13, weight: .semibold))
+            Text(session.exam.title).font(.system(size: 13, weight: .semibold)).lineLimit(1)
             Text("\(session.currentNumber)번").font(.system(size: 13, weight: .semibold, design: .rounded)).foregroundStyle(Theme.accent)
-            Chip(text: session.current.band.title, icon: "chart.bar")
+            if !compact { Chip(text: session.current.band.title, icon: "chart.bar") }
             Spacer()
-            Text(segmentGuide).font(.system(size: 11.5)).foregroundStyle(.secondary)
+            if !compact { Text(segmentGuide).font(.system(size: 11.5)).foregroundStyle(.secondary) }
             HStack(spacing: 5) {
                 Image(systemName: "timer").font(.system(size: 12, weight: .medium))
                 Text(Format.clock(remaining)).font(.system(size: 15, weight: .semibold, design: .rounded)).monospacedDigit()
@@ -177,6 +189,7 @@ struct MockSessionView: View {
             .foregroundStyle(warn ? Theme.wrong : Color.primary)
             .padding(.horizontal, 10).padding(.vertical, 5)
             .background(Capsule().fill(warn ? Theme.wrong.opacity(0.12) : Theme.chipFill(scheme)))
+            .fixedSize()
         }
         .padding(.leading, appState.chromeHidden ? 84 : 18)
         .padding(.trailing, 18)
@@ -191,25 +204,34 @@ struct MockSessionView: View {
     }
 
     private var footer: some View {
+        footerRow(FooterDensity.forWidth(footerWidth, full: 840, medium: 640)).readWidth($footerWidth)
+    }
+
+    /// Labels go first, then the A–E buttons (the choices, the 1–5 keys and the answer sheet still work).
+    private func footerRow(_ level: FooterDensity) -> some View {
         HStack(spacing: 10) {
-            Button { session.previous() } label: { HStack(spacing: 4) { Image(systemName: "chevron.left"); Text("이전") } }
-                .buttonStyle(PillButtonStyle()).disabled(session.index == 0)
-            Button { session.next() } label: { HStack(spacing: 4) { Text("다음"); Image(systemName: "chevron.right"); Keycap(text: "Space") } }
-                .buttonStyle(PillButtonStyle()).disabled(session.index >= session.problems.count - 1)
+            Button { session.previous() } label: { HStack(spacing: 4) { Image(systemName: "chevron.left"); if level.labels { Text("이전") } } }
+                .buttonStyle(PillButtonStyle()).disabled(session.index == 0).help("이전 (←)")
+            Button { session.next() } label: { HStack(spacing: 4) { if level.labels { Text("다음") }; Image(systemName: "chevron.right"); Keycap(text: "Space") } }
+                .buttonStyle(PillButtonStyle()).disabled(session.index >= session.problems.count - 1).help("다음 (Space, →)")
             Button {
                 if session.flagged.contains(session.currentNumber) { session.flagged.remove(session.currentNumber) } else { session.flagged.insert(session.currentNumber) }
             } label: {
-                HStack(spacing: 4) { Image(systemName: session.flagged.contains(session.currentNumber) ? "flag.fill" : "flag"); Text("나중에") ; Keycap(text: "F") }
+                HStack(spacing: 4) { Image(systemName: session.flagged.contains(session.currentNumber) ? "flag.fill" : "flag"); if level.labels { Text("나중에") }; Keycap(text: "F") }
             }
             .buttonStyle(PillButtonStyle(prominent: session.flagged.contains(session.currentNumber)))
+            .help("나중에 다시 볼 문제로 표시 (F)")
+            ScratchToggleButton(appState: appState, compact: !level.labels)
             Spacer()
-            HStack(spacing: 4) {
-                ForEach(Problem.letters, id: \.self) { letter in
-                    Button(letter) { session.answer(letter) }
-                        .buttonStyle(PillButtonStyle(prominent: session.answers[session.currentNumber] == letter))
+            if level.letters {
+                HStack(spacing: 4) {
+                    ForEach(Problem.letters, id: \.self) { letter in
+                        Button(letter) { session.answer(letter) }
+                            .buttonStyle(PillButtonStyle(prominent: session.answers[session.currentNumber] == letter))
+                    }
+                    Button { session.clearAnswer() } label: { Image(systemName: "delete.left") }.buttonStyle(PillButtonStyle())
+                        .disabled(session.answers[session.currentNumber] == nil)
                 }
-                Button { session.clearAnswer() } label: { Image(systemName: "delete.left") }.buttonStyle(PillButtonStyle())
-                    .disabled(session.answers[session.currentNumber] == nil)
             }
             Button("제출") { confirmFinish = true }.buttonStyle(PillButtonStyle(prominent: true))
         }
@@ -251,7 +273,7 @@ struct MockSessionView: View {
                     }
                 }
             }
-            Text("1~5·A~E 답, Space 다음, ← → 이동, F 표시").font(.system(size: 10)).foregroundStyle(.tertiary)
+            Text("1~5·A~E 답, Space 다음, ← → 이동, F 표시, N 연습장").font(.system(size: 10)).foregroundStyle(.tertiary)
         }
         .padding(12)
     }
@@ -264,6 +286,13 @@ struct MockSessionView: View {
     private func installKeys() {
         removeKeys()
         keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+            // Keys typed or drawn into the 연습장 stay there; Esc hands focus back to the problem; ⌘Z undoes strokes.
+            let editing = NSApp.keyWindow?.firstResponder.map { $0 is NSTextView || $0 is NSTextField } ?? false
+            switch MainActor.assumeIsolated({ appState.scratch.intercept(event, document: session.currentScratch, textFieldActive: editing) }) {
+            case .consumed: return nil
+            case .passThrough: return event
+            case .unhandled: break
+            }
             if let responder = NSApp.keyWindow?.firstResponder, responder is NSTextView || responder is NSTextField { return event }
             if confirmFinish || confirmExit || session.finished { return event }
             if !event.modifierFlags.intersection([.command, .control, .option]).isEmpty { return event }
@@ -289,6 +318,9 @@ struct MockSessionView: View {
         case " ": session.next(); return true
         case "f":
             if session.flagged.contains(session.currentNumber) { session.flagged.remove(session.currentNumber) } else { session.flagged.insert(session.currentNumber) }
+            return true
+        case "n":
+            withAnimation(.snappy(duration: 0.2)) { appState.scratch.toggle() }
             return true
         case "\u{7f}", "\u{8}": session.clearAnswer(); return true
         default: return false
@@ -320,9 +352,14 @@ struct MockResultView: View {
                 .padding(24)
                 .padding(.top, appState.chromeHidden ? 20 : 0)
             }
+            .onAppear {
+                // Snapshots: open the review pane on the first problem that has a scratch pad.
+                if DebugEnv.scratchFlags.contains("pane"), let a = result.answers.first(where: { $0.scratchID != nil }) { reviewing = set.problem(number: a.number) }
+            }
             if let p = reviewing {
+                let answer = result.answers.first { $0.number == p.number }
                 Divider().opacity(0.5)
-                MockReviewPane(problem: p, chosen: result.answers.first { $0.number == p.number }?.chosen) { reviewing = nil }
+                MockReviewPane(appState: appState, problem: p, chosen: answer?.chosen, scratchID: answer?.scratchID) { reviewing = nil }
                     .frame(width: 520)
             }
         }
@@ -413,6 +450,7 @@ struct MockResultView: View {
                     Text(a.fields.map(\.title).joined(separator: ", ")).font(.system(size: 12)).foregroundStyle(.secondary)
                     if let lesson = a.lesson { Text(appState.library.lessonTitle(lesson)).font(.system(size: 11.5)).foregroundStyle(.tertiary) }
                     Spacer()
+                    if let p { ScratchThumbnail(appState: appState, problemID: p.id, id: a.scratchID, size: CGSize(width: 46, height: 32)) }
                     Text(Format.clock(a.seconds)).font(.system(size: 12, design: .rounded)).monospacedDigit().foregroundStyle(.secondary)
                     if let p { Button("해설") { reviewing = p }.buttonStyle(PillButtonStyle(prominent: reviewing?.id == p.id)).controlSize(.small) }
                 }
@@ -424,26 +462,51 @@ struct MockResultView: View {
     }
 }
 
-/// Problem + solution for one mock problem (after grading).
+/// Problem + solution for one mock problem (after grading), and the scratch pad used on it.
 struct MockReviewPane: View {
+    @Bindable var appState: AppState
     let problem: Problem
     let chosen: String?
+    let scratchID: UUID?
     var close: () -> Void
     @State private var bridge = WebBridge()
+    @State private var showScratch = DebugEnv.scratchFlags.contains("pane")
+
+    private var scratchPad: ScratchPad? {
+        guard let scratchID, let pad = appState.scratchStore.load(problemID: problem.id, id: scratchID), !pad.isEmpty else { return nil }
+        return pad
+    }
 
     var body: some View {
+        let pad = scratchPad
         VStack(spacing: 0) {
-            HStack {
-                Text("\(problem.number ?? 0)번 해설").font(.system(size: 13, weight: .semibold))
+            HStack(spacing: 10) {
+                Text("\(problem.number ?? 0)번").font(.system(size: 13, weight: .semibold))
+                if pad != nil {
+                    Picker("", selection: $showScratch) {
+                        Text("해설").tag(false)
+                        Text("내 연습장").tag(true)
+                    }
+                    .pickerStyle(.segmented).labelsHidden().frame(width: 160)
+                } else {
+                    Text("해설").font(.system(size: 13)).foregroundStyle(.secondary)
+                }
                 Spacer()
                 Button { close() } label: { Image(systemName: "xmark").font(.system(size: 11, weight: .semibold)).foregroundStyle(.secondary) }.buttonStyle(.plain)
             }
             .padding(.horizontal, 16).padding(.vertical, 10)
             Divider().opacity(0.5)
-            MathWebView(bridge: bridge)
-                .onAppear { show() }
-                .onChange(of: problem.id) { _, _ in show() }
+            if showScratch, let pad {
+                ScrollView {
+                    ScratchPadView(pad: pad, figureSVG: problem.figure, width: 480).padding(16)
+                }
+            } else {
+                MathWebView(bridge: bridge)
+                    .onAppear { show() }
+                    .onChange(of: problem.id) { _, _ in show() }
+            }
         }
+        .onChange(of: problem.id) { _, _ in if scratchPad == nil { showScratch = false } }
     }
 
     private func show() {

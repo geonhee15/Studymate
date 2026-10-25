@@ -8,6 +8,9 @@ final class MockSession {
     static let timeLimit: TimeInterval = 40 * 60
 
     let exam: MockSet
+    let scratchStore: ScratchStore
+    /// One scratch page per problem number, kept while moving around the exam.
+    private(set) var scratches: [Int: ScratchDocument] = [:]
     private(set) var index = 0
     private(set) var answers: [Int: String] = [:]
     private(set) var remaining: TimeInterval = MockSession.timeLimit
@@ -23,8 +26,10 @@ final class MockSession {
     @ObservationIgnored private var timeSpent: [Int: TimeInterval] = [:]
     @ObservationIgnored private var timer: Timer?
 
-    init(set: MockSet) {
+    init(set: MockSet, scratchStore: ScratchStore) {
         self.exam = set
+        self.scratchStore = scratchStore
+        for p in set.problems { scratches[p.number ?? 0] = ScratchDocument(problem: p, kind: .mock, store: scratchStore, canvasWidth: 0) }
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor [weak self] in self?.tick() }
         }
@@ -33,6 +38,7 @@ final class MockSession {
     var problems: [Problem] { exam.problems }
     var current: Problem { problems[index] }
     var currentNumber: Int { current.number ?? index + 1 }
+    var currentScratch: ScratchDocument? { scratches[currentNumber] }
     var answeredCount: Int { answers.count }
     var elapsed: TimeInterval { Self.timeLimit - remaining }
 
@@ -72,10 +78,12 @@ final class MockSession {
         finished = true
         timer?.invalidate()
         timer = nil
+        for (_, doc) in scratches { doc.flush() }
         let answered = problems.map { p -> MockAnswer in
             let n = p.number ?? 0
             let chosen = answers[n]
-            return MockAnswer(number: n, chosen: chosen, correct: chosen.map { $0 == p.answer }, seconds: timeSpent[n] ?? 0, fields: p.fields, lesson: p.lesson)
+            let scratch = scratches[n].flatMap { $0.isEmpty ? nil : $0.id }
+            return MockAnswer(number: n, chosen: chosen, correct: chosen.map { $0 == p.answer }, seconds: timeSpent[n] ?? 0, fields: p.fields, lesson: p.lesson, scratchID: scratch)
         }
         let r = MockResult(kind: .app, source: exam.id, title: exam.title, date: Date(), score: answered.filter { $0.correct == true }.count,
                            total: problems.count, seconds: min(Self.timeLimit, Date().timeIntervalSince(startedAt)), answers: answered)

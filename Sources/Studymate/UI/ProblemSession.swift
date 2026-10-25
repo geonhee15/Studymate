@@ -17,6 +17,9 @@ final class ProblemSession {
     let unit: Int
     let lessonID: String?
     let problems: [Problem]
+    let scratchStore: ScratchStore
+    /// Scratch pad of the problem on screen; a fresh one for every problem (and every visit).
+    private(set) var scratch: ScratchDocument
 
     private(set) var index = 0
     private(set) var selected: String?
@@ -39,12 +42,14 @@ final class ProblemSession {
     @ObservationIgnored private var sessionStartedAt = Date()
     @ObservationIgnored private var timer: Timer?
 
-    init(kind: ProblemSetKind, title: String, unit: Int, lessonID: String?, problems: [Problem]) {
+    init(kind: ProblemSetKind, title: String, unit: Int, lessonID: String?, problems: [Problem], scratchStore: ScratchStore) {
         self.kind = kind
         self.title = title
         self.unit = unit
         self.lessonID = lessonID
         self.problems = problems
+        self.scratchStore = scratchStore
+        scratch = ScratchDocument(problem: problems[0], kind: kind, store: scratchStore, canvasWidth: 0)
         startTimer()
     }
 
@@ -91,7 +96,8 @@ final class ProblemSession {
         let p = current
         let attempt = Attempt(problemID: p.id, lesson: p.lesson, unit: p.unitNumber, kind: kind, chosen: selected,
                               correct: selected == p.answer, seconds: elapsed, targetSeconds: p.targetSeconds,
-                              hintsUsed: hintsRevealed, guessed: guessed, date: Date(), reason: nil, fields: p.fields)
+                              hintsUsed: hintsRevealed, guessed: guessed, date: Date(), reason: nil, fields: p.fields,
+                              scratchID: scratch.id)
         let outcome = Outcome(problem: p, attempt: attempt)
         outcomes.append(outcome)
         onAttempt?(attempt)
@@ -108,12 +114,14 @@ final class ProblemSession {
             finish()
             return false
         }
+        scratch.flush()
         index += 1
         selected = nil
         submitted = false
         hintsRevealed = 0
         guessed = false
         pendingReview = nil
+        scratch = ScratchDocument(problem: current, kind: kind, store: scratchStore, canvasWidth: scratch.pad.canvasWidth)
         startTimer()
         return true
     }
@@ -123,6 +131,7 @@ final class ProblemSession {
         finished = true
         timer?.invalidate()
         timer = nil
+        scratch.flush()
         let result: SetResult?
         switch kind {
         case .quiz, .test:

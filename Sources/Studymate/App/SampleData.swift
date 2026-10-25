@@ -3,7 +3,7 @@ import Foundation
 /// Fills a scratch data folder with believable progress for screenshots (STUDYMATE_DEBUG_SAMPLE=1 + STUDYMATE_DEBUG_DATA_DIR).
 @MainActor
 enum SampleData {
-    static func seed(library: ContentLibrary, progress: ProgressStore, mistakes: MistakeStore, papers: PastPaperStore, mocks: MockStore) {
+    static func seed(library: ContentLibrary, progress: ProgressStore, mistakes: MistakeStore, papers: PastPaperStore, mocks: MockStore, scratch: ScratchStore) {
         guard progress.attempts.isEmpty else { return }
         let cal = Calendar.current
         func daysAgo(_ d: Int, hour: Int = 20) -> Date {
@@ -53,8 +53,15 @@ enum SampleData {
         progress.markOpened(lesson: "1-4")
 
         let p13 = library.lesson("1-3")?.problems.first
+        var scratchID: UUID?
+        if let p13 {
+            let doc = ScratchDocument(problem: p13, kind: .practice, store: scratch, canvasWidth: 360)
+            doc.addSampleStrokes()
+            doc.flush()
+            scratchID = doc.id
+        }
         mistakes.add(source: .problem(id: p13?.id ?? "1-3-1", lesson: "1-3"), fields: [.counting], reason: .idea,
-                     keyIdea: "둘 다의 배수는 최소공배수의 배수. 6과 8이면 24.", myNote: "6×8=48로 나눠서 틀림")
+                     keyIdea: "둘 다의 배수는 최소공배수의 배수. 6과 8이면 24.", myNote: "6×8=48로 나눠서 틀림", scratchID: scratchID)
         let p12 = library.lesson("1-2")?.problems.dropFirst(2).first
         mistakes.add(source: .problem(id: p12?.id ?? "1-2-3", lesson: "1-2"), fields: [.probability, .counting], reason: .misread,
                      keyIdea: "'적어도 2개'의 반대는 '0개 또는 1개'", myNote: "")

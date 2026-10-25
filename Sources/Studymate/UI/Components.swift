@@ -119,6 +119,7 @@ struct PillButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 13, weight: .medium))
+            .fixedSize(horizontal: true, vertical: false)   // a pill never squeezes its label; rows drop labels instead
             .foregroundStyle(prominent ? Color.white : (destructive ? Theme.wrong : Color.primary))
             .padding(.horizontal, 13)
             .padding(.vertical, 6)

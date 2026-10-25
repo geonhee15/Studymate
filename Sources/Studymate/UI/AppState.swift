@@ -62,6 +62,9 @@ final class AppState {
     let mistakes: MistakeStore
     let papers: PastPaperStore
     let mocks: MockStore
+    let scratchStore: ScratchStore
+    /// 연습장 panel: open / width / tools / keyboard focus.
+    let scratch = ScratchPanelState()
 
     var subject: Subject = .amc8
     var route: Route = .home
@@ -80,12 +83,13 @@ final class AppState {
     }
     var showStuckQuestions = false
 
-    init(library: ContentLibrary, progress: ProgressStore, mistakes: MistakeStore, papers: PastPaperStore, mocks: MockStore) {
+    init(library: ContentLibrary, progress: ProgressStore, mistakes: MistakeStore, papers: PastPaperStore, mocks: MockStore, scratchStore: ScratchStore) {
         self.library = library
         self.progress = progress
         self.mistakes = mistakes
         self.papers = papers
         self.mocks = mocks
+        self.scratchStore = scratchStore
         focusMode = (UserDefaults.standard.object(forKey: "focusMode") as? Bool) ?? true
         koreanFirst = (UserDefaults.standard.object(forKey: "koreanFirst") as? Bool) ?? false
     }
@@ -108,17 +112,17 @@ final class AppState {
             if solved.contains($0.id) != solved.contains($1.id) { return !solved.contains($0.id) }
             return $0.band.rank < $1.band.rank
         }
-        start(ProblemSession(kind: .practice, title: "\(lesson.id) 연습문제", unit: lesson.unit, lessonID: lesson.id, problems: ordered))
+        start(ProblemSession(kind: .practice, title: "\(lesson.id) 연습문제", unit: lesson.unit, lessonID: lesson.id, problems: ordered, scratchStore: scratchStore))
     }
 
     func startQuiz(unit: Unit) {
         guard !unit.quiz.isEmpty else { return }
-        start(ProblemSession(kind: .quiz, title: "유닛 \(unit.number) 퀴즈", unit: unit.number, lessonID: nil, problems: unit.quiz))
+        start(ProblemSession(kind: .quiz, title: "유닛 \(unit.number) 퀴즈", unit: unit.number, lessonID: nil, problems: unit.quiz, scratchStore: scratchStore))
     }
 
     func startTest(unit: Unit) {
         guard !unit.test.isEmpty else { return }
-        start(ProblemSession(kind: .test, title: "유닛 \(unit.number) 테스트", unit: unit.number, lessonID: nil, problems: unit.test))
+        start(ProblemSession(kind: .test, title: "유닛 \(unit.number) 테스트", unit: unit.number, lessonID: nil, problems: unit.test, scratchStore: scratchStore))
     }
 
     func startReview(entries: [MistakeEntry]) {
@@ -127,7 +131,7 @@ final class AppState {
             return (p, e.id)
         }
         guard !items.isEmpty else { return }
-        let session = ProblemSession(kind: .review, title: "오답 복습", unit: 0, lessonID: nil, problems: items.map(\.0))
+        let session = ProblemSession(kind: .review, title: "오답 복습", unit: 0, lessonID: nil, problems: items.map(\.0), scratchStore: scratchStore)
         session.reviewEntryIDs = Dictionary(uniqueKeysWithValues: items.map { ($0.0.id, $0.1) })
         start(session)
     }
@@ -140,6 +144,8 @@ final class AppState {
             // Review sessions move the notebook entry: correct without hints → next stage, otherwise back to 1 day.
             if let session, session.kind == .review, let entryID = session.reviewEntryIDs[attempt.problemID] {
                 self.mistakes.recordReview(id: entryID, correct: attempt.correct && attempt.hintsUsed == 0)
+                // The notebook shows the latest scratch work for the problem, if there was any this time.
+                if let sid = attempt.scratchID, !session.scratch.isEmpty { self.mistakes.update(id: entryID, scratchID: sid) }
             }
         }
         session.onFinish = { [weak self] result in
@@ -151,18 +157,21 @@ final class AppState {
 
     func endSession() {
         session?.finish()
+        scratch.focused = false
         withAnimation(.snappy(duration: 0.22)) { session = nil }
     }
 
     // MARK: Mock exams
 
     func startMock(set: MockSet) {
-        let s = MockSession(set: set)
+        let s = MockSession(set: set, scratchStore: scratchStore)
         s.onFinish = { [weak self] result in self?.mocks.record(result) }
         withAnimation(.snappy(duration: 0.22)) { mockSession = s }
     }
 
     func endMock(discard: Bool = false) {
+        if let mockSession { for (_, doc) in mockSession.scratches { doc.flush() } }
+        scratch.focused = false
         withAnimation(.snappy(duration: 0.22)) { mockSession = nil; mockResultReview = nil }
     }
 
@@ -236,6 +245,21 @@ final class AppState {
         default: break
         }
         if let lang = DebugEnv.startLanguage, let l = WebTemplate.Lang(rawValue: lang) { session?.language = l }
+    }
+
+    /// STUDYMATE_DEBUG_SCRATCH="open,sample,figure,text" — open the 연습장 for a snapshot, optionally with
+    /// sample strokes, the problem figure laid under them, the text mode, and sample text.
+    func applyScratchDebug(_ spec: String) {
+        let flags = Set(spec.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) })
+        guard let doc = session?.scratch ?? mockSession?.currentScratch else { return }
+        scratch.isOpen = true
+        scratch.mode = flags.contains("text") ? .text : .draw
+        doc.noteCanvasWidth(scratch.width - 20)
+        if flags.contains("figure"), !doc.figureShown { doc.toggleFigure(canvasWidth: scratch.width - 20) }
+        if flags.contains("sample") {
+            doc.addSampleStrokes()
+            doc.setText(ScratchDocument.sampleText)
+        }
     }
 
     /// STUDYMATE_DEBUG_PROBLEM="select:C" / "hint:2" / "submit:B" / "submit:B,stuck"
