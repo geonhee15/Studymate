@@ -36,7 +36,12 @@ Xcode 없이 빌드합니다.
   <tr>
     <td align="center"><img src="docs/screenshots/practice-geometry.png" width="300"><br><b>기하 연습문제</b><br><sub>문제마다 붙는 인라인 SVG 그림</sub></td>
     <td align="center"><img src="docs/screenshots/paper-grading.png" width="300"><br><b>종이 기출 모드</b><br><sub>40분 타이머 + 답안지 · 직접 채점 → 기출 트래커</sub></td>
-    <td align="center"><img src="docs/screenshots/quiz-summary.png" width="300"><br><b>유닛 퀴즈 결과</b><br><sub>통과 기준 6/8 · 문제별 정오와 걸린 시간</sub></td>
+    <td align="center"><img src="docs/screenshots/quiz-summary.png" width="300"><br><b>유닛 퀴즈 결과</b><br><sub>통과 기준 6/8 · 문제별 정오와 걸린 시간 · 연습장 썸네일</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/scratchpad.png" width="300"><br><b>연습장 (그리기)</b><br><sub>문제 그림을 깔고 보조선 · 펜 2단계 · 지우개 · Shift 직선</sub></td>
+    <td align="center"><img src="docs/screenshots/scratchpad-text.png" width="300"><br><b>연습장 (텍스트)</b><br><sub>고정폭 글꼴로 계산 과정 적기 · 자동 계산 없음</sub></td>
+    <td></td>
   </tr>
 </table>
 
@@ -50,8 +55,16 @@ Xcode 없이 빌드합니다.
 - **연습문제**: 레슨마다 10문제(1~10번 3, 11~20번 4, 21~25번 3 비율), 유닛 퀴즈 8문제, 유닛 테스트 15문제.
   연습 430 + 퀴즈 72 + 테스트 135 + 모의고사 100 = 737문제가 전부 이 앱을 위해 새로 만든 문제이고, 모두 검증 스크립트를 통과했습니다.
   문제는 영어 원문이 기본이고 T 키로 한국어 번역을 토글합니다. 목표 시간과 경과 타이머, 힌트 3단계(연 기록이 남음),
-  제출 후 정답·전체 해설·더 빠른 풀이. 키보드: 1~5 또는 A~E 선택, Enter 제출, H 힌트, Space 다음, G 찍었음, Esc 나가기.
+  제출 후 정답·전체 해설·더 빠른 풀이. 키보드: 1~5 또는 A~E 선택, Enter 제출, H 힌트, Space 다음, G 찍었음, N 연습장, Esc 나가기.
   집중 모드에서는 과목 탭과 사이드바가 숨겨집니다.
+- **연습장**: 종이가 없을 때 실제 시험의 연습지처럼 쓰는 패널. 연습문제·퀴즈·테스트·오답 복습·실전 모의고사 화면 오른쪽에
+  접었다 펼 수 있고(N 키), 폭은 드래그로 조절하며 펼침 상태와 폭을 기억합니다. **그리기**는 트랙패드·마우스로 자유롭게 그리고,
+  Sidecar의 Apple Pencil 필압이 선 굵기에 반영됩니다. 펜 굵기 2단계, 지우개, 색 3개(기본·빨강·파랑), Shift를 누르면 직선(자),
+  ⌘Z / ⇧⌘Z 실행 취소·다시 실행, 전체 지우기. 문제에 그림이 있으면 "그림 가져오기"로 그 그림을 연하게 깔고 위에 보조선을
+  긋습니다. 모눈은 없습니다(실제 시험에서 모눈종이 금지). **텍스트**는 고정폭 글꼴로 계산 과정을 적는 곳이고 계산기나 자동
+  계산은 없습니다. 연습장에 포커스가 있는 동안은 문제 화면의 단일 키 단축키가 꺼지고(패널 테두리가 강조됨), Esc를 누르면 문제로
+  돌아옵니다. 문제별·시도별로 자동 저장되어 제출 후 해설과 나란히 보고, 같은 문제를 다시 풀면 빈 연습장에서 시작하되 이전 시도는
+  남습니다. 오답노트 항목과 퀴즈·테스트 결과, 모의고사 결과에서 그 시도의 연습장을 썸네일로 보고 크게 열 수 있습니다.
 - **숙련도** (칸 아카데미 방식): 시도함 → 익숙함(연습 7개 이상, 최근 10개 정답률 70%) → 숙련(유닛 퀴즈 6/8 통과)
   → 마스터(유닛 테스트 12/15 통과 + 7일 뒤 재확인 통과). 기준은 앱 안 물음표 팝오버에도 적혀 있습니다.
 - **오답노트**: 틀렸거나, 목표 시간을 넘겼거나, "찍었음"을 켠 문제는 막힌 이유(개념 몰랐음 / 아이디어 안 떠오름 / 계산 실수 /
@@ -68,7 +81,8 @@ Xcode 없이 빌드합니다.
 - **치트시트**: 개념서 부록(제곱수, 소수, 피타고라스 수, 분수-소수-퍼센트, 조합 값, 일의 자리 주기 …)을 표로, 그리고 플래시카드 모드로.
 - **설정**: 외관(시스템/라이트/다크), 테마(기본 · JARVIS · 미드나이트 · 세이지), 집중 모드, 한국어 먼저 보기, 데이터 폴더, 기록 초기화.
 - 사용자 데이터는 `~/Library/Application Support/Studymate/`에 JSON으로 자동 저장됩니다
-  (`progress.json`, `mistakes.json`, `pastpapers.json`, `mocks.json`). 창 크기와 위치도 기억합니다.
+  (`progress.json`, `mistakes.json`, `pastpapers.json`, `mocks.json`, 연습장은 `scratch/<문제>/<시도>.json`에 획 벡터와 텍스트).
+  창 크기와 위치도 기억합니다.
 
 ## 정답 검증
 
@@ -116,6 +130,8 @@ Xcode 없이 Command Line Tools만 있으면 됩니다 (macOS 14+, Swift 5.9+).
 | `STUDYMATE_DEBUG_THEME=jarvis` · `STUDYMATE_DEBUG_APPEARANCE=dark` | 이번 실행만 테마·외관 지정 |
 | `STUDYMATE_DEBUG_FLASHCARDS=1` | 치트시트를 플래시카드 모드로 |
 | `STUDYMATE_DEBUG_SCROLL=examples` | 레슨 화면을 해당 섹션으로 스크롤 (`why` · `basics` · `intuition` · `examples` · `tips` · `pitfalls`) |
+| `STUDYMATE_DEBUG_SCRATCH=open,sample,figure` | 연습장을 펼친 채 시작. `sample`(샘플 획과 텍스트) · `figure`(문제 그림 깔기) · `text`(텍스트 모드) · `viewer`(첫 썸네일의 연습장 크게 보기 열기) · `pane`(모의고사 결과의 내 연습장 창 열기) |
+| `STUDYMATE_DEBUG_KEYS="n,focus,c,esc,c,cmd+z"` | 키 입력을 순서대로 보내고 단계마다 상태를 로그에 남김 (단축키 격리 확인용). `focus` · `draw` · `line` · `erase` · `stress` 단계는 연습장을 직접 조작 |
 | `STUDYMATE_CONTENT_DIR=<dir>` · `STUDYMATE_WEB_DIR=<dir>` | 번들 대신 지정 폴더의 콘텐츠 / 웹 리소스 사용 |
 
 `Scripts/dev-run.sh lesson:1-1`처럼 화면 이름을 주면 위 조합으로 실행하고 `build/snap-<화면>.png`를 남깁니다
@@ -131,6 +147,7 @@ Sources/Studymate
 ├── Content/    모델(Unit · Lesson · Problem · MockSet), 레슨 마크다운 파서, 마크다운 → HTML, 콘텐츠 로더
 ├── Web/        WKWebView 브리지(MathWebView · WebBridge), HTML 템플릿(레슨 · 문제 · 문서)
 ├── Progress/   학습 기록(ProgressStore), 숙련도(MasteryEngine), 오답노트(MistakeStore), 기출(PastPaperStore), 모의고사(MockStore)
+├── Scratch/    연습장: 획·패드 모델, 저장소(ScratchStore), 그리기 캔버스(비트맵 캐시 + 필압), 텍스트 모드, 패널·썸네일·크게 보기
 └── UI/         화면 전부 (홈 · 유닛 · 레슨 · 문제 풀이 · 오답노트 · 기출 트래커 · 모의고사 · 통계 · 치트시트 · 설정)
 Resources/
 ├── KaTeX/      KaTeX 0.16 (JS · CSS · woff2 폰트) — 오프라인
