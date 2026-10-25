@@ -10,6 +10,8 @@ struct MockAnswer: Codable, Equatable {
     let seconds: Double
     var fields: [Field] = []
     var lesson: String?
+    /// Scratch pad used on this problem, when it has content.
+    var scratchID: UUID? = nil
 }
 
 /// A finished mock exam (app set or a paper past paper).

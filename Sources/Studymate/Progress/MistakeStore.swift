@@ -34,6 +34,8 @@ struct MistakeEntry: Codable, Identifiable, Equatable {
     var createdAt: Date
     var reviews: [ReviewRecord] = []
     var graduated = false
+    /// Scratch pad of the attempt that put (or last put) the problem here.
+    var scratchID: UUID?
 
     static let intervals = [1, 3, 7, 14]
 
@@ -68,7 +70,7 @@ final class MistakeStore {
 
     /// Adds a new entry, or refreshes an existing (non-graduated) one for the same source: back to stage 0, due tomorrow.
     @discardableResult
-    func add(source: MistakeSource, fields: [Field], reason: StuckReason, keyIdea: String, myNote: String = "") -> MistakeEntry {
+    func add(source: MistakeSource, fields: [Field], reason: StuckReason, keyIdea: String, myNote: String = "", scratchID: UUID? = nil) -> MistakeEntry {
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Calendar.current.startOfDay(for: Date()))!
         if let i = entries.firstIndex(where: { $0.source == source && !$0.graduated }) {
             entries[i].reason = reason
@@ -77,11 +79,12 @@ final class MistakeStore {
             entries[i].fields = fields
             entries[i].stage = 0
             entries[i].nextReview = tomorrow
+            if let scratchID { entries[i].scratchID = scratchID }
             save()
             return entries[i]
         }
         let entry = MistakeEntry(source: source, fields: fields, reason: reason, keyIdea: keyIdea, myNote: myNote,
-                                 stage: 0, nextReview: tomorrow, createdAt: Date())
+                                 stage: 0, nextReview: tomorrow, createdAt: Date(), scratchID: scratchID)
         entries.append(entry)
         save()
         return entry
@@ -106,12 +109,13 @@ final class MistakeStore {
         save()
     }
 
-    func update(id: UUID, keyIdea: String? = nil, myNote: String? = nil, reason: StuckReason? = nil, fields: [Field]? = nil) {
+    func update(id: UUID, keyIdea: String? = nil, myNote: String? = nil, reason: StuckReason? = nil, fields: [Field]? = nil, scratchID: UUID? = nil) {
         guard let i = entries.firstIndex(where: { $0.id == id }) else { return }
         if let keyIdea { entries[i].keyIdea = keyIdea }
         if let myNote { entries[i].myNote = myNote }
         if let reason { entries[i].reason = reason }
         if let fields { entries[i].fields = fields }
+        if let scratchID { entries[i].scratchID = scratchID }
         save()
     }
 

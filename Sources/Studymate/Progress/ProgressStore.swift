@@ -41,6 +41,8 @@ struct Attempt: Codable, Identifiable, Equatable {
     let date: Date
     var reason: StuckReason?
     var fields: [Field] = []
+    /// Scratch pad of this attempt (scratch/<problemID>/<id>.json), when one was saved.
+    var scratchID: UUID? = nil
 
     var overTarget: Bool { seconds > Double(targetSeconds) }
     /// Wrong, too slow, or guessed → goes to the mistake notebook.
